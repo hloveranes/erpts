@@ -1,7 +1,7 @@
 <?
  Header('Content-Type: image/png');
  include_once "./prepend.php";
- include_once('web/panachart.php');
+ include_once './panachart.php';
 
 //$f=1;
  $db = new DB_RPTS;

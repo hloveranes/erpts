@@ -2,7 +2,7 @@
 
  Header('Content-Type: image/png');
  include_once "./prepend.php";
- include_once('web/panachart.php');
+ include_once './panachart.php';
  
  $tpl=new rpts_Template();
  $tpl->set_file(array(report=>"Form.htm"));
