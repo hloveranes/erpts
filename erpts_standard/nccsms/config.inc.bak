@@ -1,0 +1,14 @@
+<?php
+// Include file for SMS interface.
+
+// These variables MUST match your kannel.conf configuration
+
+$bearerboxhost = "127.0.0.1";
+define("BEARERBOX_HOST", "127.0.0.1");
+define("SENDSMS_PORT",   "13001");
+define("ADMIN_PORT",     "13000");
+define("ADMIN_PASSWORD", "");
+define("USERNAME",       "tester");
+define("PASSWORD",       "foobar");
+define("GLOBAL_SENDER",  "09175302791");
+?>

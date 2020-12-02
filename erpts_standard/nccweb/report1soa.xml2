@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="607" width="836" number="1" orientation="0">
+    <textitem xpos="398" ypos="555" font="Helvetica-Bold" size="9" align="center">REPUBLIC OF THE PHILIPPINES</textitem>
+    <textitem xpos="398" ypos="545" font="Helvetica-Bold" size="9" align="center">Municipal of Taguig</textitem>
+    <textitem xpos="398" ypos="535" font="Helvetica-Bold" size="9" align="center">Office of the Municipal Assessor</textitem>    <textitem xpos="184" ypos="260" font="Helvetica" size="6">PREVIOUS O.R. NO</textitem>
+    <textitem xpos="634" ypos="561" font="Helvetica" size="9">DATE :</textitem>
+	<textitem xpos="687" ypos="561" font="Helvetica" size="9">{date}</textitem>
+    <textitem xpos="30" ypos="506" font="Helvetica" size="9">Owner No.</textitem>
+    <textitem xpos="99" ypos="506" font="Helvetica" size="9">{owner no}.</textitem>
+    <textitem xpos="30" ypos="494" font="Helvetica" size="9">Name.</textitem>
+    <textitem xpos="99" ypos="494" font="Helvetica" size="9">{name}.</textitem>
+    <textitem xpos="30" ypos="483" font="Helvetica" size="9">Address.</textitem>
+    <textitem xpos="99" ypos="483" font="Helvetica" size="9">{address}</textitem>
+    <textitem xpos="30" ypos="460" font="Helvetica" size="9">Sir/Madam</textitem>
+    <textitem xpos="34" ypos="450" font="Helvetica" size="9">This is to inform you that the real property tax(es) due and payable for the year 2003 on the property located in the municiplity and ownership  of whichis/are</textitem>
+    <textitem xpos="30" ypos="440" font="Helvetica" size="9">stated in your name for taxation purposes. (as well as for subsequent years until you are informed of any change(s), is/are as follows:</textitem>
+    <textitem xpos="268" ypos="397" font="Helvetica" size="9">NOTICE OF ASSESSMENT</textitem>
+    <textitem xpos="206" ypos="88" font="Helvetica" size="9">TAX BILL</textitem>
+	<textitem xpos="1141" ypos="781" font="Helvetica" size="9">SUMMARY OF REAL PROPERTY ASSESSMENT</textitem>
+    <textitem xpos="341" ypos="781" font="Helvetica" size="9">TAX DUE</textitem>
+    <textitem xpos="1576" ypos="730" font="Helvetica" size="8">CURRENT TDN</textitem>
+    <textitem xpos="1384" ypos="730" font="Helvetica" size="8">PROPERTY IDEX NUMBER</textitem>
+    <textitem xpos="1009" ypos="730" font="Helvetica" size="8">KIND</textitem>
+    <textitem xpos="1145" ypos="730" font="Helvetica" size="8" >LOCATION</textitem>
+    <textitem xpos="955" ypos="730" font="Helvetica" size="8" >CLASS</textitem>
+	<textitem xpos="845" ypos="730" font="Helvetica" size="8" >MARKET VALUE</textitem>
+	<textitem xpos="671" ypos="730" font="Helvetica" size="8" >ASSESSED VALUE</textitem>
+    <textitem xpos="515" ypos="730" font="Helvetica" size="8" >BASIC TAX</textitem>
+	<textitem xpos="340" ypos="730" font="Helvetica" size="8" >S.E.F. TAX</textitem>
+	<textitem xpos="175" ypos="730" font="Helvetica" size="8" >TOTAL</textitem>
+	<lineitem x1="38" y1="414" x2="800" y2="414">blurb</lineitem>
+</contents> 

@@ -1,0 +1,1290 @@
+<html>
+<head>
+<title>eLGU - eRPTS - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+// prevent users from coming "back" to this page
+window.history.forward(1);
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+
+function setDays(dateObj) {
+  var obj=eval("document.PaymentReceiptDetails."+dateObj+"_day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+  switch(eval("document.PaymentReceiptDetails."+dateObj+"_month.value")) {
+	case "2":
+		objYear = eval("document.PaymentReceiptDetails."+dateObj+"_year.value");
+		if ((objYear % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+
+function getFormObjectByName(objName){
+	for(i=0 ; i < document.PaymentReceiptDetails.elements.length ; i++){
+		if(document.PaymentReceiptDetails.elements[i].name==objName){
+			return document.PaymentReceiptDetails.elements[i];
+		}
+	}
+	return false;
+}
+
+function setDaysForPreviousReceiptDate(ctr,receiptType) {
+  var obj = document.getElementById(receiptType+"Receipt["+ctr+"][previousReceiptDate_day]");
+
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+
+  monthObj = document.getElementById(receiptType+"Receipt["+ctr+"][previousReceiptDate_month]");
+  switch(monthObj.value) {
+	case "2":
+		yearObj = document.getElementById(receiptType+"Receipt["+ctr+"][previousReceiptDate_year]");
+		objYear = yearObj.value;
+		if ((objYear % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+
+function toggle(id){
+ 	obj=document.getElementById(id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+	}
+	else {
+		obj.style.display='none';
+	}
+}
+
+function changePaymentMode(){
+	trCheckNumber = document.getElementById('tr_checkNumber');
+	trDateOfCheck = document.getElementById('tr_dateOfCheck');
+	trDraweeBank = document.getElementById('tr_draweeBank');
+
+	if(document.PaymentReceiptDetails.paymentMode.options[document.PaymentReceiptDetails.paymentMode.selectedIndex].value=="Check"){
+		document.PaymentReceiptDetails.checkNumber.disabled = false;
+		document.PaymentReceiptDetails.dateOfCheck_month.disabled = false;
+		document.PaymentReceiptDetails.dateOfCheck_day.disabled = false;
+		document.PaymentReceiptDetails.dateOfCheck_year.disabled = false;
+		document.PaymentReceiptDetails.draweeBank.disabled = false;
+		trCheckNumber.style.display = '';
+		trDateOfCheck.style.display = '';
+		trDraweeBank.style.display = '';
+	}
+	else{
+		document.PaymentReceiptDetails.checkNumber.disabled = true;
+		document.PaymentReceiptDetails.dateOfCheck_month.disabled = true;
+		document.PaymentReceiptDetails.dateOfCheck_day.disabled = true;
+		document.PaymentReceiptDetails.dateOfCheck_year.disabled = true;
+		document.PaymentReceiptDetails.draweeBank.disabled = true;
+		trCheckNumber.style.display = 'none';
+		trDateOfCheck.style.display = 'none';
+		trDraweeBank.style.display = 'none';
+	}
+}
+
+function getDateStrFromSelectList(yearList,monthList,dayList){
+ yearListObj = document.getElementById(yearList);
+ monthListObj = document.getElementById(monthList);
+ dayListObj = document.getElementById(dayList);
+ dateStr = getOptionValue(yearListObj)+"-"+leadingZero(getOptionValue(monthListObj),2)+"-"+leadingZero(getOptionValue(dayListObj),2);
+ if(dateStr=="--"){
+	dateStr = "";
+ }
+ return dateStr;
+}
+
+function getOptionValue(obj){
+	objValue = obj.options[obj.selectedIndex].value;
+	return objValue;
+}
+
+function leadingZero(num, len) {
+	if(num=="") return "";
+    var numStr = "" + num;
+    while (numStr.length < len) {
+        numStr = "0" + numStr;
+    }
+    return numStr
+}
+
+function confirmPayment(){
+	document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Please wait...";
+	document.PaymentReceiptDetails.confirmPaymentBtn2.disabled = true;
+	if(confirm("Confirm Payments and Issue Receipts?")){
+		// default dateStings
+		if(getOptionValue(document.PaymentReceiptDetails.paymentMode)=="Check"){
+			document.PaymentReceiptDetails.dateOfCheck.value = getDateStrFromSelectList("dateOfCheck_year","dateOfCheck_month","dateOfCheck_day");
+		}
+
+		basicCtr=0;
+		sefCtr=0;
+		idleCtr=0;
+
+		basicReceiptNumber = new Array;
+		basicPreviousReceiptNumber = new Array;
+		basicPreviousReceiptDate_month = new Array;
+		basicPreviousReceiptDate_day = new Array;
+		basicPreviousReceiptDate_year = new Array;
+
+		sefReceiptNumber = new Array;
+		sefPreviousReceiptNumber = new Array;
+		sefPreviousReceiptDate_month = new Array;
+		sefPreviousReceiptDate_day = new Array;
+		sefPreviousReceiptDate_year = new Array;
+
+		idleReceiptNumber = new Array;
+		idlePreviousReceiptNumber = new Array;
+		idlePreviousReceiptDate_month = new Array;
+		idlePreviousReceiptDate_day = new Array;
+		idlePreviousReceiptDate_year = new Array;
+
+		for(i=0 ; i<document.PaymentReceiptDetails.elements.length; i++){
+			elementObj = document.PaymentReceiptDetails.elements[i];
+			elementName = elementObj.name;
+
+			// paymentMode
+			// if check: 
+			   // checkNumber
+			   // dateOfCheck
+			   // draweeBank
+
+			if(elementName.indexOf("[basicReceipt]") >= 0){
+				if(elementName.indexOf("[paymentMode]") >= 0){
+					elementObj.value = getOptionValue(document.PaymentReceiptDetails.paymentMode);
+				}
+			}
+			if(elementName.indexOf("[sefReceipt]") >= 0){
+				if(elementName.indexOf("[paymentMode]") >= 0){
+					elementObj.value = getOptionValue(document.PaymentReceiptDetails.paymentMode);
+				}
+			}
+			if(elementName.indexOf("[idleReceipt]") >= 0){
+				if(elementName.indexOf("[paymentMode]") >= 0){
+					elementObj.value = getOptionValue(document.PaymentReceiptDetails.paymentMode);
+				}
+			}
+
+			if(getOptionValue(document.PaymentReceiptDetails.paymentMode)=="Check"){
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.checkNumber.value;
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.checkNumber.value;
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.checkNumber.value;
+					}
+				}
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = getDateStrFromSelectList("dateOfCheck_year","dateOfCheck_month","dateOfCheck_day");
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = getDateStrFromSelectList("dateOfCheck_year","dateOfCheck_month","dateOfCheck_day");
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = getDateStrFromSelectList("dateOfCheck_year","dateOfCheck_month","dateOfCheck_day");
+					}
+				}
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.draweeBank.value;
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.draweeBank.value;
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = document.PaymentReceiptDetails.draweeBank.value;
+					}
+				}
+			}
+			else{
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[checkNumber]") >= 0){
+						elementObj.value = "";
+					}
+				}
+
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[dateOfCheck]") >= 0){
+						elementObj.value = "";
+					}
+				}
+
+				if(elementName.indexOf("[basicReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[sefReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = "";
+					}
+				}
+				if(elementName.indexOf("[idleReceipt]") >= 0){
+					if(elementName.indexOf("[draweeBank]") >= 0){
+						elementObj.value = "";
+					}
+				}
+			}
+
+			// cityTreasurer
+			if(elementName.indexOf("[cityTreasurer]") >= 0){
+				elementObj.value = getOptionValue(document.PaymentReceiptDetails.cityTreasurer);
+			}
+			// deputyTreasurer
+			if(elementName.indexOf("[deputyTreasurer]") >= 0){
+				elementObj.value = getOptionValue(document.PaymentReceiptDetails.deputyTreasurer);
+			}
+
+			// basicReceipt
+			if(elementName.indexOf("basicReceipt[") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					if(elementObj.value==""){
+						elementObj.focus();
+						alert("BASIC-Receipt Number is blank.");
+						document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Confirm Payments";
+						document.PaymentReceiptDetails.confirmPaymentBtn2.disabled = false;
+						return false;
+					}
+					basicReceiptNumber[basicCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					basicPreviousReceiptNumber[basicCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptDate_month]") >= 0){
+					basicPreviousReceiptDate_month[basicCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_day]") >= 0){
+					basicPreviousReceiptDate_day[basicCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_year]") >= 0){
+					basicPreviousReceiptDate_year[basicCtr] = elementObj.name;
+					basicCtr++;
+				}
+			}
+
+			if(elementName.indexOf("[basicReceipt]") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					elementObj.value = basicReceiptNumber[basicCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					elementObj.value = basicPreviousReceiptNumber[basicCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptDate]") >= 0){
+					elementObj.value = getDateStrFromSelectList(basicPreviousReceiptDate_year[basicCtr-1],basicPreviousReceiptDate_month[basicCtr-1],basicPreviousReceiptDate_day[basicCtr-1]);
+				}
+			}
+
+			// sefReceipt
+			if(elementName.indexOf("sefReceipt[") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					if(elementObj.value==""){
+						elementObj.focus();
+						alert("SEF-Receipt Number is blank.");
+						document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Confirm Payments";
+						document.PaymentReceiptDetails.confirmPaymentBtn2.disabled = false;
+						return false;
+					}
+					sefReceiptNumber[sefCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					sefPreviousReceiptNumber[sefCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptDate_month]") >= 0){
+					sefPreviousReceiptDate_month[sefCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_day]") >= 0){
+					sefPreviousReceiptDate_day[sefCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_year]") >= 0){
+					sefPreviousReceiptDate_year[sefCtr] = elementObj.name;
+					sefCtr++;
+				}
+			}
+
+			if(elementName.indexOf("[sefReceipt]") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					elementObj.value = sefReceiptNumber[sefCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					elementObj.value = sefPreviousReceiptNumber[sefCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptDate]") >= 0){
+					elementObj.value = getDateStrFromSelectList(sefPreviousReceiptDate_year[sefCtr-1],sefPreviousReceiptDate_month[sefCtr-1],sefPreviousReceiptDate_day[sefCtr-1]);
+				}
+			}
+
+			// idleReceipt
+			if(elementName.indexOf("idleReceipt[") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					if(elementObj.value==""){
+						elementObj.focus();
+						alert("IDLE-Receipt Number is blank.");
+						document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Confirm Payments";
+						document.PaymentReceiptDetails.confirmPaymentBtn2.disabled = false;
+						return false;
+					}
+					idleReceiptNumber[idleCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					idlePreviousReceiptNumber[idleCtr] = elementObj;
+				}
+				if(elementName.indexOf("[previousReceiptDate_month]") >= 0){
+					idlePreviousReceiptDate_month[idleCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_day]") >= 0){
+					idlePreviousReceiptDate_day[idleCtr] = elementObj.name;
+				}
+				if(elementName.indexOf("[previousReceiptDate_year]") >= 0){
+					idlePreviousReceiptDate_year[idleCtr] = elementObj.name;
+					idleCtr++;
+				}
+			}
+
+			if(elementName.indexOf("[idleReceipt]") >= 0){
+				if(elementName.indexOf("[receiptNumber]") >= 0){
+					elementObj.value = idleReceiptNumber[idleCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptNumber]") >= 0){
+					elementObj.value = idlePreviousReceiptNumber[idleCtr-1].value;
+				}
+				if(elementName.indexOf("[previousReceiptDate]") >= 0){
+					elementObj.value = getDateStrFromSelectList(idlePreviousReceiptDate_year[idleCtr-1],idlePreviousReceiptDate_month[idleCtr-1],idlePreviousReceiptDate_day[idleCtr-1]);
+				}
+			}
+		}
+
+		document.PaymentReceiptDetails.submit();
+	}
+
+	document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Confirm Payments";
+	document.PaymentReceiptDetails.confirmPaymentBtn2.disabled = false;
+	return false;
+}
+//-->
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step05.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_treasurer_mod.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+		  <tr align="center"> 
+		   <td width="0" align=left class="common"><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right>
+			<a href="TreasurersHome.php{Session}" class="navi" title="Treasurer's Module : Home">TM : Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+		  <tr align="center"> 
+		   <td width="0" nowrap colspan=2 class="navi">
+		   
+		   <a href="CalculateRPTOPBatch.php{Session}" class="navi" title="Calculate Taxes">Calculate Taxes</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="SOA.php{Session}" class="navi" title="Payments">Payments</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <!-- BEGIN TreasuryMaintenanceLink -->
+		   <a href="TreasuryMaintenanceHome.php{Session}" class="navi" title="Treasury Maintenance">Treasury Maintenance</a>
+		   <!-- END TreasuryMaintenanceLink -->
+		   <!-- BEGIN TreasuryMaintenanceLinkText -->
+		   <font class="navi"><font color="#eeeeee">Treasury Maintenance</font></font>
+		   <!-- END TreasuryMaintenanceLinkText -->
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="TreasuryReports.php{Session}" class="navi" title="Reports">Reports</a>
+
+	   
+		   </td>
+
+		  </tr>
+
+
+
+		 </table></td>
+		<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+	  </table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+
+					<tr>
+						<td align="center">
+							<table border=0 cellpadding=0 cellspacing=0 width="90%">
+							<tr>
+								<td align="left" class="subtitle">
+									CONFIRM PAYMENT<br>&nbsp;
+								</td>
+								<td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+							</tr>
+							<tr>
+								<td align=left colspan=2 class="fields">
+								    <font class="fields">
+									&lt;&lt;
+								    <b><a href="PaymentDetails.php{Session}&rptopID={rptopID}&ownerID={ownerID}">back to Apply Payment Details</a></b> 
+									<br>&nbsp;
+								    </font>
+								</td>
+							</tr>
+							</table>							
+						</td>
+					</tr>
+                    <tr> 
+					   <td align="center" valign="top">
+						<table border=0 cellpadding=0 cellspacing=0 width="90%">
+						<tr>
+							<td valign=top class="fileds_comment">
+
+			 <!-- BEGIN OwnerListTable -->
+			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			  <tr> 
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Person
+				   <!-- BEGIN SearchOwnerPersonLink -->
+				   <!-- END SearchOwnerPersonLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN PersonTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>
+				 <!-- BEGIN PersonList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=viewOnly','popupWindow',50,50,350,400)" class="fields">{fullName}</a> 
+				  </td>
+				 </tr>
+				 <!-- END PersonList -->
+				 <!-- BEGIN PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END PersonTable -->
+				</table></td>
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Company
+				   <!-- BEGIN SearchOwnerCompanyLink -->
+				   <!-- END SearchOwnerCompanyLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN CompanyTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>				 
+				 <!-- BEGIN CompanyList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=viewOnly','popupWindow',50,50,450,500)" class="fields">{companyName}</a></td>
+				 </tr>
+				 <!-- END CompanyList -->
+				 <!-- BEGIN CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END CompanyTable -->
+				</table></td>
+			  </tr>
+			 </table>
+			 <input type="hidden" name="formAction" value="remove">
+			 <input type="hidden" name="ownerID" value="{ownerID}">
+			 <!-- END OwnerListTable -->
+
+							</td>
+						</tr>
+
+						<tr>
+							<td align=center>
+								<form name="PaymentReceiptDetails" action="PaymentEncode.php{Session}" method="post">
+								<input type="hidden" name="formAction" value="confirm">
+								<input type="hidden" name="paymentDate" value="{paymentDate}">
+								<input type="hidden" name="receivedFrom" value="{ownerID}">
+								<input type="hidden" name="ownerID" value="{ownerID}">
+								<input type="hidden" name="rptopID" value="{rptopID}">
+								<table border=0 cellpadding=0 cellspacing=0 width="100%">
+								<tr>
+									<td align="left" class="subtitle">
+										<table border=0 cellpadding=0 cellspacing=0 width="100%">
+										<tr>
+											<td align="left" class="subtitle">
+												<br>
+												Current Payments and Receipts<br>&nbsp;
+											</td>
+											<td align="right" class="subtitle">
+												&nbsp;
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<table border=0 cellpadding=1 cellspacing=0 width="100%">
+										<tr>
+											<td bgcolor="#777777">
+												<table border=0 cellpadding=4 cellspacing=1 width="100%">
+												<tr>
+													<td colspan=4 bgcolor="#888888" class="fields">
+														<font color="#f6f6f6"><b>CURRENT PAYMENTS:</b></font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right" width="200">
+														<font color="#f6f6f6">Payment Mode : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+														<select name="paymentMode" id="paymentMode" onChange="changePaymentMode();">
+															<option value="Cash">Cash</option>
+															<option value="Check">Check</option>
+															<option value="Treasury Note">Treasury Note</option>
+														</select>
+														</font>
+													</td>
+												</tr>
+												<tr id="tr_checkNumber" style="display:none;">
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+														<font color="#f6f6f6">Check Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+														<input type="text" name="checkNumber" id="checkNumber" size="30" disabled>
+														</font>
+													</td>
+												</tr>
+												<tr id="tr_dateOfCheck" style="display:none;">
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+														<font color="#f6f6f6">Dated : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+
+										                <select name="dateOfCheck_month" id="dateOfCheck_month" onChange="javascript:setDays('dateOfCheck')" disabled>
+										 				   <option value=""></option>
+									                       <!-- BEGIN DateOfCheckMonthList -->
+									                       <option value = "{monthValue}" {dateOfCheck_month_sel}>{month}</option>
+									                       <!-- END DateOfCheckMonthList -->
+									                    </select>
+
+									                    <select name="dateOfCheck_day" id="dateOfCheck_day" disabled>
+													 	   <option value=""></option>
+													       <!-- BEGIN DateOfCheckDayList -->
+									                       <option value = "{dayValue}" {birth_day_sel}>{dayValue}</option>
+									                       <!-- END DateOfCheckDayList -->
+									                    </select>
+
+									                    <select name="dateOfCheck_year" id="dateOfCheck_year" onChange="javascript:setDays('dateOfCheck')" disabled>
+														   <option value=""></option>
+									                       <!-- BEGIN DateOfCheckYearList -->
+									                       <option value = "{yearValue}" {dateOfCheck_year_sel}>{yearValue}</option>
+									                       <!-- END DateOfCheckYearList -->
+										                </select>
+														<input type="hidden" name="dateOfCheck" value="">
+
+														</font>
+													</td>
+												</tr>
+												<tr id="tr_draweeBank" style="display:none;">
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+														<font color="#f6f6f6">Drawee Bank : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+														<input type="text" name="draweeBank" id="draweeBank" size="30" disabled>
+														</font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+														<font color="#f6f6f6">City Treasurer : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+														<select name="cityTreasurer" id="cityTreasurer">
+															<!-- BEGIN CityTreasurerList -->
+															<option value="{id}" {cityTreasurer_sel}>{name}</option>
+															<!-- END CityTreasurerList -->
+														</select>
+														</font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+														<font color="#f6f6f6">Deputy : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+														<font color="#f6f6f6">
+														<select name="deputyTreasurer" id="deputyTreasurer">
+															<!-- BEGIN DeputyTreasurerList -->
+															<option value="{id}" {deputyTreasurer_sel}>{name}</option>
+															<!-- END DeputyTreasurerList -->
+														</select>
+														</font>
+													</td>
+												</tr>
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" align="center" width="35%">
+													 <b>TD Number</b>
+													</td>
+													<td class="fileds_comment" align="center" width="15%">
+													 <b>Year</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>Balance Due</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>Amount Paid</b>
+													</td>
+												</tr>
+												<!-- BEGIN PaymentList -->
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" align="center">
+													 {tdNumber}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {year}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {balanceDue_formatted}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {amountPaid_formatted}
+
+													 <input type="hidden" name="payment[{paymentCtr}][tdID]" id="payment[{paymentCtr}][tdID]" value="{tdID}">
+													 <input type="hidden" name="payment[{paymentCtr}][dueID]" id="payment[{paymentCtr}][dueID]" value="{dueID}">
+													 <input type="hidden" name="payment[{paymentCtr}][dueType]" id="payment[{paymentCtr}][dueType]" value="{dueType}">
+													 <input type="hidden" name="payment[{paymentCtr}][backtaxTDID]" id="payment[{paymentCtr}][backtaxTDID]" value="{backtaxTDID}">
+													 <input type="hidden" name="payment[{paymentCtr}][taxDue]" id="payment[{paymentCtr}][taxDue]" value="{taxDue}">
+													 <input type="hidden" name="payment[{paymentCtr}][advancedPaymentDiscount]" id="payment[{paymentCtr}][advancedPaymentDiscount]" value="{advancedPaymentDiscount}">
+													 <input type="hidden" name="payment[{paymentCtr}][earlyPaymentDiscount]" id="payment[{paymentCtr}][earlyPaymentDiscount]" value="{earlyPaymentDiscount}">
+													 <input type="hidden" name="payment[{paymentCtr}][penalty]" id="payment[{paymentCtr}][penalty]" value="{penalty}">
+													 <input type="hidden" name="payment[{paymentCtr}][amnesty]" id="payment[{paymentCtr}][amnesty]" value="{amnesty}">
+													 <input type="hidden" name="payment[{paymentCtr}][balanceDue]" id="payment[{paymentCtr}][balanceDue]" value="{balanceDue}">
+													 <input type="hidden" name="payment[{paymentCtr}][amountPaid]" id="payment[{paymentCtr}][amountPaid]" value="{amountPaid}">
+													 <input type="hidden" name="payment[{paymentCtr}][dueDate]" id="payment[{paymentCtr}][dueDate]" value="{dueDate}">
+													 <input type="hidden" name="payment[{paymentCtr}][paymentDate]" id="payment[{paymentCtr}][paymentDate]" value="{paymentDate}">
+													 <input type="hidden" name="payment[{paymentCtr}][ownerID]" id="payment[{paymentCtr}][ownerID]" value="{ownerID}">	
+
+													</td>
+												</tr>
+												<!-- END PaymentList -->
+
+												</table>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								<!-- BEGIN BasicReceipt -->
+
+								<tr>
+									<td align="left" class="fields">
+										<br><br>&nbsp;
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<table border=0 cellpadding=0 cellspacing=0 width="100%">
+										<tr>
+											<td bgcolor="#777777">
+												<table border=0 cellpadding=4 cellspacing=1 width="100%">
+												<tr>
+													<td colspan=4 bgcolor="#888888" class="fields">
+														<font color="#f6f6f6"><b>Receipt for BASIC Tax:</b></font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="basicReceipt[{basicReceiptCtr}][receiptNumber]" id="basicReceipt[{basicReceiptCtr}][receiptNumber]" value="" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="basicReceipt[{basicReceiptCtr}][previousReceiptNumber]" id="basicReceipt[{basicReceiptCtr}][previousReceiptNumber]" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Date : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+										                <select name="basicReceipt[{basicReceiptCtr}][previousReceiptDate_month]" id="basicReceipt[{basicReceiptCtr}][previousReceiptDate_month]" onChange="javascript:setDaysForPreviousReceiptDate('{basicReceiptCtr}', 'basic');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN BasicPreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {basicPreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END BasicPreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="basicReceipt[{basicReceiptCtr}][previousReceiptDate_day]" id="basicReceipt[{basicReceiptCtr}][previousReceiptDate_day]">
+													 	   <option value=""></option>
+													       <!-- BEGIN BasicPreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {basicPreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END BasicPreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="basicReceipt[{basicReceiptCtr}][previousReceiptDate_year]" id="basicReceipt[{basicReceiptCtr}][previousReceiptDate_year]" onChange="javascript:setDaysForPreviousReceiptDate('{basicReceiptCtr}','basic')">
+														   <option value=""></option>
+									                       <!-- BEGIN BasicPreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {basicPreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END BasicPreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" align="center" width="35%">
+													 <b>TD Number</b>
+													</td>
+													<td class="fileds_comment" align="center" width="15%">
+													 <b>Year</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>BASIC Balance Due</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>Amount Paid for BASIC</b>
+													</td>
+												</tr>
+
+												<!-- BEGIN BasicReceiptList -->
+												
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" align="center">
+													 {tdNumber}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {year}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {basicBalanceDue}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {basicAmountPaid}
+
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receiptNumber]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receiptDate]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receiptDate]" value="{basicReceipt[receiptDate]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][paymentMode]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][paymentMode]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][checkNumber]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][checkNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][dateOfCheck]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][dateOfCheck]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][draweeBank]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][draweeBank]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receivedFrom]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][receivedFrom]" value="{basicReceipt[receivedFrom]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][previousReceiptNumber]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][previousReceiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][previousReceiptDate]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][previousReceiptDate]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][taxType]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][taxType]" value="{basicReceipt[taxType]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][taxDue]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][taxDue]" value="{basicReceipt[taxDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][advancedPaymentDiscount]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][advancedPaymentDiscount]" value="{basicReceipt[advancedPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][earlyPaymentDiscount]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][earlyPaymentDiscount]" value="{basicReceipt[earlyPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][penalty]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][penalty]" value="{basicReceipt[penalty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][amnesty]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][amnesty]" value="{basicReceipt[amnesty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][balanceDue]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][balanceDue]" value="{basicReceipt[balanceDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][amountPaid]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][amountPaid]" value="{basicReceipt[amountPaid]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][cityTreasurer]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][cityTreasurer]" value="{basicReceipt[cityTreasurer]}">
+													 <input type="hidden" name="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][deputyTreasurer]" id="payment[{paymentCtr}][basicReceipt][{basicReceiptCtr}][deputyTreasurer]" value="{basicReceipt[deputyTreasurer]}">
+
+													</td>
+												</tr>
+
+												<!-- END BasicReceiptList -->
+
+												</table>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								<!-- END BasicReceipt -->
+
+								<!-- BEGIN SefReceipt -->
+
+								<tr>
+									<td align="left" class="fields">
+										<br><br>&nbsp;
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<table border=0 cellpadding=0 cellspacing=0 width="100%">
+										<tr>
+											<td bgcolor="#777777">
+												<table border=0 cellpadding=4 cellspacing=1 width="100%">
+												<tr>
+													<td colspan=4 bgcolor="#888888" class="fields">
+														<font color="#f6f6f6"><b>Receipt for SEF Tax:</b></font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="sefReceipt[{sefReceiptCtr}][receiptNumber]" id="sefReceipt[{sefReceiptCtr}][receiptNumber]" value="" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="sefReceipt[{sefReceiptCtr}][previousReceiptNumber]" id="sefReceipt[{sefReceiptCtr}][previousReceiptNumber]" value="" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Date : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+										                <select name="sefReceipt[{sefReceiptCtr}][previousReceiptDate_month]" id="sefReceipt[{sefReceiptCtr}][previousReceiptDate_month]" onChange="javascript:setDaysForPreviousReceiptDate('{sefReceiptCtr}','sef');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN SefPreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {sefPreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END SefPreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="sefReceipt[{sefReceiptCtr}][previousReceiptDate_day]" id="sefReceipt[{sefReceiptCtr}][previousReceiptDate_day]">
+													 	   <option value=""></option>
+													       <!-- BEGIN SefPreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {sefPreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END SefPreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="sefReceipt[{sefReceiptCtr}][previousReceiptDate_year]" id="sefReceipt[{sefReceiptCtr}][previousReceiptDate_year]" onChange="javascript:setDaysForPreviousReceiptDate('{sefReceiptCtr}','sef');">
+														   <option value=""></option>
+									                       <!-- BEGIN SefPreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {sefPreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END SefPreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" align="center" width="35%">
+													 <b>TD Number</b>
+													</td>
+													<td class="fileds_comment" align="center" width="15%">
+													 <b>Year</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>SEF Balance Due</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>Amount Paid for SEF</b>
+													</td>
+												</tr>
+												
+												<!-- BEGIN SefReceiptList -->
+												
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" align="center">
+													 {tdNumber}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {year}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {sefBalanceDue}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {sefAmountPaid}
+
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receiptNumber]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receiptDate]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receiptDate]" value="{sefReceipt[receiptDate]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][paymentMode]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][paymentMode]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][checkNumber]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][checkNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][dateOfCheck]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][dateOfCheck]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][draweeBank]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][draweeBank]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receivedFrom]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][receivedFrom]" value="{sefReceipt[receivedFrom]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][previousReceiptNumber]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][previousReceiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][previousReceiptDate]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][previousReceiptDate]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][taxType]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][taxType]" value="{sefReceipt[taxType]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][taxDue]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][taxDue]" value="{sefReceipt[taxDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][advancedPaymentDiscount]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][advancedPaymentDiscount]" value="{sefReceipt[advancedPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][earlyPaymentDiscount]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][earlyPaymentDiscount]" value="{sefReceipt[earlyPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][penalty]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][penalty]" value="{sefReceipt[penalty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][amnesty]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][amnesty]" value="{sefReceipt[amnesty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][balanceDue]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][balanceDue]" value="{sefReceipt[balanceDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][amountPaid]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][amountPaid]" value="{sefReceipt[amountPaid]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][cityTreasurer]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][cityTreasurer]" value="{sefReceipt[cityTreasurer]}">
+													 <input type="hidden" name="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][deputyTreasurer]" id="payment[{paymentCtr}][sefReceipt][{sefReceiptCtr}][deputyTreasurer]" value="{sefReceipt[deputyTreasurer]}">
+													</td>
+												</tr>
+
+												<!-- END SefReceiptList -->
+
+												</table>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								<!-- END SefReceipt -->
+
+								<!-- BEGIN IdleReceipt -->
+
+								<tr>
+									<td align="left" class="fields">
+										<br><br>&nbsp;
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<table border=0 cellpadding=0 cellspacing=0 width="100%">
+										<tr>
+											<td bgcolor="#777777">
+												<table border=0 cellpadding=4 cellspacing=1 width="100%">
+												<tr>
+													<td colspan=4 bgcolor="#888888" class="fields">
+														<font color="#f6f6f6"><b>Receipt for IDLE Tax:</b></font>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="idleReceipt[{idleReceiptCtr}][receiptNumber]" id="idleReceipt[{idleReceiptCtr}][receiptNumber]" value="" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Number : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+													 <input type="text" name="idleReceipt[{idleReceiptCtr}][previousReceiptNumber]" id="idleReceipt[{idleReceiptCtr}][previousReceiptNumber]" value="" size=35>
+													</td>
+												</tr>
+												<tr>
+													<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+													 <font color="#f6f6f6">Previous Receipt Date : </font>
+													</td>
+													<td colspan=3 bgcolor="#999999" class="fileds_comment">
+										                <select name="idleReceipt[{idleReceiptCtr}][previousReceiptDate_month]" id="idleReceipt[{idleReceiptCtr}][previousReceiptDate_month]" onChange="javascript:setDaysForPreviousReceiptDate('{idleReceiptCtr}','idle');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN IdlePreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {idlePreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END IdlePreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="idleReceipt[{idleReceiptCtr}][previousReceiptDate_day]" id="idleReceipt[{idleReceiptCtr}][previousReceiptDate_day]">
+													 	   <option value=""></option>
+													       <!-- BEGIN IdlePreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {idlePreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END IdlePreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="idleReceipt[{idleReceiptCtr}][previousReceiptDate_year]" id="idleReceipt[{idleReceiptCtr}][previousReceiptDate_year]" onChange="javascript:setDaysForPreviousReceiptDate('{idleReceiptCtr}','idle');">
+														   <option value=""></option>
+									                       <!-- BEGIN IdlePreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {idlePreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END IdlePreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" align="center" width="35%">
+													 <b>TD Number</b>
+													</td>
+													<td class="fileds_comment" align="center" width="15%">
+													 <b>Year</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>IDLE Balance Due</b>
+													</td>
+													<td class="fileds_comment" align="center" width="25%">
+													 <b>Amount Paid for IDLE</b>
+													</td>
+												</tr>
+												
+												<!-- BEGIN IdleReceiptList -->
+												
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" align="center">
+													 {tdNumber}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {year}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {idleBalanceDue}
+													</td>
+													<td class="fileds_comment" align="center">
+													 {idleAmountPaid}
+
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receiptNumber]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receiptDate]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receiptDate]" value="{idleReceipt[receiptDate]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][paymentMode]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][paymentMode]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][checkNumber]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][checkNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][dateOfCheck]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][dateOfCheck]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][draweeBank]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][draweeBank]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receivedFrom]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][receivedFrom]" value="{idleReceipt[receivedFrom]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][previousReceiptNumber]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][previousReceiptNumber]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][previousReceiptDate]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][previousReceiptDate]" value="">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][taxType]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][taxType]" value="{idleReceipt[taxType]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][taxDue]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][taxDue]" value="{idleReceipt[taxDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][advancedPaymentDiscount]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][advancedPaymentDiscount]" value="{idleReceipt[advancedPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][earlyPaymentDiscount]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][earlyPaymentDiscount]" value="{idleReceipt[earlyPaymentDiscount]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][penalty]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][penalty]" value="{idleReceipt[penalty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][amnesty]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][amnesty]" value="{idleReceipt[amnesty]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][balanceDue]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][balanceDue]" value="{idleReceipt[balanceDue]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][amountPaid]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][amountPaid]" value="{idleReceipt[amountPaid]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][cityTreasurer]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][cityTreasurer]" value="{idleReceipt[cityTreasurer]}">
+													 <input type="hidden" name="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][deputyTreasurer]" id="payment[{paymentCtr}][idleReceipt][{idleReceiptCtr}][deputyTreasurer]" value="{idleReceipt[deputyTreasurer]}">
+													</td>
+												</tr>
+
+												<!-- END IdleReceiptList -->
+
+												</table>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								<!-- END IdleReceipt -->
+
+								<tr>
+									<td align="center">
+										<br>
+										<input type="button" name="confirmPaymentBtn2" id="confirmPaymentBtn2" style="height:30px;" onClick="confirmPayment();">
+										<script language="Javascript">
+											document.PaymentReceiptDetails.confirmPaymentBtn2.value = "Confirm Payments";
+										</script>
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<table border=0 cellpadding=0 cellspacing=0 width="100%">
+										<tr>
+											<td align="left">
+											    <font class="fields">
+												<br><br><br>
+												&lt;&lt;
+											    <b><a href="PaymentDetails.php{Session}&rptopID={rptopID}&ownerID={ownerID}">back to Apply Payment Details</a></b> 
+												<br><br>
+											    </font>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+
+								</table>
+								</form>
+							</td>
+						</tr>
+						</table>
+		
+   		   </td>
+           </tr>
+
+                    <tr> 
+                      <td align="center" valign="bottom" class="fileds_comment">
+					  
+					  
+						Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="images/inner_16.jpg"><img SRC="images/spacer.gif " border=0 WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

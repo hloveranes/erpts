@@ -1,0 +1,542 @@
+<html>
+<head>
+<title>eLGU - RPTS - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+//-->
+</script>
+<script language="Javascript1.2">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=1");
+	puffup.focus(true);
+}
+function checkAction(axn){
+	document.ODList.formAction.value = axn;
+	//alert(document.ODList.formAction.value);
+	if (confirmSubmit())
+	document.ODList.submit();
+}
+function confirmSubmit(){
+	axn = document.ODList.formAction.value;
+	if(!confirm(axn+' selected items?'))
+		return false;
+	else
+		return true;
+}
+
+function setDefaults(){
+	document.ODList.searchKey.focus();
+}
+
+// start checkbox toggling functions
+
+function addToMerger(){
+	noneAreChecked = true;
+	countChecked = 0;
+	for(i=0 ; i<document.ODList.elements.length ; i++){
+		if(document.ODList.elements[i].type == "checkbox"){
+			if(document.ODList.elements[i].checked==true && document.ODList.elements[i].name=='odIDArray[]'){
+				countChecked++;
+				noneAreChecked = false;
+			}
+		}
+	}
+
+	if(noneAreChecked) return false;
+
+	if(countChecked < 1){
+		return false;
+	}
+
+	if(confirm("Add selected records to Merger?")){
+		document.ODList.formAction.value = "addToMerger";
+		document.ODList.viewArchives.value = "false";
+		document.ODList.archiveValue.value = "false";
+		document.ODList.submit();
+	}
+	else{
+		return false;
+	}
+}
+
+function viewMergeBasket(){
+	url = "MergeBasket.php{Session}";
+	url += "&mergeBasketCSV="+ document.ODList.mergeBasketCSV.value;
+	openWin(url, "mergeBasket", 50, 50, 400, 400);
+	return false;
+}
+
+function confirmConsolidate(){
+	totalInMergeBasket = "{totalInMergeBasket}";
+
+	if(totalInMergeBasket > 1){
+		url = "MergeBasketConfirm.php{Session}";
+		url += "&mergeBasketCSV="+ document.ODList.mergeBasketCSV.value;
+		openWin(url, "mergeBasket", 50, 50, 400, 400);
+	}
+	else{
+		alert("Cannot consolidate less than 2 RPUs. Add more to the merger.");
+	}
+	return false;
+}
+
+function consolidateSelected(){
+	noneAreChecked = true;
+	countChecked = 0;
+	for(i=0 ; i<document.ODList.elements.length ; i++){
+		if(document.ODList.elements[i].type == "checkbox"){
+			if(document.ODList.elements[i].checked==true && document.ODList.elements[i].name=='odIDArray[]'){
+				countChecked++;
+				noneAreChecked = false;
+			}
+		}
+	}
+
+	if(noneAreChecked) return false;
+
+	if(countChecked <= 1){
+		return false;
+	}
+
+	if(confirm("Consolidate selected records?")){
+		document.ODList.formAction.value = "consolidate";
+		document.ODList.viewArchives.value = "false";
+		document.ODList.archiveValue.value = "false";
+		document.ODList.submit();
+	}
+	else{
+		return false;
+	}
+}
+
+function toggleAll(){
+	for(i=0 ; i<document.ODList.elements.length ; i++){
+		if(document.ODList.elements[i].type == "checkbox")
+		{
+			if(document.ODList.elements[i].name=='odIDArray[]'){
+				document.ODList.elements[i].checked = document.ODList.checkAll.checked; 
+			}
+		}
+	}
+}
+
+function toggle(){
+	allAreChecked = true;
+	for(i=0 ; i<document.ODList.elements.length ; i++){
+		if(document.ODList.elements[i].type == "checkbox"){
+			if(document.ODList.elements[i].checked==false && document.ODList.elements[i].name=='odIDArray[]'){
+				allAreChecked = false;
+			}
+		}
+	}
+	if(allAreChecked==true){
+		document.ODList.checkAll.checked = true;
+	}
+	else{
+		document.ODList.checkAll.checked = false;		
+	}
+}
+
+// end checkbox toggling functions
+
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="javascript: setDefaults();">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+    <td align="center" valign="top"><table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step00.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_am_trans.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+
+		<!-- start of navigation menu -->
+
+		<tr>
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC">
+           <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<tr>
+				<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+				<td align="center" valign="middle" background="images/nav_area_bg.jpg">
+					 <table width="100%%" border="0" cellspacing="0" cellpadding="0">
+
+		  <tr align="center"> 
+		   <td width="0" align=left class="common" colspan=3><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right colspan=6>
+		    <a href="../../AssessorsHome.php{Session}" class="navi" title="Assessor's Module : Home">AM : Home</a>
+			<font class="navi">&lt;</font>
+		    <a href="../../TransactionsHome.php{Session}" class="navi" title="Transactions">Transactions</a>
+			<font class="navi">&lt;</font>
+			<a href="../../home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="../../Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+
+		   <td width="0" nowrap align=center><a href="../subdivision/ODList.php{Session}" class="navi" title="Subdivision">Subdivision</a></td>
+
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap align=center><a href="ODList.php{Session}" class="navi" title="Consolidation"><u>Consolidation</u></a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="../newdiscovery/ODList.php{Session}" class="navi" title="New Discovery">New Discovery</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="../reassessment/ODList.php{Session}" class="navi" title="Reassessment">Reassessment</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="../changeofowner/ODList.php{Session}" class="navi" title="Change of Owner">Change of Owner</a></td>
+
+		  </tr>
+
+
+
+					 </table>
+				</td>
+				<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 border=0 ></td>
+		   </tr>
+		  </table>
+         </td>
+         <td><img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53></td>
+         <td><img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53></td>
+        </tr>
+
+		<!-- end of navigation menu -->	
+	
+		<tr> 
+          
+	 <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/bg_middle.jpg" bgcolor="#CCCCCC">
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0" background="images/background/bg_middle.jpg">
+              <tr> 
+                <td align="left" valign="top">
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="subtitle"> 
+                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+							<td colspan=2 align="center" class="navi">
+								<br>
+								<a href="../cancellation/ODList.php{Session}" class="navi">Permanent Cancellation</a>
+							</td>
+						  </tr>
+
+						  <tr><td colspan=2>
+
+						    <br>
+
+							<font class="navi">
+							<a href="ODList.php{Session}" class="navi">RPU List</a>
+							&nbsp;&nbsp;
+							|
+							&nbsp;&nbsp;
+							<a href="AFSList.php{Session}" class="navi">FAAS List</a>
+							</font>
+						  
+						  </td></tr>
+
+						  <tr>
+						   <td colspan=2>&nbsp;</td>
+						  </tr>
+                          <tr> 
+                            <td class="subtitle">RPU LIST</td>
+                            <td align="right" valign="top"><a href="#down"><img src="images/arrow_down.gif" width="40" height="30" border="0"></a></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top"> 
+                        <form name="ODList" method="post" action="ODList.php{Session}">
+                          <input type="hidden" name="formAction" value="search">
+						  <input type="hidden" name="viewArchives" value="{viewArchives}">
+						  <input type="hidden" name="archiveValue" value="{archiveValue}">
+						  <input type="hidden" name="sortBy" value="{sortBy}">
+						  <input type="hidden" name="sortOrder" value="{sortOrder}">
+
+						  <input type="hidden" name="transactionCode" value="CS">
+
+						  <input type="hidden" name="ODListQuery" value="rpts_Session=b6193dbb63db6f60d94927d08a9ef1b1&page={page}&formAction={formAction}&barangay={barangay}&searchKey={searchKey}&sortBy={sortBy}&sortOrder={sortOrder}&viewArchives=false">
+
+
+                          <table width="90%" border="0" cellspacing="1" cellpadding="2">
+                            <tr>
+                              <td class="fileds_comment" colspan="6" bgcolor="#F6F6F6">
+                                search:
+                                <input type="text" name="searchKey" value="{searchKey}">
+                                <input type="button" name="SubmitSearch" value="Search" onClick="document.ODList.formAction.value='search'; document.ODList.submit();">
+								<font color="#777777"> (searches by: Owner, Location) </font>
+                              </td>
+                            </tr>
+
+                            <tr> 
+							  <td class="fileds_comment" colspan="6" bgcolor="#F6F6F6">
+								<table border=0 cellpadding=2 cellspacing=0 width="100%">
+								<tr>
+									<td align=left valign=top class="fileds_comment">
+										- <a href="ODList.php{Session}" class="common">view all</a>
+										<br>
+										<br>
+		                                {pageOf}
+									</td>
+									<td class="fileds_comment" bgcolor="#F6F6F6" align=right valign=bottom>
+			                                Filter by Barangay:
+											<select name="barangay" style="font-size:10px; width=175;">
+											    <option value=""></option>
+												<!-- BEGIN BarangayList -->
+												<option value = "{barangay}" {barangay_sel}>{barangay}</option>
+												<!-- END BarangayList -->
+											</select>
+											<input type="button" value="Go" onClick="document.ODList.formAction.value='filterBarangay'; document.ODList.submit();">
+									</td>
+								</tr>
+								</table>
+							  </td>
+                            </tr>
+							<!-- BEGIN MergeBasket -->
+							<tr bgcolor="#dddddd">
+								<td colspan="6" bgcolor="#e7e7e7" align="left" class="fileds_comment">
+									<font color="#990000"><B>{totalInMergeBasket} RPUs ready for Merger : </B></font>
+									&nbsp;&nbsp;
+									<input type="hidden" name="mergeBasketCSV" value="{mergeBasketCSV}">
+									<input type="button" name="viewBtn" value="" onClick="viewMergeBasket();" style="font-family:arial; font-size:9px; width:95;">
+									<input type="button" name="consolidateBtn" value="" onClick="confirmConsolidate();" style="font-family:arial; font-size:9px; width:95;">
+									<script language="Javascript">
+										document.ODList.viewBtn.value = "VIEW";
+										document.ODList.consolidateBtn.value = "CONSOLIDATE";
+									</script>
+								</td>
+							</tr>
+							<!-- END MergeBasket -->
+                            <!-- BEGIN NotFound -->
+                            <tr>
+                                <td class="fileds_comment" colspan="6" bgcolor="#F6F6F6">
+                                  &lt;&lt; back to <a href="ODList.php{Session}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">RPUList</a>
+                                  
+                                  <br><br>
+                                  
+                                  <font size=2>&quot;{searchKey}&quot;
+                                    not found</font>
+                                    
+                                  <br>&nbsp;<br>
+                                </td>
+                            </tr>
+                            <!-- END NotFound -->
+                            <!-- BEGIN ODTable -->
+                            <tr bgcolor="#dddddd">
+                              <td class="fields" width="63" align=center>
+								<!-- BEGIN AscendingODID -->
+								 <img src="images/asc_order.png" border=0 alt="Ascending">
+								<!-- END AscendingODID -->
+								<!-- BEGIN DescendingODID -->
+								 <img src="images/desc_order.png" border=0 alt="Descending"> 
+								<!-- END DescendingODID -->
+								<a href="ODList.php{Session}&sortBy=odID&sortOrder={odIDSortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}"><b>OD ID</b></a>
+							  </td>
+                              <td class="fields" nowrap width="170">
+								<b>OWNER</b><br>
+								<font class="fileds_comment">
+								(
+								<!-- BEGIN AscendingPerson -->
+								 <img src="images/asc_order.png" border=0 alt="Ascending">
+								<!-- END AscendingPerson -->
+								<!-- BEGIN DescendingPerson -->
+								 <img src="images/desc_order.png" border=0 alt="Descending"> 
+								<!-- END DescendingPerson -->
+								<a href="ODList.php{Session}&sortBy=person&sortOrder={personSortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">Person</a>
+								)
+								(
+								<!-- BEGIN AscendingCompany -->
+								 <img src="images/asc_order.png" border=0 alt="Ascending">
+								<!-- END AscendingCompany -->
+								<!-- BEGIN DescendingCompany -->
+								 <img src="images/desc_order.png" border=0 alt="Descending"> 
+								<!-- END DescendingCompany -->
+								<a href="ODList.php{Session}&sortBy=company&sortOrder={companySortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">Company/Group</a>
+								)
+								</font>
+							  </td>
+                              <td class="fields" width="100"> 
+                                <p><b>&nbsp;Location</b></p>
+                              </td>
+                              <td class="fields" width="75"><b>&nbsp;Land Area</b></td>
+							  <td class="fileds_comment" align="center" colspan=2>
+								<input type="button" name="addToMergerBtn" value="" onClick="addToMerger();" style="font-family:arial; font-size:9px; width:85;">
+								<script language="Javascript">
+									document.ODList.addToMergerBtn.value = "ADD TO MERGER";
+								</script>
+							   <!--
+							   <input type="checkbox" name="checkAll" onClick="toggleAll();" style="background:color:#dddddd;"  >
+							   -->
+							  </td>
+                              <!--<td class="common" width="50" align="center"> <font color="#FFFFFF"> 
+        <input type="button" name="Submit" value="Delete" onClick="javascript: checkAction('delete');">
+        <input type="button" name="Button" value="Remove" onClick="javascript: checkAction('remove');">
+        </font></td>-->
+                            </tr>
+                            <!-- BEGIN ODList -->
+                            <tr valign="top" align="left"> 
+                              <td class="fileds_comment" bgcolor="#F6F6F6" align=center><b>{odID}</b>&nbsp;</td>
+                              <td class="fileds_comment" bgcolor="#F6F6F6"> 
+                                <!-- BEGIN PersonList -->
+                                <a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=viewOnly','popupWindow',300,150,350,400)" class="fields">{OwnerPerson}</a> 
+                                <br>
+                                <!-- END PersonList -->
+                                <!-- BEGIN CompanyList -->
+                                <a href="javascript: openWin('CompanyDetails.php{Session}&companyID={companyID}&formAction=viewOnly','popupWindow',300,150,350,400)" class="fields">{OwnerCompany}</a> 
+                                <br>
+                                <!-- END CompanyList -->
+                                <a href="ODDetails.php{Session}&odID={odID}&formAction=view"> 
+                                </a>{none}</td>
+                              <td class="fileds_comment" bgcolor="#F6F6F6"><b>{locationAddress}</b></td>
+                              <td class="fileds_comment" bgcolor="#F6F6F6" align=right><b>{landArea}</b></td>
+							  <td class="fileds_comment" bgcolor="#F6f6f6" align=center valign=top>
+								<table border=0 cellpadding=2 cellspacing=0 align="left" width="55">
+								<tr>
+									<td width="25" align="left"><input type="checkbox" name="odIDArray[]" value="{odID}" {checkbox_status}></td>
+									<td class="fileds_comment" align="center">({propertyType})</td>
+								</tr>							   
+							    </table>
+							  </td>
+                              <td class="fileds_comment" align="center" bgcolor="#F6F6F6"> 
+                                <a href="ODDetails.php{Session}&odID={odID}&formAction=view">Edit>></a> 
+                              </td>
+                              <!--<td class="common" align="center"> 
+        <input type="checkbox" name="odID[]" value="{odID}">
+      </td>-->
+                            </tr>
+                            <!-- END ODList -->
+                            <!-- END ODTable -->
+
+							<!-- BEGIN PageNavigator -->
+							<tr>
+                              <td class="fileds_comment" align="center" bgcolor="#F6F6F6"><a href="ODList.php{Session}&page={previous}&sortBy={sortBy}&sortOrder={sortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">{previousTxt}</a></td>
+                              <td class="fileds_comment" bgcolor="#F6F6F6" colspan="4" align="center"> 
+									<table border=0 cellpadding=0 cellspacing=0 width="100%">
+									<tr>
+										<td nowrap class="fileds_comment" align="left">
+											[
+											<!-- BEGIN PagesList -->
+												<a href="ODList.php{Session}&page={pageListPagesUrl}&sortBy={sortBy}&sortOrder={sortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">{pageListPages}</a> {pageListPaged}
+											<!-- END PagesList -->
+											]
+										</td>
+										<td nowrap class="fileds_comment" align="right">
+											Page : 
+											<select name="pageNavigatorURL" style="text-align:right;">
+			                                <!-- BEGIN Pages -->
+												<option value="ODList.php{Session}&page={pagesUrl}&sortBy={sortBy}&sortOrder={sortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}" {paged}>{pages}</option>
+			                                <!-- END Pages -->
+											</select>
+											<input type="button" value="Go" onClick="window.location.href(document.ODList.pageNavigatorURL.options[document.ODList.pageNavigatorURL.selectedIndex].value);">
+										</td>
+									</tr>
+									</table>
+                              </td>
+                              <td class="fileds_comment" align="center" bgcolor="#F6F6F6"><a href="ODList.php{Session}&page={next}&sortBy={sortBy}&sortOrder={sortOrder}&viewArchives={viewArchives}&mergeBasketCSV={mergeBasketCSV}">{nextTxt}</a></td>
+                            </tr>
+							<!-- END PageNavigator -->
+
+
+                            <!-- BEGIN ODDBEmpty -->
+                            <tr> 
+                              <td class="fileds_comment" colspan="6" bgcolor="#F6F6F6">database 
+                                empty</td>
+                            </tr>
+                            <!-- END ODDBEmpty -->
+                          </table>
+                          <font color="#FFFFFF"> 
+                          </font> 
+                        </form>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="fileds_comment">Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <a name="#down"></a></td>
+          <td background="images/inner_16.jpg"> <img SRC="images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr><tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

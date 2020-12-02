@@ -1,0 +1,393 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+  function validateForm(iform) {
+  	if (iform.propertyIndexNumber.value=="") {
+		alert("Property Index Number Required.");
+		iform.propertyIndexNumber.focus();
+		return false;
+	}
+
+	
+  	if (iform.certificateOfTitleNumber.value=="") {
+		alert("Certificate of Title Number required.");
+		iform.certificateOfTitleNumber.focus();
+		return false;
+	} 
+	else if (iform.email.value=="") {
+		alert("Email address required.");
+		iform.email.focus();
+		return false;
+	} 
+	else if (!checkEmail(iform.email.value)) {
+		alert("Invalid email address.");
+		iform.email.focus();
+		return false;
+	}
+	
+	/*if (iform.username.value!=iform.email.value) {
+		alert("Email addresses do not match.");
+		iform.username.focus();
+		return false;
+	}
+*/
+  	if (iform.cadastralLotNumber.value=="") {
+		alert("Cadastral Lot Number required.");
+		iform.cadastralLotNumber.focus();
+		return false;
+	}
+/*
+	s=iform.password.value;
+	if (s.length<6) {
+		alert("Password should be 6 characters or more.");
+		iform.password.focus();
+		return false;
+	}
+*/
+  	if (iform.north.value=="") {
+		alert("North Boundary required.");
+		iform.north.focus();
+		return false;
+	}
+	 if (iform.south.value=="") {
+		alert("South Boundary required.");
+		iform.south.focus();
+		return false;
+	}
+	 if (iform.east.value=="") {
+		alert("East Boundary required.");
+		iform.east.focus();
+		return false;
+	}
+	 if (iform.west.value=="") {
+		alert("West Boundary required.");
+		iform.west.focus();
+		return false;
+	}
+  /*	else if (iform.password.value!=iform.password1.value) {
+		alert("Passwords do not match.");
+		iform.password.focus();
+		return false;
+	}*/
+  	if (iform.lastName.value=="") {
+		alert("Last name required.");
+		iform.lastName.focus();
+		return false;
+	}
+  	if (iform.firstName.value=="") {
+		alert("First name required.");
+		iform.firstName.focus();
+		return false;
+	}
+  	if (iform.middleName.value=="") {
+		alert("Middlename required.");
+		iform.middleName.focus();
+		return false;
+	}
+
+    /*buffer=iform.gender;
+	if (!buffer[0].checked && !buffer[1].checked) {
+		alert("Gender required.");
+		return false;
+	}
+  	
+    buffer=iform.allow_email;
+	if (!buffer[0].checked && !buffer[1].checked) {
+		alert("Allow email?");
+		return false;
+	}
+	else if (iform.occupation.value=="") {
+		alert("Occupation required.");
+		iform.occupation.focus();
+		return false;
+	}
+	else if (iform.company.value=="") {
+		alert("Company required.");
+		iform.company.focus();
+		return false;
+	}
+
+    buffer1=iform.venue1;
+    //buffer2=iform.venue2;
+	//if (!buffer1[0].checked && !buffer1[1].checked && !buffer2[0].checked && !buffer2[1].checked) {
+	if (!buffer1[0].checked && !buffer1[1].checked) {
+		alert("Please select whether this is your home or office address.");
+		return false;
+	}
+	
+	if (buffer1[0].checked || buffer1[1].checked) {
+		*/if (iform.street.value=="") {
+			alert("Street is required.");
+			iform.street.focus();
+			return false;
+		}
+		if (iform.number.value=="") {
+			alert("Number is required.");
+			iform.number.focus();
+			return false;
+		}
+		if (iform.barangay.value=="") {
+			alert("Barangay is required.");
+			iform.barangay.focus();
+			return false;
+		}
+		if (iform.municipalityCity.value=="") {
+			alert("Municipality/City is required.");
+			iform.municipalityCity.focus();
+			return false;
+		}
+		if (iform.district.value=="") {
+			alert("District is required.");
+			iform.district.focus();
+			return false;
+		}
+		if (iform.province.value=="") {
+			alert("Province is required.");
+			iform.province.focus();
+			return false;
+		}
+		/*
+		if (iform.state1.value=="") {
+			alert("State is required.");
+			iform.state1.focus();
+			return false;
+		}
+		if (iform.country1.value=="") {
+			alert("Country is required.");
+			iform.country1.focus();
+			return false;
+		}
+		
+		if (iform.zipcode1.value=="") {
+			alert("Zip code is required.");
+			iform.zipcode1.focus();
+			return false;
+		}*/
+		if (iform.telephone.value=="") {
+			alert("Telephone number is required.");
+			iform.telephone.focus();
+			return false;
+		}
+		/*
+		if (iform.fax1.value=="") {
+			alert("Fax number is required.");
+			iform.fax1.focus();
+			return false;
+		}
+		
+	}*/
+	/*
+	if (buffer2[0].checked || buffer2[1].checked) {
+		if (iform.address2.value=="") {
+			alert("Street address is required.");
+			iform.address2.focus();
+			return false;
+		}
+		if (iform.city2.value=="") {
+			alert("City is required.");
+			iform.city2.focus();
+			return false;
+		}
+		*
+		if (iform.state2.value=="") {
+			alert("State is required.");
+			iform.state2.focus();
+			return false;
+		}
+		if (iform.country2.value=="") {
+			alert("Country is required.");
+			iform.country2.focus();
+			return false;
+		}
+		*
+		if (iform.zipcode2.value=="") {
+			alert("Zip code is required.");
+			iform.zipcode2.focus();
+			return false;
+		}
+		if (iform.phone2.value=="") {
+			alert("Phone number is required.");
+			iform.phone2.focus();
+			return false;
+		}
+		*
+		if (iform.fax2.value=="") {
+			alert("Fax number is required.");
+			iform.fax2.focus();
+			return false;
+		}
+		*
+	}
+	*/
+
+    iform.submit();
+	return true;
+  }
+
+function setDefaults(){
+	window.resizeTo(550,480);
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+//-->
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="AFSEncode" method="post" action="AFSEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center" bgcolor="#CCCCCC">
+          <tr bgcolor="#F6F6F6"> 
+            <td colspan="3" class="common" bgcolor="#F6F6F6"><b>AFS</b></td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td width="30%" class="fileds_comment" align="right" bgcolor="#F6F6F6"> 
+              Property Index Number</td>
+            <td class="fileds_comment" width="70%" colspan="2"> 
+              <input type="text" value="{propertyIndexNumber}" name="propertyIndexNumber" maxlength="32" size="30">
+            </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Certificate 
+              Of Title Number</td>
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" value="{certificateOfTitleNumber}" name="certificateOfTitleNumber" size="30">
+            </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6"> Cadastral 
+              Lot Number</td>
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" value="{cadastralLotNumber}" name="cadastralLotNumber" size="30">
+            </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="2"> 
+              Boundaries</td>
+            <td class="fileds_comment"> 
+              <input type="text" value="{north}" name="north" size="30">
+              <br>
+              (north) </td>
+            <td class="fileds_comment"> 
+              <input type="text" name="south" value="{south}" size="30">
+              <br>
+              (south) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"> 
+              <input type="text" value="{east}" name="east" size="30">
+              <br>
+              (east) </td>
+            <td class="fileds_comment"> 
+              <input type="text" value="{west}" name="west" size="30">
+              <br>
+              (west) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6" align="left"> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="3">Adminisrator</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" rowspan="3" bgcolor="#F6F6F6">Name</td>
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" name="lastName" value="{lastName}" size="30">
+              <br>
+              (lastname) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" name="firstName" value="{firstName}" size="30">
+              <br>
+              (firstname) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" name="middleName" value="{middleName}" size="30">
+              <br>
+              middlename </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="3">Address</td>
+            <td class="fileds_comment"> 
+              <input type="text" name="number" value="{number}" size="30">
+              <br>
+              (number) </td>
+            <td class="fileds_comment"> 
+              <input type="text" name="street" value="{street}" size="30">
+              <br>
+              (street) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"> 
+              <input type="text" name="barangay" value="{barangay}" size="30">
+              <br>
+              (barangay) </td>
+            <td class="fileds_comment"> 
+              <input type="text" name="district" value="{district}" size="30">
+              <br>
+              (district) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"> 
+              <input type="text" name="municipalityCity" value="{municipalityCity}" size="30">
+              <br>
+              (municipality/city) </td>
+            <td class="fileds_comment"> 
+              <input type="text" name="province" value="{province}" size="30">
+              <br>
+              (province) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">ContactNumber</td>
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" name="telephone" value="{telephone}" size="30">
+            </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Email</td>
+            <td class="fileds_comment" colspan="2"> 
+              <input type="text" name="email" value="{email}" size="30">
+            </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td align="right">&nbsp;</td>
+            <td colspan="2"> 
+              <input type="hidden" name="formAction" value="save">
+              <input type="hidden" name="odID" value="{odID}">
+              <!-- BEGIN SubmitButton -->
+              <input type="button" value="Submit" onClick="validateForm(document.AFSEncode);">
+              <input type="reset" name="Submit2" value="Reset" >
+              <!-- END SubmitButton -->
+              <input type="button" name="Button" value="Close"  onClick="refreshParent();">
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/numeric.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+function verifyForm(iform) {
+  	//return true;
+//	alert(iform.verifiedByID.value);
+
+	if (iform.verifiedByID.value=="xx") {
+		alert("Please set appropriate name in [Verified By] field!");
+		iform.verifiedByID.focus();
+	}
+	else {
+		iform.submit();
+	}
+}
+
+function validateForm(iform) {
+  	//return true;
+	iform.classification.value=iform.landClasses.value;
+	iform.subClass.value=iform.landSubclasses.value;
+	iform.actualUse.value=iform.landActualUses.value;
+
+	if(iform.percentAdjustment.value==""){
+		iform.percentAdjustment.value="100";
+	}
+
+	calculateMarketValue();
+
+    iform.submit();
+}
+function calculateMarketValue(){
+	numeric = true;
+	if (!isNumeric(unformatCurrency(document.LandEncode.area.value))){
+		alert("numeric values only.");
+		document.LandEncode.area.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.LandEncode.unitValue.value))){
+		alert("numeric values only.");
+		document.LandEncode.unitValue.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.LandEncode.area.value) * unformatCurrency(document.LandEncode.unitValue.value);
+		document.LandEncode.marketValue.value = formatCurrency(num);
+	}
+	calculateAdjustedMarketValue();
+	return true;
+}
+function calculateValueAdjustment(){
+	numeric = true;
+	if(document.LandEncode.percentAdjustment.value==""){
+		document.LandEncode.percentAdjustment.value = 100;
+	}
+	if (!isNumeric(document.LandEncode.percentAdjustment.value)){
+		alert("numeric values only.");
+		document.LandEncode.percentAdjustment.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.LandEncode.marketValue.value) * unformatCurrency((document.LandEncode.percentAdjustment.value-100)/100);
+
+		document.LandEncode.valueAdjustment.value = formatCurrency(num);
+	}
+	calculateAdjustedMarketValue();
+	return true;
+}
+function calculateAdjustedMarketValue(){
+	num = parseFloat(unformatCurrency(document.LandEncode.marketValue.value)) * (parseFloat(unformatCurrency(document.LandEncode.percentAdjustment.value)) / 100);
+	document.LandEncode.adjustedMarketValue.value = formatCurrency(num);
+	calculateAssessedValue();
+	return true;
+}
+function calculateAssessedValue(){
+	numeric = true;
+	if (!isNumeric(document.LandEncode.assessmentLevel.value)){
+		alert("numeric values only.");
+		document.LandEncode.assessmentLevel.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.LandEncode.adjustedMarketValue.value) * (document.LandEncode.assessmentLevel.value/100);
+		num = roundToNearestTen(num);
+		document.LandEncode.assessedValue.value = formatCurrency(num);
+	}
+	return true;
+}
+function setDefaults(){
+	//setDays('ve_');
+	//setDays('pl_');
+	//setDays('no_');
+    //setDays('as_');
+    //setDays('re_');
+    //setDays('av_');
+    //setDefaultDay('as_','{as_day}');
+    //setDefaultDay('re_','{re_day}');
+    //setDefaultDay('av_','{av_day}');
+	window.resizeTo(600,500);
+}
+function setDefaultDay(type,day){
+	eval("document.LandEncode."+type+"day.options["+day+"-1].selected = true");
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+function setDays(type) {
+  var obj=eval("document.LandEncode."+type+"day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+  for (i=objlen-1; i>=28+nullfield; i--) obj.options.remove(i);
+  month_val = eval("document.LandEncode."+type+"month.value");
+  switch(month_val) {
+	case "2":
+		birthYear = eval("document.LandEncode."+type+"year.value");
+		if ((birthYear % 4) == 0) obj.options[28+nullfield]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		break;
+  }
+  obj.options[daySelected].selected = true;
+}
+//-->
+</script>
+
+<script language="Javascript">
+ landSubclasses = new Array();
+ landActualUses = new Array();
+
+<!-- BEGIN JSLandSubclassesList -->
+ landSubclasses[{i}] = new Array("{landSubclassesID}", "{code}", "{description}", "{value}");
+<!-- END JSLandSubclassesList -->
+
+<!-- BEGIN JSLandActualUsesList -->
+ landActualUses[{i}] = new Array("{landActualUsesID}", "{code}", "{description}", "{value}");
+<!-- END JSLandActualUsesList -->
+
+function selectedLandSubclasses(){
+	selectedID = document.LandEncode.landSubclassesDropDown.options[document.LandEncode.landSubclassesDropDown.selectedIndex].value;
+
+	for(i=0 ; i<landSubclasses.length ; i++){
+		tmpArray = landSubclasses[i];
+		id = tmpArray[0];
+		code = tmpArray[1];
+		description = tmpArray[2];
+		value = tmpArray[3];
+		if(selectedID==id){
+			i=landSubclasses.length;
+		}
+	}
+
+	if(selectedID==""){
+		document.LandEncode.landSubclasses.value = "";
+		document.LandEncode.recommendedUnitValue.value = "";
+	}
+	else{
+		document.LandEncode.landSubclasses.value = id;
+		document.LandEncode.recommendedUnitValue.value = formatCurrency(unformatCurrency(value));
+	}
+}
+
+function selectedLandActualUses(){
+	selectedID = document.LandEncode.landActualUsesDropDown.options[document.LandEncode.landActualUsesDropDown.selectedIndex].value;
+
+	for(i=0 ; i<landActualUses.length ; i++){
+		tmpArray = landActualUses[i];
+		id = tmpArray[0];
+		code = tmpArray[1];
+		description = tmpArray[2];
+		value = tmpArray[3];
+		if(selectedID==id){
+			i=landActualUses.length;
+		}
+	}
+
+	if(selectedID==""){
+		document.LandEncode.landActualUses.value = "";
+		document.LandEncode.recommendedAssessmentLevel.value = "";
+	}
+	else{
+		document.LandEncode.landActualUses.value = id;
+		document.LandEncode.recommendedAssessmentLevel.value = formatCurrency(unformatCurrency(value));
+	}
+}
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="setDefaults();">
+<form name="LandEncode" method="post" action="LandEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" align="center" cellpadding="5" cellspacing="1" class="fileds_comment">
+          <tr bgcolor="#F6F6F6"> 
+            <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>LAND 
+              PROPERTY INFORMATION</b></td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td colspan="3" class="fileds_comment" align="left" nowrap>Identification 
+              Numbers </td>
+          </tr>
+
+          <tr bgcolor="#F6F6F6"> 
+			<td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="100">&nbsp;</td>
+            <td class="fileds_comment"><input type="text" value="{octTctNumber}" name="octTctNumber" size="30"> 
+              (OCT/TCT Number)</td>
+            <td class="fileds_comment"><input type="text" value="{surveyNumber}" name="surveyNumber" size="30">
+              (Survey Number)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" nowrap colspan="3" bgcolor="#CCCCCC">Boundaries 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap rowspan="2" bgcolor="#F6F6F6">&nbsp;</td>
+            <td bgcolor="#F6F6F6"><input type="text" value="{north}" name="north" size="30"> 
+              (north)</td>
+            <td bgcolor="#F6F6F6"><input type="text" name="south" value="{south}" size="30"> 
+              <br>
+              (south)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td><input type="text" value="{east}" name="east" size="30"><br>(east)</td>
+            <td><input type="text" value="{west}" name="west" size="30"><br>(west)</td>
+          </tr>
+
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Boundary Description</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+				<textarea name="boundaryDescription" cols="50" rows="4">{boundaryDescription}</textarea> 
+            </td>
+          </tr>
+
+          <tr> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3" align="left">Adminisrator</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" rowspan="3" bgcolor="#F6F6F6"><input type="hidden" name="personID" value="{personID}">
+              Name</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="lastName" value="{lastName}" size="30"> 
+              <br>
+              (lastname)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"><input type="text" name="firstName" value="{firstName}" size="30"> 
+			  <br>
+              (firstname)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"><input type="text" name="middleName" value="{middleName}" size="30"> 
+			  <br>
+              (middlename) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="3"><input type="hidden" name="addressID" value="{addressID}">
+              Address</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"><input type="text" name="number" value="{number}" size="30"> 
+              (number)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"><input type="text" name="street" value="{street}" size="30"> 
+              <br>
+              (street)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"><input type="text" name="barangay" value="{barangay}" size="30"> 
+              (barangay)</td>
+            <td class="fileds_comment"><input type="text" name="district" value="{district}" size="30"> 
+              (district)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"><input type="text" name="municipalityCity" value="{municipalityCity}" size="30"> 
+              (municipality/city)</td>
+            <td class="fileds_comment"><input type="text" name="province" value="{province}" size="30"> 
+              (province)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">ContactNumber</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="telephone" value="{telephone}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Email</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="email" value="{email}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Land 
+              Appraisal</td>
+          </tr>
+          <tr> 
+		    <!-- Kind is now known as "Description" -->
+			<td class="fileds_comment" align="right" bgcolor="#F6F6F6">Description</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="kind" value="{kind}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Classification</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+                <input type="hidden" name="classification" value="{classification}">
+                <select name="landClasses" style="width:400;">
+				<option value="">none</option>
+                <!-- BEGIN LandClassesList -->
+                <option value="{landClassesID}" {landClasses_sel}>{landClasses}</option>
+                <!-- END LandClassesList -->
+                </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Sub-Class</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+                <input type="hidden" name="subClass" value="{subClass}">
+				<input type="hidden" name="landSubclasses" value="{subClass}">
+                <select name="landSubclassesDropDown" style="width:400;" onChange="selectedLandSubclasses();">
+				<option value="">none</option>
+                <!-- BEGIN LandSubclassesList -->
+                <option value="{landSubclassesID}" {landSubclasses_sel}>{landSubclasses}</option>
+                <!-- END LandSubclassesList -->
+                </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Actual 
+              Use</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+                <input type="hidden" name="actualUse" value="{actualUse}">
+				<input type="hidden" name="landActualUses" value="{actualUse}">
+				<select name="landActualUsesDropDown" style="width:400;" onChange="selectedLandActualUses();">
+				<option value="">none</option>
+                <!-- BEGIN LandActualUsesList -->
+                <option value="{landActualUsesID}" {landActualUses_sel}>{landActualUses}</option>
+                <!-- END LandActualUsesList -->
+                </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Area</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"><input type="text" name="area" value="{area}" size="30" onBlur="javascript: calculateMarketValue();"> 
+            </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6">
+			  <table width="200" border="0" cellspacing="0" cellpadding="0">
+                <tr class="fileds_comment"> 
+                  <td><input type="radio" name="unit" value="square meters">
+                    square meters</td>
+                  <td><input type="radio" name="unit" value="hectares">
+                    hectares</td>
+                </tr>
+              </table>
+			  <script language="Javascript">
+				if("{unit}"=="hectares")
+					document.LandEncode.unit[1].checked = true;
+				else
+					document.LandEncode.unit[0].checked = true;
+			  </script>
+			</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Unit Value</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+				<input type="text" name="unitValue" value="{unitValue}" size="15" onBlur="javascript: calculateMarketValue()"> 
+				&nbsp;
+				<input type="text" name="recommendedUnitValue" size="15" disabled> 
+				&lt;= Recommended Unit Value
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Market 
+              Value </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="marketValue" value="{marketValue}" size="30" onFocus="javascript: calculateMarketValue();" onBlur="javascript: calculateMarketValue();"> 
+            </td>
+          </tr>
+          <tr align="left"> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3">Value Adjustments 
+              Factor </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Adjustment 
+              Factor </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <textarea name="adjustmentFactor" cols="50" rows="4">{adjustmentFactor}</textarea> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">% Adjustment</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="percentAdjustment" value="{percentAdjustment}" size="10" onBlur="javascript: calculateValueAdjustment();">
+              % </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Value Adjustment</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="valueAdjustment" value="{valueAdjustment}" size="30" onFocus="javascript: calculateValueAdjustment();" onBlur="javascript: calculateAdjustedMarketValue();">
+               </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Adjusted 
+              Market Value</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="adjustedMarketValue" value="{adjustedMarketValue}" size="30" onFocus="javascript: calculateAdjustedMarketValue();" onBlur="javascript: calculateAdjustedMarketValue()"> 
+            </td>
+          </tr>
+          <tr align="left"> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3">Property 
+              Assessment </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Assessment 
+              Level </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+			 <input type="text" name="assessmentLevel" value="{assessmentLevel}" size="10" onBlur="javascript: calculateAssessedValue();">
+             %
+			 &nbsp;
+			 <input type="text" name="recommendedAssessmentLevel" disabled size="10"> % 
+			 &lt;=
+			 Recommended Assessment Level
+			 </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Assessed 
+              Value </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"><input type="text" name="assessedValue" value="{assessedValue}" size="30" onFocus="javascript: calculateAssessedValue();" onBlur="javascript: calculateAssessedValue();"> 
+            </td>
+          </tr>
+
+          <tr bgcolor="#CCCCCC" align="left"> 
+            <td class="fileds_comment" colspan="3">Certification </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Verified 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="verifiedByID" style="width:193;">
+                <option value="xx">none</option>
+                <!-- BEGIN VerifiedByList -->
+                <option value="{id}" {verifiedByID_sel}>{name}</option>
+                <!-- END VerifiedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp;<input type="button" value="Verify" name="verifyBtn" onClick="verifyForm(document.LandEncode);"> </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Plottings 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="plottingsByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN PlottingsByList -->
+                <option value="{id}" {plottingsByID_sel}>{name}</option>
+                <!-- END PlottingsByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp; </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Noted By</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="notedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN NotedByList -->
+                <option value="{id}" {notedByID_sel}>{name}</option>
+                <!-- END NotedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp; </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Appraised 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="appraisedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN AppraisedByList -->
+                <option value="{id}" {appraisedByID_sel}>{name}</option>
+                <!-- END AppraisedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="as_month" onChange="javascript:setDays('as_')">
+					  <option value=""></option>
+                      <!-- BEGIN as_MonthList -->
+                      <option value = "{as_monthValue}" {as_month_sel}>{as_month}</option>
+                      <!-- END as_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="as_day">
+					  <option value=""></option>
+                      <!-- BEGIN as_DayList -->
+                      <option value = "{as_dayValue}" {as_day_sel}>{as_dayValue}</option>
+                      <!-- END as_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="as_year" onChange="javascript:setDays('as_')">
+					  <option value=""></option>
+                      <!-- BEGIN as_YearList -->
+                      <option value = "{as_yearValue}" {as_year_sel}>{as_yearValue}</option>
+                      <!-- END as_YearList -->
+                    </select>
+                    (year)</td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Recommending 
+              Approval </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="recommendingApprovalID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN RecommendingApprovalList -->
+                <option value="{id}" {recommendingApprovalID_sel}>{name}</option>
+                <!-- END RecommendingApprovalList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="re_month" onChange="javascript:setDays('re_')">
+					  <option value=""></option>
+                      <!-- BEGIN re_MonthList -->
+                      <option value = "{re_monthValue}" {re_month_sel}>{re_month}</option>
+                      <!-- END re_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="re_day">
+					  <option value=""></option>
+                      <!-- BEGIN re_DayList -->
+                      <option value = "{re_dayValue}" {re_day_sel}>{re_dayValue}</option>
+                      <!-- END re_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="re_year" onChange="javascript:setDays('re_')">
+					  <option value=""></option>
+                      <!-- BEGIN re_YearList -->
+                      <option value = "{re_yearValue}" {re_year_sel}>{re_yearValue}</option>
+                      <!-- END re_YearList -->
+                    </select>
+                    (year)</td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Approved 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="approvedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN ApprovedByList -->
+                <option value="{id}" {approvedByID_sel}>{name}</option>
+                <!-- END ApprovedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="av_month" onChange="javascript:setDays('av_')">
+					  <option value=""></option>
+                      <!-- BEGIN av_MonthList -->
+                      <option value = "{av_monthValue}" {av_month_sel}>{av_month}</option>
+                      <!-- END av_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="av_day">
+					  <option value=""></option>
+                      <!-- BEGIN av_DayList -->
+                      <option value = "{av_dayValue}" {av_day_sel}>{av_dayValue}</option>
+                      <!-- END av_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="av_year" onChange="javascript:setDays('av_')">
+					  <option value=""></option>
+                      <!-- BEGIN av_YearList -->
+                      <option value = "{av_yearValue}" {av_year_sel}>{av_yearValue}</option>
+                      <!-- END av_YearList -->
+                    </select>
+                    (year)</td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Memoranda</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">&nbsp;</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <textarea name="memoranda" cols="50" rows="10">{memoranda}</textarea> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Misc.</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">
+				Idle
+			</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+				<input type="radio" name="idle" value="Yes">
+				Yes
+				&nbsp;
+				<input type="radio" name="idle" value="No">
+				No
+			    <script language="Javascript">
+					if("{idle}"=="Yes")
+						document.LandEncode.idle[0].checked = true;
+					else
+						document.LandEncode.idle[1].checked = true;
+			    </script>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">
+				Contested
+			</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+				<input type="radio" name="contested" value="Yes" {contested_sel}>
+				Yes
+				&nbsp;
+				<input type="radio" name="contested" value="No" {contested_sel}>
+				No
+			    <script language="Javascript">
+					if("{contested}"=="yes")
+						document.LandEncode.contested[0].checked = true;
+					else
+						document.LandEncode.contested[1].checked = true;
+			    </script>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp; 
+            </td>
+            <td colspan="2" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6"><input type="hidden" name="formAction" value="save"> 
+              <input type="hidden" name="propertyID" value="{propertyID}"> <input type="hidden" name="afsID" value="{afsID}"> 
+              <!-- BEGIN SubmitButton -->
+              <input type="button" value="Submit" name="submitBtn" onClick="validateForm(document.LandEncode);">
+			  <input type="reset" name="Submit2" value="Reset" >
+              <!-- END SubmitButton -->
+              <input type="button" name="Button" value="Close"  onClick="refreshParent();" > 
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+
+<script language="Javascript">
+	matchSelectedValue("{recommendedUnitValue}",document.LandEncode.recommendedUnitValue);
+	matchSelectedValue("{subClass}",document.LandEncode.landSubclasses);
+	matchSelectedValue("{recommendedAssessmentLevel}",document.LandEncode.recommendedAssessmentLevel);
+	matchSelectedValue("{actualUse}",document.LandEncode.landActualUses);
+
+	function matchSelectedValue(v,formelement,toCurrency){
+		formelement.value = v;
+	}
+
+	rUnitValue = document.LandEncode.recommendedUnitValue;
+	rAssessmentLevel = document.LandEncode.recommendedAssessmentLevel;
+
+	if(rUnitValue.value!=""){
+		rUnitValue.value = formatCurrency(rUnitValue.value);
+	}
+	if(rAssessmentLevel.value!=""){
+		rAssessmentLevel.value = formatCurrency(rAssessmentLevel.value);
+	}
+
+	pid = "{propertyID}";
+	if (pid){
+		calculateMarketValue();
+		calculateValueAdjustment();
+	}
+</script>
+
+</body>
+</html>

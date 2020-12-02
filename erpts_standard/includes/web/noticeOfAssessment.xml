@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+<!-- BEGIN Page -->
+	<page width="592" height="784" number="{pageNumber}" orientation="0">
+
+		<textitem xpos="492" ypos="671" font="Times New Roman" size="11" align="right">{date}</textitem>
+
+		<textitem xpos="100" ypos="644" font="Times New Roman" size="11" align="left">{ownerName}</textitem>
+		<textbox x1="100" y1="624" x2="280" y2="584" font="Times New Roman" size="11" hmode="0">{ownerAddress}</textbox>
+
+		<textbox x1="100" y1="584" x2="592" y2="324" font="Times New Roman" size="12" hmode="0">
+		Sir/Madam:
+
+					In view of Sec. 201, Republic Act 7160, otherwise known as the "Local Government Code of 1991", which states that all real property, wheter taxable or exempt, shall be appraised at the current fair market value prevailing in the locality where the property is situated, and Municipal Ordinance 24-93, Chapter 5, Section 28, Page 2, which also sates the assessment level to be applied to the fiar market value to determine its assessed value. You are enjoined to allow our duly authorized representative(s) {namesOfRepresentatives} to conduct an ocular inspection, re-assessment of your improvements in order to conform with the present market value of the real properties and to make an inventory of your machineries to determine which are taxable or exempt.
+
+					In this connection, we are requesting your good office to furnish us a copy of sworn statement of declaration of the true value of your improvements and list of machineries including its installation cost within five (5) days after receipt hereof.
+
+					Your utmost cooperation regarding this matter will be highly appreciated.
+
+					Thank you very much.
+				
+		</textbox>
+
+		<textitem xpos="492" ypos="250" font="Times New Roman" size="12" align="right">Very truly yours,</textitem>
+		<textitem xpos="492" ypos="200" font="Times New Roman" size="12" align="right">{signatory}</textitem>
+		<textitem xpos="492" ypos="185" font="Times New Roman" size="12" align="right">{designation}</textitem>
+
+
+		<textbox x1="100" y1="150" x2="592" y2="120" font="Times New Roman" size="11.5" hmode="0">Note:  Please report to Assessor's Office regarding your notice of assessment within 
+		        (5) days
+		</textbox>
+
+	</page>
+
+<!-- END Page -->
+</contents>

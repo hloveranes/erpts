@@ -1,0 +1,86 @@
+<?
+/*
+	Class : DBFactory
+	Author: Juanito M. Calingacion, Jr.
+	Date  : Originally done in 2003
+		    Modified Dec 08, 2005
+		    
+	
+	Description: The 'interface' for all 'factory' classes. To define a common set of API
+				 for creating a 'forward-only' cursor to feed collection classes
+				 Syntax is for php4 only i.e. no private vars and no interface declaration
+				 			 
+
+	Use freely at your own risk - do not remove copyright/this comment or else i will sue:)
+	Implementing or in this case sub-classes must use the Recordset library e.g. mysqlrecordset.phc
+	for mysql databases.
+	
+	
+	
+	
+	
+*/
+class DBFactory{
+      var $rs;
+      var $statement;
+
+      //var $connectionstring;
+      
+      function DBFactory(){	      	   
+               die("cannot instantiate DBFactory interface class");
+      }
+      
+      /*function setConnectionString($str){
+          $this->connectionstring=$str;
+      }
+      
+      function getConnectionString(){
+          return $this->connectionstring;
+      }*/
+      
+      function getLasterror(){
+          return $this->rs->getLasterror();
+      }
+
+      function getStatement(){
+               return $this->statement;
+      }
+
+      function setStatement($str){
+               $this->statement=$str;
+      }
+
+      function fetchCurrent(){
+               return $this->rs->getRecord();
+               //return $rec;
+      }
+
+      function fetchNext(){	           
+               if(!$this->rs->eof()){
+                   $this->rs->movenext();
+                   return $this->rs->getRecord();
+               }else{
+                   return false;
+               }
+      }
+
+      function fetchField($strField){
+               $rec=$this->rs->getRecord();
+               return $rec[$strField];
+      }
+
+      function Count(){
+               return $this->rs->getRecordcount();
+      }
+
+      function Reset(){
+               $this->rs->moveFirst();
+      }
+
+      function EOL(){
+               return($this->rs->eof());
+      }
+
+}
+
+?>

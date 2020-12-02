@@ -1,0 +1,241 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+  function validateForm(iform) {
+  
+  	if (iform.companyName.value=="") {
+		alert("Company Name Required.");
+		iform.companyName.focus();
+		return false;
+	}
+	if (iform.tin.value=="") {
+		alert("TIN required.");
+		iform.tin.focus();
+		return false;
+	} 
+	
+	/*if (iform.username.value!=iform.email.value) {
+		alert("Email addresses do not match.");
+		iform.username.focus();
+		return false;
+	}
+*/
+  	
+/*
+	s=iform.password.value;
+	if (s.length<6) {
+		alert("Password should be 6 characters or more.");
+		iform.password.focus();
+		return false;
+	}
+*/
+  	
+  /*	else if (iform.password.value!=iform.password1.value) {
+		alert("Passwords do not match.");
+		iform.password.focus();
+		return false;
+	}*/
+  	
+/*
+		if (iform.number.value=="") {
+			alert("Number is required.");
+			iform.number.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.street.value=="") {
+			alert("Street is required.");
+			iform.street.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.barangay.value=="") {
+			alert("Barangay is required.");
+			iform.barangay.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.municipalityCity.value=="") {
+			alert("Municipality/City is required.");
+			iform.municipalityCity.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.district.value=="") {
+			alert("District is required.");
+			iform.district.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.province.value=="") {
+			alert("Province is required.");
+			iform.province.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.telephone.value=="") {
+			alert("Telephone number is required.");
+			iform.telephone.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.fax.value=="") {
+			alert("Fax number is required.");
+			iform.fax.focus();
+			return false;
+		}
+*/
+/*
+		if (iform.email.value=="") {
+			alert("Email address required.");
+			iform.email.focus();
+			return false;
+		} 
+*/
+/*
+		else if (!checkEmail(iform.email.value)) {
+			alert("Invalid email address.");
+			iform.email.focus();
+			return false;
+		}
+*/
+
+	iform.submit();
+	return true;
+  }
+
+function setDefaults(){
+	window.resizeTo(575,420);
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="EncodeCompany" method="post" action="">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="500" border="0" cellspacing="1" cellpadding="3" align="center">
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" nowrap colspan="3"><b>OWNER 
+              INFORMATION - Company or Group</b></td>
+          </tr>
+          <!-- BEGIN companyID --
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>companyID</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">{companyID}</td>
+          </tr>
+          !-- END companyID -->
+          <tr> 
+            <td class="fileds_comment" align="right" height="40" bgcolor="#F6F6F6" nowrap>Company/Group Name:
+             </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6" height="40"> 
+              <input type="text" name="companyName" maxlength="100" size="30" value="{companyName}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>TIN</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+              <input type="text" name="tin" maxlength="32" size="30" value="{tin}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="3" nowrap> 
+              <input type="hidden" name="addressID" value="{addressID}">
+              Address</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" size="30" name="number" maxlength="32" value="{number}">
+              (number) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="street" size="30" maxlength="64" value="{street}">
+              (street) </td>
+          </tr>
+          <tr valign="middle"> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="barangay" size="30" maxlength="64" value="{barangay}">
+              (barangay) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="district" size="30" maxlength="64" value="{district}">
+              (District) </td>
+          </tr>
+          <tr valign="middle"> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="municipalityCity" size="30" maxlength="64" value="{municipalityCity}">
+              (municipality/city) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="province" size="30" maxlength="32" value="{province}">
+              (province) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Telephone</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+              <input type="text" name="telephone" size="30" maxlength="64" value="{telephone}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>FAX</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+              <input type="text" name="fax" size="30" maxlength="64" value="{fax}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>email</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="email" value="{email}" size="30">
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>website</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2">
+              <input type="text" name="website" value="{website}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" nowrap>&nbsp; </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="hidden" name="formAction" value="save">
+              <input type="hidden" name="companyID" value="{companyID}">
+              <input type="hidden" name="ownerID" value="{ownerID}">
+              <input type="hidden" name="odID" value="{odID}">
+              <input type="button" value="Submit" onClick="validateForm(document.EncodeCompany);">
+              <input type="reset" name="Submit2" value="Reset">
+              <input type="button" name="Button" value="Cancel"  onClick="refreshParent();">
+              <!--onClick="javascript:EncodeCompany.action.value = 'cancel';EncodeCompany.submit();">-->
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

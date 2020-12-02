@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>eLGU - Pay Real Property Taxes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+//-->
+</script>
+</head>
+
+<body>
+ <form name="EncodeRPTR" method="post" action="RPTREncode.php{Session}">
+ <input type="hidden" name="rptopID" value="{rptopID}">
+ <!-- BEGIN TDID -->
+ <input type="hidden" name="tdID[]" value="{tdID}">
+ <!-- END TDID -->
+  <table width="100%" border="0">
+    <tr>
+      
+  <td> <table width="98%" border="0" align="center" cellpadding="2" cellspacing="1">
+        <tr> 
+          <td colspan="20"><table width="60%" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td colspan="7">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td><div align="center"><font size="2"><a class=navi 
+                        href="CalculateRPTOP.php{Session}">Calculate Taxes</a></font></div></td>
+                <td><div align="center"><font size="2">|</font></div></td>
+                <td><div align="center"><font size="2"><a class=navi 
+                        href="PayRPTOP.php{Session}">Pay Taxes </a></font></div></td>
+                <td><div align="center"><font size="2">|</font></div></td>
+                <td><div align="center"><font size="2"><a class=navi 
+                        href="SOA.php{Session}">SOA</a></font></div></td>
+                <td><div align="center"><font size="2">|</font></div></td>
+                <td><div align="center"><font size="2"><a class=navi 
+                        href="TreasuryLogout.php">Logout</a></font></div></td>
+              </tr>
+              <tr> 
+                <td colspan="7">&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td colspan="20" align="center"><font size="2">Previous Tax Receipt 
+            No. 
+            <input name="textfield" type="text" value="{prevORNum}" style="font-size: 9;">
+            &nbsp;dated&nbsp; 
+            <input name="textfield2" type="text" value="{prevORDate} " style="font-size: 9;">
+            </font> </td>
+        </tr>
+        <tr> 
+          <td colspan="20" align="center"> <font size="2">Period Covered (choose 
+            only one) 
+            <select name="paymentPeriod" style="font-size: 9;">
+              <option value="Annual" {selectedAnnual}>Annual</option>
+              <option value="Q1" {selectedQ1}>Q1</option>
+              <option value="Q2" {selectedQ2}>Q2</option>
+              <option value="Q3" {selectedQ3}>Q3</option>
+              <option value="Q4" {selectedQ4}>Q4</option>
+            </select>
+            <input type="submit" name="update" value="update values >>" style="font-size: 9;">
+            </font> 
+            <!--
+		  	<table cellspacing="4" cellpadding="4">
+				<tr>
+					<td><font size="2">Annual <input type="radio" name="paymentPeriod" value="Annual" {checkedAnnual}></font></td>
+					<td><font size="2">Q1 <input type="radio" name="paymentPeriod" value="Q1" {checkedQ1}></font></td>
+					<td><font size="2">Q2 <input type="radio" name="paymentPeriod" value="Q2" {checkedQ2}></font></td>
+					<td><font size="2">Q3 <input type="radio" name="paymentPeriod" value="Q3" {checkedQ3}></font></td>
+					<td><font size="2">Q4 <input type="radio" name="paymentPeriod" value="Q4" {checkedQ4}></font></td>
+					<td><font size="2"><input type="submit" name="update" value="update values >>"></font></td>
+				</tr>
+			</table>
+			-->
+          </td>
+        </tr>
+        <tr> 
+          <td colspan="20" align="center">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td colspan="20" align="center"><table width="100%" border="1" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td width="13%" rowspan="2"><div align="center">INSERT<br>
+                    LOGO<br>
+                    HERE</div></td>
+                <td width="32%" height="30" valign="top"><font size="1">MUNICIPALITY/PROVINCE<br>
+                  <font size="2">{province}</font></font></td>
+                <td width="29%" valign="top"><font size="1">CITY<br>
+                  <font size="2">{city}</font></font></td>
+                <td width="26%" valign="top"><font size="1">DATE<br>
+                  <font size="2">{datePaid}</font></font></td>
+              </tr>
+              <tr> 
+                <td colspan="3"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td width="7%">&nbsp;</td>
+                      <td colspan="3"><font size="3">Received from <u>{receivedFrom}</u> 
+                        the sum of <u>{totalInWords} (P {total})</u></font></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="4"><font size="3">Philippine Currency, in full 
+                        or as installment payment of REAL PROPERTY TAX for the 
+                        Calendar year {taxableYear} upon property described</font></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="2"><font size="3">in the Assessment Rolls as 
+                        follows: </font></td>
+                      <td width="13%"><font size="3"> 
+                        <input name="basicTax" type="checkbox" value="checkbox" checked disabled>
+                        Basic Tax</font></td>
+                      <td width="24%"><font size="3"> 
+                        <input name="sef" type="checkbox" value="checkbox" checked disabled>
+                        Special Education Fund </font></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr bgcolor="#FFE7B3"> 
+          <td width="14%" bordercolor="1"><div align="center"><font size="1">NAME 
+              OF DECLARED<br>OWNER</font> </div></td>
+          <td width="14%" bordercolor="1"><div align="center"><font size="1">LOCATION<br>
+              NUMBER AND STREET<br>
+              OR BARANGAY</font></div></td>
+          <td width="5%" bordercolor="1"><div align="center"><font size="1">LOT<br>
+              AND BLOCK<br>
+              NUMBER</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TAX<br>
+              DECLARATION<br>
+              NUMBER</font></div></td>
+          <td width="21%" bordercolor="1"><div align="center"> 
+              <table width="100%" border="0">
+                <tr> 
+                  <td colspan="3"><div align="center"><font size="1">ASSESSED 
+                      VALUE</font></div></td>
+                </tr>
+                <tr> 
+                  <td width="30%"><div align="center"><font size="1">LAND</font></div></td>
+                  <td width="30%"><div align="center"><font size="1">IMPROV'MT</font></div></td>
+                  <td width="40%"><div align="center"><font size="1">TOTAL</font></div></td>
+                </tr>
+              </table>
+              <font size="1"></font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TAX<br>
+              DUE </font></div></td>
+          <td width="11%" bordercolor="1"><div align="center"> 
+              <table width="100%" border="0">
+                <tr> 
+                  <td colspan="2"><div align="center"><font size="1">INSTALLMENT*</font></div></td>
+                </tr>
+                <tr> 
+                  <td width="30%"><div align="center"><font size="1">No.</font></div></td>
+                  <td width="70%"><div align="center"><font size="1">PAYMENT</font></div></td>
+                </tr>
+              </table>
+            </div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">FULL<br>
+              PAYMENT</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">PENALTY<br>
+              PER CENT</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TOTAL</font></div></td>
+          <!-- BEGIN Property -->
+        <tr bgcolor="#E2E2E2"> 
+          <td width="14%" valign="top" bordercolor="1"> <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!-- BEGIN Owner -->
+              <tr> 
+                <td><font size="1">{ownerName}</font></td>
+              </tr>
+              <!-- END Owner -->
+            </table></td>
+          <td width="14%" valign="top" bordercolor="1"><font size="1">{lotAddress}</font></td>
+          <td width="5%" valign="top" bordercolor="1"><font size="1">&nbsp;</font></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{tdNum}</font></div></td>
+          <td width="21%" valign="top" bordercolor="1" ><div align="right"> 
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                <tr> 
+                  <td width="30%"><div align="right"><font size="1">{assessedValueLand}</font></div></td>
+                  <td width="30%"><div align="right"><font size="1">{assessedValueOthers}</font></div></td>
+                  <td width="40%"><div align="right"><font size="1">{assessedValue}</font></div></td>
+                </tr>
+              </table>
+              </div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{basic}</font></div></td>
+          <td width="11%" valign="top" bordercolor="1"><div align="right"> 
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr> 
+                  <td width="30%" height="14"><div align="center"><font size="1">{num}</font></div></td>
+                  <td width="70%"><div align="right"><font size="1">&nbsp;{partialPmt}</font></div></td>
+                </tr>
+              </table>
+              </div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{fullPmt}</font></div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{penalty}</font></div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{grandTotal}</font></div></td>
+        </tr>
+        <!-- END Property -->
+        <tr bgcolor="#E2E2E2"> 
+          <td colspan="6" valign="top" bordercolor="1">&nbsp;</td>
+          <td valign="bottom" bordercolor="1"><div align="right"><font size="1">{partialPmtTotal}</font></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"><font size="1">{fullPmtTotal}</font></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"><font size="1">{penaltyTotal}</font></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"><font size="1">{total}</font></div></td>
+        </tr>
+      </table>
+			<table width="100%">
+				<tr>
+				  <td>&nbsp;</td>
+				  <td align="center">
+				      <font size="1">Issue Real Property Tax Receipt</font><br> 
+				      <input type="submit" name="issueReceipt" value="Next">
+				  </td>
+				  <td>&nbsp;</td>
+				</tr>
+			</table>
+			</form>
+		<form name="forPrinting" method="post" action="RPTRPrint.php">
+		<input type="hidden" name="prevORNum" value="{prevORNum}">
+		<input type="hidden" name="paymentPeriod" value="{paymentPeriod}">
+		<input type="hidden" name="prevORAmount" value="{prevORAmount}">
+		<input type="hidden" name="prevORDate" value="{prevORDate}">
+  		<input type="hidden" name="rptopID" value="{rptopID}">
+		<!-- BEGIN PrintTDID 
+ 		<input type="hidden" name="tdID[]" value="{tdID}">
+ 	    END PrintTDID -->
+			<table width="100%">
+				<tr>
+				  <td>&nbsp;</td>
+				  <td align="center">
+				      <font size="1">Print Real Property Tax Receipt</font><br> 
+				      <input type="image" border="0" name="printReceipt" src="images/arrow_next.gif" width="47" height="35">
+				  </td>
+				  <td>&nbsp;</td>
+				</tr>
+			</table>
+		</form>
+
+<script language="Javascript" src="js/isClicked.js"></script>
+</body>
+</html>

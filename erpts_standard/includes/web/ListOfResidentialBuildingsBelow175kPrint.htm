@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="Javascript">
+function goFirst(){
+	document.ListOfResidentialBuildings.page.selectedIndex=0;
+	document.ListOfResidentialBuildings.submit();
+}
+function goPrevious(){
+	previousPage = parseInt(parseInt(document.ListOfResidentialBuildings.currentPage.value)-parseInt(1));
+	if(previousPage<=0) previousPage = 1;
+		document.ListOfResidentialBuildings.page.selectedIndex = previousPage-1;
+		document.ListOfResidentialBuildings.submit();
+}
+function goNext(){
+	nextPage = parseInt(parseInt(document.ListOfResidentialBuildings.currentPage.value) + parseInt(1));
+	if(nextPage>=document.ListOfResidentialBuildings.numOfPages.value) nextPage = document.ListOfResidentialBuildings.numOfPages.value;
+		document.ListOfResidentialBuildings.page.selectedIndex = nextPage-1;
+		document.ListOfResidentialBuildings.submit();								
+}
+function goLast(){
+	document.ListOfResidentialBuildings.page.selectedIndex = document.ListOfResidentialBuildings.numOfPages.value-1;
+	document.ListOfResidentialBuildings.submit();
+}
+</script>
+</head>
+<body bgcolor="#ffffff" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="ListOfResidentialBuildings" action="ListOfResidentialBuildingsBelow175kPrint.php" method="get">
+
+<input type="hidden" name="rpts_Session" value="{rpts_Session}">
+<input type="hidden" name="formAction" value="view">
+
+<table border=0 cellpadding=0 align=left width="100%">
+		<!-- BEGIN PageNavigationOne -->
+		  <tr>
+			<td>
+				<table width="100%">
+				<tr>
+					<td class="fileds_comment">
+						<input type="button" value="&lt;&lt;" class="fileds_comment" onClick="goFirst();">
+						|
+						<input type="button" value="&lt;" class="fileds_comment" onClick="goPrevious();">
+						|
+						<input type="button" value="&gt;" class="fileds_comment" onClick="goNext();">
+						|
+						<input type="button" value="&gt;&gt;" class="fileds_comment" onClick="goLast();">
+						&nbsp;&nbsp;
+
+						[ 
+						Page 
+						<select class="fileds_comment" name="page">
+							<!-- BEGIN PageListOne -->
+							<option value="{page}" {page_sel}>{page}</option>
+							<!-- END PageListOne -->
+						</select>
+						of 
+						<b>{numOfPages}</b>
+						]
+						<input type="hidden" name="currentPage" value="{currentPage}">
+						<input type="hidden" name="numOfPages" value="{numOfPages}">
+						
+						<input type="submit" value="Go" class="fileds_comment">
+						|
+						<input type="reset" value="Reset" class="fileds_comment">
+						<input type="button" value="Refresh" class="fileds_comment" onClick="window.location.reload();">
+					</td>
+				</tr>
+				</table>
+			</td>
+		  </tr>
+		  <!-- END PageNavigationOne -->
+<!-- BEGIN Report -->
+	<tr>
+		<td align="center" valign="top">
+			<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#333333" class="fields">
+			<tr>
+				<td bgcolor="#aaaaaa" class="subtitle" align=center colspan=10 nowrap>
+					LIST OF RESIDENTIAL BUILDINGS WITH MARKET VALUE BELOW Php 175,0000		
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Property Index Number</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Name of Owner</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Address</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Location</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Market Value</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Effectivity</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Remarks</b>
+				</td>
+			</tr>
+			<!-- BEGIN ReportList -->
+			<tr>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{propertyIndexNumber}</b>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{ownerNames}
+				</td>
+				<td bgcolor="#f6f6f6" class="fileds_comment" valign=top>
+					{firstOwnerAddress}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{location}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					{marketValue}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" align=right valign=top>
+					{effectivity}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{remarks}
+				</td>
+			</tr>
+			<!-- END ReportList -->
+			</table>
+		</td>
+	</tr>
+<!-- END Report -->
+</table>
+
+<!-- BEGIN NotFound -->
+no records to list
+<!-- END NotFound -->
+
+</form>
+</body>
+</html>

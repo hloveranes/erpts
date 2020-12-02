@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+<script language="Javascript1.2">
+
+</script>
+</head>
+
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg">
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td align="center"> 
+      <form name="form2" method="post" action="">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="fields">
+			 <!-- BEGIN Default -->
+			 Click on "Purge" to cancel receipts and payments with P0.00 paid values.
+			 <br><br>
+			 Currently <b>{countReceiptsForPurging}</b> out of a total <b>{totalReceipts}</b> receipts have P0.00   paid values.
+			 <br><br>
+			 <center>
+			 <input type="hidden" name="formAction">
+			 <input type="button" value="PURGE RECEIPTS" onClick="document.form2.formAction.value='purge'; document.form2.submit();">
+			 </center>
+			 <br><br>
+			 <!-- END Default -->
+
+			 <!-- BEGIN Results -->
+
+			 Purging successfully complete.
+			 <br><br> Purged <b>{totalPurgedReceipts}</b> receipts.
+
+			 <!-- END Results -->
+
+			 <br><br>
+
+			 <center>
+			 <input type="button" value="Close" onClick="window.close();">
+			 </center>
+
+            </td>
+          </tr>
+        </table>
+      </form>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="5">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

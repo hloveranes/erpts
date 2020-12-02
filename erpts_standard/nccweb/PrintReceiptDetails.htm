@@ -1,0 +1,1517 @@
+<html>
+<head>
+<title>eLGU - eRPTS - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->4/22/2004
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="Javascript" src="js/numeric.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function openPrintWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", status=1, toolbar=0, menubar=1, scrollbars=1, resizable=1");
+}
+
+function concatDateOptions(mObj,dObj,yObj){
+	monthValue = mObj.options[mObj.selectedIndex].value;
+	dayValue = mObj.options[dObj.selectedIndex].value;
+	yearValue = yObj.options[yObj.selectedIndex].value;
+
+	monthValue = prefixZero(monthValue);
+	dayValue = prefixZero(dayValue);
+
+	dateString = yearValue + "-" + monthValue + "-" + dayValue;
+	return dateString;
+}
+
+function printMergedReceiptDetailsPDF(){
+	url = "PrintMergedReceiptDetailsPDF.php{Session}";
+
+	oneIsCheckedAndReady = false;
+	doc = document.PrintMergedReceiptDetails;
+
+	// basic
+	if(doc.mergedBasicReceiptNumber.value==""){
+		alert("Receipt Number is blank.");
+		doc.mergedBasicReceiptNumber.focus();
+		return false;
+	}
+	else{
+		if(doc.mergedBasicReceipts.length>0){
+			if(doc.mergedBasicReceiptCheckbox.checked){
+				oneIsCheckedAndReady = true;
+				url += "&showBasicReceipt=true";
+			}
+			else{
+				url += "&showBasicReceipt=false";
+			}
+
+			url += "&basicReceiptAmount=" + escape(doc.mergedBasicReceiptAmount.value);
+			url += "&basicReceiptNumber=" + escape(doc.mergedBasicReceiptNumber.value);
+			url += "&basicPreviousReceiptNumber=" + escape(doc.mergedBasicPreviousReceiptNumber.value);
+			url += "&basicPreviousReceiptDate=" + concatDateOptions(doc.mergedBasicPreviousReceiptDate_month,doc.mergedBasicPreviousReceiptDate_day,doc.mergedBasicPreviousReceiptDate_year);
+
+			for(i=0 ; i<doc.mergedBasicReceipts.length ; i++){
+				url += "&basicReceiptIDArray[]=" + doc.mergedBasicReceipts.options[i].value;
+			}
+		}
+		else{
+			alert("There are no BASIC receipts to print.");
+			doc.mergedBasicReceipts.focus();
+			return false;
+		}
+	}
+
+	// sef
+	if(doc.mergedSefReceiptNumber.value==""){
+		alert("Receipt Number is blank.");
+		doc.mergedSefReceiptNumber.focus();
+		return false;
+	}
+	else{
+		if(doc.mergedSefReceipts.length>0){
+
+			if(doc.mergedSefReceiptCheckbox.checked){
+				oneIsCheckedAndReady = true;
+				url += "&showSefReceipt=true";
+			}
+			else{
+				url += "&showSefReceipt=false";
+			}
+
+			url += "&sefReceiptAmount=" + escape(doc.mergedSefReceiptAmount.value);
+			url += "&sefReceiptNumber=" + escape(doc.mergedSefReceiptNumber.value);
+			url += "&sefPreviousReceiptNumber=" + escape(doc.mergedSefPreviousReceiptNumber.value);
+			url += "&sefPreviousReceiptDate=" + concatDateOptions(doc.mergedSefPreviousReceiptDate_month,doc.mergedSefPreviousReceiptDate_day,doc.mergedSefPreviousReceiptDate_year);
+
+			for(i=0 ; i<doc.mergedSefReceipts.length ; i++){
+				url += "&sefReceiptIDArray[]=" + doc.mergedSefReceipts.options[i].value;
+			}
+		}
+		else{
+			alert("There are no SEF receipts to print.");
+			doc.mergedSefReceipts.focus();
+			return false;
+		}
+	}
+
+	// idle
+	if(doc.mergedIdleReceiptNumber.value==""){
+		alert("Receipt Number is blank.");
+		doc.mergedIdleReceiptNumber.focus();
+		return false;
+	}
+	else{
+		if(doc.mergedIdleReceipts.length>0){
+			if(doc.mergedIdleReceiptCheckbox.checked){
+				oneIsCheckedAndReady = true;
+				url += "&showIdleReceipt=true";
+			}
+			else{
+				url += "&showIdleReceipt=false";
+			}
+
+			url += "&idleReceiptAmount=" + escape(doc.mergedIdleReceiptAmount.value);
+			url += "&idleReceiptNumber=" + escape(doc.mergedIdleReceiptNumber.value);
+			url += "&idlePreviousReceiptNumber=" + escape(doc.mergedIdlePreviousReceiptNumber.value);
+			url += "&idlePreviousReceiptDate=" + concatDateOptions(doc.mergedIdlePreviousReceiptDate_month,doc.mergedIdlePreviousReceiptDate_day,doc.mergedIdlePreviousReceiptDate_year);
+
+			for(i=0 ; i<doc.mergedIdleReceipts.length ; i++){
+				url += "&idleReceiptIDArray[]=" + doc.mergedIdleReceipts.options[i].value;
+			}
+		}
+		else{
+			alert("There are no IDLE Receipts to print.");
+			doc.mergedIdleReceipts.focus();
+			return false;
+		}
+	}
+
+	if(oneIsCheckedAndReady){
+		url += "&paymentMode=" + escape(doc.paymentMode.options[doc.paymentMode.selectedIndex].value.toLowerCase());
+
+		if(doc.paymentMode.options[doc.paymentMode.selectedIndex].value.toLowerCase()=="check"){
+			url += "&checkNumber=" + escape(doc.checkNumber.value);
+			url += "&dateOfCheck=" + concatDateOptions(doc.dateOfCheck_month,doc.dateOfCheck_day,doc.dateOfCheck_year);
+			url += "&draweeBank=" + escape(doc.draweeBank.value);
+		}
+
+		url += "&cityTreasurer=" + escape(doc.cityTreasurer.options[doc.cityTreasurer.selectedIndex].value);
+		url += "&deputyTreasurer=" + escape(doc.deputyTreasurer.options[doc.deputyTreasurer.selectedIndex].value);
+		url += "&receiptDate=" + escape(doc.receiptDate.value);
+		url += "&receivedFrom=" + escape(doc.receivedFrom.value);
+
+		openPrintWin(url, 'PrintMergedReceiptDetailsPDF', 100, 20, 800, 600);
+	}
+	return false;
+}
+
+function printReceiptDetailsPDF(){
+	url = "PrintReceiptDetailsPDF.php{Session}";
+	oneIsChecked = false;
+	for(i=0 ; i <document.PrintReceiptDetails.elements.length; i++){
+		elementObj = document.PrintReceiptDetails.elements[i];
+		if(elementObj.name=="receiptID[]"){
+			if(elementObj.checked==true){
+				url += "&receiptID[]="+elementObj.value;
+				oneIsChecked = true;
+			}
+		}
+	}
+
+	if(oneIsChecked){
+		openPrintWin(url, 'PrintReceiptDetailsPDF', 100, 20, 800, 600);
+	}
+	return false;
+}
+
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+
+function applyPayments(){
+	url = "PaymentDetails.php{Session}&rptopID={rptopID}&ownerID={ownerID}";
+
+	doc = document.PaymentSession;
+	if(doc.keepReceiptBasket.checked==true){
+		url += "&keepReceiptBasket=true";
+		url += "&csvReceiptBasket=" + escape(doc.csvReceiptBasket.value);
+		doc = document.PrintReceiptDetails;
+		rememberReceiptID = "";
+		for(i=0 ; i<doc.elements.length ; i++){
+			if(doc.elements[i].type=="hidden"){
+				if(doc.elements[i].name=="rememberReceiptID[]"){
+					rememberReceiptID += "&rememberReceiptID[]=" + doc.elements[i].value;
+				}
+			}
+		}
+		url += rememberReceiptID;
+	}
+
+	window.location.href = url;
+	return false;
+}
+
+function optionExists(listObj,optionVal){
+	ret = false;
+	for(i=0 ; i<listObj.options.length ; i++){
+		if(listObj.options[i].value==optionVal){
+			return true;
+		}
+	}
+	return ret;
+}
+
+function addNewOption(listObj,optionObj){
+	tempOptionsArray = new Array;
+	for(i=0 ; i<listObj.options.length ; i++){
+		tempOptionsStr = "";
+		tempOptionsStr += listObj.options[i].value;
+		tempOptionsStr += "&";
+		tempOptionsStr += listObj.options[i].text;
+		tempOptionsArray[i] = tempOptionsStr;
+	}
+
+	listObj.options[0] = optionObj;
+	for(i=0 ; i<tempOptionsArray.length ; i++){
+		optionArray = tempOptionsArray[i].split("&");
+		tmpOption = new Option(optionArray[1],optionArray[0]);
+		listObj.options[i+1] = tmpOption;
+		optionArr = null;
+		tmpOption = null;
+	}
+
+	tempOptionsArray = null;
+	listObj.focus();
+}
+
+function removeOption(listObj){
+	// store options in tempOptionsArray except for selected option
+	tempOptionsArray = new Array;
+	j=0;
+	for(i=0 ; i<listObj.length ; i++){
+		if(i!=listObj.selectedIndex){
+			tempOptionsStr = "";
+			tempOptionsStr += listObj.options[i].value;
+			tempOptionsStr += "&";
+			tempOptionsStr += listObj.options[i].text;
+			tempOptionsArray[j] = tempOptionsStr;
+			j++;
+		}
+	}
+
+	// remove all options
+	for(i=(listObj.length-1) ; i>=0 ; i--){
+		listObj.options[i] = null;
+	}
+
+	if(tempOptionsArray.length > 0){
+		for(i=0 ; i<tempOptionsArray.length ; i++){
+			if(tempOptionsArray[i]!=null){
+				optionArray = tempOptionsArray[i].split("&");
+				tmpOption = new Option(optionArray[1],optionArray[0]);
+				listObj.options[i] = tmpOption;
+				optionArray = null;
+				tmpOption = null;
+			}
+		}
+	}
+	tempOptionsArray = null;
+	listObj.focus();
+}
+
+function computeMergedAmount(amountField,amountValue,operator){
+	if(amountField.value==""){
+		amountField.value = 0;
+	}
+
+	if(amountValue==false) amountValue = 0;
+
+	currentAmount = unformatCurrency(amountField.value);
+
+	if(operator=="add"){
+		newAmount = parseFloat(currentAmount) + parseFloat(amountValue);
+	}
+	else if(operator=="subtract"){
+		newAmount = parseFloat(currentAmount) - parseFloat(amountValue);
+	}
+	amountField.value = formatCurrency(newAmount);
+}
+
+function getBasketInfo(receiptID,infoIndex){
+	basketDoc = document.PaymentSession;
+
+	for(i=0 ; i<basketDoc.receiptBasketList.length ; i++){
+		receipt = basketDoc.receiptBasketList.options[i];
+		receiptArray = receipt.value.split("&");
+		// receiptID
+		if(receiptArray[0]==receiptID){
+			if(infoIndex>=0 && infoIndex<=3){
+				/*
+					receiptArray[0]; // selectedReceiptID
+					receiptArray[1]; // selectedReceiptTaxType
+					receiptArray[2]; // selectedReceiptAmount
+					receiptArray[3]; // selectedReceiptNumber
+				*/				
+				return receiptArray[infoIndex];
+			}
+		}		
+	}
+
+	return false;
+}
+
+function getBasketReceiptArray(receiptID){
+	basketDoc = document.PaymentSession;
+
+	for(i=0 ; i<basketDoc.receiptBasketList.length ; i++){
+		receipt = basketDoc.receiptBasketList.options[i];
+		receiptArray = receipt.value.split("&");
+		// receiptID
+		if(receiptArray[0]==receiptID){
+			return receiptArray;
+		}		
+	}
+
+	return false;
+}
+
+function removeFromMerger(taxType){
+	mergerDoc = document.PrintMergedReceiptDetails;
+	switch(taxType){
+		case "basic":
+			if(mergerDoc.mergedBasicReceipts.options.length>0){
+				if(mergerDoc.mergedBasicReceipts.length <= 0){
+					selectedReceiptAmount = 0;
+				}
+				else{
+					receiptID = mergerDoc.mergedBasicReceipts.options[mergerDoc.mergedBasicReceipts.selectedIndex].value;
+					selectedReceiptAmount = getBasketInfo(receiptID,2);
+				}
+				removeOption(mergerDoc.mergedBasicReceipts);
+				computeMergedAmount(mergerDoc.mergedBasicReceiptAmount,selectedReceiptAmount,"subtract");
+			}
+			break;
+		case "sef":
+			if(mergerDoc.mergedSefReceipts.options.length>0){
+				if(mergerDoc.mergedSefReceipts.length <= 0){
+					selectedReceiptAmount = 0;
+				}
+				else{
+					receiptID = mergerDoc.mergedSefReceipts.options[mergerDoc.mergedSefReceipts.selectedIndex].value;
+					selectedReceiptAmount = getBasketInfo(receiptID,2);
+				}
+				removeOption(mergerDoc.mergedSefReceipts);
+				computeMergedAmount(mergerDoc.mergedSefReceiptAmount,selectedReceiptAmount,"subtract");
+			}
+			break;
+		case "idle":
+			if(mergerDoc.mergedIdleReceipts.options.length>0){
+				if(mergerDoc.mergedIdleReceipts.length <= 0){
+					selectedReceiptAmount = 0;
+				}
+				else{
+					receiptID = mergerDoc.mergedIdleReceipts.options[mergerDoc.mergedIdleReceipts.selectedIndex].value;
+					selectedReceiptAmount = getBasketInfo(receiptID,2);
+				}
+				removeOption(mergerDoc.mergedIdleReceipts);
+				computeMergedAmount(mergerDoc.mergedIdleReceiptAmount,selectedReceiptAmount,"subtract");
+			}
+			break;
+	}
+
+	return false;
+}
+
+
+var autoMergeTimerID = 0;
+var autoMergerTimerStart = false;
+var autoMergeCount = 0;
+var autoFillBasicFieldsDone = false;
+var autoFillSefFieldsDone = false;
+var autoFillIdleFieldsDone = false;
+
+function startAutoMergeTiming(){
+	if(autoMergerTimerStart==false){
+		autoMergerTimerStart = true;
+		autoMergeTimerID = setTimeout("updateAutoMergeTimer();",100);
+	}
+}
+	
+function stopAutoMergeTiming(){
+	clearTimeout(autoMergeTimerID);
+	autoMergeTimerID = false;
+	autoMergerTimerStart = false;
+}
+
+function valueIsEmpty(str){
+	if(str!=" " && str!=""){
+		return false;
+	}
+	return true;
+}
+
+function prefixZero(numberStr){
+	if(numberStr<10){
+		numberStr = "0" + "" + numberStr;
+	}
+	return numberStr;		
+}
+
+function autoFillDateField(m,d,y,mObj,dObj,yObj){
+	// month 
+	if(mObj.selectedIndex==0 && valueIsEmpty(m)==false){
+		for(i=0 ; i<mObj.length ; i++){
+			monthValue = prefixZero(mObj.options[i].value);
+			if(m==monthValue){
+				mObj.selectedIndex = i;
+				i = mObj.length;
+			}
+		}
+	}
+	// day
+	if(dObj.selectedIndex==0 && valueIsEmpty(d)==false){
+		for(i=0 ; i<dObj.length ; i++){
+			dayValue = prefixZero(dObj.options[i].value);
+			if(d==dayValue){
+				dObj.selectedIndex = i;
+				i = dObj.length;
+			}
+		}
+	}
+	// year
+	if(yObj.selectedIndex==0 && valueIsEmpty(y)==false){
+		for(i=0 ; i<yObj.length ; i++){
+			if(y==yObj.options[i].value){
+				yObj.selectedIndex = i;
+				i = yObj.length;
+			}
+		}
+	}
+}
+
+function autoFillGeneralFields(receiptID){
+	mergerDoc = document.PrintMergedReceiptDetails;
+	receiptArray = getBasketReceiptArray(receiptID);
+
+	// receiptArray Index:
+	/*
+		receiptArray[0] = receiptID
+		receiptArray[1] = taxType
+		receiptArray[2] = amount
+		receiptArray[3] = receiptNumber
+		receiptArray[4] = paymentMode
+		receiptArray[5] = checkNumber
+		receiptArray[6] = dateOfCheck
+		receiptArray[7] = draweeBank
+		receiptArray[8] = receivedFrom
+		receiptArray[9] = previousReceiptNumber
+		receiptArray[10] = previousReceiptDate
+		receiptArray[11] = cityTreasurer
+		receiptArray[12] = deputyTreasurer
+		receiptArray[13] = receiptDate
+	*/
+
+	// paymentMode
+	if(mergerDoc.paymentMode.selectedIndex==0){
+		if(valueIsEmpty(receiptArray[4])==false){
+			switch(receiptArray[4].toLowerCase()){
+				case "cash":
+					mergerDoc.paymentMode.selectedIndex = 0;
+					changePaymentMode();
+					break;
+				case "check":
+					mergerDoc.paymentMode.selectedIndex = 1;
+					changePaymentMode();
+
+					// checkNumber
+					if(valueIsEmpty(mergerDoc.checkNumber.value)==true && valueIsEmpty(receiptArray[5])==false){
+						mergerDoc.checkNumber.value = receiptArray[5];
+					}
+
+					// dateOfCheck
+					if(valueIsEmpty(receiptArray[6])==false){
+						if(receiptArray[6]=="0000-00-00"){
+							mergerDoc.dateOfCheck_month.selectedIndex = 0;
+							mergerDoc.dateOfCheck_day.selectedIndex = 0;
+							mergerDoc.dateOfCheck_year.selectedIndex = 0;
+						}
+						else{
+							dateOfCheckArray = receiptArray[6].split("-");
+							autoFillDateField(dateOfCheckArray[1],dateOfCheckArray[2],dateOfCheckArray[0],mergerDoc.dateOfCheck_month,mergerDoc.dateOfCheck_day,mergerDoc.dateOfCheck_year);
+						}
+					}
+
+					// draweeBank
+					if(valueIsEmpty(receiptArray[7])==false){
+						mergerDoc.draweeBank.value = receiptArray[7];
+					}
+					break;
+				case "treasury note":
+					mergerDoc.paymentMode.selectedIndex = 2;
+					changePaymentMode();
+					break;
+			}
+			mergerDoc.paymentMode
+		}
+	}
+
+	// cityTreasurer
+	if(mergerDoc.cityTreasurer.selectedIndex==0 && valueIsEmpty(receiptArray[11])==false){
+		for(i=0 ; i<mergerDoc.cityTreasurer.length ; i++){
+			if(receiptArray[11]==mergerDoc.cityTreasurer.options[i].value){
+				mergerDoc.cityTreasurer.selectedIndex = i;
+				i = mergerDoc.cityTreasurer.length;
+			}
+		}
+	}
+
+	// deputyTreasurer
+	if(mergerDoc.deputyTreasurer.selectedIndex==0 && valueIsEmpty(receiptArray[12])==false){
+		for(i=0 ; i<mergerDoc.deputyTreasurer.length ; i++){
+			if(receiptArray[12]==mergerDoc.deputyTreasurer.options[i].value){
+				mergerDoc.deputyTreasurer.selectedIndex = i;
+				i = mergerDoc.deputyTreasurer.length;
+			}
+		}
+	}
+
+	// receivedFrom
+	if(valueIsEmpty(mergerDoc.receivedFrom.value)==true && valueIsEmpty(receiptArray[8])==false){
+		mergerDoc.receivedFrom.value = receiptArray[8];
+	}
+
+	// receiptDate
+	if(valueIsEmpty(mergerDoc.receiptDate.value)==true && valueIsEmpty(receiptArray[13])==false){
+		mergerDoc.receiptDate.value = receiptArray[13];
+	}
+
+	return false;
+}
+
+function autoFillFields(receiptID,taxType){
+	basketDoc = document.PaymentSession;
+	mergerDoc = document.PrintMergedReceiptDetails;
+
+	switch(taxType){
+		case "basic":
+			mergedReceiptNumber = mergerDoc.mergedBasicReceiptNumber;
+			mergedPreviousReceiptNumber = mergerDoc.mergedBasicPreviousReceiptNumber;
+			mergedPreviousReceiptDate_month = mergerDoc.mergedBasicPreviousReceiptDate_month;
+			mergedPreviousReceiptDate_day = mergerDoc.mergedBasicPreviousReceiptDate_day;
+			mergedPreviousReceiptDate_year = mergerDoc.mergedBasicPreviousReceiptDate_year;
+			break;
+		case "sef":
+			mergedReceiptNumber = mergerDoc.mergedSefReceiptNumber;
+			mergedPreviousReceiptNumber = mergerDoc.mergedSefPreviousReceiptNumber;
+			mergedPreviousReceiptDate_month = mergerDoc.mergedSefPreviousReceiptDate_month;
+			mergedPreviousReceiptDate_day = mergerDoc.mergedSefPreviousReceiptDate_day;
+			mergedPreviousReceiptDate_year = mergerDoc.mergedSefPreviousReceiptDate_year;
+			break;
+		case "idle":
+			mergedReceiptNumber = mergerDoc.mergedIdleReceiptNumber;
+			mergedPreviousReceiptNumber = mergerDoc.mergedIdlePreviousReceiptNumber;
+			mergedPreviousReceiptDate_month = mergerDoc.mergedIdlePreviousReceiptDate_month;
+			mergedPreviousReceiptDate_day = mergerDoc.mergedIdlePreviousReceiptDate_day;
+			mergedPreviousReceiptDate_year = mergerDoc.mergedIdlePreviousReceiptDate_year;
+			break;
+	}
+
+	// attempt to fill General Receipt Fields if not already filled
+	autoFillGeneralFields(receiptID);
+
+	receiptArray = getBasketReceiptArray(receiptID);
+
+	// mergedReceiptNumber
+	if(valueIsEmpty(mergedReceiptNumber.value)==true && valueIsEmpty(receiptArray[3])==false){
+		mergedReceiptNumber.value = receiptArray[3];
+	}
+
+	// mergedPreviousReceiptNumber
+	if(valueIsEmpty(mergedPreviousReceiptNumber.value)==true && valueIsEmpty(receiptArray[9])==false){
+		mergedPreviousReceiptNumber.value = receiptArray[9];
+	}
+
+	// mergedBasicPreviousReceiptDate
+	if(valueIsEmpty(receiptArray[10])==false){
+		if(receiptArray[10]=="0000-00-00"){
+			mergedPreviousReceiptDate_month.selectedIndex = 0;
+			mergedPreviousReceiptDate_day.selectedIndex = 0;
+			mergedPreviousReceiptDate_year.selectedIndex = 0;
+		}
+		else{
+			dateArray = receiptArray[10].split("-");
+			autoFillDateField(dateArray[1],dateArray[2],dateArray[0],mergedPreviousReceiptDate_month,mergedPreviousReceiptDate_day,mergedPreviousReceiptDate_year);
+		}
+	}
+}
+
+function autoFill(listObj,taxType){
+	if(listObj.length <= 0) return false;
+
+	receiptID = listObj.options[listObj.selectedIndex].value;
+	autoFillFields(receiptID,taxType);
+}
+
+function updateAutoMergeTimer(){
+	basketDoc = document.PaymentSession;
+	mergerDoc = document.PrintMergedReceiptDetails;
+
+	if(autoMergeCount < basketDoc.receiptBasketList.options.length){
+		merge(autoMergeCount);
+
+		receiptArray = basketDoc.receiptBasketList.options[autoMergeCount].value.split("&")
+		receiptID = receiptArray[0];
+		receiptType = receiptArray[1];
+		switch(receiptType){
+			case "B":
+				if(autoFillBasicFieldsDone==false){
+					autoFillFields(receiptID,"basic");
+				}
+				autoFillBasicFieldsDone = true;
+				break;
+			case "S":
+				if(autoFillSefFieldsDone==false){
+					autoFillFields(receiptID,"sef");
+				}
+				autoFillSefFieldsDone = true;
+				break;
+			case "I":
+				if(autoFillIdleFieldsDone==false){
+					autoFillFields(receiptID,"idle");
+				}
+				autoFillIdleFieldsDone = true;
+				break;
+		}
+		receiptArray = null;
+		receiptID = null;
+
+		autoMergeCount++;
+	}
+	else{
+		stopAutoMergeTiming();
+	}
+
+	if(autoMergerTimerStart==true){
+		autoMergeTimerID = setTimeout("updateAutoMergeTimer();",100);
+	}
+}
+
+
+function autoMergeAllFromBasket(){
+	mergerDoc = document.PrintMergedReceiptDetails;
+	basketDoc = document.PaymentSession;
+	if(basketDoc.receiptBasketList.options.length > 0){
+		startAutoMergeTiming();
+	}
+}
+
+function addToMerger(){
+	basketDoc = document.PaymentSession;
+	merge(basketDoc.receiptBasketList.selectedIndex);
+}
+
+function merge(optionIndex){
+	basketDoc = document.PaymentSession;
+	mergerDoc = document.PrintMergedReceiptDetails;
+
+	selectedReceipt = basketDoc.receiptBasketList.options[optionIndex];
+	selectedReceiptArray = selectedReceipt.value.split("&");
+	selectedReceiptID = selectedReceiptArray[0];
+	selectedReceiptTaxType = selectedReceiptArray[1];
+	selectedReceiptAmount = selectedReceiptArray[2];
+	selectedReceiptNumber = selectedReceiptArray[3];
+	switch(selectedReceiptTaxType){
+		case "B":
+			if(!optionExists(mergerDoc.mergedBasicReceipts,selectedReceiptID)){
+				newOption = new Option("("+selectedReceiptID+") "+selectedReceiptNumber,selectedReceiptID);
+				addNewOption(mergerDoc.mergedBasicReceipts,newOption);
+				computeMergedAmount(mergerDoc.mergedBasicReceiptAmount,selectedReceiptAmount,"add");
+			}
+			break;
+		case "S":
+			if(!optionExists(mergerDoc.mergedSefReceipts,selectedReceiptID)){
+				newOption = new Option("("+selectedReceiptID+") "+selectedReceiptNumber,selectedReceiptID);
+				addNewOption(mergerDoc.mergedSefReceipts,newOption);
+				computeMergedAmount(mergerDoc.mergedSefReceiptAmount,selectedReceiptAmount,"add");
+			}
+			break;
+		case "I":
+			if(!optionExists(mergerDoc.mergedIdleReceipts,selectedReceiptID)){
+				newOption = new Option("("+selectedReceiptID+") "+selectedReceiptNumber,selectedReceiptID);
+				addNewOption(mergerDoc.mergedIdleReceipts,newOption);
+				computeMergedAmount(mergerDoc.mergedIdleReceiptAmount,selectedReceiptAmount,"add");
+			}
+			break;
+	}
+
+
+}
+
+function changePaymentMode(){
+	trCheckNumber = document.getElementById('tr_checkNumber');
+	trDateOfCheck = document.getElementById('tr_dateOfCheck');
+	trDraweeBank = document.getElementById('tr_draweeBank');
+
+	doc = document.PrintMergedReceiptDetails;
+
+	if(doc.paymentMode.options[doc.paymentMode.selectedIndex].value=="Check"){
+		doc.checkNumber.disabled = false;
+		doc.dateOfCheck_month.disabled = false;
+		doc.dateOfCheck_day.disabled = false;
+		doc.dateOfCheck_year.disabled = false;
+		doc.draweeBank.disabled = false;
+		trCheckNumber.style.display = '';
+		trDateOfCheck.style.display = '';
+		trDraweeBank.style.display = '';
+	}
+	else{
+		doc.checkNumber.disabled = true;
+		doc.dateOfCheck_month.disabled = true;
+		doc.dateOfCheck_day.disabled = true;
+		doc.dateOfCheck_year.disabled = true;
+		doc.draweeBank.disabled = true;
+		trCheckNumber.style.display = 'none';
+		trDateOfCheck.style.display = 'none';
+		trDraweeBank.style.display = 'none';
+	}
+}
+
+function setDaysForPreviousReceiptDate(receiptType) {
+  var obj = document.getElementById("merged"+receiptType+"PreviousReceiptDate_day");
+
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+
+  monthObj = document.getElementById("merged"+receiptType+"PreviousReceiptDate_month");
+  switch(monthObj.value) {
+	case "2":
+		yearObj = document.getElementById("merged"+receiptType+"PreviousReceiptDate_year");
+		objYear = yearObj.value;
+		if ((objYear % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+
+function setDays(objName) {
+  var obj = document.getElementById(objName+"_day");
+
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+
+  monthObj = document.getElementById(objName+"_month");
+  switch(monthObj.value) {
+	case "2":
+		yearObj = document.getElementById(objName+"_year");
+		objYear = yearObj.value;
+		if ((objYear % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+
+
+//-->
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step06.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_treasurer_mod.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+		  <tr align="center"> 
+		   <td width="0" align=left class="common"><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right>
+			<a href="TreasurersHome.php{Session}" class="navi" title="Treasurer's Module : Home">TM : Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+		  <tr align="center"> 
+		   <td width="0" nowrap colspan=2 class="navi">
+		   
+		   <a href="CalculateRPTOPBatch.php{Session}" class="navi" title="Calculate Taxes">Calculate Taxes</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="SOA.php{Session}" class="navi" title="Payments">Payments</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <!-- BEGIN TreasuryMaintenanceLink -->
+		   <a href="TreasuryMaintenanceHome.php{Session}" class="navi" title="Treasury Maintenance">Treasury Maintenance</a>
+		   <!-- END TreasuryMaintenanceLink -->
+		   <!-- BEGIN TreasuryMaintenanceLinkText -->
+		   <font class="navi"><font color="#eeeeee">Treasury Maintenance</font></font>
+		   <!-- END TreasuryMaintenanceLinkText -->
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="TreasuryReports.php{Session}" class="navi" title="Reports">Reports</a>
+
+	   
+		   </td>
+
+		  </tr>
+
+
+
+		 </table></td>
+		<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+	  </table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+
+					<tr>
+						<td align="center">
+							<table border=0 cellpadding=0 cellspacing=0 width="90%">
+							<tr>
+								<td align="left" class="subtitle">
+									PRINT RECEIPTS<br>&nbsp;
+								</td>
+								<td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+							</tr>
+							<tr>
+								<td align=right colspan=2 class="fields">
+								    <font class="fields">
+								    <b><a href="#" onClick="applyPayments();">go to Apply Payment Details</a></b> 
+									&gt;&gt;
+									<br>&nbsp;
+								    </font>
+								</td>
+							</tr>
+							</table>							
+						</td>
+					</tr>
+                    <tr> 
+					   <td align="center" valign="top">
+						<table border=0 cellpadding=0 cellspacing=0 width="90%">
+						<tr>
+							<td valign=top class="fileds_comment">
+
+			 <!-- BEGIN OwnerListTable -->
+			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			  <tr> 
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Person
+				   <!-- BEGIN SearchOwnerPersonLink -->
+				   <!-- END SearchOwnerPersonLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN PersonTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>
+				 <!-- BEGIN PersonList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=viewOnly','popupWindow',50,50,350,400)" class="fields">{fullName}</a> 
+				  </td>
+				 </tr>
+				 <!-- END PersonList -->
+				 <!-- BEGIN PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END PersonTable -->
+				</table></td>
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Company
+				   <!-- BEGIN SearchOwnerCompanyLink -->
+				   <!-- END SearchOwnerCompanyLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN CompanyTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>				 
+				 <!-- BEGIN CompanyList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=viewOnly','popupWindow',50,50,450,500)" class="fields">{companyName}</a></td>
+				 </tr>
+				 <!-- END CompanyList -->
+				 <!-- BEGIN CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END CompanyTable -->
+				</table></td>
+			  </tr>
+			 </table>
+			 <input type="hidden" name="formAction" value="remove">
+			 <input type="hidden" name="ownerID" value="{ownerID}">
+			 <!-- END OwnerListTable -->
+
+							</td>
+						</tr>
+
+						<tr>
+							<td>&nbsp;<br></td>
+						</tr>
+
+						<tr>
+							<td align=center>
+								<form name="PrintReceiptDetails">
+								<table border=0 cellpadding=4 cellspacing=1 width="100%">
+								<tr bgcolor="#cccccc">
+									<td class="fileds_comment" width="15%" align="center">
+										<b>receiptID</b>
+									</td>
+									<td class="fileds_comment" align="center">
+										<b>Receipt Number</b>
+									</td>
+									<td class="fileds_comment" align="center">
+										<b>Payment Mode</b>
+									</td>
+									<td class="fileds_comment" align="center">
+										<b>Amount Paid</b>
+									</td>
+									<td width="20" align="center"><input name="btnPrintIndividually" type="button" value="PRINT" style="align:center; width:130px; height:35px;" onClick="printReceiptDetailsPDF();">
+										<script language="Javascript">	
+											document.PrintReceiptDetails.btnPrintIndividually.value = "   PRINT\nas Individual Receipts";
+										</script>
+									</td>
+								</tr>
+								<!-- BEGIN ReceiptList -->
+								<tr bgcolor="#f6f6f6">
+									<td class="fileds_comment" align="center">
+										<input type="hidden" name="rememberReceiptID[]" value="{receiptID}">
+										{receiptID}
+									</td>
+									<td class="fields" align="center">
+										<B>{receiptNumber}</B>
+									</td>
+									<td class="fields" align="center">
+										{paymentMode}
+									</td>
+									<td class="fileds_comment" align="right">
+										{amountPaid}
+									</td>
+									<td align="center">
+										<input name="receiptID[]" type="checkbox" value="{receiptID}" checked>
+									</td>
+								</tr>
+
+								<!-- END ReceiptList -->
+								</table>
+							</td>
+							</form>
+						</tr>
+
+						<tr>
+							<td class="subtitle"><br>&nbsp;<br></td>
+						</tr>
+
+						<tr>
+							<td class="subtitle">
+								<form name="PrintMergedReceiptDetails">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td class="subtitle" align="left">
+										MERGED RECEIPTS<br>&nbsp;<br>
+									</td>
+									<td align="right">
+										<input name="btnPrintMerged" type="button" value="PRINT" style="align:center; width:130px; height:35px;" onClick="printMergedReceiptDetailsPDF();">
+										<script language="Javascript">	
+											document.PrintMergedReceiptDetails.btnPrintMerged.value = "   PRINT\nas Merged Receipts";
+										</script>
+									</td>
+								</tr>
+								</table>
+							</td>
+						</tr>
+
+						<tr>
+							<td align=center>
+								<table border=0 cellpadding=1 cellspacing=0 width="100%">
+								<tr>
+									<td bgcolor="#777777">
+										<table border=0 cellpadding=4 cellspacing=1 width="100%">
+										<tr>
+											<td colspan="4" bgcolor="#888888" class="fields">
+												<font color="#f6f6f6"><b>MERGED RECEIPTS DETAILS:</b></font>
+											</td>
+										</tr>
+										<tr>
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right" width="200">
+												<font color="#f6f6f6">Payment Mode : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left" width="400">
+												<font color="#f6f6f6">
+												<select name="paymentMode" id="paymentMode" onChange="changePaymentMode();">
+													<option value="Cash">Cash</option>
+													<option value="Check">Check</option>
+													<option value="Treasury Note">Treasury Note</option>
+												</select>
+
+												<input type="hidden" name="receivedFrom" value="">
+												<input type="hidden" name="receiptDate" value="">
+												</font>
+											</td>
+										</tr>
+										<tr id="tr_checkNumber" style="display:none;">
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+												<font color="#f6f6f6">Check Number : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+												<font color="#f6f6f6">
+												<input type="text" name="checkNumber" id="checkNumber" size="30" disabled>
+												</font>
+											</td>
+										</tr>
+										<tr id="tr_dateOfCheck" style="display:none;">
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+												<font color="#f6f6f6">Dated : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+												<font color="#f6f6f6">
+									                <select name="dateOfCheck_month" id="dateOfCheck_month" onChange="javascript:setDays('dateOfCheck')" disabled>
+								 				   <option value=""></option>
+							                       <!-- BEGIN DateOfCheckMonthList -->
+							                       <option value = "{monthValue}" {dateOfCheck_month_sel}>{month}</option>
+							                       <!-- END DateOfCheckMonthList -->
+							                    </select>
+							                    <select name="dateOfCheck_day" id="dateOfCheck_day" disabled>
+											 	   <option value=""></option>
+											       <!-- BEGIN DateOfCheckDayList -->
+							                       <option value = "{dayValue}" {birth_day_sel}>{dayValue}</option>
+							                       <!-- END DateOfCheckDayList -->
+							                    </select>
+							                    <select name="dateOfCheck_year" id="dateOfCheck_year" onChange="javascript:setDays('dateOfCheck')" disabled>
+												   <option value=""></option>
+							                       <!-- BEGIN DateOfCheckYearList -->
+							                       <option value = "{yearValue}" {dateOfCheck_year_sel}>{yearValue}</option>
+							                       <!-- END DateOfCheckYearList -->
+								                </select>
+												<input type="hidden" name="dateOfCheck" value="">
+												</font>
+											</td>
+										</tr>
+										<tr id="tr_draweeBank" style="display:none;">
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+												<font color="#f6f6f6">Drawee Bank : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+												<font color="#f6f6f6">
+												<input type="text" name="draweeBank" id="draweeBank" size="30" disabled>
+												</font>
+											</td>
+										</tr>
+										<tr>
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+												<font color="#f6f6f6">City Treasurer : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+												<font color="#f6f6f6">
+												<select name="cityTreasurer" id="cityTreasurer">
+													<!-- BEGIN CityTreasurerList -->
+													<option value="{id}" {cityTreasurer_sel}>{name}</option>
+													<!-- END CityTreasurerList -->
+												</select>
+												</font>
+											</td>
+										</tr>
+										<tr>
+											<td colspan=1 bgcolor="#999999" class="fileds_comment" align="right">
+												<font color="#f6f6f6">Deputy : </font>
+											</td>
+											<td colspan=3 bgcolor="#999999" class="fileds_comment" align="left">
+												<font color="#f6f6f6">
+												<select name="deputyTreasurer" id="deputyTreasurer">
+													<!-- BEGIN DeputyTreasurerList -->
+													<option value="{id}" {deputyTreasurer_sel}>{name}</option>
+													<!-- END DeputyTreasurerList -->
+												</select>
+												</font>
+											</td>
+										</tr>
+										<tr>
+											<td bgcolor="#cccccc" colspan="4">
+												<table border=0 cellpadding=4 cellspacing=1 width="100%">
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" width="15%" align="center">
+														<b>Receipt Type</b>
+													</td>
+													<td class="fileds_comment" align="center" colspan="2">
+														<b>Merged Receipts</b>
+													</td>
+													<td class="fileds_comment" align="center">
+														<b>Amount Paid</b>
+													</td>
+													<td width="20" align="center" class="fileds_comment">
+														<B>Print?</B>
+													</td>
+												</tr>
+												<tr bgcolor="#999999">
+													<td class="fileds_comment" align="center">
+														<font color="#f6f6f6"><B>BASIC</B></font>
+													</td>
+													<td class="fields" align="center" nowrap colspan="2">
+														<select name="mergedBasicReceipts" style="width:280px;" onChange="autoFill(this,'basic');">
+														</select>
+														<input type="button" value="-" onClick="removeFromMerger('basic');">
+													</td>
+													<td class="fileds_comment" align="right">
+														<input type="text" name="mergedBasicReceiptAmount" value="" size="12" style="text-align:right;" readonly>
+													</td>
+													<td align="center">
+														<input name="mergedBasicReceiptCheckbox" type="checkbox" value="true" checked style="background-color:#999999;">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right"">
+														<B>BASIC Receipt Number</B> :
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedBasicReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Number :
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedBasicPreviousReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Date :
+													</td>
+													<td class="fields" align="left" colspan="3">
+										                <select name="mergedBasicPreviousReceiptDate_month" id="mergedBasicPreviousReceiptDate_month" onChange="javascript:setDaysForPreviousReceiptDate('Basic');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN BasicPreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {basicPreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END BasicPreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="mergedBasicPreviousReceiptDate_day" id="mergedBasicPreviousReceiptDate_day">
+													 	   <option value=""></option>
+													       <!-- BEGIN BasicPreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {basicPreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END BasicPreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="mergedBasicPreviousReceiptDate_year" id="mergedBasicPreviousReceiptDate_year" onChange="javascript:setDaysForPreviousReceiptDate('Basic')">
+														   <option value=""></option>
+									                       <!-- BEGIN BasicPreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {basicPreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END BasicPreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" width="15%" align="center">
+														<b>Receipt Type</b>
+													</td>
+													<td class="fileds_comment" align="center" colspan="2">
+														<b>Merged Receipts</b>
+													</td>
+													<td class="fileds_comment" align="center">
+														<b>Amount Paid</b>
+													</td>
+													<td width="20" align="center" class="fileds_comment">
+														<B>Print?</B>
+													</td>
+												</tr>
+												<tr bgcolor="#999999">
+													<td class="fileds_comment" align="center">
+														<font color="#f6f6f6"><B>SEF</B></font>
+													</td>
+													<td class="fields" align="center" nowrap colspan="2">
+														<select name="mergedSefReceipts" style="width:280px;" onChange="autoFill(this,'sef');">
+														</select>
+														<input type="button" value="-" onClick="removeFromMerger('sef');">
+													</td>
+													<td class="fileds_comment" align="right">
+														<input type="text" name="mergedSefReceiptAmount" value="" size="12" style="text-align:right;" readonly>
+													</td>
+													<td align="center">
+														<input name="mergedSefReceiptCheckbox" type="checkbox" value="true" checked style="background-color:#999999;">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right"">
+														<B>SEF Receipt Number :</B>
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedSefReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Number :
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedSefPreviousReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Date :
+													</td>
+													<td class="fields" align="left" colspan="3">
+										                <select name="mergedSefPreviousReceiptDate_month" id="mergedSefPreviousReceiptDate_month" onChange="javascript:setDaysForPreviousReceiptDate('Sef');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN SefPreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {sefPreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END SefPreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="mergedSefPreviousReceiptDate_day" id="mergedSefPreviousReceiptDate_day">
+													 	   <option value=""></option>
+													       <!-- BEGIN SefPreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {sefPreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END SefPreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="mergedSefPreviousReceiptDate_year" id="mergedSefPreviousReceiptDate_year" onChange="javascript:setDaysForPreviousReceiptDate('Sef')">
+														   <option value=""></option>
+									                       <!-- BEGIN SefPreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {sefPreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END SefPreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+												<tr bgcolor="#cccccc">
+													<td class="fileds_comment" width="15%" align="center">
+														<b>Receipt Type</b>
+													</td>
+													<td class="fileds_comment" align="center" colspan="2">
+														<b>Merged Receipts</b>
+													</td>
+													<td class="fileds_comment" align="center">
+														<b>Amount Paid</b>
+													</td>
+													<td width="20" align="center" class="fileds_comment">
+														<B>Print?</B>
+													</td>
+												</tr>
+												<tr bgcolor="#999999">
+													<td class="fileds_comment" align="center">
+														<font color="#f6f6f6"><B>IDLE</B></font>
+													</td>
+													<td class="fields" align="center" nowrap colspan="2">
+														<select name="mergedIdleReceipts" style="width:280px;" onChange="autoFill(this,'idle');">
+														</select>
+														<input type="button" value="-" onClick="removeFromMerger('idle');">
+													</td>
+													<td class="fileds_comment" align="right">
+														<input type="text" name="mergedIdleReceiptAmount" value="" size="12" style="text-align:right;" readonly>
+													</td>
+													<td align="center">
+														<input name="mergedIdleReceiptCheckbox" type="checkbox" value="true" checked style="background-color:#999999;">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right"">
+														<B>IDLE Receipt Number :</B>
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedIdleReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Number :
+													</td>
+													<td class="fields" align="left" colspan="3">
+														<input name="mergedIdlePreviousReceiptNumber" type="text" size="35">
+													</td>
+												</tr>
+												<tr bgcolor="#f6f6f6">
+													<td class="fileds_comment" colspan="2" align="right">
+														Previous Receipt Date :
+													</td>
+													<td class="fields" align="left" colspan="3">
+										                <select name="mergedIdlePreviousReceiptDate_month" id="mergedIdlePreviousReceiptDate_month" onChange="javascript:setDaysForPreviousReceiptDate('Idle');">
+										 				   <option value=""></option>
+									                       <!-- BEGIN IdlePreviousReceiptDateMonthList -->
+									                       <option value = "{monthValue}" {idlePreviousReceiptDate_month_sel}>{month}</option>
+									                       <!-- END IdlePreviousReceiptDateMonthList -->
+									                    </select>
+
+									                    <select name="mergedIdlePreviousReceiptDate_day" id="mergedIdlePreviousReceiptDate_day">
+													 	   <option value=""></option>
+													       <!-- BEGIN IdlePreviousReceiptDateDayList -->
+									                       <option value = "{dayValue}" {idlePreviousReceiptDate_day_sel}>{dayValue}</option>
+									                       <!-- END IdlePreviousReceiptDateDayList -->
+									                    </select>
+
+									                    <select name="mergedIdlePreviousReceiptDate_year" id="mergedIdlePreviousReceiptDate_year" onChange="javascript:setDaysForPreviousReceiptDate('Idle')">
+														   <option value=""></option>
+									                       <!-- BEGIN IdlePreviousReceiptDateYearList -->
+									                       <option value = "{yearValue}" {idlePreviousReceiptDate_year_sel}>{yearValue}</option>
+									                       <!-- END IdlePreviousReceiptDateYearList -->
+										                </select>
+													</td>
+												</tr>
+												</table>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+								</table>
+
+							</td>
+							</form>
+						</tr>
+
+						<tr>
+							<td class="subtitle"><br>PAYMENT SESSION (for Merging Receipts)<br>&nbsp;<br></td>
+						</tr>
+
+						<tr>
+							<td align=center>
+								<form name="PaymentSession">
+								<input type="hidden" name="csvReceiptBasket" value="{csvReceiptBasket}">
+								<table border=0 cellpadding=4 cellspacing=1 width="100%">
+								<tr bgcolor="#f6f6f6">
+									<td class="fileds_comment" align="left" valign="top">
+										Receipt Numbers stored in current Payment Session:<br>
+										[tax type]-[receiptID]-[receipt number]-[payment mode]-[amount paid]<br>
+										<select name="receiptBasketList" size="6" style="width:400px;">
+											<!-- BEGIN ReceiptBasketList -->
+											<option value="{receiptBasketValue}">{receiptBasketDetails}</option>
+											<!-- END ReceiptBasketList -->
+										</select>
+									</td>
+									<td align="center" valign="top">
+										<input type="button" value="^ Add to Merger" onClick="addToMerger();">
+									</td>
+								</tr>
+								<tr bgcolor="#f6f6f6">
+									<td class="fileds_comment" align="center" valign="top" colspan="2">
+										<table border="0" cellpadding="0" cellspacing="0">
+										<tr></tr>
+										<tr>
+											<td valign="top" align="center" class="fileds_comment">
+												<img src="images/spacer.gif" width="1" height="2"><br>
+												<input name="keepReceiptBasket" type="checkbox" value="true" checked><B>Remember Receipt Numbers</B><br>
+												<br>
+												(leave checked to remember Receipt Numbers when making another payment)
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+								</table>
+							</td>
+
+							<script language="Javascript">
+								autoMergeAllFromBasket();
+							</script>
+
+							</form>
+						</tr>
+							<tr>
+								<td align=right  class="fields">
+									<br>
+								    <font class="fields">
+								    <b><a href="#" onClick="applyPayments();">go to Apply Payment Details</a></b> 
+									&gt;&gt;
+									<br>&nbsp;
+								    </font>
+								</td>
+							</tr>
+
+						</table>
+		
+   		   </td>
+           </tr>
+
+                    <tr> 
+                      <td align="center" valign="bottom" class="fileds_comment">
+						<br>
+						Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="images/inner_16.jpg"><img SRC="images/spacer.gif " border=0 WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

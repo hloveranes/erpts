@@ -1,0 +1,243 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript" src="js/numeric.js"></script>
+<script language="javascript">
+<!--
+  
+function setDefaults(){
+	window.resizeTo(600,600);
+}
+
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+function updateCalculation(){
+	// initialize 
+
+	js_assessedValue = unformatCurrency(document.DueEncode.assessedValue.value);
+	
+	js_basicTaxRate = unformatCurrency(document.DueEncode.basicTaxRate.value);
+	js_masterBasicTaxRate = unformatCurrency(document.DueEncode.masterBasicTaxRate.value);
+	
+	js_sefTaxRate = unformatCurrency(document.DueEncode.sefTaxRate.value);
+	js_masterSEFTaxRate = unformatCurrency(document.DueEncode.masterSEFTaxRate.value);
+	
+	js_idleTaxRate = unformatCurrency(document.DueEncode.idleTaxRate.value);
+	js_masterIdleTaxRate = unformatCurrency(document.DueEncode.masterIdleTaxRate.value);
+	
+	js_taxDue = unformatCurrency(document.DueEncode.taxDue.value);	
+	
+	js_taxability = document.DueEncode.taxability.value;
+	js_propertyType = document.DueEncode.propertyType.value;
+	js_idle = document.DueEncode.idle.value;
+	
+
+	// compute
+	
+	js_basicTax = js_assessedValue * js_masterBasicTaxRate;
+	js_sefTax = js_assessedValue * js_masterSEFTaxRate;
+	js_idleTax = 0;
+	
+	// if idle
+	
+	if(js_propertyType=="Land"){
+		if(js_idle=="Yes"){
+			js_idleTax = js_assessedValue * js_masterIdleTaxRate;
+		}
+	}
+	
+	// if exempt
+	
+	if(js_taxability=="Exempt"){
+		js_basicTax = 0;
+		js_sefTax = 0;
+		js_idleTax = 0;
+	}
+	
+	js_taxDue = js_basicTax + js_sefTax + js_idleTax;
+	
+	js_basicTaxRate = js_masterBasicTaxRate;
+	js_sefTaxRate = js_masterSEFTaxRate;
+	js_idleTaxRate = js_masterIdleTaxRate;
+	
+	// display updates
+	
+	document.DueEncode.basicTaxRate.value = formatCurrency(js_masterBasicTaxRate);
+	document.DueEncode.sefTaxRate.value = formatCurrency(js_masterSEFTaxRate);
+	document.DueEncode.idleTaxRate.value = formatCurrency(js_masterIdleTaxRate);
+	
+	document.DueEncode.basicTax.value = formatCurrency(js_basicTax);
+	document.DueEncode.sefTax.value = formatCurrency(js_sefTax);
+	document.DueEncode.idleTax.value = formatCurrency(js_idleTax);
+	document.DueEncode.taxDue.value = formatCurrency(js_taxDue);
+	
+	
+}
+
+//-->
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="DueEncode" method="post" action="DueEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left" width="100%"><b>Due</b> </td>
+	 </tr>
+	 <tr bgcolor="#CCCCCC"> 
+	  <td colspan="3" class="fileds_comment" align="left" nowrap>Tax Declaration Details</td>
+	 </tr>
+	 <tr> 
+	  <td bgcolor="#F6F6F6" class="fileds_comment" width="50%" align="center"><b>{taxDeclarationNumber}</b> 
+	   <br>
+	   (Tax Declaration Number) <br> </td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap width="50%" align="center"><b>{effectivity}</b>
+	   <br>
+	   (Effectivity) <br> </td>
+	 </tr>
+	 </table>
+	 <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#CCCCCC"> 
+	  <td colspan="3" class="fileds_comment" align="left" nowrap>Property Details</td>
+	 </tr>
+	 <tr> 
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="center" width="34%"><b>{taxability}</b>
+	   <input type="hidden" name="taxability" value="{taxability}">
+	   <br>
+	   (Taxability) <br> </td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="center" width="33%"><b>{propertyType}</b> 
+	   <input type="hidden" name="propertyType" value="{propertyType}">
+	   <br>
+	   (Property Type) <br> </td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="center" width="33%"><b>{idle}</b>
+	   <input type="hidden" name="idle" value="{idle}">
+	   <br>
+	   (Idle) <br> </td>
+	 </tr>
+	 </table>
+	 <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#CCCCCC" align="left"> 
+	  <td class="fileds_comment" colspan="3" width="100%">Due Details</td>
+	 </tr>
+	 <tr>
+	   <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Date Due</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+	   <table border="0" cellspacing="0" cellpadding="2" width="100">
+		<tr> 
+		 <td class="fileds_comment" width="33%">
+		  <B>{dueDate_str}</B>
+		  <input type="hidden" name="dueDate" value="{dueDate}">
+		 </td>
+		</tr>
+	   </table></td>
+	 </tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Assessed Value</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="assessedValue" value="{assessedValue}" size="30" readonly>
+	  </td>
+	</tr>
+    <tr bgcolor="#CCCCCC" align="left"> 
+	  <td class="fileds_comment" colspan="3" width="100%">Computations</td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Basic Tax</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="basicTax" value="{basicTax}" size="30" readonly>
+	  </td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Basic Tax Rate</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="basicTaxRate" value="{basicTaxRate}" size="10" readonly>
+		&nbsp;
+		<input type="text" name="masterBasicTaxRate" value="{masterBasicTaxRate}" size="10" disabled> &lt;= Current Rate
+	  </td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">SEF Tax</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="sefTax" value="{sefTax}" size="30" readonly>
+	  </td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">SEF Tax Rate</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="sefTaxRate" value="{sefTaxRate}" size="10" readonly>
+		&nbsp;
+		<input type="text" name="masterSEFTaxRate" value="{masterSEFTaxRate}" size="10" disabled> &lt;= Current Rate
+	  </td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Idle Tax</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="idleTax" value="{idleTax}" size="30" readonly>
+	  </td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Idle Tax Rate</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="idleTaxRate" value="{idleTaxRate}" size="10" readonly>
+		&nbsp;
+		<input type="text" name="masterIdleTaxRate" value="{masterIdleTaxRate}" size="10" disabled> &lt;= Current Rate
+	  </td>
+	</tr>
+    <tr bgcolor="#CCCCCC" align="left"> 
+	  <td class="fileds_comment" colspan="3" width="100%">Totals</td>
+	</tr>
+    <tr>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="right">Tax Due</td>
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align="left" colspan="2">
+		<input type="text" name="taxDue" value="{taxDue}" size="30" readonly>
+	  </td>
+	</tr>
+
+	 <tr> 
+	  <td colspan="3" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">
+	   <input name="dueID" type="hidden" id="dueID" value="{dueID}">
+	   <input name="tdID" type="hidden" id="tdID" value="{tdID}">
+	   <input name="rptopID" type="hidden" id="rptopID" value="{rptopID}">
+	   <input type="hidden" name="formAction" value="save">
+
+	   <!-- BEGIN SubmitButton -->
+	   <input type="button" name="updateBtn" value="Update Calculation" onClick="updateCalculation();">
+	  </td>
+	 </tr>
+	 <tr>
+	  <td colspan="3" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">
+	   <input type="submit" name="SubmitBtn" value="Save"> 
+	   <input type="reset" name="resetBtn" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

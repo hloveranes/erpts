@@ -1,0 +1,1144 @@
+<html>
+<head>
+<title>eLGU - RPTS - {TITLE}</title>
+<script language="javascript" src="js/numeric.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+function checkAction(axn){
+	document.OwnerList.formAction.value = axn;
+	if (confirmSubmit())
+	document.OwnerList.submit();
+}
+function confirmSubmit(){
+	axn = document.OwnerList.formAction.value;
+	if(!confirm(axn+' selected items?')){
+		return false;
+	}
+	else
+		return true;
+}
+
+function btToggle(id){
+ 	obj=document.getElementById('btTdRow'+id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+	}
+	else {
+		obj.style.display='none';
+	}
+}
+
+
+function toggle(id){
+ 	obj=document.getElementById('tdRow'+id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+		location.href = '#td'+id;
+	}
+	else {
+		obj.style.display='none';
+		location.href = '#td';
+	}
+}
+function toggleShowHide(){
+	obj = eval('document.RPTOPForm.tdShowHide');
+	objArray = 'document.RPTOPForm.tdChk';
+	tdCtr = {tdCtr};
+	count = tdCtr;
+	if (obj.checked){
+		toggleAll('');
+		i = 0;
+		while (i < count){
+			eval(objArray+i+'.checked = true');
+			i++;
+		}
+	}
+	else {
+		toggleAll('none');
+		i = 0;
+		while (i < count){
+			//alert('hello');
+			eval(objArray+i+'.checked = false');
+			i++;
+		}
+	}
+}
+function toggleAll(action){
+	<!-- BEGIN toggleTDList -->
+		document.getElementById('tdRow{ctr}').style.display=action;
+	<!-- END toggleTDList -->
+}
+
+function toggleBacktaxTD(id){
+ 	obj=document.getElementById('backtaxTD'+id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+	}
+	else {
+		obj.style.display='none';
+	}
+}
+
+function changeDueTypeValues(id){
+	h = 0;
+	v = 0;
+
+	dueType = "Annual"; //default
+	
+	dueTypeField = getFormElementByName("td["+id+"][dueType]");
+	dueType = dueTypeField.options[dueTypeField.selectedIndex].value;
+
+	for(i=0 ; i<document.RPTOPForm.elements.length ; i++){
+		elementName = document.RPTOPForm.elements[i].name;
+
+		if(elementName.indexOf("bt") <= 0){
+			if(document.RPTOPForm.elements[i].type=="hidden"){
+				if(elementName.indexOf("["+dueType+"]") >= 0){
+					if(elementName.indexOf("]"+id) >= 0){
+						stripBrackets = elementName.substring(0,elementName.indexOf("["));
+						visibleField = getFormElementByName("td["+id+"]["+stripBrackets+"]");
+						visibleField.value = document.RPTOPForm.elements[i].value;
+					}
+				}
+			}
+		}
+	}
+	computeBalance(id,true);
+}
+
+function getFormElementByName(elementName){
+	if(document.getElementById(elementName)){
+		return document.getElementById(elementName);
+	}
+	else{
+		return false;
+	}
+}
+
+var taxDueArray = new Array();
+var	balanceDueArray = new Array();
+
+function initUpdateTotalArrays(){
+	j=0;
+	for(i=0 ; i<document.RPTOPForm.elements.length ; i++){
+		elementName = document.RPTOPForm.elements[i].name;
+
+		if(elementName.indexOf("[balance2]") >= 0){
+			balanceDueArray[j] = document.RPTOPForm.elements[i];
+		}
+
+		if(elementName.indexOf("[taxDue]") >= 0){
+			taxDueArray[j] = document.RPTOPForm.elements[i];
+			j++;
+		}
+	}
+}
+
+function updateTotals(){
+	totalTaxDueField = document.totalsForm.totalTaxDue;
+	totalNetDueField = document.totalsForm.totalNetDue;
+
+	totalTaxDueValue = 0;
+	totalNetDueValue = 0;
+
+	for(k=0; k < taxDueArray.length ; k++){
+		totalTaxDueValue += parseFloat(unformatCurrency(taxDueArray[k].value));
+		totalNetDueValue += parseFloat(unformatCurrency(balanceDueArray[k].value));
+	}
+
+	totalTaxDueField.value = formatCurrency(totalTaxDueValue);
+	totalNetDueField.value = formatCurrency(totalNetDueValue);
+}
+
+function computeBalance(id,doUpdateTotal){
+	balanceField = getFormElementByName("td["+id+"][balance]");
+	balanceField2 = getFormElementByName("td["+id+"][balance2]");
+
+	taxDueField = getFormElementByName("td["+id+"][taxDue]");
+//	taxDueField2 = getFormElementByName("td["+id+"][taxDue2]");
+
+	earlyPaymentDiscountField = getFormElementByName("td["+id+"][earlyPaymentDiscount]");
+	advancedPaymentDiscountField = getFormElementByName("td["+id+"][advancedPaymentDiscount]");
+	amenstyField = getFormElementByName("td["+id+"][amnesty]");
+	penaltyField = getFormElementByName("td["+id+"][penalty]");
+	totalPaidField = getFormElementByName("td["+id+"][totalPaid]");
+
+	balance = parseFloat(unformatCurrency(balanceField.value));
+	taxDue = parseFloat(unformatCurrency(taxDueField.value));
+	earlyPaymentDiscount = parseFloat(unformatCurrency(earlyPaymentDiscountField.value));
+	advancedPaymentDiscount = parseFloat(unformatCurrency(advancedPaymentDiscountField.value));
+	penalty = parseFloat(unformatCurrency(penaltyField.value));
+	totalPaid = parseFloat(unformatCurrency(totalPaidField.value));
+
+	balance = taxDue;
+	if(advancedPaymentDiscount > 0){
+		balance = taxDue - advancedPaymentDiscount;
+	}
+	else if(earlyPaymentDiscount > 0){
+		balance = taxDue - earlyPaymentDiscount;
+	}
+
+	if(!amenstyField.checked){
+		balance = balance + penalty;
+		balance = balance - totalPaid;
+	}
+	else{
+		balance = balance - totalPaid;
+		if(balance<0){
+			balance = 0;
+		}		
+	}
+
+
+	balanceField.value = formatCurrency(balance.toString());
+	balanceField2.value = balanceField.value;
+
+	if(doUpdateTotal==true){
+		updateTotals();
+	}
+//	taxDueField2.value = taxDueField.value;
+}
+
+function btChangeDueTypeValues(tdID,btTDID){
+	h = 0;
+	v = 0;
+	stripBrackets = "";
+
+	dueType = "Annual"; //default
+	
+	dueTypeField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][dueType]");
+	dueType = dueTypeField.options[dueTypeField.selectedIndex].value;
+
+	for(i=0 ; i<document.RPTOPForm.elements.length ; i++){
+		elementName = document.RPTOPForm.elements[i].name;
+
+		if(elementName.indexOf("bt") >= 0){
+			if(document.RPTOPForm.elements[i].type=="hidden"){
+				if(elementName.indexOf("["+dueType+"]") >= 0){
+					if(elementName.indexOf("]"+btTDID) >= 0){
+						stripBrackets = elementName.substring(2,elementName.indexOf("["));
+
+						// to "un-propercase"
+						firstChar = stripBrackets.charAt(0);
+						firstChar = firstChar.toLowerCase();
+						stripBrackets = firstChar+stripBrackets.substring(1,stripBrackets.length);
+	
+						visibleField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"]["+stripBrackets+"]");
+						visibleField.value = document.RPTOPForm.elements[i].value;
+					}
+				}
+			}
+		}
+	}
+	btComputeBalance(tdID,btTDID,true);
+}
+
+function btComputeBalance(tdID,btTDID,doUpdateTotal){
+	balanceField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][balance]");
+	balanceField2 = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][balance2]");
+
+	taxDueField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][taxDue]");
+//	taxDueField2 = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][taxDue2]");
+
+	earlyPaymentDiscountField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][earlyPaymentDiscount]");
+	advancedPaymentDiscountField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][advancedPaymentDiscount]");
+	amenstyField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][amnesty]");
+	penaltyField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][penalty]");
+	totalPaidField = getFormElementByName("td["+tdID+"][btTD]["+btTDID+"][totalPaid]");
+
+	balance = parseFloat(unformatCurrency(balanceField.value));
+	taxDue = parseFloat(unformatCurrency(taxDueField.value));
+	earlyPaymentDiscount = parseFloat(unformatCurrency(earlyPaymentDiscountField.value));
+	advancedPaymentDiscount = parseFloat(unformatCurrency(advancedPaymentDiscountField.value));
+	penalty = parseFloat(unformatCurrency(penaltyField.value));
+	totalPaid = parseFloat(unformatCurrency(totalPaidField.value));
+
+	balance = taxDue;
+	if(advancedPaymentDiscount > 0){
+		balance = taxDue - advancedPaymentDiscount;
+	}
+	else if(earlyPaymentDiscount > 0){
+		balance = taxDue - earlyPaymentDiscount;
+	}
+
+	if(!amenstyField.checked){
+		balance = balance + penalty;
+		balance = balance - totalPaid;
+	}
+	else{
+		balance = balance - totalPaid;
+		if(balance<0){
+			balance = 0;
+		}		
+	}
+
+	balanceField.value = formatCurrency(balance.toString());
+	balanceField2.value = balanceField.value;
+
+	if(doUpdateTotal==true){
+		updateTotals();
+	}
+//	taxDueField2.value = taxDueField.value;
+}
+
+function payAmount(){
+	goPay = false;
+	payAmountArray = new Array();
+	balanceAmountArray = new Array();
+	amnestyCheckboxValuesArray = new Array();
+
+	j=0;
+	for(i=0 ; i<document.RPTOPForm.elements.length ; i++){
+		elementName = document.RPTOPForm.elements[i].name;
+
+		if(elementName.indexOf("[amnesty]") >= 0){
+			amnestyCheckboxValuesArray[j] = document.RPTOPForm.elements[i];
+		}
+		else if(elementName.indexOf("[balance2]") >= 0){
+			balanceAmountArray[j] = document.RPTOPForm.elements[i];
+		}
+		else if(elementName.indexOf("[amountPaid]") >= 0){
+			payAmountArray[j] = document.RPTOPForm.elements[i];
+			j++;
+		}
+	}
+
+	for(k=0; k < payAmountArray.length ; k++){
+		if(payAmountArray[k].value==""){
+			payAmountArray[k].value = formatCurrency(0);
+		}
+	}
+
+	for(k=0; k < payAmountArray.length ; k++){
+		if(!isNumeric(payAmountArray[k].value)){
+			alert("Amount must be numeric.");
+			payAmountArray[k].focus();
+			return false;
+		}
+		else{
+			if(parseFloat(unformatCurrency(balanceAmountArray[k].value)) < parseFloat(unformatCurrency(payAmountArray[k].value))){
+				alert("Amount must not be greater than balance due.");
+				payAmountArray[k].focus();
+				goPay = false;
+				return false;
+			}
+			else if(payAmountArray[k].value.indexOf("-") >= 0){
+				alert("Amount must not be negative.");
+				payAmountArray[k].focus();
+				goPay = false;
+				return false;				
+			}
+			else{
+				if(payAmountArray[k].value > 0){
+				
+					if(parseFloat(unformatCurrency(balanceAmountArray[k].value)) > parseFloat(unformatCurrency(payAmountArray[k].value))){
+						alert("Amount must not be less than balance due. All forms of partial payment are not allowed.");
+						payAmountArray[k].focus();
+						goPay = false;
+						return false;			
+					}
+					else{				
+						goPay = true;
+					}
+				}
+			}
+		}
+	}
+
+	if(goPay){
+		document.RPTOPForm.formAction.value = "applyPayment";
+		document.RPTOPForm.action = "PaymentReceiptDetails.php{Session}";
+		document.RPTOPForm.submit();
+	}
+	else{
+		alert("Cannot pay given amount.");
+		return false;
+	}
+
+}
+
+
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+
+function setDefaults(){
+	MM_preloadImages('images/nav/nav_b_02.jpg','images/nav/nav_b_03.jpg','images/nav/nav_b_04.jpg','images/nav/nav_b_05.jpg','images/nav/nav_b_06.jpg','images/nav/nav_b_07.jpg');
+	<!-- BEGIN defaultTDList -->
+	//toggle('{tdID}');
+	<!-- END defaultTDList -->
+	location.href= '#top';
+}
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="javascript: setDefaults();"> 
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step04.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_treasurer_mod.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td align="center" valign="middle" background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+
+		  <tr align="center"> 
+		   <td width="0" align=left class="common" colspan=4><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right colspan=5>
+		    <a href="TreasurersHome.php{Session}" class="navi" title="Treasurer's Module : Home">TM : Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+		   <td width="0" nowrap align=center colspan=9 class="navi">
+
+		   <a href="CalculateRPTOPBatch.php{Session}" class="navi" title="Calculate Taxes">Calculate Taxes</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="SOA.php{Session}" class="navi" title="Payments">Payments</a>
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <!-- BEGIN TreasuryMaintenanceLink -->
+		   <a href="TreasuryMaintenanceHome.php{Session}" class="navi" title="Treasury Maintenance">Treasury Maintenance</a>
+		   <!-- END TreasuryMaintenanceLink -->
+		   <!-- BEGIN TreasuryMaintenanceLinkText -->
+		   <font class="navi"><font color="#eeeeee">Treasury Maintenance</font></font>
+		   <!-- END TreasuryMaintenanceLinkText -->
+
+		   &nbsp;&nbsp;
+		   |
+		   &nbsp;&nbsp;
+
+		   <a href="TreasuryReports.php{Session}" class="navi" title="Reports">Reports</a>
+
+		   </td>
+		  </tr>
+
+		 </table></td>
+		<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+	  </table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          
+	 <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <!-- BEGIN RPTOPTable -->
+				  
+		 <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+		     <tr>
+				<td colspan=2>&nbsp;</td>
+			 </tr>
+			 <tr> 
+			  <td class="subtitle">RPTOP INFORMATION</td>
+			  <td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+			 </tr>
+			 <tr>
+			  <td colspan=2>
+				<table border=0 cellpadding=0 cellspacing=0 width="100%">
+				<tr>
+					<td align=left class="subtitle">
+						<br>
+					    <font class="fields">
+						&lt;&lt;
+					    <a href="SOADetails.php{Session}&rptopID={rptopID}">back to SOA Details</a></b> 
+					    </font>
+					    <br>
+					</td>
+					<td align=right class="subtitle">
+						&nbsp;
+					</td>
+				</tr></table>
+			  </td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top">{msg}<img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"> <table width="90%" border="0" cellspacing="1" cellpadding="2" class="fields">
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="right" class="fileds_comment" width="25%">rptopNumber</td>
+			  <td class="fields" width="75%"><b>{rptopNumber}</b><span class="fileds_comment"></span></td>
+			 </tr>
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="right" class="fileds_comment">taxabaleYear</td>
+			  <td class="fileds_comment"><strong>{taxableYear}</strong></td>
+			 </tr>
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="right" class="fileds_comment">rptopDate</td>
+			  <td class="fileds_comment"><strong>{rptopDate}</strong></td>
+			 </tr>
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="right" class="fileds_comment">cityAssessor</td>
+			  <td class="fileds_comment"><strong>{cityAssessorName}</strong></td>
+			 </tr>
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="right" class="fileds_comment">cityTreasurer</td>
+			  <td class="fileds_comment"><strong>{cityTreasurerName}</strong></td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			 <tr> 
+			  <td class="subtitle">PROPERTY OWNER</td>
+			  <td align="right" valign="top"><a href="#down"><img src="images/arrow_down.gif" width="40" height="30" border="0"></a></td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><form name="OwnerList" method="post" action="RPTOPDetails.php{Session}" onSubmit="javascript: return confirmSubmit();">
+			 <!-- BEGIN OwnerListTable -->
+			 <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			  <tr> 
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Person
+				   <!-- BEGIN SearchOwnerPersonLink -->
+				   <!-- END SearchOwnerPersonLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN PersonTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>
+				 <!-- BEGIN PersonList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=viewOnly','popupWindow',50,50,350,400)" class="fields">{fullName}</a> 
+				  </td>
+				 </tr>
+				 <!-- END PersonList -->
+				 <!-- BEGIN PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td>&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END PersonDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END PersonTable -->
+				</table></td>
+			   <td width="50%" class="mainnav" valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" colspan="2">Owner - Company
+				   <!-- BEGIN SearchOwnerCompanyLink -->
+				   <!-- END SearchOwnerCompanyLink -->
+				  </td>
+				 </tr>
+				 <!-- BEGIN CompanyTable -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" align="right" width="100">Company Name:</td>
+				  <td>&nbsp;</td>
+				 </tr>				 
+				 <!-- BEGIN CompanyList -->
+				 <tr bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>
+				  <td class="fileds_comment"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=viewOnly','popupWindow',50,50,450,500)" class="fields">{companyName}</a></td>
+				 </tr>
+				 <!-- END CompanyList -->
+				 <!-- BEGIN CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fileds_comment" valign="top" align="center" width="70">&nbsp;</td>				 
+				  <td class="fileds_comment" valign="top">none</td>
+				 </tr>
+				 <!-- END CompanyDBEmpty -->
+				 <tr align="left" bgcolor="#F6F6F6"> 
+				  <td class="fields" valign="top" colspan="2" height="100%">&nbsp;</td>
+				 </tr>
+				 <!-- END CompanyTable -->
+				</table></td>
+			  </tr>
+			 </table>
+			 <input type="hidden" name="formAction" value="remove">
+			 <input type="hidden" name="ownerID" value="{ownerID}">
+			 <!-- END OwnerListTable -->
+			</form></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			 <tr> 
+			  <td class="subtitle">APPLY PAYMENTS<a name="#td"></a></td>
+			  <td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <!-- BEGIN TDTable -->
+		  <tr> 
+		   <td align="center" valign="top"> 
+			<form action="RPTOPDetails.php{Session}" method="post" name="RPTOPForm" id="RPTOPForm">
+				<input type="hidden" name="rptopID" value="{rptopID}">
+				<input type="hidden" name="ownerID" value="{ownerID}">
+				<input type="hidden" name="formAction">
+
+			              <table width="90%" border="0" cellpadding="2" cellspacing="1">
+                            <tr align="center"> 
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment"><b>Show/Hide<br>
+                                </b> 
+								<!-- <input type="checkbox" name="tdShowHide" value="1" onClick="toggleShowHide();" checked> -->
+                              </td>
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment"><img src="images/spacer.gif" border=0 height=4 width=1><br><b>TD Number</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment"><img src="images/spacer.gif" border=0 height=4 width=1><br><strong>Year Due</strong><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment"><img src="images/spacer.gif" border=0 height=4 width=1><br><b>Due Type</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td width="10%" bgcolor="#CCCCCC" class="fileds_comment"><img src="images/spacer.gif" border=0 height=4 width=1><br><b>Amnesty</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment"><img src="images/spacer.gif" border=0 height=4 width=1><br><b>Balance</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment">
+								<input type="button" value="Pay Amount" name="payAmountBtn" id="payAmountBtn" style="height:30px; width:90px;" onClick="payAmount();">
+							  </td>
+                            </tr>
+                            <!-- BEGIN TDList -->
+                            <tr align="left">
+                              <td class="fileds_comment"  align="center" bgcolor="#F6F6F6" valign="middle"> 
+                                <a name="#td{tdID}" id="#td{tdID}"></a> <input name="tdChk{tdID}" type="checkbox" id="tdChk{tdID}" onClick="toggle('{tdID}')" value="1"> 
+                              </td>							
+                              <td class="fileds_comment"  align="center" bgcolor="#F6F6F6" valign="middle" nowrap><img src="images/spacer.gif" border=0 height=4 width=1><br><b>{taxDeclarationNumber}</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td align="center" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">{dueYear}</td>
+                              <td align="right" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">
+								<select name="td[{tdID}][dueType]" id="td[{tdID}][dueType]" onChange="changeDueTypeValues('{tdID}');" class="fileds_comment">
+									<!-- BEGIN DueTypeList -->
+									<option value="{allowableDueType}">{allowableDueType}</option>
+									<!-- END DueTypeList -->
+								</select>
+
+								<input type="hidden" name="td[{tdID}][dueID]" id="td[{tdID}][dueID]" value="{dueID[Annual]}">
+
+								<input type="hidden" name="dueID[Annual]{tdID}" id="dueID[Annual]{tdID}" value="{dueID[Annual]}">
+								<input type="hidden" name="dueID[Q1]{tdID}" id="dueID[Q1]{tdID}" value="{dueID[Q1]}">
+								<input type="hidden" name="dueID[Q2]{tdID}" id="dueID[Q2]{tdID}" value="{dueID[Q2]}">
+								<input type="hidden" name="dueID[Q3]{tdID}" id="dueID[Q3]{tdID}" value="{dueID[Q3]}">
+								<input type="hidden" name="dueID[Q4]{tdID}" id="dueID[Q4]{tdID}" value="{dueID[Q4]}">
+
+								<input type="hidden" name="dueDate[Annual]{tdID}" id="dueDate[Annual]{tdID}" value="{dueDate[Annual]}">
+								<input type="hidden" name="dueDate[Q1]{tdID}" id="dueDate[Q1]{tdID}" value="{dueDate[Q1]}">
+								<input type="hidden" name="dueDate[Q2]{tdID}" id="dueDate[Q2]{tdID}" value="{dueDate[Q2]}">
+								<input type="hidden" name="dueDate[Q3]{tdID}" id="dueDate[Q3]{tdID}" value="{dueDate[Q3]}">
+								<input type="hidden" name="dueDate[Q4]{tdID}" id="dueDate[Q4]{tdID}" value="{dueDate[Q4]}">
+
+								<input type="hidden" name="basicTax[Annual]{tdID}" id="basicTax[Annual]{tdID}" value="{basicTax[Annual]}">
+								<input type="hidden" name="basicTax[Q1]{tdID}" id="basicTax[Q1]{tdID}" value="{basicTax[Q1]}">
+								<input type="hidden" name="basicTax[Q2]{tdID}" id="basicTax[Q2]{tdID}" value="{basicTax[Q2]}">
+								<input type="hidden" name="basicTax[Q3]{tdID}" id="basicTax[Q3]{tdID}" value="{basicTax[Q3]}">
+								<input type="hidden" name="basicTax[Q4]{tdID}" id="basicTax[Q4]{tdID}" value="{basicTax[Q4]}">
+
+								<input type="hidden" name="sefTax[Annual]{tdID}" id="sefTax[Annual]{tdID}" value="{sefTax[Annual]}">
+								<input type="hidden" name="sefTax[Q1]{tdID}" id="sefTax[Q1]{tdID}" value="{sefTax[Q1]}">
+								<input type="hidden" name="sefTax[Q2]{tdID}" id="sefTax[Q2]{tdID}" value="{sefTax[Q2]}">
+								<input type="hidden" name="sefTax[Q3]{tdID}" id="sefTax[Q3]{tdID}" value="{sefTax[Q3]}">
+								<input type="hidden" name="sefTax[Q4]{tdID}" id="sefTax[Q4]{tdID}" value="{sefTax[Q4]}">
+
+								<input type="hidden" name="idleTax[Annual]{tdID}" id="idleTax[Annual]{tdID}" value="{idleTax[Annual]}">
+								<input type="hidden" name="idleTax[Q1]{tdID}" id="idleTax[Q1]{tdID}" value="{idleTax[Q1]}">
+								<input type="hidden" name="idleTax[Q2]{tdID}" id="idleTax[Q2]{tdID}" value="{idleTax[Q2]}">
+								<input type="hidden" name="idleTax[Q3]{tdID}" id="idleTax[Q3]{tdID}" value="{idleTax[Q3]}">
+								<input type="hidden" name="idleTax[Q4]{tdID}" id="idleTax[Q4]{tdID}" value="{idleTax[Q4]}">
+
+								<input type="hidden" name="taxDue[Annual]{tdID}" id="taxDue[Annual]{tdID}" value="{taxDue[Annual]}">
+								<input type="hidden" name="taxDue[Q1]{tdID}" id="taxDue[Q1]{tdID}" value="{taxDue[Q1]}">
+								<input type="hidden" name="taxDue[Q2]{tdID}" id="taxDue[Q2]{tdID}" value="{taxDue[Q2]}">
+								<input type="hidden" name="taxDue[Q3]{tdID}" id="taxDue[Q3]{tdID}" value="{taxDue[Q3]}">
+								<input type="hidden" name="taxDue[Q4]{tdID}" id="taxDue[Q4]{tdID}" value="{taxDue[Q4]}">
+
+								<input type="hidden" name="earlyPaymentDiscount[Annual]{tdID}" id="earlyPaymentDiscount[Annual]{tdID}" value="{earlyPaymentDiscount[Annual]}">
+								<input type="hidden" name="earlyPaymentDiscount[Q1]{tdID}" id="earlyPaymentDiscount[Q1]{tdID}" value="{earlyPaymentDiscount[Q1]}">
+								<input type="hidden" name="earlyPaymentDiscount[Q2]{tdID}" id="earlyPaymentDiscount[Q2]{tdID}" value="{earlyPaymentDiscount[Q2]}">
+								<input type="hidden" name="earlyPaymentDiscount[Q3]{tdID}" id="earlyPaymentDiscount[Q3]{tdID}" value="{earlyPaymentDiscount[Q3]}">
+								<input type="hidden" name="earlyPaymentDiscount[Q4]{tdID}" id="earlyPaymentDiscount[Q4]{tdID}" value="{earlyPaymentDiscount[Q4]}">
+
+								<input type="hidden" name="advancedPaymentDiscount[Annual]{tdID}" id="advancedPaymentDiscount[Annual]{tdID}" value="{advancedPaymentDiscount[Annual]}">
+								<input type="hidden" name="advancedPaymentDiscount[Q1]{tdID}" id="advancedPaymentDiscount[Q1]{tdID}" value="{advancedPaymentDiscount[Q1]}">
+								<input type="hidden" name="advancedPaymentDiscount[Q2]{tdID}" id="advancedPaymentDiscount[Q2]{tdID}" value="{advancedPaymentDiscount[Q2]}">
+								<input type="hidden" name="advancedPaymentDiscount[Q3]{tdID}" id="advancedPaymentDiscount[Q3]{tdID}" value="{advancedPaymentDiscount[Q3]}">
+								<input type="hidden" name="advancedPaymentDiscount[Q4]{tdID}" id="advancedPaymentDiscount[Q4]{tdID}" value="{advancedPaymentDiscount[Q4]}">
+
+								<input type="hidden" name="penalty[Annual]{tdID}" id="penalty[Annual]{tdID}" value="{penalty[Annual]}">
+								<input type="hidden" name="penalty[Q1]{tdID}" id="penalty[Q1]{tdID}" value="{penalty[Q1]}">
+								<input type="hidden" name="penalty[Q2]{tdID}" id="penalty[Q2]{tdID}" value="{penalty[Q2]}">
+								<input type="hidden" name="penalty[Q3]{tdID}" id="penalty[Q3]{tdID}" value="{penalty[Q3]}">
+								<input type="hidden" name="penalty[Q4]{tdID}" id="penalty[Q4]{tdID}" value="{penalty[Q4]}">
+
+								<input type="hidden" name="totalPaid[Annual]{tdID}" id="totalPaid[Annual]{tdID}" value="{totalPaid[Annual]}">
+								<input type="hidden" name="totalPaid[Q1]{tdID}" id="totalPaid[Q1]{tdID}" value="{totalPaid[Q1]}">
+								<input type="hidden" name="totalPaid[Q2]{tdID}" id="totalPaid[Q2]{tdID}" value="{totalPaid[Q2]}">
+								<input type="hidden" name="totalPaid[Q3]{tdID}" id="totalPaid[Q3]{tdID}" value="{totalPaid[Q3]}">
+								<input type="hidden" name="totalPaid[Q4]{tdID}" id="totalPaid[Q4]{tdID}" value="{totalPaid[Q4]}">
+
+							  </td>
+                              <td align="center" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">
+								<input type="checkbox" name="td[{tdID}][amnesty]" id="td[{tdID}][amnesty]" value="true" onClick="computeBalance('{tdID}',true);" {amnesty_status}>
+							  </td>
+                              <td  align="right" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">
+								<input type="text" width="30" value="{balance}" name="td[{tdID}][balance2]" id="td[{tdID}][balance2]" readonly style="border:0; text-align:right;" class="fileds_comment">
+							  </td>
+                              <td  align="right" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">
+								<input type="text" width="30" value="" name="td[{tdID}][amountPaid]" id="td[{tdID}][amountPaid]" style="text-align:right; width:90px;">
+							  </td>
+                            </tr>
+                            <tr id="tdRow{tdID}" align="left" style="display:none;"> 
+							  <td colspan="7"  align="center" valign="top" class="fileds_comment">
+								<table width="100%" border=0 cellspacing=0 cellpadding=1>
+								<tr>
+									<td bgcolor="#000000">							  
+
+                                <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center" class="fileds_comment">
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap width="25%">
+										Due Date : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{dueDate}" name="td[{tdID}][dueDate]" id="td[{tdID}][dueDate]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Basic Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{basicTax}" name="td[{tdID}][basicTax]" id="td[{tdID}][basicTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										SEF Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{sefTax}" name="td[{tdID}][sefTax]" id="td[{tdID}][sefTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Idle Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{idleTax}" name="td[{tdID}][idleTax]" id="td[{tdID}][idleTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Tax Due : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{taxDue}" name="td[{tdID}][taxDue]" id="td[{tdID}][taxDue]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Advanced Payment Discount : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{advancedPaymentDiscount}" name="td[{tdID}][advancedPaymentDiscount]" id="td[{tdID}][advancedPaymentDiscount]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Early Payment Discount : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{earlyPaymentDiscount}" name="td[{tdID}][earlyPaymentDiscount]" id="td[{tdID}][earlyPaymentDiscount]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Penalty : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{penalty}" name="td[{tdID}][penalty]" id="td[{tdID}][penalty]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Total Paid : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{amountPaid}" name="td[{tdID}][totalPaid]" id="td[{tdID}][totalPaid]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Balance : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{balance}" name="td[{tdID}][balance]" id="td[{tdID}][balance]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                </table></td>
+
+								</tr></table>
+                            </tr>
+
+                            <!-- BEGIN BacktaxesList -->
+                            <tr align="left"> 
+                              <td class="fileds_comment"  align="center" bgcolor="#F9F6EE" valign="middle"> 
+                                <input name="btTdChk{backtaxTDID}" id="btTdChk{backtaxTDID}" type="checkbox" id="btTdChk{backtaxTDID}" onClick="btToggle('{backtaxTDID}')" value="1" style="background-color:#F9F6EE;"> 
+                              </td>							
+                              <td class="fileds_comment"  align="center" bgcolor="#F9F6EE" valign="middle" nowrap><img src="images/spacer.gif" border=0 height=4 width=1><br><b>{tdNumberB}</b><br><img src="images/spacer.gif" border=0 height=4 width=1></td>
+                              <td align="center" class="fileds_comment" bgcolor="#F9F6EE" valign="middle">{startYearB}</td>
+                              <td align="right" class="fileds_comment" bgcolor="#F9F6EE" valign="middle">
+								<select name="td[{tdID}][btTD][{backtaxTDID}][dueType]" id="td[{tdID}][btTD][{backtaxTDID}][dueType]" onChange="btChangeDueTypeValues('{tdID}','{backtaxTDID}');" class="fileds_comment">
+									<!-- BEGIN BacktaxDueTypeList -->
+									<option value="{backtaxAllowableDueType}">{backtaxAllowableDueType}</option>
+									<!-- END BacktaxDueTypeList -->
+								</select>
+
+								<input type="hidden" name="td[{tdID}][btTD][{backtaxTDID}][dueID]" id="td[{tdID}][btTD][{backtaxTDID}][dueID]" value="{btDueID[Annual]}">
+
+								<input type="hidden" name="btDueID[Annual]{backtaxTDID}" id="btDueID[Annual]{backtaxTDID}" value="{btDueID[Annual]}">
+								<input type="hidden" name="btDueID[Q1]{backtaxTDID}" id="btDueID[Q1]{backtaxTDID}" value="{btDueID[Q1]}">
+								<input type="hidden" name="btDueID[Q2]{backtaxTDID}" id="btDueID[Q2]{backtaxTDID}" value="{btDueID[Q2]}">
+								<input type="hidden" name="btDueID[Q3]{backtaxTDID}" id="btDueID[Q3]{backtaxTDID}" value="{btDueID[Q3]}">
+								<input type="hidden" name="btDueID[Q4]{backtaxTDID}" id="btDueID[Q4]{backtaxTDID}" value="{btDueID[Q4]}">
+
+								<input type="hidden" name="btDueDate[Annual]{backtaxTDID}" id="btDueDate[Annual]{backtaxTDID}" value="{btDueDate[Annual]}">
+								<input type="hidden" name="btDueDate[Q1]{backtaxTDID}" id="btDueDate[Q1]{backtaxTDID}" value="{btDueDate[Q1]}">
+								<input type="hidden" name="btDueDate[Q2]{backtaxTDID}" id="btDueDate[Q2]{backtaxTDID}" value="{btDueDate[Q2]}">
+								<input type="hidden" name="btDueDate[Q3]{backtaxTDID}" id="btDueDate[Q3]{backtaxTDID}" value="{btDueDate[Q3]}">
+								<input type="hidden" name="btDueDate[Q4]{backtaxTDID}" id="btDueDate[Q4]{backtaxTDID}" value="{btDueDate[Q4]}">
+
+								<input type="hidden" name="btBasicTax[Annual]{backtaxTDID}" id="btBasicTax[Annual]{backtaxTDID}" value="{btBasicTax[Annual]}">
+								<input type="hidden" name="btBasicTax[Q1]{backtaxTDID}" id="btBasicTax[Q1]{backtaxTDID}" value="{btBasicTax[Q1]}">
+								<input type="hidden" name="btBasicTax[Q2]{backtaxTDID}" id="btBasicTax[Q2]{backtaxTDID}" value="{btBasicTax[Q2]}">
+								<input type="hidden" name="btBasicTax[Q3]{backtaxTDID}" id="btBasicTax[Q3]{backtaxTDID}" value="{btBasicTax[Q3]}">
+								<input type="hidden" name="btBasicTax[Q4]{backtaxTDID}" id="btBasicTax[Q4]{backtaxTDID}" value="{btBasicTax[Q4]}">
+
+								<input type="hidden" name="btSefTax[Annual]{backtaxTDID}" id="btSefTax[Annual]{backtaxTDID}" value="{btSefTax[Annual]}">
+								<input type="hidden" name="btSefTax[Q1]{backtaxTDID}" id="btSefTax[Q1]{backtaxTDID}" value="{btSefTax[Q1]}">
+								<input type="hidden" name="btSefTax[Q2]{backtaxTDID}" id="btSefTax[Q2]{backtaxTDID}" value="{btSefTax[Q2]}">
+								<input type="hidden" name="btSefTax[Q3]{backtaxTDID}" id="btSefTax[Q3]{backtaxTDID}" value="{btSefTax[Q3]}">
+								<input type="hidden" name="btSefTax[Q4]{backtaxTDID}" id="btSefTax[Q4]{backtaxTDID}" value="{btSefTax[Q4]}">
+
+								<input type="hidden" name="btIdleTax[Annual]{backtaxTDID}" id="btIdleTax[Annual]{backtaxTDID}" value="{btIdleTax[Annual]}">
+								<input type="hidden" name="btIdleTax[Q1]{backtaxTDID}" id="btIdleTax[Q1]{backtaxTDID}" value="{btIdleTax[Q1]}">
+								<input type="hidden" name="btIdleTax[Q2]{backtaxTDID}" id="btIdleTax[Q2]{backtaxTDID}" value="{btIdleTax[Q2]}">
+								<input type="hidden" name="btIdleTax[Q3]{backtaxTDID}" id="btIdleTax[Q3]{backtaxTDID}" value="{btIdleTax[Q3]}">
+								<input type="hidden" name="btIdleTax[Q4]{backtaxTDID}" id="btIdleTax[Q4]{backtaxTDID}" value="{btIdleTax[Q4]}">
+
+								<input type="hidden" name="btTaxDue[Annual]{backtaxTDID}" id="btTaxDue[Annual]{backtaxTDID}" value="{btTaxDue[Annual]}">
+								<input type="hidden" name="btTaxDue[Q1]{backtaxTDID}" id="btTaxDue[Q1]{backtaxTDID}" value="{btTaxDue[Q1]}">
+								<input type="hidden" name="btTaxDue[Q2]{backtaxTDID}" id="btTaxDue[Q2]{backtaxTDID}" value="{btTaxDue[Q2]}">
+								<input type="hidden" name="btTaxDue[Q3]{backtaxTDID}" id="btTaxDue[Q3]{backtaxTDID}" value="{btTaxDue[Q3]}">
+								<input type="hidden" name="btTaxDue[Q4]{backtaxTDID}" id="btTaxDue[Q4]{backtaxTDID}" value="{btTaxDue[Q4]}">
+
+								<input type="hidden" name="btAdvancedPaymentDiscount[Annual]{backtaxTDID}" id="btAdvancedPaymentDiscount[Annual]{backtaxTDID}" value="{btAdvancedPaymentDiscount[Annual]}">
+								<input type="hidden" name="btAdvancedPaymentDiscount[Q1]{backtaxTDID}" id="btAdvancedPaymentDiscount[Q1]{backtaxTDID}" value="{btAdvancedPaymentDiscount[Q1]}">
+								<input type="hidden" name="btAdvancedPaymentDiscount[Q2]{backtaxTDID}" id="btAdvancedPaymentDiscount[Q2]{backtaxTDID}" value="{btAdvancedPaymentDiscount[Q2]}">
+								<input type="hidden" name="btAdvancedPaymentDiscount[Q3]{backtaxTDID}" id="btAdvancedPaymentDiscount[Q3]{backtaxTDID}" value="{btAdvancedPaymentDiscount[Q3]}">
+								<input type="hidden" name="btAdvancedPaymentDiscount[Q4]{backtaxTDID}" id="btAdvancedPaymentDiscount[Q4]{backtaxTDID}" value="{btAdvancedPaymentDiscount[Q4]}">
+								
+								<input type="hidden" name="btEarlyPaymentDiscount[Annual]{backtaxTDID}" id="btEarlyPaymentDiscount[Annual]{backtaxTDID}" value="{btEarlyPaymentDiscount[Annual]}">
+								<input type="hidden" name="btEarlyPaymentDiscount[Q1]{backtaxTDID}" id="btEarlyPaymentDiscount[Q1]{backtaxTDID}" value="{btEarlyPaymentDiscount[Q1]}">
+								<input type="hidden" name="btEarlyPaymentDiscount[Q2]{backtaxTDID}" id="btEarlyPaymentDiscount[Q2]{backtaxTDID}" value="{btEarlyPaymentDiscount[Q2]}">
+								<input type="hidden" name="btEarlyPaymentDiscount[Q3]{backtaxTDID}" id="btEarlyPaymentDiscount[Q3]{backtaxTDID}" value="{btEarlyPaymentDiscount[Q3]}">
+								<input type="hidden" name="btEarlyPaymentDiscount[Q4]{backtaxTDID}" id="btEarlyPaymentDiscount[Q4]{backtaxTDID}" value="{btEarlyPaymentDiscount[Q4]}">
+
+								<input type="hidden" name="btPenalty[Annual]{backtaxTDID}" id="btPenalty[Annual]{backtaxTDID}" value="{btPenalty[Annual]}">
+								<input type="hidden" name="btPenalty[Q1]{backtaxTDID}" id="btPenalty[Q1]{backtaxTDID}" value="{btPenalty[Q1]}">
+								<input type="hidden" name="btPenalty[Q2]{backtaxTDID}" id="btPenalty[Q2]{backtaxTDID}" value="{btPenalty[Q2]}">
+								<input type="hidden" name="btPenalty[Q3]{backtaxTDID}" id="btPenalty[Q3]{backtaxTDID}" value="{btPenalty[Q3]}">
+								<input type="hidden" name="btPenalty[Q4]{backtaxTDID}" id="btPenalty[Q4]{backtaxTDID}" value="{btPenalty[Q4]}">
+
+								<input type="hidden" name="btTotalPaid[Annual]{backtaxTDID}" id="btTotalPaid[Annual]{backtaxTDID}" value="{btTotalPaid[Annual]}">
+								<input type="hidden" name="btTotalPaid[Q1]{backtaxTDID}" id="btTotalPaid[Q1]{backtaxTDID}" value="{btTotalPaid[Q1]}">
+								<input type="hidden" name="btTotalPaid[Q2]{backtaxTDID}" id="btTotalPaid[Q2]{backtaxTDID}" value="{btTotalPaid[Q2]}">
+								<input type="hidden" name="btTotalPaid[Q3]{backtaxTDID}" id="btTotalPaid[Q3]{backtaxTDID}" value="{btTotalPaid[Q3]}">
+								<input type="hidden" name="btTotalPaid[Q4]{backtaxTDID}" id="btTotalPaid[Q4]{backtaxTDID}" value="{btTotalPaid[Q4]}">
+							  </td>
+                              <td align="center" class="fileds_comment" bgcolor="#F9F6EE" valign="middle">
+								<input type="checkbox" name="td[{tdID}][btTD][{backtaxTDID}][amnesty]" id="td[{tdID}][btTD][{backtaxTDID}][amnesty]" value="true" onClick="btComputeBalance('{tdID}','{backtaxTDID}',true);" style="background-color:#F9F6EE;" {btAmnesty_status}>
+							  </td>
+                              <td  align="right" class="fileds_comment" bgcolor="#F9F6EE" valign="middle">
+								<input type="text" width="30" value="{btBalance}" name="td[{tdID}][btTD][{backtaxTDID}][balance2]" id="td[{tdID}][btTD][{backtaxTDID}][balance2]" readonly style="border:0; text-align:right; background-color:#F9F6EE;" class="fileds_comment">
+							  </td>
+                              <td  align="right" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">
+								<input type="text" width="30" value="" name="td[{tdID}][btTD][{backtaxTDID}][amountPaid]" id="td[{tdID}][btTD][{backtaxTDID}][amountPaid]" style="text-align:right; width:90px;">
+							  </td>
+                            </tr>
+                            <tr id="btTdRow{backtaxTDID}" align="left" style="display:none;"> 
+							  <td colspan="7"  align="center" valign="top" class="fileds_comment">
+								<table width="100%" border=0 cellspacing=0 cellpadding=1>
+								<tr>
+									<td bgcolor="#000000">							  
+
+                                <table width="100%" border="0" cellspacing="0" cellpadding="2" align="center" class="fileds_comment">
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap width="25%">
+										Due Date : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btDueDate}" name="td[{tdID}][btTD][{backtaxTDID}][dueDate]" id="td[{tdID}][btTD][{backtaxTDID}][dueDate]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Basic Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btBasicTax}" name="td[{tdID}][btTD][{backtaxTDID}][basicTax]" id="td[{tdID}][btTD][{backtaxTDID}][basicTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										SEF Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btSefTax}" name="td[{tdID}][btTD][{backtaxTDID}][sefTax]" id="td[{tdID}][btTD][{backtaxTDID}][sefTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Idle Tax : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btIdleTax}" name="td[{tdID}][btTD][{backtaxTDID}][idleTax]" id="td[{tdID}][btTD][{backtaxTDID}][idleTax]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Tax Due : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btTaxDue}" name="td[{tdID}][btTD][{backtaxTDID}][taxDue]" id="td[{tdID}][btTD][{backtaxTDID}][taxDue]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Advanced Payment Discount : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btAdvancedPaymentDiscount}" name="td[{tdID}][btTD][{backtaxTDID}][advancedPaymentDiscount]" id="td[{tdID}][btTD][{backtaxTDID}][advancedPaymentDiscount]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Early Payment Discount : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btEarlyPaymentDiscount}" name="td[{tdID}][btTD][{backtaxTDID}][earlyPaymentDiscount]" id="td[{tdID}][btTD][{backtaxTDID}][earlyPaymentDiscount]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Penalty : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btPenalty}" name="td[{tdID}][btTD][{backtaxTDID}][penalty]" id="td[{tdID}][btTD][{backtaxTDID}][penalty]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Total Paid : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btTotalPaid}" name="td[{tdID}][btTD][{backtaxTDID}][totalPaid]" id="td[{tdID}][btTD][{backtaxTDID}][totalPaid]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                  <tr bgcolor="#eeeeee"> 
+                                    <td class="fileds_comment" align="right" nowrap>
+										Balance : 
+									</td>
+                                    <td class="fileds_comment" align="left" nowrap>
+										<input type="text" width="30" value="{btBalance}" name="td[{tdID}][btTD][{backtaxTDID}][balance]" id="td[{tdID}][btTD][{backtaxTDID}][balance]" readonly style="border:0; background-color:#eeeeee;">
+									</td>
+                                  </tr>
+                                </table></td>
+
+								</tr></table>
+                            </tr>
+
+                            <!-- END BacktaxesList -->
+
+                            <!-- END TDList -->
+                            <!-- BEGIN TDDBEmpty -->
+                            <tr align="left"> 
+                              <td class="fileds_comment" colspan="7" bgcolor="#F6F6F6" valign="middle">none</td>
+                            </tr>
+                            <!-- END TDDBEmpty -->
+                          </table>
+			</form>
+			<script language="Javascript">
+			 initUpdateTotalArrays();
+			</script>
+		   </td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			 <tr> 
+			  <td class="subtitle">TOTALS<a name="#td"></a></td>
+			  <td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+		  </tr>		  
+		  <tr> 
+		   <td align="center" valign="top"><form name="totalsForm" id="totalsForm" action="#" method="get"> <table width="90%" border="0" cellspacing="1" cellpadding="2" class="fields">
+			 <tr align="center" valign="top" bgcolor="#CCCCCC"> 
+			  <td width="25%" class="fileds_comment">&nbsp;</td>
+			  <td width="25%" class="fileds_comment">Assessed Value</td>
+			  <td width="25%" class="fileds_comment">Tax Due</td>
+			  <td width="25%" class="fileds_comment">Net Due</td>
+			 </tr>
+			 <tr valign="top" bgcolor="#F6F6F6"> 
+			  <td align="center" class="fileds_comment">Totals</td>
+			  <td align="right" class="fileds_comment"><input type="text" width="30" value="{totalAssessedValue}" name="totalAssessedValue" id="totalAssessedValue" readonly style="border:0; text-align:right; font-weight:bold;" class="fileds_comment"></td>
+			  <td align="right" class="fileds_comment"><input type="text" width="30" value="{totalTaxDue}" name="totalTaxDue" id="totalTaxDue" readonly style="border:0; text-align:right; font-weight:bold;" class="fileds_comment"></td>
+			  <td align="right" class="fileds_comment"><input type="text" width="30" value="{totalNetDue}" name="totalNetDue" id="totalNetDue" readonly style="border:0; text-align:right; font-weight:bold;" class="fileds_comment"></td>
+			 </tr>
+			</table></td></form>
+		  </tr>
+
+		  <!-- BEGIN JSTDList -->
+
+				<!-- BEGIN JSBacktaxesList -->
+				<script language="Javascript">
+				 // default for backtax amnesty
+				 btComputeBalance('{tdID}','{backtaxTDID}',false);
+				</script>
+				<!-- END JSBacktaxesList -->
+
+			<script language="Javascript">
+			// default for amnesty
+			computeBalance('{tdID}',false);
+			</script>
+
+		  <!-- END JSTDList -->
+
+		  <script language="Javascript">
+		   updateTotals();
+		  </script>
+		  <!-- END TDTable -->
+ 		  <tr>
+		      <td class="subtitle">
+				<table border=0 cellpadding=0 cellspacing=0 width="100%">
+				<tr>
+					<td align=left class="subtitle">
+						<br><br>
+					    <font class="fields">
+						&lt;&lt;
+					    <a href="SOADetails.php{Session}&rptopID={rptopID}">back to SOA Details</a></b> 
+					    </font>
+					    <br><br>
+					</td>
+					<td align=right class="subtitle">
+						<br><br>
+						&nbsp;&nbsp;
+					</td>
+				</tr></table>
+		      </td>
+		  </tr>		  
+		  <tr> 
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="fileds_comment">Tampering with 
+			this system is criminally punishable under Philippine Laws.<br> &copy; 
+			Republic of the Philippines National Computer Center. All Rights Reserved. 
+		   </td>
+		  </tr>
+		 </table>
+				  <!-- END RPTOPTable -->
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="images/inner_16.jpg"> <img SRC="images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

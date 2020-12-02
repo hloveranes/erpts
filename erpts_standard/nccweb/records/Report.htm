@@ -1,0 +1,665 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="../images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="../images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="../images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2 align="right" background="images/steps/step_bg.jpg"><img SRC="../images/steps/step00.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="../images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="../images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 background="images/title/title_bg.jpg" bgcolor="#CCCCCC"> <img SRC="../images/title/title_assessorsModule.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+
+		<!-- start of navigation menu -->
+
+		<tr>
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC">
+           <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			<tr>
+				<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+				<td align="center" valign="middle" background="images/nav_area_bg.jpg">
+					 <table width="100%%" border="0" cellspacing="0" cellpadding="2">
+					  <tr align="center"> 
+					   <td width="0">
+						    <a href="Reports.php{Session}" class="navi">Reports</a>
+					   </td>
+					   <td width="0" class="navi">|</td>
+			           <td width="0"><a href="change/ODList.php{Session}" class="navi" nowrap>Change Of Ownership<br>& Reassessment</a></td>
+					   <td width="0" class="navi">|</td>
+					   <td width="0"><a href="split/ODList.php{Session}" class="navi" nowrap>Split<br>& Consolidation</a></td>
+					   <td width="0" class="navi">|</td>
+					   <td width="0">
+							<a href="ODList.php{Session}" class="navi">OD List</a>
+					   </td>
+					   <td width="0" class="navi">|</td>
+					   <td width="0">
+							<a href="Logout.php" class="navi">Logout</a>
+					   </td>
+					  </tr>
+					 </table>
+				</td>
+				<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 border=0 ></td>
+		   </tr>
+		  </table>
+         </td>
+         <td><img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53></td>
+         <td><img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53></td>
+        </tr>
+
+		<!-- end of navigation menu -->
+
+        <tr> 
+          <td align="center" valign="top"> <img SRC="../images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="../images/inner_14.jpg"> <img SRC="../images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="../images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table border="0" cellspacing="0" cellpadding="0" align="center">
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			 <tr> 
+			  <td class="subtitle" align="center">Report</td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="title"><img src="../images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top">&nbsp; </td>
+		  </tr>
+		  <tr>
+		   <td align="center" valign="top"><table width="90%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF" class="common">
+			 <tr bgcolor="#999999"> 
+			  <td colspan="16" align="center"><strong>Summary Of Real Property 
+			   Assessments for ( 
+			   <!-- BEGIN DBList -->
+			   <span class="fields"><b>{dbs}</b></span> 
+			   <!-- END DBList -->
+			   ) </strong></td>
+			  <td rowspan="3"><strong>Baic Tax Collectibles</strong></td>
+			  <td rowspan="3"><strong>SEF Tax Collectibles</strong></td>
+			 </tr>
+			 <tr bgcolor="#999999"> 
+			  <td rowspan="3" align="center"><strong>Property Cassification</strong></td>
+			  <td rowspan="3" align="center"><strong>No. Of real Property Units</strong></td>
+			  <td rowspan="3" align="center"><strong>Land Area in SQM</strong></td>
+			  <td colspan="6" align="center"><strong>Market Value</strong></td>
+			  <td colspan="6" align="center"><strong>Assessed Value</strong></td>
+			  <td rowspan="2"><strong>Rate Of Levy</strong></td>
+			 </tr>
+			 <tr> 
+			  <td align="center" bgcolor="#999999"><strong>Land</strong></td>
+			  <td colspan="2" align="center" bgcolor="#999999"><strong>Buildings</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Mach.</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Other Imp.</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Total</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Land</strong></td>
+			  <td colspan="2" align="center" bgcolor="#999999"><strong>Buildgings</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Mach.</strong></td>
+			  <td bgcolor="#999999"><strong>Other Imp.</strong></td>
+			  <td bgcolor="#999999"><strong>Total</strong></td>
+			 </tr>
+			 <tr> 
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td align="center" bgcolor="#999999"><strong>P175,000 or less</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Over P175,000</strong></td>
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td align="center" bgcolor="#999999"><strong>P175,000 or less</strong></td>
+			  <td align="center" bgcolor="#999999"><strong>Over P175,000</strong></td>
+			  <td align="center" bgcolor="#999999">&nbsp;</td>
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td bgcolor="#999999">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>Taxable</strong></td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom" bgcolor="#999999">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom" bgcolor="#999999">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>1.Residential</strong></td>
+			  <td align="right" valign="bottom">{RETaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{RETaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{RETaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{RETaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{RETaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{RETaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{RETaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{RETaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{RETaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{RETaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{RETaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{RETaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{RETaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{RETaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>2.Agricultural</strong></td>
+			  <td align="right" valign="bottom">{AGTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{AGTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{AGTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{AGTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{AGTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{AGTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>3.Commercial</strong></td>
+			  <td align="right" valign="bottom">{COTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{COTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{COTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{COTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{COTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{COTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{COTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{COTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{COTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{COTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{COTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{COTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{COTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{COTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>4.Industrial</strong></td>
+			  <td align="right" valign="bottom">{INTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{INTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{INTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{INTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{INTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{INTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{INTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{INTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{INTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{INTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{INTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{INTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{INTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{INTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>5.Mineral</strong></td>
+			  <td align="right" valign="bottom">{MITaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{MITaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{MITaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{MITaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{MITaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{MITaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{MITaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{MITaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{MITaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{MITaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{MITaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{MITaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{MITaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{MITaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>6.Timber</strong></td>
+			  <td align="right" valign="bottom">{TITaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{TITaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{TITaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{TITaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{TITaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{TITaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{TITaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{TITaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{TITaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{TITaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{TITaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{TITaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{TITaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{TITaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>7.Special</strong></td>
+			  <td align="right" valign="bottom">{SPTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{SPTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{SPTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{SPTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{SPTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{SPTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;&nbsp;&nbsp;<strong>a.Hospital</strong></td>
+			  <td align="right" valign="bottom">{HOTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{HOTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{HOTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{HOTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{HOTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{HOTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;&nbsp;&nbsp;<strong>b.Scientific</strong></td>
+			  <td align="right" valign="bottom">{SCTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{SCTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{SCTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{SCTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{SCTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{SCTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;&nbsp;&nbsp;<strong>c.Cultural</strong></td>
+			  <td align="right" valign="bottom">{CUTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{CUTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{CUTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{CUTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{CUTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{CUTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;&nbsp;&nbsp;<strong>d.Others</strong></td>
+			  <td align="right" valign="bottom">{OTTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{OTTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{OTTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{OTTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{OTTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{OTTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <!--tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td align="right" valign="bottom">{XTaxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{XTaxable_LandArea}</td>
+			  <td align="right" valign="bottom">{XTaxable_LandMV}</td>
+			  <td align="right" valign="bottom">{XTaxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{XTaxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{XTaxable_MachMV}</td>
+			  <td align="right" valign="bottom">{XTaxable_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{XTaxable_TotalMV}</td>
+			  <td align="right" valign="bottom">{XTaxable_LandAV}</td>
+			  <td align="right" valign="bottom">{XTaxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{XTaxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{XTaxable_MachAV}</td>
+			  <td align="right" valign="bottom">{XTaxable_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{XTaxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr-->
+			 <tr bgcolor="#999999"> 
+			  <td><strong>Totals:&nbsp;Taxable&nbsp;Properties</strong></td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_LandArea}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_LandMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_BldgLessMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_BldgOverMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_MachMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_OtherMV}</td>
+			  <td align="right" valign="bottom">{Taxable_TotalMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_LandAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_BldgLessAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_BldgOverAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_MachAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Taxable_OtherAV}</td>
+			  <td align="right" valign="bottom">{Taxable_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>Exempt</strong></td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom" bgcolor="#999999">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom" bgcolor="#999999">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>1.Government</strong></td>
+			  <td align="right" valign="bottom">{GOExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{GOExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{GOExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{GOExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{GOExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{GOExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{GOExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{GOExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{GOExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{GOExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{GOExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{GOExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{GOExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{GOExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>2.Religous</strong></td>
+			  <td align="right" valign="bottom">{RLExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{RLExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{RLExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{RLExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{RLExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{RLExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{RLExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{RLExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{RLExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{RLExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{RLExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{RLExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{RLExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{RLExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>3.Charitable</strong></td>
+			  <td align="right" valign="bottom">{CHExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{CHExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{CHExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{CHExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{CHExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{CHExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{CHExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{CHExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{CHExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{CHExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{CHExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{CHExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{CHExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{CHExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>4.Educational</strong></td>
+			  <td align="right" valign="bottom">{EDExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{EDExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{EDExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{EDExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{EDExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{EDExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{EDExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{EDExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{EDExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{EDExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{EDExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{EDExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{EDExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{EDExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999"><strong>5.Others</strong></td>
+			  <td align="right" valign="bottom">{OTExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{OTExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{OTExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{OTExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{OTExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{OTExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{OTExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{OTExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{OTExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{OTExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{OTExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{OTExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{OTExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{OTExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <!--tr bgcolor="#CCCCCC"> 
+			  <td bgcolor="#999999">&nbsp;</td>
+			  <td align="right" valign="bottom">{XExempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom">{XExempt_LandArea}</td>
+			  <td align="right" valign="bottom">{XExempt_LandMV}</td>
+			  <td align="right" valign="bottom">{XExempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom">{XExempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom">{XExempt_MachMV}</td>
+			  <td align="right" valign="bottom">{XExempt_OtherMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{XExempt_TotalMV}</td>
+			  <td align="right" valign="bottom">{XExempt_LandAV}</td>
+			  <td align="right" valign="bottom">{XExempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom">{XExempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom">{XExempt_MachAV}</td>
+			  <td align="right" valign="bottom">{XExempt_OtherAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#999999">{XExempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			 <tr bgcolor="#999999"> 
+			  <td><strong>Totals:&nbsp;Exempt&nbsp;Properties</strong></td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_LandArea}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_LandMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_BldgLessMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_BldgOverMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_MachMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_OtherMV}</td>
+			  <td align="right" valign="bottom">{Exempt_TotalMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_LandAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_BldgLessAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_BldgOverAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_MachAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{Exempt_OtherAV}</td>
+			  <td align="right" valign="bottom">{Exempt_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr-->
+			 <tr bgcolor="#999999"> 
+			  <td><strong>Grand Totals</strong></td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_RealPropertyUnits}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_LandArea}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_LandMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_BldgLessMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_BldgOverMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_MachMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_OtherMV}</td>
+			  <td align="right" valign="bottom">{TOTAL_TotalMV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_LandAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_BldgLessAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_BldgOverAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_MachAV}</td>
+			  <td align="right" valign="bottom" bgcolor="#CCCCCC">{TOTAL_OtherAV}</td>
+			  <td align="right" valign="bottom">{TOTAL_TotalAV}</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			  <td width="200" align="right" valign="bottom">&nbsp;</td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top"><img src="../images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="fileds_comment"> <br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			Tampering with this system is criminally punishable under Philippine 
+			Laws.<br> &copy; Republic of the Philippines National Computer Center. 
+			All Rights Reserved. </td>
+		  </tr>
+		 </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="../images/inner_16.jpg"> <img SRC="../images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="../images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="../images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td background="images/inner_20_bg.jpg"> <img SRC="../images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td background="images/inner_21_bg.jpg"> <img SRC="../images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td background="images/inner_22_bg.jpg"> <img SRC="../images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

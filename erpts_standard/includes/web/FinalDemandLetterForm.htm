@@ -1,0 +1,136 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript">
+function setDefaultDay(day){
+	eval("document.FinalDemandLetterForm.noticeDate_day.options["+day+"-1].selected = true");
+}
+function setDays() {
+  var obj=eval("document.FinalDemandLetterForm.noticeDate_day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+  switch(eval("document.FinalDemandLetterForm.noticeDate_month.value")) {
+	case "2":
+		year = document.FinalDemandLetterForm.noticeDate_year.value;
+		if ((year % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="images/background/bg_middle.jpg">
+<form name="FinalDemandLetterForm" method="post" action="FinalDemandLetterPrint.php{Session}">
+<input type="hidden" name="ownerID" value="{ownerID}">
+ <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>
+        <table width="500" border="0" cellspacing="1" cellpadding="3" align="center">
+          <tr> 
+            <td class="fields" colspan="2"><b>Before generating the PDF, please fill up the following necessary fields for the report:</b><br>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fields" colspan="2" bgcolor="#F6F6F6" nowrap><b>FINAL DEMAND LETTER</b></td>
+          </tr>
+
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6">Date of Last Notice:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+                    <select name="noticeDate_month" onChange="javascript:setDays()">
+					  <option value=""></option>
+                      <!-- BEGIN MonthList -->
+                      <option value = "{monthValue}" {noticeDate_month_sel}>{month}</option>
+                      <!-- END MonthList -->
+                    </select>
+
+                    <select name="noticeDate_day">
+					  <option value=""></option>
+                      <!-- BEGIN DayList -->
+                      <option value = "{dayValue}" {noticeDate_day_sel}>{dayValue}</option>
+                      <!-- END DayList -->
+                    </select>
+
+                    <select name="noticeDate_year" onChange="javascript:setDays()">
+					  <option value=""></option>
+                      <!-- BEGIN YearList -->
+                      <option value = "{yearValue}" {noticeDate_year_sel}>{yearValue}</option>
+                      <!-- END YearList -->
+                    </select>
+            </td>
+          </tr>
+
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6">Amount of Last Notice</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="amount" maxlength="100" size="30" value="">
+            </td>
+          </tr>
+
+          <tr>
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Signatory:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <select name="signatory">
+                <option value="">none</option>
+                <!-- BEGIN SignatoryList -->
+                <option value="{name}">{name}</option>
+                <!-- END SignatoryList -->
+			  </select>
+            </td>
+          </tr>
+
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6">Signatory Designation:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="designation" maxlength="100" size="30" value="">
+            </td>
+          </tr>
+
+		  <tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="PRINT">
+			</td>
+		  </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+</body>
+</html>

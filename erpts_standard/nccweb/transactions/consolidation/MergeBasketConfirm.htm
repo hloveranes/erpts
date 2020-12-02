@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>{totalInMergeBasket} RPUs ready for Merger</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript">
+<!--
+function setDefaults(){
+	//
+}
+function clearList(){
+	refreshParent();
+	window.close();
+}
+function refreshParent(){
+	parentURL = "ODList.php?" + opener.ODList.ODListQuery.value;
+	opener.location.href = parentURL;
+}
+function consolidate(){
+	parentURL = "ODList.php{Session}";
+	parentURL += "&formAction=consolidate";
+	parentURL += "&transactionCode=CS";
+	parentURL += "&mergeBasketCSV={mergeBasketCSV}";
+
+	opener.location.href = parentURL;
+	
+	window.close();
+}
+//-->
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" background="images/background/bg_middle.jpg" onLoad="javascript: setDefaults();" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- BEGIN Table -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="370" border="0" cellspacing="1" cellpadding="3" align="center">
+		  <tr>
+			<td colspan=2 class="fields" align="center">
+				<b>Are you sure you want to CONSOLIDATE the following properties?</b>
+				<br>
+				<br>
+				<input type="button" value="YES" onClick="consolidate();"> <input type="button" value="NO" onClick="window.close();">		
+			</td>
+		  </tr>
+		  <!-- BEGIN NoODList -->
+          <tr> 
+            <td class="fileds_comment" align="center" colspan=2 bgcolor="#F6F6F6">- no RPU's to list -</td>
+          </tr>
+		  <!-- END NoODList -->
+		  <!-- BEGIN ShowODList -->
+		  <tr> 
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6" nowrap><font color="#990000"><B>{totalInMergeBasket} RPUs set for Merger : </B></font></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="center" width="30" bgcolor="#F6F6F6"><B>odID</B></td>
+            <td class="fileds_comment" align="left" width="300" bgcolor="#F6F6F6" nowrap><B>RPU Details</B></td>
+          </tr>
+		  <!-- BEGIN ODList -->
+          <tr> 
+            <td class="fileds_comment" align="center" width="30" bgcolor="#F6F6F6">{odID}</td>
+            <td class="fileds_comment" align="left" width="300" bgcolor="#F6F6F6" nowrap>
+				<table border=0 cellpadding=2 cellspacing=0 width="300">
+				<tr>
+					<td class="fileds_comment" width="75" align="left" valign="top" nowrap>
+						<b>Owner Name:</b>
+					</td>
+					<td class="fileds_comment" width="225" align="left" valign="top">
+						{ownerName}
+					</td>
+				</tr>
+				<tr>
+					<td class="fileds_comment" align="left" valign="top" nowrap>
+						<b>Location:</b>
+					</td>
+					<td class="fileds_comment" align="left" valign="top">
+						{locationAddress}
+					</td>
+				</tr>
+				<tr>
+					<td class="fileds_comment" align="left" valign="top" nowrap>
+						<b>Land Area:</b>
+					</td>
+					<td class="fileds_comment" align="left" valign="top">
+						{landArea}
+					</td>
+				</tr>
+
+				<tr>
+					<td class="fileds_comment" align="left" valign="top" nowrap>
+						<b>Property Index Number:</b>
+					</td>
+					<td class="fileds_comment" align="left" valign="top">
+						{propertyIndexNumber}
+					</td>
+				</tr>					
+
+				</table>
+			</td>
+          </tr>
+		  <!-- END ODList -->
+		  <!-- END ShowODList -->
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  </form>
+<!-- END Table -->
+
+</body>
+</html>

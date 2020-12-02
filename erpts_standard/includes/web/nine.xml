@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+
+<contents>
+	    <!-- BEGIN Page -->
+		<page height="609" width="783" number="{page}" orientation="0">
+		
+		<textitem xpos="391" ypos="580" font="Helvetica" size="7" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="391" ypos="570" font="Helvetica" size="7" align="center">{lguType} OF {lguName}</textitem>
+		<textitem xpos="391" ypos="560" font="Helvetica" size="7" align="center">OFFICE OF THE TREASURER</textitem>
+
+		<textitem xpos="391" ypos="471" font="Helvetica" size="7" align="center">SUMMARY OF COLLECTIBLES BY CLASSIFICATION ({classification})</textitem>
+
+		<textitem xpos="133" ypos="438" font="Helvetica" size="7">TAX COLLECTED</textitem>
+		<textitem xpos="366" ypos="438" font="Helvetica" size="7">COLLECTIBLE</textitem>
+
+		<textitem xpos="69" ypos="425" font="Helvetica" size="7">Property Index No.</textitem>
+		<textitem xpos="153" ypos="425" font="Helvetica" size="7"> Basic</textitem>
+		<textitem xpos="211" ypos="425" font="Helvetica" size="7">SEF</textitem>
+		<textitem xpos="264" ypos="425" font="Helvetica" size="7">Penalty</textitem>
+		<textitem xpos="326" ypos="425" font="Helvetica" size="7">Total</textitem>
+		<textitem xpos="391" ypos="425" font="Helvetica" size="7">Basic</textitem>
+		<textitem xpos="451" ypos="425" font="Helvetica" size="7">SEF</textitem>
+		<textitem xpos="504" ypos="425" font="Helvetica" size="7">Penalty</textitem>
+		<textitem xpos="564" ypos="425" font="Helvetica" size="7">Total</textitem>
+		<textitem xpos="597" ypos="425" font="Helvetica" size="7">Remarks</textitem>
+
+		<!-- BEGIN Row -->
+		<textitem align="right" xpos="35" ypos="{ypos}" font="Helvetica" size="7">{recordCtr}.</textitem>
+		<textitem align="left" xpos="40" ypos="{ypos}" font="Helvetica" size="7">{propertyIndexNumber}</textitem>
+		<textitem align="right" xpos="173" ypos="{ypos}" font="Helvetica" size="7">{paidBasic}</textitem>
+		<textitem align="right" xpos="231" ypos="{ypos}" font="Helvetica" size="7">{paidSEF}</textitem>
+		<textitem align="right" xpos="284" ypos="{ypos}" font="Helvetica" size="7">{paidPenalty}</textitem>
+		<textitem align="right" xpos="340" ypos="{ypos}" font="Helvetica" size="7">{totalTaxCollected}</textitem>
+		<textitem align="right" xpos="411" ypos="{ypos}" font="Helvetica" size="7">{basic}</textitem>
+		<textitem align="right" xpos="471" ypos="{ypos}" font="Helvetica" size="7">{sef}</textitem>
+		<textitem align="right" xpos="524" ypos="{ypos}" font="Helvetica" size="7">{penalty}</textitem>
+		<textitem align="right" xpos="584" ypos="{ypos}" font="Helvetica" size="7">{totalCollectible}</textitem>
+		<!-- END Row -->
+
+		<!-- BEGIN Totals -->
+		<textitem align="right" xpos="35" ypos="126" font="Helvetica" size="7">Totals:</textitem>
+		<textitem align="left" xpos="40" ypos="126" font="Helvetica" size="7"></textitem>
+		<textitem align="right" xpos="173" ypos="126" font="Helvetica" size="7">{totalPaidBasic}</textitem>
+		<textitem align="right" xpos="231" ypos="126" font="Helvetica" size="7">{totalPaidSEF}</textitem>
+		<textitem align="right" xpos="284" ypos="126" font="Helvetica" size="7">{totalPaidPenalty}</textitem>
+		<textitem align="right" xpos="340" ypos="126" font="Helvetica" size="7">{totalTotalTaxCollected}</textitem>
+		<textitem align="right" xpos="411" ypos="126" font="Helvetica" size="7">{totalBasic}</textitem>
+		<textitem align="right" xpos="471" ypos="126" font="Helvetica" size="7">{totalSef}</textitem>
+		<textitem align="right" xpos="524" ypos="126" font="Helvetica" size="7">{totalPenalty}</textitem>
+		<textitem align="right" xpos="584" ypos="126" font="Helvetica" size="7">{totalTotalCollectible}</textitem>
+		<!-- END Totals -->
+
+		<textitem xpos="674" ypos="99" font="Helvetica" size="7">Page {page} of {numOfPages}</textitem>
+		
+				
+			
+		<lineitem x1="688" y1="457" x2="35" y2="457">blurb</lineitem>  
+		<lineitem x1="128" y1="432" x2="353" y2="432">blurb</lineitem>  
+		<lineitem x1="367" y1="432" x2="590" y2="432">blurb</lineitem> 
+		<lineitem x1="688" y1="420" x2="35" y2="420">blurb</lineitem> 
+		<lineitem x1="590" y1="420" x2="590" y2="405">blurb</lineitem> 
+		<lineitem x1="347" y1="420" x2="347" y2="405">blurb</lineitem> 
+		<lineitem x1="130" y1="420" x2="130" y2="405">blurb</lineitem> 	
+			
+			</page>
+		<!-- END Page -->
+	</contents>

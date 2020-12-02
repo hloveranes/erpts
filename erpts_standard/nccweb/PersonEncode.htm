@@ -1,0 +1,351 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/email.js"></script>
+
+<script language="javascript">
+<!--
+  function validateForm(iform) {
+  
+  	if (iform.lastName.value=="") {
+		alert("lastName Required.");
+		iform.lastName.focus();
+		return false;
+	}
+	if (iform.firstName.value=="") {
+		alert("firstName Required.");
+		iform.firstName.focus();
+		return false;
+	}
+/* RC 20091006 Remove mandatory
+	if (iform.middleName.value=="") {
+		alert("middleName Required.");
+		iform.middleName.focus();
+		return false;
+	}
+	buffer=iform.gender;
+	if (!buffer[0].checked && !buffer[1].checked) {
+		alert("Gender required.");
+		return false;
+	}
+  	
+    buffer1=iform.maritalStatus;
+	if (!buffer1[0].checked && !buffer1[1].checked && !buffer1[2].checked) {
+		alert("Marital Status Required.");
+		return false;
+	} */
+  	if (iform.tin.value=="") {
+		alert("TIN required.");
+		iform.tin.focus();
+		return false;
+	} 
+
+	if (iform.number.value=="") {
+		alert("Number is required.");
+		iform.number.focus();
+		return false;
+	}
+	if (iform.street.value=="") {
+		alert("Street is required.");
+		iform.street.focus();
+		return false;
+	}
+	if (iform.barangay.value=="") {
+		alert("Barangay is required.");
+		iform.barangay.focus();
+		return false;
+	}
+	if (iform.municipalityCity.value=="") {
+		alert("Municipality/City is required.");
+		iform.municipalityCity.focus();
+		return false;
+	}
+/*
+	if (iform.district.value=="") {
+		alert("District is required.");
+		iform.district.focus();
+		return false;
+	} */
+	if (iform.province.value=="") {
+		alert("Province is required.");
+		iform.province.focus();
+		return false;
+	}
+	if (iform.telephone.value=="") {
+		alert("Telephone number is required.");
+		iform.telephone.focus();
+		return false;
+	}
+/*	
+	if (iform.mobileNumber.value=="") {
+		alert("Cell Number is required.");
+		iform.mobileNumber.focus();
+		return false;
+	} */
+/*	
+	 if (iform.email.value=="") {
+		alert("Email address required.");
+		iform.email.focus();
+		return false;
+	} 
+	else if (!checkEmail(iform.email.value)) {
+		alert("Invalid email address.");
+		iform.email.focus();
+		return false;
+	}
+*/
+	return true;
+  }
+
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.close();
+}
+function checkValues(which){
+	if (which.lastName.value=='') {
+		alert('Lastname required');
+		which.lastName.focus();
+		return false;
+	}
+	if (which.firstName.value=='') {
+		alert('Firstname required');
+		which.firstName.focus();
+		return false;
+	}
+/* RC 20091006 Remove mandatory
+	if (which.middleName.value=='') {
+		alert('Middlename required');
+		which.middleName.focus();
+		return false;
+	} 
+	if (which.gender.value=='') {
+		alert('Gender required');
+		which.gender.focus();
+		return false;
+	} */
+	return true;
+}
+function setDefaults(){
+//	setDays();
+//	setDefaultDay(1);
+	window.resizeTo(570,510);
+}
+function setDefaultDay(day){
+	eval("document.EncodePerson.birth_day.options["+day+"-1].selected = true");
+}
+function setDays() {
+  var obj=eval("document.EncodePerson.birth_day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+
+  for (i=objlen-1; i>=28+nullfield; i--){
+	obj.options.remove(i);
+  }
+  switch(eval("document.EncodePerson.birth_month.value")) {
+	case "2":
+		birthYear = document.EncodePerson.birth_year.value;
+		if ((birthYear % 4) == 0) obj.options[28+1]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		 break;
+  }
+  obj.options[daySelected].selected = true;
+}
+//-->
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="images/background/bg_middle.jpg" onLoad="javascript: setDefaults();">
+<form name="EncodePerson" method="post" action="PersonEncode.php{Session}" onSubmit="javascript: return validateForm(this);">
+
+  <input type="hidden" name="parentURL">
+  <script language="Javascript">
+	document.EncodePerson.parentURL.value = window.opener.location;
+  </script>
+
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>
+        <table width="500" border="0" cellspacing="1" cellpadding="3" align="center">
+          <tr> 
+            <td class="fileds_comment" colspan="3" bgcolor="#F6F6F6" nowrap><b>OWNER 
+              INFORMATION - Person</b></td>
+          </tr>
+
+          <!-- BEGIN personID --
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>PersonID</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">{personID}</td>
+          </tr>
+          !-- END personID -->
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>LastName</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="lastName" maxlength="100" size="30" value="{lastName}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>FirstName</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="firstName" maxlength="100" size="30" value="{firstName}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>MiddleName</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="middleName" maxlength="100" size="30" value="{middleName}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Gender</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="radio" name="gender" value="male" {male}>
+              male 
+              <input type="radio" name="gender" value="female" {female}>
+              female </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Birthday</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2" align="left"> 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> 
+                    <select name="birth_month" onChange="javascript:setDays()">
+					  <option value=""></option>
+                      <!-- BEGIN MonthList -->
+                      <option value = "{monthValue}" {birth_month_sel}>{month}</option>
+                      <!-- END MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> 
+                    <select name="birth_day">
+					  <option value=""></option>
+                      <!-- BEGIN DayList -->
+                      <option value = "{dayValue}" {birth_day_sel}>{dayValue}</option>
+                      <!-- END DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> 
+                    <select name="birth_year" onChange="javascript:setDays()">
+					  <option value=""></option>
+                      <!-- BEGIN YearList -->
+                      <option value = "{yearValue}" {birth_year_sel}>{yearValue}</option>
+                      <!-- END YearList -->
+                    </select>
+                    (year) </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Marital 
+              Status</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <!-- BEGIN MaritalStatusList -->
+              <input type="radio" name="maritalStatus" value="{maritalStatusKey}"{maritalStatus_sel}>
+              {maritalStatusValue}&nbsp;&nbsp;&nbsp; 
+              <!-- END MaritalStatusList -->
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>TIN</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="tin" maxlength="32" size="30" value="{tin}">
+            </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" rowspan="3" bgcolor="#F6F6F6" nowrap align="right">
+              <input type="hidden" name="addressID" value="{addressID}">
+              Address</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" size="30" name="number" maxlength="32" value="{number}">
+              (Number) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="street" size="30" maxlength="64" value="{street}">
+              (Street) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="barangay" size="30" maxlength="64" value="{barangay}">
+              (Barangay) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="district" size="30" maxlength="64" value="{district}">
+              (District) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="municipalityCity" size="30" maxlength="64" value="{municipalityCity}">
+              (Municipality/City) </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> 
+              <input type="text" name="province" size="30" maxlength="32" value="{province}">
+              (Province) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Telephone</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="telephone" size="30" maxlength="64" value="{telephone}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Cell 
+              Number</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="mobileNumber" size="30" maxlength="64" value="{mobileNumber}">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Email</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="email" value="{email}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6" nowrap><b> </b></td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="hidden" name="formAction" value="save">
+              <input type="hidden" name="personID" value="{personID}">
+              <input type="hidden" name="ownerID" value="{ownerID}">
+              <input type="hidden" name="odID" value="{odID}">
+              <input type="submit" value="Submit">
+              <input type="reset" name="Submit2" value="Reset">
+              <input type="button" name="Button" value="Cancel"  onClick="refreshParent();">
+              <!--input type="button" name="Button" value="Cancel" onClick="javascript:EncodePerson.action.value = 'cancel';EncodePerson.submit();"-->
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+</body>
+</html>

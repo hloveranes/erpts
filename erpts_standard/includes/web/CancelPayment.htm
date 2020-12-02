@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title></title>
+<script language="javascript">
+<!--
+function validateForm(form) {
+	if (form.receiptNum.value=="") {
+		alert("Please enter receipt number of payment you want to cancel.");
+		form.receiptNum.focus();
+		return;
+	}
+	
+	form.isSubmit.value=1;
+	form.submit();
+}
+// -->
+</script>
+</head>
+<body>
+<form method="post" name="cancelPayment" action="CancelPayment.php{Session}">
+<table>
+	<tr>
+		<td>Receipt Number:</td>
+		<td><input type="text" name="receiptNum" value=""></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="submit" value="Cancel Payment" onclick="javascript: validateForm(this.form); return false;"><input type="reset" value="Reset Form"><input type="button" value="Close Window" onclick="window.close();"></td>
+	</tr>
+</table>
+<input type="hidden" name="isSubmit">
+</form>
+</body>
+</html>

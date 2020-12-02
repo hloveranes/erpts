@@ -1,0 +1,260 @@
+<?php
+include_once "./prepend.php";
+include_once "./clibPDFWriter.php";
+require_once('collection/Receipt.php');
+require_once('collection/Payment.php');
+
+class PrintReport{
+	var $tpl;
+	var $formArray;
+	var $db;
+
+	function PrintReport($http_post_vars,$sess){
+		$this->sess = $sess;
+		$this->tpl = new rpts_Template(getcwd(),"keep");
+
+		$this->tpl->set_file("rptsTemplate", "report2Asoa.xml") ;
+		$this->tpl->set_var("TITLE", "Record of Real Property Tax Collection");
+
+		$this->formArray = array(
+			"sheet1" => ""
+			,"lgu" => ""
+			,"startDate" => ""
+			,"endDate" => ""
+			,"rpuClass" => ""
+			,"pages" => ""
+			,"ypos" => ""
+			,"datePaid" => ""
+			,"taxpayerName" => ""
+			,"startDate" => ""
+			,"orNo" => ""
+			,"barangay" => ""
+			,"paidBasic" => ""
+			,"discountBasic" => ""
+			,"priorBasic" => ""
+			,"penaltyBasic" => ""
+			,"priorPenaltyBasic" => ""
+			,"totalGrossBasic" => ""
+			,"totalNetBasic" => ""
+			,"paidSEF" => ""
+			,"discountSEF" => ""
+
+			,"sheet2" => ""
+			,"priorSEF" => ""
+			,"penaltySEF" => ""
+			,"priorPenaltySEF" => ""
+			,"totalGrossSEF" => ""
+			,"totalNetSEF" => ""
+			,"paidIdle" => ""
+			,"priorIdle" => ""
+			,"penaltyIdle" => ""
+			,"totalIdle" => ""
+			,"specialLevy" => ""
+			,"totalNonCash" => ""
+			,"grandTotalGrossCol1" => ""
+			,"grandTotalNetCol1" => "");
+
+		foreach ($http_post_vars as $key=>$value) {
+			$this->formArray[$key] = $value;
+		}
+	}
+
+	function setDB(){
+		$db = new DB_RPTS;
+		return $db;
+	}
+
+	function formatCurrency($key){
+		if($this->formArray[$key]!=""){
+			$this->formArray[$key] = number_format($this->formArray[$key], 2, ".", ",");
+		}
+	}
+
+	function setvar($key,$value,$formatCurrency=false){
+		$this->formArray[$key] = $value;
+		if($formatCurrency){
+			$value = formatCurrency($value);
+		}
+		$this->tpl->set_var($key,html_entity_to_alpha($value));
+	}
+
+	function setForm(){
+		foreach ($this->formArray as $key => $value){
+			$this->tpl->set_var($key, html_entity_to_alpha($value));
+		}
+	}
+
+	function displayPageHeading(){
+		$db = $this->setDB();
+
+		$this->formArray["lguName"]="";
+
+		$sql = "SELECT description from ".MUNICIPALITYCITY_TABLE." ";
+		$sql.= " WHERE ".MUNICIPALITYCITY_TABLE.".municipalityCityID =";
+		$sql.= " '".$this->formArray["municipalityCityID"]."';";
+
+		$db->query($sql);
+		if ($db->next_record()) $this->formArray["lguName"]=$db->f("description");
+
+		$this->formArray["startDate"] = $this->formArray["startYY"]."-".$this->formArray["startMM"]."-01";
+		$this->formArray["endDate"] = $this->formArray["endYY"]."-".$this->formArray["endMM"]."-01";
+
+		$this->tpl->set_var("lgu",$this->formArray["lguName"]);
+		$this->tpl->set_var("startDate",$this->formArray["startDate"]);
+		$this->tpl->set_var("endDate",$this->formArray["endDate"]);
+	}
+
+	function writeTDQuery($propertyTypeStr){
+		$firstChar = strtolower(substr($propertyTypeStr,0,1));
+		$restOfTheString = substr($propertyTypeStr,1);
+		$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+		$sql = "select Receipt.receiptNumber as receiptNumber".
+			", Receipt.receiptDate as receiptDate".
+			", Receipt.receivedFrom as receivedFrom".
+			", Receipt.paymentMode as paymentMode".
+			", Barangay.description as barangay".
+			", Collection.collectionID".
+			", Receipt.receiptID".
+			", Payment.paymentID".
+			", TD.tdID".
+			", AFS.afsID".
+			", OD.odID".
+			", MunicipalityCity.description as municipalityCity ".
+			" FROM Collection,MunicipalityCity".
+			" INNER JOIN Receipt ON Receipt.receiptID = Collection.receiptID".
+			" INNER JOIN Payment ON Payment.paymentID = Collection.paymentID".
+			" INNER JOIN TD ON TD.tdID = Payment.tdID".
+			" INNER JOIN AFS ON AFS.afsID = TD.afsID".
+			" INNER JOIN ".$propertyTypeStr." ON AFS.afsID = ".$propertyTypeStr.".afsID".
+			" INNER JOIN ".$propertyTypeStr."ActualUses ON ".$propertyTypeStr.".actualUse = ".$propertyTypeStr."ActualUses.".strtolower($propertyTypeStr)."ActualUsesID".		
+			" INNER JOIN OD ON OD.odID = AFS.odID".
+			" INNER JOIN Location ON Location.odID = OD.odID".
+			" INNER JOIN LocationAddress ON LocationAddress.locationAddressID = Location.locationAddressID".
+			" INNER JOIN Barangay ON Barangay.barangayID = LocationAddress.barangayID".
+			" WHERE Receipt.receiptDate between '".$this->formArray["startDate"]."' AND '".$this->formArray["endDate"]."'".
+			" AND LocationAddress.municipalityCity = MunicipalityCity.municipalityCityID ".
+			" AND MunicipalityCity.municipalityCityID=".$this->formArray["municipalityCityID"]." ".
+			" AND ".$propertyTypeStr."ActualUses.code = '".$this->formArray["rpuClass"]."' ".
+			" AND Receipt.status != 'cancelled' ".
+			" AND Collection.status != 'cancelled' ".
+			" AND Payment.status != 'cancelled' ".
+			" ORDER BY Receipt.receiptID DESC ";
+
+		return $sql;
+	}
+
+	function writeBacktaxTDQuery($propertyTypeStr){
+		$firstChar = strtolower(substr($propertyTypeStr,0,1));
+		$restOfTheString = substr($propertyTypeStr,1);
+		$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+		$sql = "select Receipt.receiptNumber as receiptNumber".
+			", Receipt.receiptDate as receiptDate".
+			", Receipt.receivedFrom as receivedFrom".
+			", Receipt.paymentMode as paymentMode".
+			", Barangay.description as barangay".
+			", Collection.collectionID".
+			", Receipt.receiptID".
+			", Payment.paymentID".
+			", BacktaxTD.backtaxTDID".
+			", AFS.afsID".
+			", OD.odID".
+			", MunicipalityCity.description as municipalityCity ".
+			" FROM Collection,MunicipalityCity".
+			" INNER JOIN Receipt ON Receipt.receiptID = Collection.receiptID".
+			" INNER JOIN Payment ON Payment.paymentID = Collection.paymentID".
+			" INNER JOIN BacktaxTD ON BacktaxTD.backtaxTDID = Payment.backtaxTDID".
+			" INNER JOIN TD ON TD.tdID = BacktaxTD.tdID".
+			" INNER JOIN AFS ON AFS.afsID = TD.afsID".
+			" INNER JOIN ".$propertyTypeStr." ON AFS.afsID = ".$propertyTypeStr.".afsID".
+			" INNER JOIN ".$propertyTypeStr."ActualUses ON ".$propertyTypeStr.".actualUse = ".$propertyTypeStr."ActualUses.".strtolower($propertyTypeStr)."ActualUsesID".		
+			" INNER JOIN OD ON OD.odID = AFS.odID".
+			" INNER JOIN Location ON Location.odID = OD.odID".
+			" INNER JOIN LocationAddress ON LocationAddress.locationAddressID = Location.locationAddressID".
+			" INNER JOIN Barangay ON Barangay.barangayID = LocationAddress.barangayID".
+			" WHERE Receipt.receiptDate between '".$this->formArray["startDate"]."' AND '".$this->formArray["endDate"]."'".
+			" AND LocationAddress.municipalityCity = MunicipalityCity.municipalityCityID ".
+			" AND MunicipalityCity.municipalityCityID=".$this->formArray["municipalityCityID"]." ".
+			" AND ".$propertyTypeStr."ActualUses.code = '".$this->formArray["rpuClass"]."' ".
+			" AND Receipt.status != 'cancelled' ".
+			" AND Collection.status != 'cancelled' ".
+			" AND Payment.status != 'cancelled' ".
+			" ORDER BY Receipt.receiptID DESC ";
+
+		return $sql;
+	}
+
+	function Main(){
+		$db = $this->setDB();
+		$this->displayPageHeading();
+
+		switch($this->formArray["propertyType"]){
+			case 1:
+				// Land
+				$propertyTypeStr = "Land";
+
+				$firstChar = strtolower(substr($propertyTypeStr,0,1));
+				$restOfTheString = substr($propertyTypeStr,1);
+				$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+				$sqlDescription = "SELECT * FROM ".LAND_ACTUALUSES_TABLE." WHERE ".$actualUseIDVar."='".$this->formArray["actualUseID"]."';";
+				break;
+			case 2:
+				// ImprovementsBuildings
+				$propertyTypeStr = "ImprovementsBuildings";
+
+				$firstChar = strtolower(substr($propertyTypeStr,0,1));
+				$restOfTheString = substr($propertyTypeStr,1);
+				$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+				$sqlDescription = "SELECT * FROM ".IMPROVEMENTSBUILDINGS_ACTUALUSES_TABLE." WHERE ".$actualUseIDVar."='".$this->formArray["actualUseID"]."';";
+				break;
+			case 3:
+				// Machineries
+				$propertyTypeStr = "Machineries";
+
+				$firstChar = strtolower(substr($propertyTypeStr,0,1));
+				$restOfTheString = substr($propertyTypeStr,1);
+				$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+				$sqlDescription = "SELECT * FROM ".MACHINERIES_ACTUALUSES_TABLE." WHERE ".$actualUseIDVar."='".$this->formArray["actualUseID"]."';";
+				break;
+			case 4:
+				// PlantsTrees
+				$propertyTypeStr = "PlantsTrees";
+
+				$firstChar = strtolower(substr($propertyTypeStr,0,1));
+				$restOfTheString = substr($propertyTypeStr,1);
+				$actualUseIDVar = $firstChar.$restOfTheString."ActualUsesID";
+
+				$sqlDescription = "SELECT * FROM ".PLANTSTREES_ACTUALUSES_TABLE." WHERE ".$actualUseIDVar."='".$this->formArray["actualUseID"]."';";
+				break;
+			default:
+				break;
+		}
+
+		$db->query($sqlDescription);
+		if ($db->next_record()){
+			$this->formArray["actualUse"] = $db->f("code");
+			$this->formArray["rpuClassDesc"] = $db->f("description");
+			$this->formArray["rpuClass"] = $this->formArray["actualUse"];
+		}
+
+		$sqlTD = $this->writeTDQuery($propertyTypeStr);
+		$sqlBacktaxTD = $this->writeBacktaxTDQuery($propertyTypeStr);
+
+		echo $sqlTD;
+		echo "<hr>";
+		echo $sqlBacktaxTD;
+		echo "<hr>";
+
+
+
+	}
+}
+
+$printReport = new PrintReport($HTTP_POST_VARS,$sess);
+$printReport->Main();
+
+?>

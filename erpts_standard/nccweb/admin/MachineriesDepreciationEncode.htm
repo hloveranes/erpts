@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>{TITLE}</title>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+
+<script language="javascript">
+
+  function isNumeric(str)
+  {
+    dec = false;
+    var len= str.length;
+    if (len==0)
+      return false;
+    //else
+    var p=0;
+    var ok= true;
+    var ch= "";
+    while (ok && p<len)
+    {
+      ch= str.charAt(p);
+      if ('0'<=ch && ch<='9')
+        p++;
+      else if(ch=='.'){
+        if(p>0 && p<(len-1)){
+            if(dec==false){
+                dec = true;
+                p++
+            }
+            else{
+                ok = false;
+            }
+        }
+        else{
+            ok = false;
+        }
+      }
+      else
+        ok = false;
+    }
+    return ok;
+  }
+
+  function validateForm(iform) {
+
+  	if (iform.code.value=="") {
+		alert("code Required.");
+		iform.code.focus();
+		return false;
+	}
+	if (iform.description.value=="") {
+		alert("description Required.");
+		iform.description.focus();
+		return false;
+	}
+    if(isNumeric(iform.value.value)!=true){
+        alert("value must be Numeric.");
+        iform.value.focus();
+        return false;
+    }	
+    if (iform.status.value=="") {
+		alert("status Required.");
+		iform.status.focus();
+		return false;
+	}
+    iform.submit();
+//  refreshParent();
+	return true;
+  }
+
+function refreshParent() {
+	window.opener.location = "MachineriesDepreciationList.php{Session}";
+	window.close();
+}
+function checkValues(which){
+	if (which.code.value=='') {
+		alert('code required');
+		which.code.focus();
+		return false;
+	}
+	if (which.description.value=='') {
+		alert('description required');
+		which.description.focus();
+		return false;
+	}
+	if (which.status.value=='') {
+		alert('status required');
+		which.status.focus();
+		return false;
+	}
+}
+
+function setDefaults(){
+	window.resizeTo(470,310);
+}
+
+</script>
+</head>
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="images/background/bg_middle.jpg" onLoad="javascript: setDefaults();">
+<form name="EncodeMachineriesDepreciation" method="post" action="MachineriesDepreciationEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <table width="400" border="0" cellspacing="1" cellpadding="3" align="center">
+          <tr>
+            <td class="fileds_comment" colspan="3" bgcolor="#F6F6F6" nowrap><b>ADDRESS-Based Master Tables - MachineriesDepreciation</b></td>
+          </tr>
+          <!-- BEGIN MachineriesDepreciationID --
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>MachineriesDepreciationID</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">{machineriesDepreciationID}</td>
+          </tr>
+          !-- END MachineriesDepreciationID -->
+
+          <!-- BEGIN Message -->
+          <tr>
+            <td class="fileds_comment" colspan="3" bgcolor="#F6F6F6" nowrap>
+             <font color="#990000"><b>{message}</b></font></td>
+          </tr>
+          <!-- END Message -->
+
+		  <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Report Code</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">
+              <select name="reportCode">
+               <!-- BEGIN ReportCodeList -->
+               <option value="{reportCode}" {reportCode_sel}>{reportCode_desc}</option>
+               <!-- END ReportCodeList -->
+              </select>
+			</td>
+		  </tr>
+
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Code</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">
+              <input type="text" name="code" maxlength="100" size="30" value="{code}">
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Description</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">
+              <input type="text" name="description" maxlength="100" size="30" value="{description}">
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Depreciation Rate</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2">
+              <input type="text" name="value" maxlength="5" size="5" value="{value}"> %
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Status</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2" align="left">
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr>
+                  <td class="fileds_comment" width="33%" nowrap>
+                      <!-- BEGIN StatusList -->
+                      <input type="radio" name="status" value="{statusValue}" {status_sel}>&nbsp; {status}
+                      <!-- END StatusList -->
+                      <script language="Javascript">
+                       //setDefault Radio Button
+                       if(document.EncodeMachineriesDepreciation.status[1].checked==false)
+                        document.EncodeMachineriesDepreciation.status[0].checked = true;
+                      </script>
+                  </td>
+                 </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" bgcolor="#F6F6F6" nowrap><b> </b></td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2">
+              <input type="hidden" name="formAction" value="save">
+              <input type="hidden" name="machineriesDepreciationID" value="{machineriesDepreciationID}">
+              <input type="button" value="Submit" onClick="validateForm(document.EncodeMachineriesDepreciation);">
+              <input type="reset" name="Submit2" value="Reset">
+              <input type="button" name="Button" value="Cancel" onClick="refreshParent();">
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+</body>
+</html>

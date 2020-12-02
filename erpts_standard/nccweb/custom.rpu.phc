@@ -1,0 +1,111 @@
+<?
+/*
+	File Name: custom.rpu.phc
+	Author   : Juanito M. Calingacion
+	Date	 : December 07, 2005
+	
+	Description: Houses the declaration/definition of the following classes
+				 RPUS - collection class
+				 RPU  - business object representing the real property object
+				 TD   - business object representing the Tax Declaration object
+				 				
+
+*/
+require_once("mysqlrecordset.phc");
+require_once("dbfactory.phc");
+require_once("dbrpufactory.phc");
+require_once("config.php";
+
+class RPUS {
+	var $rpu;
+	var $db;
+	var $config;
+	
+	function RPUS($filter, $start, $numberofrecords){
+	    $start--;
+		$this->config=new Config;
+		$statement=$this->config->getConfig("rpus");
+		$sql=sprintf($statement,$filter."%",$start,$numberofrecords); 
+		//print "<hr> $sql <hr>";
+		$connectionstring=$this->config->getConfig("connectionstring");
+		
+		$this->db=new RPUFactory($connectionstring,$sql);		
+	}
+	
+	function fetch(){
+		$record=$this->db->fetchObject();
+		return $record;
+	}
+	
+	function fetchNext(){
+		$this->db->fetchNext();
+	}
+	
+	function fetchRPU(){
+		$this->rpu=$this->db->fetchRPU();
+        return $this->rpu;
+	}
+	
+	function EOL(){
+		return $this->db->EOL();
+	}
+
+}
+
+				
+class RPU{
+	var $lotNumber;
+	var $totalMarketValue;
+	var $totalAssessedValue;
+	var $taxDeclarationNumber;
+	var $propertyIndexNumber;
+	var $arpNumber;
+	
+	//ids
+	var $odID;
+	var $afsID;
+	
+	function RPU($arrayRPU){
+        foreach($arrayRPU as $k=>$field){
+        	$this->{$k}=$field;
+        }
+	}
+	
+	function toArray(){		
+		return get_object_vars($this);
+	}
+	
+	function setTD($objTD){
+		$this->td=$objTD;	
+	}
+	
+	
+}
+
+class TD{
+	var $tdnumber;
+	var $effectivetaxyear;
+	
+	function TD($tdnumber="",$taxyearbegins=""){
+		$this->tdnumber=$tdnumber;
+		$this->effectivetaxyear=$taxyearbegins;
+	
+	}
+	
+	function getTDNumber(){
+		return $this->tdnumber;
+	}
+	
+	function getEffectivetaxyear(){
+		return $this->effectivetaxyear;
+	}
+	
+	function toArray(){
+		$ret=array("tdnumber"=>$this->tdnumber, "effectivetaxyear"=>$this->effectivetaxyear);
+		return ret;
+	}
+	
+}
+
+
+?>

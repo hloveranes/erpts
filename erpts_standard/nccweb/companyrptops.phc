@@ -1,0 +1,101 @@
+<?
+/*
+	File Name: custom.rpu.phc
+	Author   : Juanito M. Calingacion
+	Date	 : December 07, 2005
+	
+	Description: Houses the declaration/definition of the following classes
+				 RPUS - collection class
+				 RPU  - business object representing the real property object
+				 TD   - business object representing the Tax Declaration object
+				 				
+	Mod'ed: alxjvr, 2006.02.27
+*/
+
+require_once("mysqlrecordset.phc");
+require_once("dbfactory.phc");
+require_once("companyrptopfactory.phc");
+require_once("config.php";
+
+class CompanyRPTOPS {
+	var $rptop;
+	var $db;
+	var $config;
+	var $filter="";
+	
+	function CompanyRPTOPS($companyName, $start, $numberofrecords){
+	    $start--;
+		$this->config=new Config;
+		$statement=$this->config->getConfig("companyrptops");
+
+		$this->filter="Company.companyName like '%".$companyName."%'";
+
+		$sql=sprintf($statement, $this->filter, $start, $numberofrecords); 
+		
+		//print "<hr> $sql <hr>";
+		
+		$connectionstring=$this->config->getConfig("connectionstring");
+	
+		$this->db=new CompanyRPTOPFactory($connectionstring,$sql);		
+	}
+
+	function getNumRecs() {
+		$statement=$this->config->getConfig("companyrptopscount");
+
+		$sql=sprintf($statement, $this->filter); 
+		$connectionstring=$this->config->getConfig("connectionstring");
+		//print "<hr> $sql <hr>";
+		$rs=new Recordset($connectionstring);
+		$success=$rs->open($sql);              
+		return $rs->fields("numRecs");
+	}
+	
+	function fetch(){
+		$record=$this->db->fetchObject();
+		return $record;
+	}
+	
+	function fetchNext(){
+		$this->db->fetchNext();
+	}
+	
+	function fetchRPTOP(){
+		$this->rptop=$this->db->fetchRPTOP();
+        return $this->rptop;
+	}
+	
+	function EOL(){
+		return $this->db->EOL();
+	}
+
+}
+
+				
+class CompanyRPTOP{
+	var $rptopID;
+	var $ownerID;
+	var $rptopNumber;
+	var $totalAssessedValue;
+	var $totalMarketValue	;
+	
+	//ids
+	
+	function CompanyRPTOP($arrayRPTOP){
+        foreach($arrayRPTOP as $k=>$field){
+        	$this->{$k}=$field;
+        }
+	}
+	
+	function toArray(){		
+		return get_object_vars($this);
+	}
+	
+	function setTD($objTD){
+		$this->td=$objTD;	
+	}
+	
+	
+}
+
+
+?>

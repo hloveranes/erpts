@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg">
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td align="center"> 
+      <form name="form2" method="post" action="">
+        <table width="500" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="fields">search Company: 
+              <input type="text" name="searchKey" value="{searchKey}">
+              <input type="button" name="Submit" value="Search" onClick="document.form2.submit();">
+              <input type="hidden" name="formAction" value="search">
+              <input type="hidden" name="page" value="1">
+            </td>
+          </tr>
+        </table>
+      </form>
+	  <!-- BEGIN Table -->
+      <form name="form1" method="post" action="">
+        <table width="500" border="0" cellspacing="1" cellpadding="2" align="center">
+          <!-- BEGIN Found -->
+          <tr> 
+            <td class="fields" colspan="3" bgcolor="#F6F6F6">{pageOf}</td>
+          </tr>
+          <tr> 
+            <td class="fields" width="50"><b>companyID</b></td>
+            <td class="fields"><b>Company Name</b></td>
+            <td class="fields" width="50" align="center"> 
+              <input type="hidden" name="formAction" value="add">
+              <input type="submit" name="Submit" value="Add">
+            </td>
+          </tr>
+          <!-- BEGIN CompanyList -->
+          <tr> 
+            <td class="fields" bgcolor="#F6F6F6">{companyID}</td>
+            <td class="fields" bgcolor="#F6F6F6">{companyName}</td>
+            <td class="fields" bgcolor="#F6F6F6" align="center"> 
+              <input type="checkbox" name="companyID[]" value="{companyID}">
+            </td>
+          </tr>
+          <!-- END CompanyList -->
+          <tr> 
+            <td class="fileds_comment" align="center" bgcolor="#F6F6F6"><a href="RPTOPCompanySearch.php{Session}&page={previous}">{previousTxt}</a></td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="center"> 
+              <!-- BEGIN Pages -->
+              <a href="RPTOPCompanySearch.php{Session}&page={pages}">{pages}</a>{paged} 
+              <!-- END Pages -->
+            </td>
+            <td class="fileds_comment" align="center" bgcolor="#F6F6F6"><a href="RPTOPCompanySearch.php{Session}&page={next}">{nextTxt}</a></td>
+          </tr>
+          <!-- END Found -->
+          <!-- BEGIN NotFound -->
+          <tr> 
+            <td colspan="3" class="fields" bgcolor="#F6F6F6">&quot;{searchKey}&quot; 
+              not found</td>
+          </tr>
+          <!-- END NotFound -->
+        </table>
+      </form>
+	   
+      <!-- END Table -->
+      <form name="form3" method="post" action="">
+        <input type="button" name="Submit2" value="Close" onClick="javascript: window.close();">
+      </form>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

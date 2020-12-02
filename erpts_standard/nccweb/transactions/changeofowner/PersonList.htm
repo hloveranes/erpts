@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="Javascript1.2">
+<!--
+function editPerson(id){
+	document.PersonList.action = 'PersonEncode.php{Session}';
+	PersonList.formAction.value = 'edit';
+	PersonList.personID.value = id;
+	PersonList.submit();
+}
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=no, resizable=no");
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+- <a href="PersonEncode.php{Session}">encode person</a><br>
+<br>
+<font color="#FF0000"><b>{msg}</b></font> <br>
+<!-- BEGIN Table -->
+<form name="PersonList" method="post" action="PersonList.php">
+  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr> 
+      <td class="common" width="20"><b>personID</b></td>
+      <td class="common"><b>personName</b></td>
+      <td class="common" width="100"><b>telephoneNumber</b></td>
+      <td class="common" width="100"><b>mobileNumber</b></td>
+      <td class="common" width="100" align="center">
+        <input type="hidden" name="personID">
+        Edit</td>
+      <td class="common" width="100" align="center"> 
+        <input type="hidden" name="formAction" value="delete">
+        <input type="button" name="Submit" value="Delete" onClick="document.PersonList.submit();">
+      </td>
+    </tr>
+    <!-- BEGIN PersonList -->
+    <tr> 
+      <td class="common">{personID}</td>
+      <td class="common"><a href="PersonDetails.php{Session}&id={personID}&action=view">{fullName}</a></td>
+      <td class="common">{telephone}</td>
+      <td class="common">{mobileNumber}</td>
+      <td class="common" align="center"> <b><a href="javascript: openWin('PersonEncode.php{Session}&personID={personID}&formAction=edit','editPersonWindow',300,150,450,520)">Edit>></a></b> 
+        <input type="button" name="editButton" value="Edit" onClick="editPerson('{personID}');">
+      </td>
+      <td class="common" align="center"> 
+        <input type="checkbox" name="personID[]" value="{personID}">
+      </td>
+    </tr>
+    <!-- END PersonList -->
+  </table>
+</form>
+<!-- END Table -->
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+	<!-- BEGIN PAGE -->
+	<page height="607" width="836" number="{sheet1}" orientation="0">
+    <textitem xpos="526" ypos="558" font="Helvetica-Bold" size="9" align="center">RECORD OF REAL PROPERTY TAX COLLECTION</textitem>
+    <textitem xpos="532" ypos="543" font="Helvetica-Bold" size="9" align="center">BASIC AND SEF</textitem>
+    <textitem xpos="35" ypos="516" font="Helvetica" size="9">LGU:</textitem>
+    <textitem xpos="70" ypos="516" font="Helvetica" size="9">{lgu}</textitem>
+	<textitem xpos="35" ypos="503" font="Helvetica" size="9">PERIOD</textitem>
+	<textitem xpos="85" ypos="503" font="Helvetica" size="9">{startDate} - {endDate}</textitem>	
+    <textitem xpos="35" ypos="491" font="Helvetica" size="9">RPU CLASSIFICATION</textitem>
+    <textitem xpos="148" ypos="491" font="Helvetica" size="9">{rpuClassDesc}</textitem>	
+    <textitem xpos="54" ypos="441" font="Helvetica" size="9">Date</textitem>
+	<textitem xpos="58" ypos="417" font="Helvetica" size="9">(1)</textitem>
+	<textitem xpos="100" ypos="441" font="Helvetica" size="9">Taxpayer</textitem>
+	<textitem xpos="112" ypos="417" font="Helvetica" size="9">(2)</textitem>
+	<textitem xpos="152" ypos="455" font="Helvetica" size="9">Period</textitem>
+	<textitem xpos="164" ypos="417" font="Helvetica" size="9">(3)</textitem>
+	<textitem xpos="152" ypos="441" font="Helvetica" size="9">Covered</textitem>
+	<textitem xpos="197" ypos="441" font="Helvetica" size="9">O.R. No.</textitem>
+	<textitem xpos="208" ypos="417" font="Helvetica" size="9">(4)</textitem>
+	<textitem xpos="246" ypos="455" font="Helvetica" size="9">Name of</textitem>
+	<textitem xpos="245" ypos="441" font="Helvetica" size="9">Barangay</textitem>
+	<textitem xpos="261" ypos="417" font="Helvetica" size="9">(5)</textitem>
+	<textitem xpos="307" ypos="441" font="Helvetica" size="9">Current</textitem>
+	<textitem xpos="312" ypos="431" font="Helvetica" size="9">Year</textitem>
+	<textitem xpos="317" ypos="417" font="Helvetica" size="9">(6)</textitem>
+	<textitem xpos="353" ypos="441" font="Helvetica" size="9">(Discount)</textitem>
+	<textitem xpos="368" ypos="417" font="Helvetica" size="9">(7)</textitem>
+	<textitem xpos="412" ypos="441" font="Helvetica" size="9">Prior</textitem>
+	<textitem xpos="408" ypos="431" font="Helvetica" size="9">Year/s</textitem>
+	<textitem xpos="417" ypos="417" font="Helvetica" size="9">(8)</textitem>
+	<textitem xpos="470" ypos="465" font="Helvetica" size="9">Basic Tax</textitem>
+	<textitem xpos="485" ypos="454" font="Helvetica" size="9">Penalties</textitem>
+	<textitem xpos="459" ypos="441" font="Helvetica" size="9">Current</textitem>
+	<textitem xpos="465" ypos="431" font="Helvetica" size="9">Year</textitem>
+	<textitem xpos="471" ypos="417" font="Helvetica" size="9">(9)</textitem>
+	<textitem xpos="515" ypos="441" font="Helvetica" size="9">Prior</textitem>
+	<textitem xpos="512" ypos="431" font="Helvetica" size="9">Year/s</textitem>
+	<textitem xpos="517" ypos="417" font="Helvetica" size="9">(10)</textitem>
+	<textitem xpos="555" ypos="454" font="Helvetica" size="9">Sub-Total</textitem>
+	<textitem xpos="554" ypos="441" font="Helvetica" size="9">Gross Coll</textitem>
+	<textitem xpos="565" ypos="431" font="Helvetica" size="9">(11)</textitem>
+	<textitem xpos="555" ypos="417" font="Helvetica" size="9">6+8+9+10</textitem>
+	<textitem xpos="614" ypos="454" font="Helvetica" size="9">Sub-Total</textitem>
+	<textitem xpos="618" ypos="441" font="Helvetica" size="9">Net Coll</textitem>
+	<textitem xpos="626" ypos="431" font="Helvetica" size="9">(12)</textitem>
+	<textitem xpos="610" ypos="417" font="Helvetica" size="9">6-7+8+9+10</textitem>
+	<textitem xpos="680" ypos="441" font="Helvetica" size="9">Current</textitem>
+	<textitem xpos="686" ypos="431" font="Helvetica" size="9">Year</textitem>
+	<textitem xpos="687" ypos="417" font="Helvetica" size="9">(13)</textitem>
+	<textitem xpos="725" ypos="441" font="Helvetica" size="9">(Discount)</textitem>
+	<textitem xpos="735" ypos="417" font="Helvetica" size="9">(14)</textitem>
+	<textitem xpos="60" ypos="110" font="Helvetica" size="9">NOTES:</textitem>
+	<textitem xpos="72" ypos="95" font="Helvetica" size="9">1. Current Year Collection includes discount.</textitem>
+	<textitem xpos="72" ypos="82" font="Helvetica" size="9">2. The discount, if any, should be entered as a NEGATIVE FIGURE.</textitem>
+	<textitem xpos="60" ypos="69" font="Helvetica" size="9">Filename:Sie-rpt</textitem>
+
+	<textitem xpos="50" ypos="50" font="Helvetica" size="9">{sheet1} of {pages}</textitem>
+	<textitem xpos="" ypos="" font="Helvetica" size="9"></textitem>
+	
+	<lineitem x1="65" y1="514" x2="250" y2="514"></lineitem>
+	<lineitem x1="82" y1="501" x2="250" y2="501"></lineitem>
+	<lineitem x1="135" y1="489" x2="250" y2="489"></lineitem>
+	<lineitem x1="770" y1="473" x2="35" y2="473"></lineitem>
+    <lineitem x1="297" y1="463" x2="770" y2="463"></lineitem>
+	<lineitem x1="770" y1="414" x2="35" y2="414"></lineitem>
+	<lineitem x1="770" y1="396" x2="35" y2="396"></lineitem>	
+	<lineitem x1="770" y1="378" x2="35" y2="378"></lineitem>	
+	<lineitem x1="770" y1="360" x2="35" y2="360"></lineitem>	
+	<lineitem x1="770" y1="342" x2="35" y2="342"></lineitem>	
+	<lineitem x1="770" y1="324" x2="35" y2="324"></lineitem>	
+	<lineitem x1="770" y1="306" x2="35" y2="306"></lineitem>
+	<lineitem x1="770" y1="288" x2="35" y2="288"></lineitem>	
+	<lineitem x1="770" y1="270" x2="35" y2="270"></lineitem>	
+	<lineitem x1="770" y1="252" x2="35" y2="252"></lineitem>	
+	<lineitem x1="770" y1="234" x2="35" y2="234"></lineitem>	
+	<lineitem x1="770" y1="216" x2="35" y2="216"></lineitem>	
+	<lineitem x1="770" y1="198" x2="35" y2="198"></lineitem>	
+	<lineitem x1="770" y1="180" x2="35" y2="180"></lineitem>	
+	<lineitem x1="770" y1="162" x2="35" y2="162"></lineitem>
+	<lineitem x1="770" y1="144" x2="35" y2="144"></lineitem>
+	<lineitem x1="770" y1="126" x2="35" y2="126"></lineitem>
+	
+	<lineitem x1="770" y1="463" x2="770" y2="126"></lineitem>
+	<lineitem x1="719" y1="463" x2="719" y2="126"></lineitem>
+	<lineitem x1="670" y1="472" x2="670" y2="126"></lineitem>
+	<lineitem x1="600" y1="463" x2="600" y2="126"></lineitem>
+	<lineitem x1="550" y1="463" x2="550" y2="126"></lineitem>
+	<lineitem x1="501" y1="451" x2="501" y2="126"></lineitem>
+	<lineitem x1="445" y1="463" x2="445" y2="126"></lineitem>
+	<lineitem x1="398" y1="463" x2="398" y2="126"></lineitem>
+	<lineitem x1="348" y1="463" x2="348" y2="126"></lineitem>
+	<lineitem x1="296" y1="472" x2="296" y2="126"></lineitem>
+	<lineitem x1="239" y1="472" x2="239" y2="126"></lineitem>
+	<lineitem x1="189" y1="472" x2="189" y2="126"></lineitem>
+	<lineitem x1="149" y1="472" x2="149" y2="126"></lineitem>
+    <lineitem x1="89" y1="472" x2="89" y2="126"></lineitem>
+	<lineitem x1="35" y1="472" x2="35" y2="126"></lineitem>      
+	<lineitem x1="549" y1="451" x2="446" y2="451"></lineitem>      
+	
+	<!-- BEGIN Sheet1Row -->
+	<textitem align="center" xpos="62" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{datePaid}</textitem>
+	<textitem align="left" xpos="90" ypos="{sheet1RowYpos1}" font="Helvetica" size="8">{taxpayerName}</textitem>
+	<textitem align="left" xpos="90" ypos="{sheet1RowYpos2a}" font="Helvetica" size="7">{taxpayerNameLineA}</textitem>
+	<textitem align="left" xpos="90" ypos="{sheet1RowYpos2b}" font="Helvetica" size="7">{taxpayerNameLineB}</textitem>
+	<textitem align="center" xpos="168" ypos="{sheet1RowYpos1}" font="Helvetica" size="7">{periodCovered}</textitem>
+	<textitem align="center" xpos="168" ypos="{sheet1RowYpos2a}" font="Helvetica" size="7">{periodCoveredLineA}</textitem>
+	<textitem align="center" xpos="168" ypos="{sheet1RowYpos2b}" font="Helvetica" size="7">{periodCoveredLineB}</textitem>
+	<textitem align="left" xpos="191" ypos="{sheet1RowYpos1}" font="Helvetica" size="8">{orNo}</textitem>
+	<textitem align="left" xpos="241" ypos="{sheet1RowYpos1}" font="Helvetica" size="8">{barangay}</textitem>
+	<textitem align="right" xpos="345" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{paidBasic}</textitem>
+	<textitem align="right" xpos="395" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">({discountBasic})</textitem>
+	<textitem align="right" xpos="440" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{priorBasic}</textitem>
+	<textitem align="right" xpos="495" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{penaltyBasic}</textitem>
+	<textitem align="right" xpos="545" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{priorPenaltyBasic}</textitem>
+	<textitem align="right" xpos="595" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{totalGrossBasic}</textitem>
+	<textitem align="right" xpos="665" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{totalNetBasic}</textitem>
+	<textitem align="right" xpos="715" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">{paidSEF}</textitem>
+	<textitem align="right" xpos="765" ypos="{sheet1RowYpos1}" font="Helvetica" size="9">({discountSEF})</textitem>
+	<!-- END Sheet1Row -->
+
+	 </page>
+	 
+ <page height="607" width="836" number="{sheet2}" orientation="0">
+   <textitem xpos="484" ypos="513" font="Helvetica" size="9">Sheet No.</textitem>
+   <textitem align="center" xpos="544" ypos="513" font="Helvetica" size="10">2</textitem>
+   <textitem xpos="110" ypos="475" font="Helvetica" size="9">SEF</textitem>
+   <textitem xpos="384" ypos="475" font="Helvetica" size="9">IDLE LANDS</textitem>
+   <textitem xpos="487" ypos="475" font="Helvetica" size="9">SPECIAL LEVY</textitem>
+   <textitem xpos="54" ypos="450" font="Helvetica" size="9">Prior</textitem>
+   <textitem xpos="50" ypos="438" font="Helvetica" size="9">Year/s</textitem>   
+   <textitem xpos="56" ypos="426" font="Helvetica" size="9">(15)</textitem>   
+   <textitem xpos="118" ypos="462" font="Helvetica" size="9">Penalties</textitem>   
+   <textitem xpos="100" ypos="450" font="Helvetica" size="9">Current</textitem>   
+   <textitem xpos="106" ypos="438" font="Helvetica" size="9">Year</textitem>   
+   <textitem xpos="108" ypos="426" font="Helvetica" size="9">(16)</textitem>   
+   <textitem xpos="150" ypos="450" font="Helvetica" size="9">Prior</textitem>   
+   <textitem xpos="146" ypos="438" font="Helvetica" size="9">Year/s</textitem>   
+   <textitem xpos="152" ypos="426" font="Helvetica" size="9">(17)</textitem>   
+   <textitem xpos="196" ypos="463" font="Helvetica" size="9">Sub-Total</textitem>   
+   <textitem xpos="194" ypos="450" font="Helvetica" size="9">Gross Coll</textitem>   
+   <textitem xpos="208" ypos="438" font="Helvetica" size="9">(18)</textitem>
+   <textitem xpos="190" ypos="426" font="Helvetica" size="9">13+15+16+17</textitem>
+   <textitem xpos="273" ypos="463" font="Helvetica" size="9">Sub-Total</textitem>
+   <textitem xpos="276" ypos="450" font="Helvetica" size="9">Net Coll</textitem>
+   <textitem xpos="284" ypos="438" font="Helvetica" size="9">(19)</textitem>
+   <textitem xpos="257" ypos="426" font="Helvetica" size="9">13-14+15+16+17</textitem>
+   <textitem xpos="335" ypos="450" font="Helvetica" size="9">Current</textitem>
+   <textitem xpos="339" ypos="438" font="Helvetica" size="9">Year</textitem>
+   <textitem xpos="341" ypos="426" font="Helvetica" size="9">(20)</textitem>
+   <textitem xpos="378" ypos="450" font="Helvetica" size="9">Prior</textitem>
+   <textitem xpos="374" ypos="438" font="Helvetica" size="9">Year/s</textitem>
+   <textitem xpos="380" ypos="426" font="Helvetica" size="9">(21)</textitem>
+   <textitem xpos="410" ypos="450" font="Helvetica" size="9">Penalties</textitem>
+   <textitem xpos="420" ypos="426" font="Helvetica" size="9">(22)</textitem>
+   <textitem xpos="458" ypos="450" font="Helvetica" size="9">Total</textitem>
+   <textitem xpos="458" ypos="426" font="Helvetica" size="9">(23)</textitem>
+   <textitem xpos="508" ypos="450" font="Helvetica" size="9">Total</textitem>
+   <textitem xpos="510" ypos="426" font="Helvetica" size="9">(24)</textitem>
+   <textitem xpos="574" ypos="463" font="Helvetica" size="9">Total</textitem>
+   <textitem xpos="564" ypos="450" font="Helvetica" size="9">Non-Cash</textitem>
+   <textitem xpos="578" ypos="426" font="Helvetica" size="9">(25)</textitem>
+   <textitem xpos="631" ypos="475" font="Helvetica" size="9">Grand Total</textitem>
+   <textitem xpos="633" ypos="463" font="Helvetica" size="9">Gross Coll</textitem>
+   <textitem xpos="646" ypos="450" font="Helvetica" size="9">(26)</textitem>
+   <textitem xpos="619" ypos="426" font="Helvetica" size="9">11+18+23+24+25</textitem>
+   <textitem xpos="712" ypos="475" font="Helvetica" size="9">Grand Total</textitem>
+   <textitem xpos="720" ypos="463" font="Helvetica" size="9">Net Coll</textitem>
+   <textitem xpos="726" ypos="450" font="Helvetica" size="9">(27)</textitem>
+   <textitem xpos="702" ypos="426" font="Helvetica" size="9">12+19+23+24+25</textitem>
+   <textitem xpos="660" ypos="590" font="Helvetica" size="9">Annex B-3</textitem>
+
+    <lineitem x1="530" y1="510" x2="560" y2="510"></lineitem>   
+	<lineitem x1="780" y1="490" x2="35" y2="490"></lineitem>   
+	<lineitem x1="555" y1="473" x2="35" y2="473"></lineitem>   
+	<lineitem x1="90" y1="459" x2="180" y2="459"></lineitem>   
+    <lineitem x1="780" y1="420" x2="35" y2="420"></lineitem> 
+	<lineitem x1="780" y1="402" x2="35" y2="402"></lineitem>
+    <lineitem x1="780" y1="384" x2="35" y2="384"></lineitem>
+	<lineitem x1="780" y1="366" x2="35" y2="366"></lineitem> 
+    <lineitem x1="780" y1="348" x2="35" y2="348"></lineitem>
+	<lineitem x1="780" y1="330" x2="35" y2="330"></lineitem> 
+	<lineitem x1="780" y1="312" x2="35" y2="312"></lineitem>
+	<lineitem x1="780" y1="294" x2="35" y2="294"></lineitem> 
+	<lineitem x1="780" y1="276" x2="35" y2="276"></lineitem> 
+	<lineitem x1="780" y1="258" x2="35" y2="258"></lineitem> 
+	<lineitem x1="780" y1="240" x2="35" y2="240"></lineitem> 
+	<lineitem x1="780" y1="222" x2="35" y2="222"></lineitem> 
+	<lineitem x1="780" y1="204" x2="35" y2="204"></lineitem> 
+	<lineitem x1="780" y1="186" x2="35" y2="186"></lineitem> 
+	<lineitem x1="780" y1="168" x2="35" y2="168"></lineitem>
+	<lineitem x1="780" y1="150" x2="35" y2="150"></lineitem> 
+	<lineitem x1="780" y1="132" x2="35" y2="132"></lineitem>
+	 
+	<lineitem x1="35" y1="472" x2="35" y2="132"></lineitem> 
+	<lineitem x1="90" y1="472" x2="90" y2="132"></lineitem> 
+	<lineitem x1="140" y1="457" x2="140" y2="132"></lineitem> 
+	<lineitem x1="180" y1="472" x2="180" y2="132"></lineitem> 
+	<lineitem x1="255" y1="472" x2="255" y2="132"></lineitem> 
+	<lineitem x1="330" y1="490" x2="330" y2="132"></lineitem> 
+	<lineitem x1="370" y1="472" x2="370" y2="132"></lineitem> 
+	<lineitem x1="405" y1="472" x2="405" y2="132"></lineitem> 
+	<lineitem x1="450" y1="472" x2="450" y2="132"></lineitem> 
+	<lineitem x1="485" y1="490" x2="485" y2="132"></lineitem> 
+	<lineitem x1="555" y1="490" x2="555" y2="132"></lineitem> 
+	<lineitem x1="615" y1="490" x2="615" y2="132 "></lineitem> 
+	<lineitem x1="695" y1="490" x2="695" y2="132"></lineitem> 
+	<lineitem x1="780" y1="490" x2="780" y2="132"></lineitem> 
+
+	<textitem xpos="50" ypos="50" font="Helvetica" size="9">{sheet2} of {pages}</textitem>
+
+	<!-- BEGIN Sheet2Row -->
+	<textitem align="right" xpos="86" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{priorSEF}</textitem>
+	<textitem align="right" xpos="136" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{penaltySEF}</textitem>
+	<textitem align="right" xpos="180" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{priorPenaltySEF} </textitem>
+	<textitem align="right" xpos="250" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{totalGrossSEF}</textitem>
+	<textitem align="right" xpos="325" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{totalNetSEF}</textitem>
+	<textitem align="right" xpos="368" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{paidIdle}</textitem>
+	<textitem align="right" xpos="402" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{priorIdle}</textitem>
+	<textitem align="right" xpos="448" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{penaltyIdle}</textitem>
+	<textitem align="right" xpos="482" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{totalIdle}</textitem>
+	<textitem align="right" xpos="552" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{specialLevy}</textitem>
+	<textitem align="right" xpos="612" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{totalNonCash}</textitem>
+	<textitem align="right" xpos="691" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{grandTotalGross}</textitem>
+	<textitem align="right" xpos="778" ypos="{sheet2RowYpos1}" font="Helvetica" size="9">{grandTotalNet}</textitem>
+
+	<!-- END Sheet2Row -->
+
+
+	 </page>
+	<!-- END PAGE -->
+</contents>
+

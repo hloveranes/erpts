@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="Javascript">
+function goFirst(){
+	document.ListOfTaxablePropertiesPrint.page.selectedIndex=0;
+	document.ListOfTaxablePropertiesPrint.submit();
+}
+function goPrevious(){
+	previousPage = parseInt(parseInt(document.ListOfTaxablePropertiesPrint.currentPage.value)-parseInt(1));
+	if(previousPage<=0) previousPage = 1;
+		document.ListOfTaxablePropertiesPrint.page.selectedIndex = previousPage-1;
+		document.ListOfTaxablePropertiesPrint.submit();
+}
+function goNext(){
+	nextPage = parseInt(parseInt(document.ListOfTaxablePropertiesPrint.currentPage.value) + parseInt(1));
+	if(nextPage>=document.ListOfTaxablePropertiesPrint.numOfPages.value) nextPage = document.ListOfTaxablePropertiesPrint.numOfPages.value;
+		document.ListOfTaxablePropertiesPrint.page.selectedIndex = nextPage-1;
+		document.ListOfTaxablePropertiesPrint.submit();								
+}
+function goLast(){
+	document.ListOfTaxablePropertiesPrint.page.selectedIndex = document.ListOfTaxablePropertiesPrint.numOfPages.value-1;
+	document.ListOfTaxablePropertiesPrint.submit();
+}
+</script>
+</head>
+<body bgcolor="#ffffff" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="ListOfTaxablePropertiesPrint" action="ListOfTaxablePropertiesPrint.php" method=get>
+<input type="hidden" name="rpts_Session" value="{rpts_Session}">
+<input type="hidden" name="formAction" value="view">
+<table border=0 cellpadding=0 align=left width="100%">
+		<!-- BEGIN PageNavigationOne -->
+		  <tr>
+			<td>
+				<table width="100%">
+				<tr>
+					<td class="fileds_comment">
+						<input type="button" value="&lt;&lt;" class="fileds_comment" onClick="goFirst();">
+						|
+						<input type="button" value="&lt;" class="fileds_comment" onClick="goPrevious();">
+						|
+						<input type="button" value="&gt;" class="fileds_comment" onClick="goNext();">
+						|
+						<input type="button" value="&gt;&gt;" class="fileds_comment" onClick="goLast();">
+						&nbsp;&nbsp;
+
+						[ 
+						Page 
+						<select class="fileds_comment" name="page">
+							<!-- BEGIN PageListOne -->
+							<option value="{page}" {page_sel}>{page}</option>
+							<!-- END PageListOne -->
+						</select>
+						of 
+						<b>{numOfPages}</b>
+						]
+						<input type="hidden" name="currentPage" value="{currentPage}">
+						<input type="hidden" name="numOfPages" value="{numOfPages}">
+						
+						<input type="submit" value="Go" class="fileds_comment">
+						|
+						<input type="reset" value="Reset" class="fileds_comment">
+						<input type="button" value="Refresh" class="fileds_comment" onClick="window.location.reload();">
+					</td>
+				</tr>
+				</table>
+			</td>
+		  </tr>
+		  <!-- END PageNavigationOne -->
+
+<!-- BEGIN Report -->
+	<tr>
+		<td align="center" valign="top">
+			<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#333333" class="fields">
+			<tr>
+				<td bgcolor="#aaaaaa" class="subtitle" align=center colspan=10>
+					LIST OF TAXABLE PROPERTIES					
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Property Index Number</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Tax Declaration No.</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Name of Owner</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Owner Address</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Kind</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Classification</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Area</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Market Value</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Assessed Value</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center>
+					<b>Remarks</b>
+				</td>
+			</tr>
+			<!-- BEGIN ReportList -->
+			<tr>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{propertyIndexNumber}</b>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{taxDeclarationNumber}</b>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{firstOwner}</b>
+                    {none}<font size=1>{andOthers}</font>
+				</td>
+				<td bgcolor="#f6f6f6" class="fileds_comment" valign=top>
+					{firstOwnerAddress}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{kind}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{classification}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" align=right valign=top>
+					{area}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" align=right valign=top>
+					{marketValue}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" align=right valign=top>
+					{assessedValue}
+				</td>
+				<td bgcolor="#f6f6f6" class="fileds_comment" valign=top>
+					{remarks}
+				</td>
+			</tr>
+			<!-- END ReportList -->
+			</table>
+		</td>
+	</tr>
+<!-- END Report -->
+</table>
+
+<!-- BEGIN NotFound -->
+no records to list
+<!-- END NotFound -->
+
+</body>
+</html>

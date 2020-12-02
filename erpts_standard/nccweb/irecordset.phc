@@ -1,0 +1,41 @@
+<? 
+/*
+	Author: Juanito Calingacion, Jr.
+	December 08, 2005
+	
+	All recordset 'drivers' must implement this 'interface'
+	Methods and naming convention 'borrowed' from Recordset 'interface' in VB6
+	Note: This should be an interface but eRPTS runs only on PHP4
+	      so we create empty method stub
+	      
+*/
+class IRecordset{      
+
+      function open($sql){}
+
+      function eof(){}
+
+      function bof(){}
+
+      function moveFirst(){}
+
+      function moveLast(){}
+
+      function moveNext(){}
+
+      function movePrevious(){}
+
+      function fields($strFieldname){}
+
+      function getRecord(){}
+      
+      function getRecordcount(){}
+      
+      function fetchAll(){}
+      
+      function getLasterror(){}
+	
+}
+
+
+ ?>

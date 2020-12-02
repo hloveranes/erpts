@@ -1,0 +1,44 @@
+#!/bin/sh
+
+usage()
+{
+	echo "usage: $0 [--cflags] [--libs] [--version]"
+	exit 0
+}
+
+cflags=no
+libs=no
+version=no
+
+test "$1" || usage
+
+while test "$1"; do
+	case "$1" in
+	--cflags )
+		cflags=yes
+		;;
+	--libs )
+		libs=yes
+		;;
+	--version )
+		version=yes
+		;;
+	* )
+		usage
+		;;
+	esac
+	shift
+done
+
+test "$cflags" = yes && cat << FOO
+-I/usr/local/include/kannel  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE -I/usr/include/libxml2
+FOO
+
+test "$libs" = yes && cat << FOO
+-L/usr/local/lib/kannel -lgwlib -lrt -lresolv -lnsl -lm  -lpthread -L/usr/lib -lxml2 -lz -lpthread -lm
+FOO
+
+test "$version" = yes && cat << FOO
+1.4.0
+FOO
+

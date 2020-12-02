@@ -1,0 +1,309 @@
+<html>
+<head>
+<title>eLGU - Database Cleanup - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style>
+ A.x{text-decoration:none;}
+ A:Hover{color:#ff0000;}
+ .smallfont{font-family:arial; font-size:9px;}
+ .mediumfont{font-family:arial; font-size:11px;}
+ .largefont{font-family:arial; font-size:16px;}
+</style>
+<script language="Javascript">
+function toggle(id){
+ 	obj=document.getElementById(id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+	}
+	else {
+		obj.style.display='none';
+	}
+}
+function confirmRetain(){
+	var retainPersonID;
+	var personIDArray;
+	var disablePersonIDStr;
+	
+	retainPersonID = "";
+	personIDArray = new Array();
+	disablePersonIDStr = "";
+	
+	for(i=0 ; i<document.MergeOwnerPersonConfirm.retain.length ; i++){
+		if(document.MergeOwnerPersonConfirm.retain[i].checked){
+			retainPersonID = document.MergeOwnerPersonConfirm.retain[i].value;
+			break;
+		}
+	}
+	j=0;	
+	for(i=0 ; i<document.MergeOwnerPersonConfirm.elements.length ; i++){
+		if(document.MergeOwnerPersonConfirm.elements[i].name=="personID[]"){
+			personIDArray[j] = document.MergeOwnerPersonConfirm.elements[i].value;
+			j++;			
+		}
+	}
+	
+	if(retainPersonID!=""){
+		for(i=0 ; i<personIDArray.length ; i++){
+			if(personIDArray[i]!=retainPersonID){
+				disablePersonIDStr += "    PersonID:"+personIDArray[i]+"\n";
+			}
+		}
+		
+		if(confirm("This action will merge ownership and disable:\n"+disablePersonIDStr+"\n while retaining:\n    PersonID:"+retainPersonID+"\n\nAre you sure you want to proceed?")){
+			document.MergeOwnerPersonConfirm.submit();
+		}
+	}
+	return false;	
+}
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="MergeOwnerPersonConfirm" action="RetainOwnerPerson.php{Session}" method="post">
+<table width="100%" border="0" cellpadding="10" cellspacing="0" align=center>
+<tr>
+	<td valign=top align=left>
+		&nbsp;
+		&nbsp;
+		<font face="arial" size=2 color="#ffffff">
+			<b>{uname}</b> : {today}
+		</font>
+	</td>
+	<td valign=top align=right>
+		<font face="arial" size=2>
+		&nbsp;
+	    &nbsp;
+		&nbsp;
+	    &nbsp;
+		<a href="../../Logout.php" class="x" title="Logout"><font color="#ffffff">Logout</font></a>
+		</font>
+	</td>
+</tr>
+<tr>
+	<td valign=top align=left>
+		<font color="#f6f6f6" class="mediumfont">&lt; <a href="OwnerPersonList.php{Session}"><b>back to list</b></a></font> | 
+		<font color="#f6f6f6" class="largefont"><b>CONFIRM MERGE</b></font>
+	</td>
+</tr>
+<tr>
+	<td colspan=2 bgcolor="#f6f6f6">
+		<font face="arial" size=2>
+		&nbsp;&nbsp;
+		<a href="OwnerList.php{Session}" class="x"><b>Cleanup Owners</b></a> : 
+		<a href="OwnerPersonList.php{Session}"><b><U>Persons</U></b></a>
+		|
+		<a href="OwnerCompanyList.php{Session}" class="x"><b>Companies</b></a>
+		<br><br>
+		&nbsp;&nbsp;
+		Choose Person to Retain and click "<b>Retain Owner</b>".<br>
+		&nbsp;&nbsp;
+		Note: Ownership of properties will transfer to the Retained Person and all un-retained persons shall be <b>disabled</b>.
+		</font>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr>
+	<td valign=top align=left class="smallfont" bgcolor="#cccccc">
+		<input type="button" value="RETAIN OWNER" onClick="confirmRetain();">		
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr bgcolor="#cccccc">
+	<td valign=top align="center" class="smallfont">CHOOSE<br>Person</td>
+	<td valign=top align="center" class="smallfont">
+	 show/hide<br>
+	 properties
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 personID
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 lastName
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 firstName
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 middleName
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 address
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 gender
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 birthday
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 maritalStatus
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 tin
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 telephone
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 mobileNumber
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 email
+	</td>
+</tr>
+<!-- BEGIN OwnerPersonList -->
+<tr bgcolor="#f6f6f6">
+	<td align="center" class="smallfont">
+	 <input name="retain" type="radio" value="{personID}">
+	 <input name="personID[]" type="hidden" value="{personID}">
+	</td>
+	<td align="center"><input type="checkbox" onClick="toggle('personDetails{personID}');"></td>
+	<td class="smallfont">
+	 {personID}
+	</td>
+	<td class="smallfont">
+	 {lastName}
+	</td class="smallfont">
+	<td class="smallfont">
+	 {firstName}
+	</td>
+	<td class="smallfont">
+	 {middleName}
+	</td>
+	<td class="smallfont">
+	 {address}
+	</td>
+	<td class="smallfont">
+	 {gender}
+	</td>
+	<td class="smallfont">
+	 {birthday}
+	</td>
+	<td class="smallfont">
+	 {maritalStatus}
+	</td>
+	<td class="smallfont">
+	 {tin}
+	</td>
+	<td class="smallfont">
+	 {telephone}
+	</td>
+	<td class="smallfont">
+	 {mobileNumber}
+	</td>
+	<td class="smallfont">
+	 {email}
+	</td>
+</tr>
+<tr id="personDetails{personID}" style="display:none;">
+<td bgcolor="#cccccc">&nbsp;</td>
+<td colspan=13 bgcolor="#cccccc">
+	<table border=0 cellpadding=10 cellspacing=1 width="100%">
+<!-- BEGIN ODList -->
+	<tr bgcolor="#f6f6f6">
+		<td class="smallfont">
+			<table border=0 cellpadding=0 width="100%">
+			<tr>
+				<td class="smallfont" colspan=4>
+					<B>odID:</B> {odID}<br>
+					<B>afsID:</B> {afsID}<br>
+					<B>tdID:</B> {tdID}<br><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="smallfont" colspan=4>
+					<B>locationAddress:</B> {locationAddress}<br>
+					<br>
+					<B>propertyIndexNumber:</B> {propertyIndexNumber} <br>
+					<B>arpNumber:</b> {arpNumber} <br>
+					<br>
+					<B>taxDeclarationNumber:</B> {taxDeclarationNumber} <br>
+					<B>propertyType:</B> {propertyType}<br><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{landLabel}
+					<!-- BEGIN LandList -->
+						{land[propertyID]}
+						{land[octTctNumber]}
+						{land[surveyNumber]}
+	
+						{land[north]}
+						{land[south]}
+						{land[east]}
+						{land[west]}
+	
+						{land[description]}
+						{land[classification]}
+						{land[subClass]}
+						{land[actualUse]}
+	
+						{land[area]}
+					<!-- END LandList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{plantsTreesLabel}
+					<!-- BEGIN PlantsTreesList -->
+						{plantsTrees[propertyID]}
+					    {plantsTrees[surveyNumber]}
+
+						{plantsTrees[productClass]}
+						{plantsTrees[kind]}
+						{plantsTrees[actualUse]}
+
+						{plantsTrees[areaPlanted]}
+						{plantsTrees[number]}
+					<!-- END PlantsTreesList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{improvementsBuildingsLabel}
+					<!-- BEGIN ImprovementsBuildingsList -->
+						{improvementsBuildings[propertyID]}
+						{improvementsBuildings[foundation]}
+						{improvementsBuildings[columnsBldg]}
+						{improvementsBuildings[beams]}
+						{improvementsBuildings[trussFraming]}
+						{improvementsBuildings[roof]}
+
+						{improvementsBuildings[buildingClassification]}
+						{improvementsBuildings[kind]}
+						{improvementsBuildings[actualUse]}
+					<!-- END ImprovementsBuildingsList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{machineriesLabel}
+					<!-- BEGIN MachineriesList -->
+						{machineries[propertyID]}
+
+						{machineries[machineryDescription]}
+						{machineries[brand]}
+						{machineries[modelNumber]}
+						{machineries[capacity]}
+
+						{machineries[kind]}
+						{machineries[actualUse]}
+					<!-- END MachineriesList -->
+				</td>
+			</tr>
+			</table>
+			<br>			
+		</td>
+	</tr>
+<!-- END ODList -->
+	</table>
+</td>
+</tr>
+<!-- END OwnerPersonList -->
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr>
+	<td valign=top align=left class="smallfont" bgcolor="#cccccc">
+		<input type="button" value="RETAIN OWNER" onClick="confirmRetain();">		
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>eLGU - eRPTS - TM : Pay Real Property Taxes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<LINK href="css/elgu.css" type=text/css rel=stylesheet>
+<script language="JavaScript">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+
+function checkType(){
+	var form = this.document.EncodeRPTR;
+	if(form.kindOfPayment.value == 'check'){
+		form.checkNum.disabled = false;
+		form.checkDate.disabled = false;
+	}else{
+		form.checkNum.disabled = true;
+		form.checkNum.value = "";
+		form.checkDate.disabled = true;
+		form.checkDate.value = "";
+	}	
+}
+
+function validDate(formField)
+{	
+	var result = true;
+	if((formField.value == "") || (formField.value == null)){
+		return result;
+	}else{
+		var elems = formField.value.split("-");
+		result = (elems.length == 3); // should be three components
+			  
+		if (result){
+			var month = parseInt(elems[0],10);
+			var day = parseInt(elems[1],10);
+			var year = parseInt(elems[2],10);
+
+			result = (((elems[0].length == 2) && (month > 0) && (month < 13)) && 
+					 ((elems[1].length == 2) && (day >0) && (day < 32)) && 
+					 (elems[2].length == 4));
+		}
+			  
+		if(!result){
+			alert('Please enter a date in the format MM-DD-YYYY.');
+			formField.focus();          
+		} 
+		return result; 
+	}
+}
+
+function validate(){
+	var form = this.document.EncodeRPTR;
+	if(!validDate(form.prevORDate)){
+    	return false;	
+	}else{
+		if(form.kindOfPayment.value == "check"){
+			if((form.checkNum.value == "") || (form.checkNum.value == null)){
+				alert("Please enter check number.");
+				form.checkNum.focus();
+				return false;
+			}
+			if((form.checkDate.value == "") || (form.checkDate.value == null)){
+				alert("Please enter check date.");
+				form.checkDate.focus();
+				return false;
+			}else{
+				if(!validDate(form.checkDate))
+					return false;	
+			}
+		}
+	}
+}
+
+function recompute(){
+	var form = this.document.EncodeRPTR;
+	form.issueReceipt.value=0;
+	form.action = "RPTREncode.php{Session}";
+	form.submit();
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#999999">
+ <form name="EncodeRPTR" method="post" action="RPTREncode.php{Session}" onSubmit="javascript: return validate();">
+ <input type="hidden" name="rptopID" value="{rptopID}">
+  <input type="hidden" name="rptopNum" value="{rptopNum}">
+ <!-- BEGIN TDID -->
+ <input type="hidden" name="tdID[]" value="{tdID}">
+ <!-- END TDID -->
+
+ <input type="hidden" name="backtaxTDCheckbox" value="{backtaxTDCheckbox}">
+
+
+  <table width="100%" border="0" cellpadding=0 cellspacing=0>
+		<tr>
+			<td align=center>
+				<table border=0 cellpadding=0 cellspacing=0>
+			    <tr> 
+		          <td><img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9></td>
+		          <td><img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9></td>
+		          <td><img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9></td>
+		          <td ROWSPAN=2><img SRC="images/steps/step00.jpg" WIDTH=157 HEIGHT=133></td>
+		        </tr>
+		        <tr> 
+		          <td><img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124></td>
+		          <td><img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124></td>
+		          <td bgcolor="#CCCCCC"><img SRC="images/title/title_treasurer_mod.jpg" WIDTH=598 HEIGHT=124></td>
+		        </tr>
+				<tr>
+				  <td colspan=4>
+					<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+			          <td><img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53></td>
+			          <td background="images/inner_14.jpg"><img SRC="images/spacer.gif" WIDTH=27 HEIGHT=53 border=0></td>
+			          <td align="left" valign="top" bgcolor="#CCCCCC" background="images/background/bg_middle.jpg">
+						<table border=0 cellpadding=0 cellspacing=0>
+						<tr>
+							<td><img src="images/spacer.gif" border=0 width=702 height=2></td>
+						</tr>
+						<tr>
+							<td>
+								<table width="82%" border="0" align="center" cellpadding="0" cellspacing="0">
+							    <tr align="center"> 
+									<td width="0" align=left class="common" colspan=4><b>{uname}</b> : {today}</td>
+							 	    <td width="0" align=right colspan="5">
+										<a href="TreasurersHome.php{Session}" class="navi" title="Treasurer's Module : Home">TM : Home</a>
+									    <font class="navi">&lt;</font>
+										<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+									    <font class="navi">|</font>
+										<a href="Logout.php" class="navi" title="Logout">Logout</a>
+										<br>&nbsp;
+								    </td>
+							    </tr>
+					            <tr> 
+					                <td><div align="center"><font size="2"><a href="CalculateTaxesHome.php{Session}" class="navi" title="Calculate Taxes">Calculate Taxes</a></font></div></td>
+					                <td><div align="center"><font size="2">|</font></div></td>
+					                <td><div align="center"><font size="2"><a href="PrintRPTOPList.php{Session}" class="navi" title="Print RPTOP">Print RPTOP</a></font></div></td>
+					                <td><div align="center"><font size="2">|</font></div></td>
+					                <td><div align="center"><font size="2"><a href="PaymentsHome.php{Session}" class="navi" title="Payments">Payments</a></font></div></td>
+						            <td><div align="center"><font size="2">|</font></div></td>
+					                <td><div align="center"><font size="2"><a href="TreasuryMaintenanceHome.php{Session}" class="navi" title="Treasury Maintenance">Treasury Maintenance</a></font></div></td>
+					                <td><div align="center"><font size="2">|</font></div></td>
+					                <td><div align="center"><font size="2"><a href="collectionReports.php{Session}" class="navi" title="Reports">Reports</a></font></div></td>
+					            </tr>
+								<tr><td colspan="9">&nbsp;<br></td></tr>
+					            </table>
+							</td>
+						</tr>
+						</table>
+					  </td>
+			          <td background="images/inner_16.jpg"><img SRC="images/spacer.gif" WIDTH=36 HEIGHT=53></td>
+				    </tr>
+					</table>
+				  </td>
+				</table>
+			</td>
+		</tr>
+
+	<tr>
+		<td align=center background="images/rptr_top_bar_bg.jpg">
+			<table border=0 cellpadding=0 cellspacing=0>
+			<tr>
+				<td><img src="images/spacer.gif" border=0 width="900" height="16"></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+
+
+
+
+    <tr>
+      
+  <td background="images/rptr_bg_middle.jpg"> <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td colspan="20" align="center" class="fields"> </td>
+        </tr>
+
+
+		<tr>
+			<td colspan="20" class="fields" align=center>
+
+				<table border=0 cellpadding=1 cellspacing=0><tr><td bgcolor="#777777">
+
+
+				<table border=0 cellpadding=6 cellspacing=0 width="100%"><tr><td bgcolor="#dddddd">
+
+<font size="2">
+
+<B>Enter Receipt No.</B>
+
+<input type="text" name="receiptNo" value="{receiptNo}" style="font-size:9;">
+&nbsp;&nbsp;
+
+
+<B>Previous Tax Receipt 
+            No. </B>
+            <input name="prevORNum" type="text" value="{prevORNum}" style="font-size: 9;">
+            &nbsp;dated&nbsp;
+            <input name="prevORDate" type="text" value="{prevORDate}" style="font-size: 9;">&nbsp;(MM-DD-YYYY)
+            </font>
+
+				</td></tr></table>
+
+				</td></tr></table>
+
+			</td>
+
+		</tr>
+
+
+
+		</table>
+
+		<table width="98%" border=0 align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="#333333">
+
+				<table width="100%" cellspacing=0 cellpadding=1>
+				<tr>
+					<td bgcolor="#777777">
+					<!-- // open -->
+
+
+		<table width="100%" border=0 align="center" cellpadding="1" cellspacing="1">
+        <tr> 
+          <td colspan="20" align="center"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F6F6F6">
+              <tr> 
+                <td width="13%" rowspan="2" class="fields" align=center>
+					<img src="images/emblem.gif" border=0>
+				</td>
+                <td width="32%" height="30" valign="top" class="fileds_comment"><font size="1"><br>MUNICIPALITY/PROVINCE<br>
+                  <font size="2"><B>{province}</B></font></font></td>
+                <td width="29%" valign="top"><font size="1" class="fileds_comment"><br>CITY<br>
+                  <font size="2"><B>{city}</B></font></font></td>
+                <td width="26%" valign="top"><font size="1" class="fileds_comment"><br>DATE<br>
+                  <font size="2">{datePaid}</font></font></td>
+              </tr>
+              <tr class="fields"> 
+                <td colspan="3"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#F6F6F6">
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td colspan="4">&nbsp;</td>
+                    </tr>
+                    <tr> 
+                      <td width="7%" height="18"><font size="2">&nbsp;</font></td>
+                      <td height="18" colspan="4"><font size="2">Received from <u>{receivedFrom}</u> 
+                        the sum of <u>{totalInWords} (P {amountPaid})</u></font></td>
+                    </tr>
+                    <tr> 
+                      <td height="18" colspan="5"><font size="2">Philippine Currency, in full 
+                        or as installment payment of REAL PROPERTY TAX for the 
+                        Calendar year {taxableYear} upon property described in the Assessment Rolls as 
+                        follows:</font></td>
+                    </tr>
+                    <tr> 
+                      <td height="18" colspan="2"><font size="2">&nbsp; </font></td>
+                      <td width="11%" height="20"><font size="2"> 
+                        <input name="amnesty" type="checkbox" value="Yes"{amnestyChecked} disabled onClick="javascript: recompute();">
+                        Amnesty</font></td>
+                      <td width="11%" height="20"><font size="2"> 
+                        <input name="basicTax2" type="checkbox" checked disabled>
+                        Basic Tax</font></td>
+                      <td width="22%" height="20"><font size="2"> 
+                        <input name="sef" type="checkbox" checked disabled>
+                        Special Education Fund </font></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr bgcolor="#FFE7B3" class="fileds_comment"> 
+          <td width="14%" bordercolor="1"><div align="center"><font size="1">NAME 
+              OF DECLARED<br>
+              OWNER</font> </div></td>
+          <td width="14%" bordercolor="1"><div align="center"><font size="1">LOCATION<br>
+              NUMBER AND STREET<br>
+              OR BARANGAY</font></div></td>
+          <td width="5%" bordercolor="1"><div align="center"><font size="1">LOT<br>
+              AND BLOCK<br>
+              NUMBER</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TAX<br>
+              DECLARATION<br>
+              NUMBER</font></div></td>
+          <td width="21%" bordercolor="1"><div align="center"> 
+              <table width="100%" border="0">
+                <tr> 
+                  <td colspan="3"><div align="center"><font size="1">ASSESSED 
+                      VALUE</font></div></td>
+                </tr>
+                <tr> 
+                  <td width="30%"><div align="center"><font size="1">LAND</font></div></td>
+                  <td width="30%"><div align="center"><font size="1">IMPROV'MT</font></div></td>
+                  <td width="40%"><div align="center"><font size="1">TOTAL</font></div></td>
+                </tr>
+              </table>
+              <font size="1"></font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TAX<br>
+              DUE </font></div></td>
+          <td width="11%" bordercolor="1"><div align="center"> 
+              <table width="100%" border="0">
+                <tr> 
+                  <td colspan="2"><div align="center"><font size="1">INSTALLMENT*</font></div></td>
+                </tr>
+                <tr> 
+                  <td width="30%"><div align="center"><font size="1">No.</font></div></td>
+                  <td width="70%"><div align="center"><font size="1">PAYMENT</font></div></td>
+                </tr>
+              </table>
+            </div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">FULL<br>
+              PAYMENT</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">PENALTY<br>
+              PER CENT</font></div></td>
+          <td width="7%" bordercolor="1"><div align="center"><font size="1">TOTAL</font></div></td>
+          <!-- BEGIN Property -->
+        <tr bgcolor="#F6F6F6" class="fileds_comment"> 
+          <td width="14%" valign="top" bordercolor="1"> <table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <!-- BEGIN Owner -->
+              <tr> 
+                <td><font size="1">{ownerName}</font></td>
+              </tr>
+              <!-- END Owner -->
+            </table></td>
+          <td width="14%" valign="top" bordercolor="1"><font size="1">{lotAddress}</font></td>
+          <td width="5%" valign="top" bordercolor="1"><font size="1">&nbsp;</font></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1"><b>{idleStatus}</b>&nbsp;{tdNum}</font></div></td>
+          <td width="21%" valign="top" bordercolor="1" ><div align="right"> 
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+                <tr> 
+                  <td width="30%"><div align="right"><font size="1">{assessedValueLand}</font></div></td>
+                  <td width="30%"><div align="right"><font size="1">{assessedValueOthers}</font></div></td>
+                  <td width="40%"><div align="right"><font size="1">{assessedValue}</font></div></td>
+                </tr>
+              </table>
+            </div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{subTotal}</font></div></td>
+          <td width="11%" valign="top" bordercolor="1"><div align="right"> 
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr> 
+                  <td width="30%" height="14"><div align="center"><font size="1">{num}</font></div></td>
+                  <td width="70%"><div align="right"><font size="1">&nbsp;{partialPmt}</font></div></td>
+                </tr>
+              </table>
+            </div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{fullPmt}</font></div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{penalty}&nbsp;%</font></div></td>
+          <td width="7%" valign="top" bordercolor="1"><div align="right"><font size="1">{grandTotal}</font></div></td>
+        </tr>
+        <!-- END Property -->
+        <tr bgcolor="#F6F6F6" class="fileds_comment"> 
+          <td colspan="6" valign="top" bordercolor="1"><font size="2">Total taxes 
+            paid by &nbsp; 
+            <select name="kindOfPayment" onChange="javascript: checkType();">
+              <option value="cash" {selectedCash}>Cash</option>
+              <option value="check" {selectedCheck}>Check</option>
+              <option value="treasury note" {selectedTNote}>Treasury Note</option>
+            </select>
+            &nbsp;No.&nbsp;
+            <input name="checkNum" type="text" value="{checkNum}" size="18" {disabledOn}>
+			&nbsp; dated&nbsp;
+			<input name="checkDate" type="text" value="{checkDate}" size="18" {disabledOn}>
+            </font></td>
+          <td valign="bottom" bordercolor="1"><div align="right"><font size="1">{partialPmtTotal}</font></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"><font size="1">{fullPmtTotal}</font></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"></div></td>
+          <td valign="middle" bordercolor="1"><div align="right"><font size="1">{strTotal}</font></div></td>
+        </tr>
+		<tr bgcolor="#F6F6F6" class="fileds_comment">
+			<td colspan=9 bordercolor="1" align="right">Amount Paid</td>
+			<td bordercolor="1"><input type="text" name="amountPaid" value="{amountPaid}" style="text-align: right"></td>
+		</tr>
+		<tr bgcolor="#F6F6F6" class="fileds_comment">
+			<td colspan=9 bordercolor="1" align="right">Balance</td>
+			<td bordercolor="1"><input type="text" name="balance" value="{balance}" style="text-align: right" readonly></td>
+		</tr>
+		<tr bgcolor="#F6F6F6" class="fileds_comment">
+			<td align="right" colspan=10>
+			<table border=0 cellpadding=2 cellspacing=0><tr><td>
+
+			<input type="submit" value="^ Refresh" onClick="this.form.issueReceipt.value=0" style="font-size:10px; font-family:verdana; color:#333333; background-color:#eeeeee;">
+
+			</td></tr></table>
+			
+			</td>
+		</tr>
+      </table>
+      <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1"  bgcolor="#F6F6F6">
+        <tr>
+          <td class="fileds_comment">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="fileds_comment"> <div align="center"><br>
+
+			 <input type="button" name="backButton" onClick="cancelBack();" value="" style="font-size:10px; font-family:verdana; color:#333333; background-color:#eeeeee; height:50;">
+
+			  &nbsp;
+
+              <input type="button" name="nextButton" onClick="this.form.issueReceipt.value=1; issueRPTR();" value="" style="font-size:12px; font-family:verdana; font-weight:bold; color:#333333; background-color:#cccccc; height:50;">
+			  <script language="Javascript">
+				document.EncodeRPTR.nextButton.value = "Issue              \nRPT Receipt >>";
+				document.EncodeRPTR.backButton.value = "< Cancel";
+
+				function issueRPTR(){
+					if(document.EncodeRPTR.receiptNo.value==""){
+						alert("Receipt Number is blank.");
+						document.EncodeRPTR.receiptNo.focus();
+						return false;
+					}
+					document.EncodeRPTR.submit();
+				}
+				function cancelBack(){
+					cancelBackURL = "PayRPTOP2.php{Session}&rptopID={rptopID}&ownerID={ownerID}&formAction=view";
+					document.location.href = cancelBackURL;
+				}
+			  </script>
+              <input type="hidden" name="paymentPeriod" value="{paymentPeriod}">
+              <input type="hidden" name="receivedFrom" value="{receivedFrom}">
+              <input type="hidden" name="collectionSum" value="{total}">
+              <input type="hidden" name="province" value="{province}">
+              <input type="hidden" name="city" value="{city}">
+              <input type="hidden" name="municipalityCityID" value="{municipalityCityID}">
+              <input type="hidden" name="issueReceipt">
+            </div>
+			</form>			
+			</td>
+        </tr>
+
+      </table>
+
+
+
+
+
+
+
+
+
+
+
+					<!-- // close -->
+					</td>
+				</tr>
+				</table>
+
+
+			</td>
+		</tr>
+		</table>
+
+
+
+
+
+
+
+	</td>
+	</tr>
+
+	<tr>
+		<td align=center background="images/rptr_bottom_bar_bg.jpg">
+			<table border=0 cellpadding=0 cellspacing=0>
+			<tr>
+				<td><img src="images/spacer.gif" border=0 width=2 height=16></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+
+
+
+
+	<tr>
+		<td align=center>
+			<table>
+
+<tr>
+				  <td colspan=4>
+					<table border=0 cellpadding=0 cellspacing=0>
+					<tr>
+			          <td><img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53></td>
+			          <td background="images/inner_14.jpg"><img SRC="images/spacer.gif" WIDTH=27 HEIGHT=53 border=0></td>
+			          <td align="left" valign="top" bgcolor="#CCCCCC" background="images/background/bg_middle.jpg">
+						<table border=0 cellpadding=0 cellspacing=0>
+						<tr>
+							<td><img src="images/spacer.gif" border=0 width=702 height=2></td>
+						</tr>
+						<tr>
+							<td>
+								<table width="82%" border="0" align="center" cellpadding="0" cellspacing="0">
+							    <tr align="center">
+
+<TD class=fileds_comment vAlign=top 
+                        align=middle><br><br>Tampering with this system is criminally 
+                        punishable under Philippine Laws.<BR>© Republic of the 
+                        Philippines National Computer Center. All Rights 
+                        Reserved. </TD>
+
+							    </tr>
+					            </table>
+							</td>
+						</tr>
+						</table>
+					  </td>
+			          <td background="images/inner_16.jpg"><img SRC="images/spacer.gif" WIDTH=36 HEIGHT=53></td>
+				    </tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><img src="images/inner_19.jpg" border=0></td>
+						<td background="images/rptr_bottom_bg.jpg"><img src="images/spacer.gif" border=0 width=2 height=2></td>
+						<td><img src="images/inner_23.jpg" border=0></td>
+					</tr>
+
+
+			</table>
+		</td>
+	</tr>
+
+
+
+
+
+	</table>
+</body>
+<script language="Javascript" src="js/isClicked.js"></script>
+</html>

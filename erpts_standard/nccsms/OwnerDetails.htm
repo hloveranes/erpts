@@ -1,0 +1,487 @@
+<html>
+<head>
+<title>eLGU - eRPTS - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=1");
+	puffup.focus(true);
+}
+
+function switchMessageType(messageTypeValue,radioBtn){
+	if(!radioBtn.disabled){
+		switch(messageTypeValue){
+			case "email":
+				document.OwnerDetails.sendTo.value = document.OwnerDetails.email.value;
+				break;
+			case "sms":
+				document.OwnerDetails.sendTo.value = document.OwnerDetails.mobileNumber.value;
+				break;
+			case "fax":
+				switch(document.OwnerDetails.ownerType.value){
+					case "Person":
+						document.OwnerDetails.sendTo.value = document.OwnerDetails.telephone.value;
+						break;
+					case "Company":
+						if(document.OwnerDetails.fax.value!=""){
+							document.OwnerDetails.sendTo.value = document.OwnerDetails.fax.value;
+						}
+						else{
+							document.OwnerDetails.sendTo.value = document.OwnerDetails.telephone.value;
+						}
+						break;
+				}
+				break;
+		}
+	}
+}
+
+function sendMessage(){
+	if(document.OwnerDetails.message.disabled){
+		alert("Cannot compose message. Owner has no email, cellphone number, telephone or fax number encoded. Please update Owner information.");
+		return false;
+	}
+	if(document.OwnerDetails.message.value==""){
+		alert("Message is blank.");
+		document.OwnerDetails.message.focus();
+		return false;
+	}
+
+	// if sms
+	if(document.OwnerDetails.messageType[1].checked==true){
+		if (document.OwnerDetails.message.value.length > 160) {
+			alert("Your message is too long for sms");
+			return false;
+		}
+	}
+
+	document.OwnerDetails.submit();
+}
+
+//-->
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="OwnerDetails" action="SendMessage.php{Session}" method="post">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step02.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_main.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="2">
+		  <tr align="center"> 
+		   <td width="0" align=left class="common"><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right>
+			<a href="home.php{Session}" class="navi" title="Alerts Home">Alerts Home</a>
+		    <font class="navi">&lt;</font>
+		    <a href="../nccweb/admin/home.php{Session}" class="navi" title="back to Admin">back to Admin</a>
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+		   </td>
+		  </tr>
+		 </table></td>
+		<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+	  </table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+
+					<tr>
+						<td align="left" class="subtitle">
+							OWNER DETAILS ({ownerType})<br>&nbsp;
+							<input type="hidden" name="ownerType" value="{ownerType}">
+							<input type="hidden" name="id" value="{id}">
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="fields">
+							&lt;&lt; <a href="OwnerList.php{Session}"><b>back to list</b></a>
+							<br>&nbsp;
+						</td>
+					</tr>
+                    <tr> 
+					   <td align="left" valign="top" class="fields">
+						   <table border=0 cellpadding=1 cellspacing=1 align=center width="90%">
+						   <tr>
+							<td>
+								<table border=0 cellpadding=4 cellspacing=1 width="100%">
+								<!-- BEGIN PersonDetails -->
+								<tr>
+									<td bgcolor="#eeeeee" class="fields" width="25%">
+										ID:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										<b>{id}</b>
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" align="right" width="5%">
+										<input type="button" value="Edit" onClick="openWin('PersonDetails.php{Session}&personID={id}&formAction={ownerViewAccess}','popupWindow',50,50,350,400)">
+									</td>
+
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Last Name:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<b>{lastName}</b>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										First Name:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<b>{firstName}</b>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Middle Name:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<b>{middleName}</b>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Gender
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{gender}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Birthday
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{birthday}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Marital Status
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{maritalStatus}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										TIN
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{tin}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Address
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{fullAddress}</B>						
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Telephone
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{telephone}</B>
+										<input type="hidden" name="telephone" value="{telephone}">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Cell Number
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{mobileNumber}</B>
+										<input type="hidden" name="mobileNumber" value="{mobileNumber}">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Email
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan=2>
+										<B>{email}</B>
+										<input type="hidden" name="email" value="{email}">
+									</td>
+								</tr>
+								<!-- END PersonDetails -->
+								<!-- BEGIN CompanyDetails -->
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										ID
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										<B>{id}</B>
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" align="right" width="5%">
+										<input type="button" value="Edit" onClick="openWin('CompanyDetails.php{Session} &companyID={id}&formAction={ownerViewAccess}','popupWindow',50,50,450,370);">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Company name /<br>Group name
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{companyName}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										TIN
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{tin}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Address
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{fullAddress}</B>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Telephone
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{telephone}</B>
+										<input type="hidden" name="telephone" value="{telephone}">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Fax
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{fax}</B>
+										<input type="hidden" name="fax" value="{fax}">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Email
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{email}</B>
+										<input type="hidden" name="email" value="{email}">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										Website
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment" colspan="2">
+										<B>{website}</B>
+									</td>
+								</tr>
+								<!-- END CompanyDetails -->
+								</table>
+
+							</td>
+						   </tr>
+
+						   </table>
+			
+			   		   </td>
+			       </tr>
+
+			<tr>
+				<td class="subtitle">
+					<br>
+					Compose Message<br>&nbsp;
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+
+						   <table border=0 cellpadding=1 cellspacing=1 align=center width="90%">
+						   <tr>
+							<td>
+								<table border=0 cellpadding=4 cellspacing=1 width="100%">
+								<tr>
+									<td bgcolor="#eeeeee" class="fields" width="25%">
+										Message Type:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										<input type="radio" name="messageType" value="email" style="background-color:#eeeeee;" checked onClick="switchMessageType('email',this);"> Email
+										&nbsp;&nbsp;&nbsp;
+										<input type="radio" name="messageType" value="sms" style="background-color:#eeeeee;" onClick="switchMessageType('sms',this);"> SMS
+										&nbsp;&nbsp;&nbsp;
+										<input type="radio" name="messageType" value="fax" style="background-color:#eeeeee;" onClick="switchMessageType('fax',this);"> Fax
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fields" width="25%">
+										To:
+									</td>
+									<td bgcolor="#eeeeee" class="fileds_comment">
+										<input type="text" name="sendTo" size="55">
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee" class="fields" width="25%" valign="top" align="left">
+										Message
+									</td>
+									<td bgcolor="#eeeeee" class="fields" valign="top" align="left">
+										<textarea name="message" cols=55 rows=20 wrap="virtual"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td bgcolor="#eeeeee">&nbsp;</td>
+									<td bgcolor="#eeeeee" align="left">
+										<input type="button" value="SEND" onClick="sendMessage();" name="sendBtn">
+										<input type="reset" value="Clear" name="clearBtn">
+									</td>
+								</tr>
+								</table>
+							 </td>
+							</tr>
+							</table>
+
+				</td>
+			</tr>
+
+           <tr> 
+                      
+		   <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"><a name="#down"></a><br>
+			<br>
+			<br>
+		   </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="bottom" class="fileds_comment">
+					  
+					  
+						Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="images/inner_16.jpg"><img SRC="images/spacer.gif " border=0 WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</form>
+
+										<script language="Javascript">
+										 // enable/disable radio buttons
+
+										 switch(document.OwnerDetails.ownerType.value){
+											case "Person":
+												if(document.OwnerDetails.email.value==""){
+													document.OwnerDetails.messageType[0].disabled = true;
+												}
+												else{
+													document.OwnerDetails.sendTo.value = document.OwnerDetails.email.value;
+												}
+												if(document.OwnerDetails.mobileNumber.value==""){
+													document.OwnerDetails.messageType[1].disabled = true;
+												}
+												if(document.OwnerDetails.telephone.value==""){
+													document.OwnerDetails.messageType[2].disabled = true;
+												}
+												break;
+											case "Company":
+												if(document.OwnerDetails.email.value==""){
+													document.OwnerDetails.messageType[0].disabled = true;
+												}
+												// company has no mobileNumber so automatically disable
+												document.OwnerDetails.messageType[1].disabled = true;
+												if(document.OwnerDetails.fax.value=="" && document.OwnerDetails.telephone.value==""){
+													document.OwnerDetails.messageType[2].disabled = true;
+												}
+												break;
+										 }
+										 if(document.OwnerDetails.messageType[0].disabled==true && document.OwnerDetails.messageType[1].disabled && document.OwnerDetails.messageType[2].disabled){
+											document.OwnerDetails.message.value = "Cannot compose message. Owner has no email, cellphone number, telephone or fax number encoded. Please update Owner information."
+											document.OwnerDetails.sendTo.value = "<owner has no contact information>";
+											document.OwnerDetails.sendTo.disabled = true;
+											document.OwnerDetails.message.disabled = true;
+											document.OwnerDetails.clearBtn.disabled = true;
+										 }
+
+
+										</script>
+
+</body>
+</html>

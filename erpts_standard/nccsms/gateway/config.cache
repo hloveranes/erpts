@@ -1,0 +1,102 @@
+# This file is a shell script that caches the results of configure
+# tests run on this system so they can be shared between configure
+# scripts and configure runs.  It is not useful on other systems.
+# If it contains results you don't want to keep, you may remove or edit it.
+#
+# By default, configure uses ./config.cache as the cache file,
+# creating it if it does not exist already.  You can give configure
+# the --cache-file=FILE option to use a different cache file; that is
+# what configure does when it calls configure scripts in
+# subdirectories, so they share the cache.
+# Giving --cache-file=/dev/null disables caching, for debugging configure.
+# config.status only pays attention to the cache file if you give it the
+# --recheck option to rerun configure.
+#
+ac_cv_file__usr_lib_sgml_stylesheet_dsssl_docbook_nwalsh_html_docbook_dsl=${ac_cv_file__usr_lib_sgml_stylesheet_dsssl_docbook_nwalsh_html_docbook_dsl=no}
+ac_cv_file__usr_lib_sgml_stylesheet_dsssl_docbook_nwalsh_print_docbook_dsl=${ac_cv_file__usr_lib_sgml_stylesheet_dsssl_docbook_nwalsh_print_docbook_dsl=no}
+ac_cv_file__usr_lib_sgml_stylesheets_nwalsh_modular_html_docbook_dsl=${ac_cv_file__usr_lib_sgml_stylesheets_nwalsh_modular_html_docbook_dsl=no}
+ac_cv_file__usr_lib_sgml_stylesheets_nwalsh_modular_print_docbook_dsl=${ac_cv_file__usr_lib_sgml_stylesheets_nwalsh_modular_print_docbook_dsl=no}
+ac_cv_file__usr_local_lib_sgml_stylesheet_dsssl_docbook_nwalsh_html_docbook_dsl=${ac_cv_file__usr_local_lib_sgml_stylesheet_dsssl_docbook_nwalsh_html_docbook_dsl=no}
+ac_cv_file__usr_local_lib_sgml_stylesheet_dsssl_docbook_nwalsh_print_docbook_dsl=${ac_cv_file__usr_local_lib_sgml_stylesheet_dsssl_docbook_nwalsh_print_docbook_dsl=no}
+ac_cv_file__usr_local_lib_sgml_stylesheets_nwalsh_modular_html_docbook_dsl=${ac_cv_file__usr_local_lib_sgml_stylesheets_nwalsh_modular_html_docbook_dsl=no}
+ac_cv_file__usr_local_lib_sgml_stylesheets_nwalsh_modular_print_docbook_dsl=${ac_cv_file__usr_local_lib_sgml_stylesheets_nwalsh_modular_print_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_modular_html_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_modular_html_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_modular_print_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_modular_print_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_59_html_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_59_html_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_59_print_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_59_print_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_77_html_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_77_html_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_77_print_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_1_77_print_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_html_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_html_docbook_dsl=no}
+ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_print_docbook_dsl=${ac_cv_file__usr_local_share_sgml_docbook_dsssl_stylesheets_print_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_modular_html_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_modular_html_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_modular_print_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_modular_print_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_59_html_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_59_html_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_59_print_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_59_print_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_77_html_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_77_html_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_77_print_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_1_77_print_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_html_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_html_docbook_dsl=no}
+ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_print_docbook_dsl=${ac_cv_file__usr_share_sgml_docbook_dsssl_stylesheets_print_docbook_dsl=no}
+ac_cv_func_backtrace=${ac_cv_func_backtrace=yes}
+ac_cv_func_gethostbyname_r=${ac_cv_func_gethostbyname_r=yes}
+ac_cv_func_getopt=${ac_cv_func_getopt=yes}
+ac_cv_func_getopt_long=${ac_cv_func_getopt_long=yes}
+ac_cv_func_gettimeofday=${ac_cv_func_gettimeofday=yes}
+ac_cv_func_gmtime_r=${ac_cv_func_gmtime_r=yes}
+ac_cv_func_localtime_r=${ac_cv_func_localtime_r=yes}
+ac_cv_func_regcomp=${ac_cv_func_regcomp=yes}
+ac_cv_func_select=${ac_cv_func_select=yes}
+ac_cv_func_socket=${ac_cv_func_socket=yes}
+ac_cv_func_srandom=${ac_cv_func_srandom=yes}
+ac_cv_func_strdup=${ac_cv_func_strdup=yes}
+ac_cv_func_which_gethostname_r=${ac_cv_func_which_gethostname_r=6}
+ac_cv_header_execinfo_h=${ac_cv_header_execinfo_h=yes}
+ac_cv_header_getopt_h=${ac_cv_header_getopt_h=yes}
+ac_cv_header_iconv_h=${ac_cv_header_iconv_h=yes}
+ac_cv_header_net_if_h=${ac_cv_header_net_if_h=yes}
+ac_cv_header_netinet_in_h=${ac_cv_header_netinet_in_h=yes}
+ac_cv_header_pthread_h=${ac_cv_header_pthread_h=yes}
+ac_cv_header_regex_h=${ac_cv_header_regex_h=yes}
+ac_cv_header_stdc=${ac_cv_header_stdc=yes}
+ac_cv_header_stdlib_h=${ac_cv_header_stdlib_h=yes}
+ac_cv_header_sys_ioctl_h=${ac_cv_header_sys_ioctl_h=yes}
+ac_cv_header_sys_poll_h=${ac_cv_header_sys_poll_h=yes}
+ac_cv_header_sys_socket_h=${ac_cv_header_sys_socket_h=yes}
+ac_cv_header_sys_sockio_h=${ac_cv_header_sys_sockio_h=no}
+ac_cv_header_sys_time_h=${ac_cv_header_sys_time_h=yes}
+ac_cv_header_sys_types_h=${ac_cv_header_sys_types_h=yes}
+ac_cv_header_syslog_h=${ac_cv_header_syslog_h=yes}
+ac_cv_header_unistd_h=${ac_cv_header_unistd_h=yes}
+ac_cv_header_zlib_h=${ac_cv_header_zlib_h=yes}
+ac_cv_lib_bind_inet_ntop=${ac_cv_lib_bind_inet_ntop=no}
+ac_cv_lib_iconv_libiconv=${ac_cv_lib_iconv_libiconv=no}
+ac_cv_lib_l_yywrap=${ac_cv_lib_l_yywrap=no}
+ac_cv_lib_m_log=${ac_cv_lib_m_log=yes}
+ac_cv_lib_nsl_inet_ntoa=${ac_cv_lib_nsl_inet_ntoa=yes}
+ac_cv_lib_pthread_pthread_exit=${ac_cv_lib_pthread_pthread_exit=yes}
+ac_cv_lib_resolv_inet_ntop=${ac_cv_lib_resolv_inet_ntop=yes}
+ac_cv_lib_rt_sem_init=${ac_cv_lib_rt_sem_init=yes}
+ac_cv_lib_socket_accept=${ac_cv_lib_socket_accept=no}
+ac_cv_path_PERL=${ac_cv_path_PERL=/usr/bin/perl}
+ac_cv_path_XML_CONFIG=${ac_cv_path_XML_CONFIG=/usr/bin/xml2-config}
+ac_cv_path_install=${ac_cv_path_install='/usr/bin/install -c'}
+ac_cv_prog_CC=${ac_cv_prog_CC=gcc}
+ac_cv_prog_CONVERT=${ac_cv_prog_CONVERT=no}
+ac_cv_prog_CPP=${ac_cv_prog_CPP='gcc -E'}
+ac_cv_prog_DVIPS=${ac_cv_prog_DVIPS=no}
+ac_cv_prog_FIG2DEV=${ac_cv_prog_FIG2DEV=no}
+ac_cv_prog_JADE=${ac_cv_prog_JADE=jade}
+ac_cv_prog_JADETEX=${ac_cv_prog_JADETEX=no}
+ac_cv_prog_LEX=${ac_cv_prog_LEX=lex}
+ac_cv_prog_PDFJADETEX=${ac_cv_prog_PDFJADETEX=no}
+ac_cv_prog_RANLIB=${ac_cv_prog_RANLIB=ranlib}
+ac_cv_prog_cc_cross=${ac_cv_prog_cc_cross=no}
+ac_cv_prog_cc_g=${ac_cv_prog_cc_g=yes}
+ac_cv_prog_cc_works=${ac_cv_prog_cc_works=yes}
+ac_cv_prog_gcc=${ac_cv_prog_gcc=yes}
+ac_cv_sizeof_int=${ac_cv_sizeof_int=4}
+ac_cv_sizeof_long=${ac_cv_sizeof_long=4}
+ac_cv_sizeof_long_long=${ac_cv_sizeof_long_long=8}
+ac_cv_sizeof_short=${ac_cv_sizeof_short=2}
+gw_cv_func_HAVE_GETOPT_IN_STDIO_H=${gw_cv_func_HAVE_GETOPT_IN_STDIO_H=no}
+gw_cv_func_HAVE_GETOPT_IN_UNISTD_H=${gw_cv_func_HAVE_GETOPT_IN_UNISTD_H=yes}
+gw_cv_type_HAVE_SOCKLEN_T=${gw_cv_type_HAVE_SOCKLEN_T=yes}

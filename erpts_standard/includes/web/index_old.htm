@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>eLGU - Electronic Local Government Units Program</title>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="js/md5.js"></script>
+<script language="javascript">
+<!--
+  function doChallengeResponse() {
+    str = document.login.username.value + ":" +
+          document.login.password.value + ":" +
+          document.login.challenge.value;
+
+    document.login.response.value = MD5(str);
+    document.login.password.value = "";
+    document.login.submit();
+  }
+// -->
+</script>
+<script language="JavaScript">
+<!--
+  // Activate the appropriate input form field.
+  if (document.login.username.value == '') {
+    document.login.username.focus();
+  } else {
+    document.login.password.focus();
+  }
+// -->
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" scroll="no" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="middle"> 
+      <table WIDTH=800 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/login/home_01.jpg" WIDTH=18 HEIGHT=48 ALT=""></td>
+          <td> <img SRC="images/login/home_02.jpg" WIDTH=27 HEIGHT=48 ALT=""></td>
+          <td> <img SRC="images/login/home_03.jpg" WIDTH=711 HEIGHT=48 ALT=""></td>
+          <td> <img SRC="images/login/home_04.jpg" WIDTH=27 HEIGHT=48 ALT=""></td>
+          <td> <img SRC="images/login/home_05.jpg" WIDTH=17 HEIGHT=48 ALT=""></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/login/home_06.jpg" WIDTH=18 HEIGHT=135 ALT=""></td>
+          <td> <img SRC="images/login/home_07.jpg" WIDTH=27 HEIGHT=135 ALT=""></td>
+          <td bgcolor="#CCCCCC"><img SRC="images/login/home_08.jpg" WIDTH=711 HEIGHT=135></td>
+          <td> <img SRC="images/login/home_09.jpg" WIDTH=27 HEIGHT=135 ALT=""></td>
+          <td> <img SRC="images/login/home_10.jpg" WIDTH=17 HEIGHT=135 ALT=""></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/login/home_11.jpg" WIDTH=18 HEIGHT=168 ALT=""></td>
+          <td> <img SRC="images/login/home_12.jpg" WIDTH=27 HEIGHT=168 ALT=""></td>
+          <td bgcolor="#666666"> <img SRC="images/login/home_13.jpg" WIDTH=711 HEIGHT=168></td>
+          <td> <img SRC="images/login/home_14.jpg" WIDTH=27 HEIGHT=168 ALT=""></td>
+          <td> <img SRC="images/login/home_15.jpg" WIDTH=17 HEIGHT=168 ALT=""></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/login/home_16.jpg" WIDTH=18 HEIGHT=73 ALT=""></td>
+          <td> <img SRC="images/login/home_17.jpg" WIDTH=27 HEIGHT=73 ALT=""></td>
+          <td background="images/login/home_18.gif" bgcolor="#CCCCCC">&nbsp; </td>
+          <td> <img SRC="images/login/home_19.jpg" WIDTH=27 HEIGHT=73></td>
+          <td> <img SRC="images/login/home_20.jpg" WIDTH=17 HEIGHT=73 ALT=""></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/login/home_21.jpg" WIDTH=18 HEIGHT=125 ALT=""></td>
+          <td> <img SRC="images/login/home_22.jpg" WIDTH=27 HEIGHT=125 ALT=""></td>
+          <td align="left" valign="top" background="images/login/home_23.jpg" bgcolor="#CCCCCC"> 
+            <table width="711" height="125" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="center" valign="top" class="fileds_comment"> <form name="login" action="<?php print $this->url() ?>" method=post>
+                    <table width=45% border=0 cellpadding=4 cellspacing=2>
+                      <tr> 
+                        <td colspan=5><input type="hidden" name="challenge" value="<?php print $challenge ?>">
+  <input type="hidden" name="response"  value=""></td>
+                      </tr>
+                      <tr align="right" valign="middle"> 
+                        <td class="fileds_comment" height="28"><b><font color="#FFFFFF">USERNAME</font></b></td>
+                        <td align="left" height="28"> <input type="text" name="username" value="<?php print (isset($this->auth["uname"]) ? $this->auth["uname"] : "" ) ?>" size="20" style="background:#cccccc;font-size: 9pt; border:0; color:#000000;font-family: verdana"> 
+                        </td>
+                        <td height="28" class="fileds_comment"><b><font color="#FFFFFF">PASSWORD</font></b></td>
+                        <td height="28"> <input type="password" name="password" size="20" style="background:#cccccc;font-size: 9pt; border:0; color:#000000;font-family: verdana"> 
+                        </td>
+                        <td height="28"> <input onClick="doChallengeResponse(); return false;" type="submit" name="submitbtn" value="Enter" style="background:#000000;font-size: 8pt; border:0; color:#FFFFFF;font-family: verdana"> 
+                        </td>
+                      </tr>
+                      <tr align="center" valign="top"> 
+                        <td colspan=5> 
+                          <?php global $username; if ( isset($username) ): ?>
+                          <!-- failed login code -->
+                          <font color="red" face="Arial, Helvetica, sans-serif" size="2"><b>Either 
+                          your username or your password are invalid.<br>
+                          Please try again!</b></font>
+                          <?php endif ?>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                  <br>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td> <img SRC="images/login/home_24.jpg" WIDTH=27 HEIGHT=125 ALT=""></td>
+          <td> <img SRC="images/login/home_25.jpg" WIDTH=17 HEIGHT=125 ALT=""></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/login/home_26.jpg" WIDTH=18 HEIGHT=51 ALT=""></td>
+          <td> <img SRC="images/login/home_27.jpg" WIDTH=27 HEIGHT=51 ALT=""></td>
+          <td> <img SRC="images/login/home_28.jpg" WIDTH=711 HEIGHT=51 ALT=""></td>
+          <td> <img SRC="images/login/home_29.jpg" WIDTH=27 HEIGHT=51 ALT=""></td>
+          <td> <img SRC="images/login/home_30.jpg" WIDTH=17 HEIGHT=51 ALT=""></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

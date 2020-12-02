@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+
+	<!-- BEGIN Page -->
+
+	<page height="592" width="784" number="{pageNumber}" orientation="0">
+
+		<textitem xpos="392" ypos="562" font="Helvetica-Bold" size="11" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="752" ypos="562" font="Helvetica-Bold" size="11" align="right">annex A</textitem>
+		<textitem xpos="392" ypos="550" font="Helvetica-Bold" size="11" align="center">Province of {province}</textitem>
+		<textitem xpos="392" ypos="535" font="Helvetica-Bold" size="13" align="center">{lguType} OF {lguName}</textitem>
+
+		<textitem xpos="638" ypos="532" font="Helvetica-Bold" size="11" align="right">No.</textitem>
+
+		<textitem xpos="697" ypos="535" font="Helvetica-Bold" size="11" align="center">{rptopNumber}</textitem>
+
+		<textitem xpos="752" ypos="515" font="Helvetica" size="11" align="right">Page {tdPageNumber} of {tdTotalPages}</textitem>
+
+
+
+		<lineitem x1="642" y1="532" x2="752" y2="532">no.line1</lineitem>
+		<lineitem x1="642" y1="512" x2="752" y2="512">no.line2</lineitem>
+
+
+		<textitem xpos="132" ypos="514" font="Helvetica-Bold" size="10" align="center">{owner}</textitem>
+		
+		<lineitem x1="32" y1="512" x2="232" y2="512">propertyOwner line</lineitem>
+
+		<textitem xpos="132" ypos="502" font="Helvetica" size="10" align="center">(Property Owner)</textitem>
+
+		<textitem xpos="32" ypos="486" font="Helvetica-Bold" size="10" align="left">{address1}</textitem>
+		<textitem xpos="32" ypos="466" font="Helvetica-Bold" size="10" align="left">{address2}</textitem>
+
+		<lineitem x1="32" y1="482" x2="232" y2="482">address line1</lineitem>
+		<lineitem x1="32" y1="462" x2="232" y2="462">address line2</lineitem>
+
+		<textitem xpos="132" ypos="452" font="Helvetica" size="10" align="center">(Address)</textitem>
+
+		<!-- BEGIN FirstPageText -->
+		<textitem xpos="32" ypos="422" font="Helvetica" size="10" align="left">Sir/Madam:</textitem>
+
+		<textitem xpos="452" ypos="412" font="Helvetica" size="10" align="center">{taxableYear}</textitem>
+		<textitem xpos="752" ypos="412" font="Helvetica" size="10" align="right">This is to inform you that the real property tax(es) due and payable for the year _______________ on the property/properties located in this city/municipality</textitem>
+
+		<textitem xpos="752" ypos="402" font="Helvetica" size="10" align="right">and ownership of which is/are stated in your name for taxation purposes, as well as for subsequent year until you are informed of any charge(s), is/are as follows.</textitem>
+		<!-- END FirstPageText -->
+
+		<!-- BEGIN ContinuedFromPreviousPageText -->
+		<textitem xpos="32" ypos="422" font="Helvetica" size="10" align="left">(..continued from previous page)</textitem>
+		<!-- END ContinuedFromPreviousPageText -->
+
+		<!-- BEGIN ContinuedNextPageText -->
+		<textitem xpos="59" ypos="204" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="194" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="184" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="174" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="164" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="154" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="144" font="Helvetica-Bold" size="10" align="left">.</textitem>
+		<textitem xpos="59" ypos="124" font="Helvetica-Bold" size="10" align="left">(continued on next page...)</textitem>
+		<!-- END ContinuedNextPageText -->
+
+		<lineitem x1="32" y1="392" x2="752" y2="392">top-border-1</lineitem>
+		<lineitem x1="32" y1="391.5" x2="752" y2="391.5">top-border-2</lineitem>
+		<lineitem x1="32" y1="391" x2="752" y2="391">top-border-3</lineitem>
+		<lineitem x1="32" y1="390.5" x2="752" y2="390.5">top-border-4</lineitem>
+		<lineitem x1="36" y1="388" x2="748" y2="388">top-border-5</lineitem>
+
+		<lineitem x1="36" y1="116" x2="748" y2="116">bottom-border-1</lineitem>
+		<lineitem x1="32" y1="113.5" x2="752" y2="113.5">bottom-border-2</lineitem>
+		<lineitem x1="32" y1="113" x2="752" y2="113">bottom-border-3</lineitem>
+		<lineitem x1="32" y1="112.5" x2="752" y2="112.5">bottom-border-4</lineitem>
+		<lineitem x1="32" y1="112" x2="752" y2="112">bottom-border-5</lineitem>
+
+		<lineitem x1="32" y1="392" x2="32" y2="112">left-border-1</lineitem>
+		<lineitem x1="32.5" y1="392" x2="32.5" y2="112">left-border-2</lineitem>
+		<lineitem x1="33" y1="392" x2="33" y2="112">left-border-3</lineitem>
+		<lineitem x1="33.5" y1="392" x2="33.5" y2="112">left-border-4</lineitem>
+		<lineitem x1="36" y1="388" x2="36" y2="116">left-border-5</lineitem>
+
+		<lineitem x1="748" y1="388" x2="748" y2="116">right-border-1</lineitem>
+		<lineitem x1="750.5" y1="392" x2="750.5" y2="112">right-border-2</lineitem>
+		<lineitem x1="751" y1="392" x2="751" y2="112">right-border-3</lineitem>
+		<lineitem x1="751.5" y1="392" x2="751.5" y2="112">right-border-4</lineitem>
+		<lineitem x1="752" y1="388" x2="752" y2="116">right-border-5</lineitem>
+
+		<textitem xpos="42" ypos="372" font="Helvetica-Bold" size="14" align="left">A.</textitem>
+		<textitem xpos="296" ypos="372" font="Helvetica-Bold" size="14" align="center">N O T I C E     O F     A S S E S S M E N T</textitem>
+		<textitem xpos="557.5" ypos="372" font="Helvetica-Bold" size="14" align="left">B.</textitem>
+		<textitem xpos="656.75" ypos="372" font="Helvetica-Bold" size="14" align="center">T A X    B I L L</textitem>
+
+		<textitem xpos="296" ypos="350" font="Helvetica-Bold" size="12" align="center">SUMMARY  OF  REAL  PROPERTY  ASSESSMENT</textitem>
+		<textitem xpos="656.75" ypos="350" font="Helvetica-Bold" size="12" align="center">TAXES  DUE</textitem>
+
+		<textitem xpos="70.75" ypos="332" font="Helvetica" size="9.5" align="center">ARP No.</textitem>
+		<textitem xpos="137.25" ypos="337.5" font="Helvetica" size="9.5" align="center">Property</textitem>
+		<textitem xpos="137.25" ypos="329.75" font="Helvetica" size="9.5" align="center">Index No.</textitem>
+		<textitem xpos="232.5" ypos="332" font="Helvetica" size="9.5" align="center">Location</textitem>
+		<textitem xpos="322.75" ypos="337.5" font="Helvetica" size="9.5" align="center">Classi-</textitem>
+		<textitem xpos="322.75" ypos="329.75" font="Helvetica" size="9.5" align="center">fication</textitem>
+		<textitem xpos="376.25" ypos="337.5" font="Helvetica" size="9.5" align="center">Area/</textitem>
+		<textitem xpos="376.25" ypos="329.75" font="Helvetica" size="9.5" align="center">Lot No.</textitem>
+		<textitem xpos="439.75" ypos="332" font="Helvetica" size="9.5" align="center">Market Value</textitem>
+		<textitem xpos="513.25" ypos="332" font="Helvetica" size="9.5" align="center">Assessed Value</textitem>
+
+		<textitem xpos="583.25" ypos="332" font="Helvetica" size="9.5" align="center">Basic Tax</textitem>
+		<textitem xpos="646.75" ypos="332" font="Helvetica" size="9.5" align="center">SEF - Tax</textitem>
+		<textitem xpos="713.25" ypos="332" font="Helvetica" size="9.5" align="center">Total</textitem>
+
+		<textitem xpos="39" ypos="314" font="Helvetica" size="9.5" align="left">{arpNumber1}</textitem>
+		<textitem xpos="39" ypos="319.5" font="Helvetica" size="9" align="left">{arpNumber1a}</textitem>
+		<textitem xpos="39" ypos="311.75" font="Helvetica" size="9" align="left">{arpNumber1b}</textitem>
+
+		<textitem xpos="108.5" ypos="314" font="Helvetica" size="9.5" align="left">{pin1}</textitem>
+		<textitem xpos="108.5" ypos="319.5" font="Helvetica" size="9" align="left">{pin1a}</textitem>
+		<textitem xpos="108.5" ypos="311.75" font="Helvetica" size="9" align="left">{pin1b}</textitem>
+
+		<textitem xpos="172" ypos="314" font="Helvetica" size="9.5" align="left">{location1}</textitem>
+		<textitem xpos="172" ypos="319.5" font="Helvetica" size="9" align="left">{location1a}</textitem>
+		<textitem xpos="172" ypos="311.75" font="Helvetica" size="9" align="left">{location1b}</textitem>
+
+		<textitem xpos="299" ypos="314" font="Helvetica" size="9.5" align="left">{classification1}</textitem>
+		<textitem xpos="352.5" ypos="319.5" font="Helvetica" size="9.5" align="left">{area1}</textitem>
+		<textitem xpos="352.5" ypos="311.75" font="Helvetica" size="9.5" align="left">{lotNo1}</textitem>
+		<textitem xpos="473.5" ypos="314" font="Helvetica" size="9.5" align="right">{marketValue1}</textitem>
+		<textitem xpos="547" ypos="314" font="Helvetica" size="9.5" align="right">{assessedValue1}</textitem>
+		<textitem xpos="612" ypos="314" font="Helvetica" size="9.5" align="right">{basic1}</textitem>
+		<textitem xpos="675.5" ypos="314" font="Helvetica" size="9.5" align="right">{sef1}</textitem>
+		<textitem xpos="745" ypos="314" font="Helvetica" size="9.5" align="right">{totalTax1}</textitem>
+
+		<textitem xpos="39" ypos="296" font="Helvetica" size="9.5" align="left">{arpNumber2}</textitem>
+		<textitem xpos="39" ypos="301.5" font="Helvetica" size="9" align="left">{arpNumber2a}</textitem>
+		<textitem xpos="39" ypos="293.75" font="Helvetica" size="9" align="left">{arpNumber2b}</textitem>
+
+		<textitem xpos="108.5" ypos="296" font="Helvetica" size="9.5" align="left">{pin2}</textitem>
+		<textitem xpos="108.5" ypos="301.5" font="Helvetica" size="9" align="left">{pin2a}</textitem>
+		<textitem xpos="108.5" ypos="293.75" font="Helvetica" size="9" align="left">{pin2b}</textitem>
+
+		<textitem xpos="172" ypos="296" font="Helvetica" size="9.5" align="left">{location2}</textitem>
+		<textitem xpos="172" ypos="301.5" font="Helvetica" size="9" align="left">{location2a}</textitem>
+		<textitem xpos="172" ypos="293.75" font="Helvetica" size="9" align="left">{location2b}</textitem>
+
+		<textitem xpos="299" ypos="296" font="Helvetica" size="9.5" align="left">{classification2}</textitem>
+		<textitem xpos="352.5" ypos="301.5" font="Helvetica" size="9.5" align="left">{area2}</textitem>
+		<textitem xpos="352.5" ypos="293.75" font="Helvetica" size="9.5" align="left">{lotNo2}</textitem>
+		<textitem xpos="473.5" ypos="296" font="Helvetica" size="9.5" align="right">{marketValue2}</textitem>
+		<textitem xpos="547" ypos="296" font="Helvetica" size="9.5" align="right">{assessedValue2}</textitem>
+		<textitem xpos="612" ypos="296" font="Helvetica" size="9.5" align="right">{basic2}</textitem>
+		<textitem xpos="675.5" ypos="296" font="Helvetica" size="9.5" align="right">{sef2}</textitem>
+		<textitem xpos="745" ypos="296" font="Helvetica" size="9.5" align="right">{totalTax2}</textitem>
+
+		<textitem xpos="39" ypos="278" font="Helvetica" size="9.5" align="left">{arpNumber3}</textitem>
+		<textitem xpos="39" ypos="283.5" font="Helvetica" size="9" align="left">{arpNumber3a}</textitem>
+		<textitem xpos="39" ypos="275.75" font="Helvetica" size="9" align="left">{arpNumber3b}</textitem>
+
+		<textitem xpos="108.5" ypos="278" font="Helvetica" size="9.5" align="left">{pin3}</textitem>
+		<textitem xpos="108.5" ypos="283.5" font="Helvetica" size="9" align="left">{pin3a}</textitem>
+		<textitem xpos="108.5" ypos="275.75" font="Helvetica" size="9" align="left">{pin3b}</textitem>
+
+		<textitem xpos="172" ypos="278" font="Helvetica" size="9.5" align="left">{location3}</textitem>
+		<textitem xpos="172" ypos="283.5" font="Helvetica" size="9" align="left">{location3a}</textitem>
+		<textitem xpos="172" ypos="275.75" font="Helvetica" size="9" align="left">{location3b}</textitem>
+
+		<textitem xpos="299" ypos="278" font="Helvetica" size="9.5" align="left">{classification3}</textitem>
+		<textitem xpos="352.5" ypos="283.5" font="Helvetica" size="9.5" align="left">{area3}</textitem>
+		<textitem xpos="352.5" ypos="275.75" font="Helvetica" size="9.5" align="left">{lotNo3}</textitem>
+		<textitem xpos="473.5" ypos="278" font="Helvetica" size="9.5" align="right">{marketValue3}</textitem>
+		<textitem xpos="547" ypos="278" font="Helvetica" size="9.5" align="right">{assessedValue3}</textitem>
+		<textitem xpos="612" ypos="278" font="Helvetica" size="9.5" align="right">{basic3}</textitem>
+		<textitem xpos="675.5" ypos="278" font="Helvetica" size="9.5" align="right">{sef3}</textitem>
+		<textitem xpos="745" ypos="278" font="Helvetica" size="9.5" align="right">{totalTax3}</textitem>
+
+		<textitem xpos="39" ypos="260" font="Helvetica" size="9.5" align="left">{arpNumber4}</textitem>
+		<textitem xpos="39" ypos="265.5" font="Helvetica" size="9" align="left">{arpNumber4a}</textitem>
+		<textitem xpos="39" ypos="257.75" font="Helvetica" size="9" align="left">{arpNumber4b}</textitem>
+
+		<textitem xpos="108.5" ypos="260" font="Helvetica" size="9.5" align="left">{pin4}</textitem>
+		<textitem xpos="108.5" ypos="265.5" font="Helvetica" size="9" align="left">{pin4a}</textitem>
+		<textitem xpos="108.5" ypos="257.75" font="Helvetica" size="9" align="left">{pin4b}</textitem>
+
+		<textitem xpos="172" ypos="260" font="Helvetica" size="9.5" align="left">{location4}</textitem>
+		<textitem xpos="172" ypos="265.5" font="Helvetica" size="9" align="left">{location4a}</textitem>
+		<textitem xpos="172" ypos="257.75" font="Helvetica" size="9" align="left">{location4b}</textitem>
+
+		<textitem xpos="299" ypos="260" font="Helvetica" size="9.5" align="left">{classification4}</textitem>
+		<textitem xpos="352.5" ypos="265.5" font="Helvetica" size="9.5" align="left">{area4}</textitem>
+		<textitem xpos="352.5" ypos="257.75" font="Helvetica" size="9.5" align="left">{lotNo4}</textitem>
+		<textitem xpos="473.5" ypos="260" font="Helvetica" size="9.5" align="right">{marketValue4}</textitem>
+		<textitem xpos="547" ypos="260" font="Helvetica" size="9.5" align="right">{assessedValue4}</textitem>
+		<textitem xpos="612" ypos="260" font="Helvetica" size="9.5" align="right">{basic4}</textitem>
+		<textitem xpos="675.5" ypos="260" font="Helvetica" size="9.5" align="right">{sef4}</textitem>
+		<textitem xpos="745" ypos="260" font="Helvetica" size="9.5" align="right">{totalTax4}</textitem>
+
+		<textitem xpos="39" ypos="242" font="Helvetica" size="9.5" align="left">{arpNumber5}</textitem>
+		<textitem xpos="39" ypos="247.5" font="Helvetica" size="9" align="left">{arpNumber5a}</textitem>
+		<textitem xpos="39" ypos="239.75" font="Helvetica" size="9" align="left">{arpNumber5b}</textitem>
+
+		<textitem xpos="108.5" ypos="242" font="Helvetica" size="9.5" align="left">{pin5}</textitem>
+		<textitem xpos="108.5" ypos="247.5" font="Helvetica" size="9" align="left">{pin5a}</textitem>
+		<textitem xpos="108.5" ypos="239.75" font="Helvetica" size="9" align="left">{pin5b}</textitem>
+
+		<textitem xpos="172" ypos="242" font="Helvetica" size="9.5" align="left">{location5}</textitem>
+		<textitem xpos="172" ypos="247.5" font="Helvetica" size="9" align="left">{location5a}</textitem>
+		<textitem xpos="172" ypos="239.75" font="Helvetica" size="9" align="left">{location5b}</textitem>
+
+		<textitem xpos="299" ypos="242" font="Helvetica" size="9.5" align="left">{classification5}</textitem>
+		<textitem xpos="352.5" ypos="247.5" font="Helvetica" size="9.5" align="left">{area5}</textitem>
+		<textitem xpos="352.5" ypos="239.75" font="Helvetica" size="9.5" align="left">{lotNo5}</textitem>
+		<textitem xpos="473.5" ypos="242" font="Helvetica" size="9.5" align="right">{marketValue5}</textitem>
+		<textitem xpos="547" ypos="242" font="Helvetica" size="9.5" align="right">{assessedValue5}</textitem>
+		<textitem xpos="612" ypos="242" font="Helvetica" size="9.5" align="right">{basic5}</textitem>
+		<textitem xpos="675.5" ypos="242" font="Helvetica" size="9.5" align="right">{sef5}</textitem>
+		<textitem xpos="745" ypos="242" font="Helvetica" size="9.5" align="right">{totalTax5}</textitem>
+
+		<textitem xpos="39" ypos="224" font="Helvetica" size="9.5" align="left">{arpNumber6}</textitem>
+		<textitem xpos="39" ypos="229.5" font="Helvetica" size="9" align="left">{arpNumber6a}</textitem>
+		<textitem xpos="39" ypos="221.75" font="Helvetica" size="9" align="left">{arpNumber6b}</textitem>
+
+		<textitem xpos="108.5" ypos="224" font="Helvetica" size="9.5" align="left">{pin6}</textitem>
+		<textitem xpos="108.5" ypos="229.5" font="Helvetica" size="9" align="left">{pin6a}</textitem>
+		<textitem xpos="108.5" ypos="221.75" font="Helvetica" size="9" align="left">{pin6b}</textitem>
+
+		<textitem xpos="172" ypos="224" font="Helvetica" size="9.5" align="left">{location6}</textitem>
+		<textitem xpos="172" ypos="229.5" font="Helvetica" size="9" align="left">{location6a}</textitem>
+		<textitem xpos="172" ypos="221.75" font="Helvetica" size="9" align="left">{location6b}</textitem>
+
+		<textitem xpos="299" ypos="224" font="Helvetica" size="9.5" align="left">{classification6}</textitem>
+		<textitem xpos="352.5" ypos="229.5" font="Helvetica" size="9.5" align="left">{area6}</textitem>
+		<textitem xpos="352.5" ypos="221.75" font="Helvetica" size="9.5" align="left">{lotNo6}</textitem>
+		<textitem xpos="473.5" ypos="224" font="Helvetica" size="9.5" align="right">{marketValue6}</textitem>
+		<textitem xpos="547" ypos="224" font="Helvetica" size="9.5" align="right">{assessedValue6}</textitem>
+		<textitem xpos="612" ypos="224" font="Helvetica" size="9.5" align="right">{basic6}</textitem>
+		<textitem xpos="675.5" ypos="224" font="Helvetica" size="9.5" align="right">{sef6}</textitem>
+		<textitem xpos="745" ypos="224" font="Helvetica" size="9.5" align="right">{totalTax6}</textitem>
+
+		<!-- BEGIN Totals -->
+		<textitem xpos="352.5" ypos="206" font="Helvetica-Bold" size="10" align="left">TOTAL</textitem>
+		<textitem xpos="473.5" ypos="206" font="Helvetica" size="9.5" align="right">{totalMarketValue}</textitem>
+		<textitem xpos="547" ypos="206" font="Helvetica" size="9.5" align="right">{totalAssessedValue}</textitem>
+		<textitem xpos="612" ypos="206" font="Helvetica" size="9.5" align="right">{totalBasic}</textitem>
+		<textitem xpos="675.5" ypos="206" font="Helvetica" size="9.5" align="right">{totalSef}</textitem>
+		<textitem xpos="745" ypos="206" font="Helvetica" size="9.5" align="right">{totalTaxes}</textitem>
+
+		<lineitem x1="403" y1="202" x2="748" y2="202">row-line-10</lineitem>
+
+		<textitem xpos="200.75" ypos="152" font="Helvetica-Bold" size="11" align="center">{municipalAssessor}</textitem>
+		<textitem xpos="200.75" ypos="136" font="Helvetica" size="10" align="center">Municipal Assessor</textitem>
+		<lineitem x1="125.5" y1="148" x2="276" y2="148">municipalAssessor line</lineitem>
+
+		<textitem xpos="651.75" ypos="152" font="Helvetica-Bold" size="11" align="center">{municipalTreasurer}</textitem>
+		<textitem xpos="651.75" ypos="136" font="Helvetica" size="10" align="center">Municipal Treasurer</textitem>
+		<lineitem x1="595" y1="148" x2="708.5" y2="148">municipalTreasurer line</lineitem>
+
+		<lineitem x1="403" y1="220" x2="403" y2="202">col-line-5-extension</lineitem>
+		<lineitem x1="476.5" y1="220" x2="476.5" y2="202">col-line-6-extension</lineitem>
+		<lineitem x1="615" y1="220" x2="615" y2="202">col-line-8-extension</lineitem>
+		<lineitem x1="678.5" y1="220" x2="678.5" y2="202">col-line-9-extension</lineitem>
+		<!-- END Totals -->
+
+		<lineitem x1="36" y1="364" x2="748" y2="364">row-line-1</lineitem>
+		<lineitem x1="36" y1="346" x2="748" y2="346">row-line-2</lineitem>
+		<lineitem x1="36" y1="328" x2="748" y2="328">row-line-3</lineitem>
+		<lineitem x1="36" y1="310" x2="748" y2="310">row-line-4</lineitem>
+		<lineitem x1="36" y1="292" x2="748" y2="292">row-line-5</lineitem>
+		<lineitem x1="36" y1="274" x2="748" y2="274">row-line-6</lineitem>
+		<lineitem x1="36" y1="256" x2="748" y2="256">row-line-7</lineitem>
+		<lineitem x1="36" y1="238" x2="748" y2="238">row-line-8</lineitem>
+		<lineitem x1="36" y1="220" x2="748" y2="220">row-line-9</lineitem>
+
+		<lineitem x1="105.5" y1="346" x2="105.5" y2="220">col-line-1</lineitem>
+		<lineitem x1="169" y1="346" x2="169" y2="220">col-line-2</lineitem>
+		<lineitem x1="296" y1="346" x2="296" y2="220">col-line-3</lineitem>
+		<lineitem x1="349.5" y1="346" x2="349.5" y2="220">col-line-4</lineitem>
+		<lineitem x1="403" y1="346" x2="403" y2="220">col-line-5-</lineitem>
+		<lineitem x1="476.5" y1="346" x2="476.5" y2="220">col-line-6</lineitem>
+		<lineitem x1="550" y1="388" x2="550" y2="116">col-line-7-1</lineitem>
+		<lineitem x1="550.5" y1="388" x2="550.5" y2="116">col-line-7-2</lineitem>
+		<lineitem x1="551" y1="388" x2="551" y2="116">col-line-7-3</lineitem>
+		<lineitem x1="551.5" y1="388" x2="551.5" y2="116">col-line-7-3</lineitem>
+		<lineitem x1="615" y1="346" x2="615" y2="220">col-line-8</lineitem>
+		<lineitem x1="678.5" y1="346" x2="678.5" y2="220">col-line-9</lineitem>
+
+		<textitem xpos="32" ypos="102" font="Helvetica-Bold" size="10" align="left">Note:</textitem>
+
+		<textitem xpos="42" ypos="92" font="Helvetica" size="10" align="right">1. </textitem>
+		<textitem xpos="42" ypos="92" font="Helvetica" size="10" align="left">Kindly inform the Assessor's Office of any error or omission that you may have discovered in this Notice.</textitem>
+		
+		<textitem xpos="42" ypos="82" font="Helvetica" size="10" align="right">2. </textitem>
+		<textitem xpos="42" ypos="82" font="Helvetica" size="10" align="left">Please present  this  notice to the  Office  of the  Treasurer  when payment  is made. Payments  may be made  every quarter in  four (4)  equal installments not</textitem>
+		<textitem xpos="42" ypos="72" font="Helvetica" size="10" align="left">later than March 31st (1st quarter) June 30th (2nd quarter) September 30th (3rd quarter) and December 31st (4th quarter).</textitem>
+
+		<textitem xpos="42" ypos="62" font="Helvetica" size="10" align="right">3. </textitem>
+		<textitem xpos="42" ypos="62" font="Helvetica" size="10" align="left">Payments for the entire year should be made not later than March 31st.</textitem>
+
+		<textitem xpos="42" ypos="52" font="Helvetica" size="10" align="right">4. </textitem>
+		<textitem xpos="42" ypos="52" font="Helvetica" size="10" align="left">This Notice pertains only for the current year taxes and does not include delinquencies for previous years, which are subject of a separate Notice when applicable.</textitem>
+		<textitem xpos="42" ypos="42" font="Helvetica" size="10" align="left">Delinquent payments are assessed a penalty of 2% per month of Delinquency, or a fraction thereof.</textitem>
+
+	</page>
+
+	<!-- END Page -->
+
+</contents>

@@ -1,0 +1,86 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript">
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="images/background/bg_middle.jpg">
+<form name="StatementOfRealPropertyTaxForm" method="post" action="StatementOfRealPropertyTaxPrint.php{Session}">
+<input type="hidden" name="ownerID" value="{ownerID}">
+<input type="hidden" name="rptopID" value="{rptopID}">
+ <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>
+        <table width="500" border="0" cellspacing="1" cellpadding="3" align="center">
+          <tr> 
+            <td class="fields" colspan="3"><b>Before generating the PDF, please fill up the following necessary fields for the report:</b><br>&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fields" colspan="3" bgcolor="#F6F6F6" nowrap><b>STATEMENT OF REAL PROPERTY TAX</b></td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Prepared By:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <select name="preparedBy">
+                <option value="">none</option>
+                <!-- BEGIN PreparedByList -->
+                <option value="{name}">{name}</option>
+                <!-- END PreparedByList -->
+			  </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Prepared By Designation:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="preparedByDesignation" maxlength="100" size="30" value="">
+            </td>
+          </tr>
+          <tr>
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Approved By:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <select name="approvedBy">
+  			    <option value="">none</option>
+                <!-- BEGIN ApprovedByList -->
+                <option value="{name}">{name}</option>
+                <!-- END ApprovedByList -->
+			  </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Approved By Designation Label 1:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="approvedByDesignation1" maxlength="100" size="30" value="">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" width="200" bgcolor="#F6F6F6" nowrap>Approved By Designation Label 2:</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"> 
+              <input type="text" name="approvedByDesignation2" maxlength="100" size="30" value="">
+            </td>
+          </tr>
+		  <tr>
+			<td colspan=3 align="center">
+				<input type="submit" value="PRINT">
+			</td>
+		  </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+</body>
+</html>

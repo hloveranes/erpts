@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+<script language="Javascript1.2">
+<!--
+function setDefaults(){
+	window.self.resizeTo(575,500);
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" onLoad="javascript: setDefaults();">
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td align="center"> 
+      <form name="form2" method="post" action="">
+        <table width="500" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr> 
+            <td class="fields">search Person: 
+              <input type="text" name="searchKey" value="{searchKey}">
+              <input type="button" name="Submit22" value="Search" onClick="document.form2.submit();">
+              <input type="hidden" name="formAction" value="search">
+              <input type="hidden" name="page" value="1">
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- BEGIN Table -->
+      <form name="form1" method="post" action="">
+        <div align="center"></div>
+        <table width="500" border="0" cellspacing="1" cellpadding="2" align="center">
+          <!-- BEGIN Found -->
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fields" colspan="3">{pageOf}</td>
+          </tr>
+          <tr> 
+            <td class="fields" width="50"><b>personID</b></td>
+            <td class="fields"><b>Fullname</b></td>
+            <td class="fields" width="50" align="center"> 
+              <input type="hidden" name="formAction" value="add">
+              <input type="button" name="Submit3" value="Add" onClick="document.form1.submit();">
+            </td>
+          </tr>
+          <!-- BEGIN PersonList -->
+          <tr> 
+            <td class="fields" bgcolor="#F6F6F6">{personID}</td>
+            <td class="fields" bgcolor="#F6F6F6">{fullName}</td>
+            <td class="fields" bgcolor="#F6F6F6" align="center"> 
+              <input type="checkbox" name="personID[]" value="{personID}">
+            </td>
+          </tr>
+          <!-- END PersonList -->
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" align="center"><a href="PersonSearch.php{Session}&page={previous}">{previousTxt}</a></td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" align="center"> 
+              <!-- BEGIN Pages -->
+              <a href="PersonSearch.php{Session}&page={pages}">{pages}</a>{paged} 
+              <!-- END Pages -->
+            </td>
+            <td class="fileds_comment" align="center"><a href="PersonSearch.php{Session}&page={next}">{nextTxt}</a></td>
+          </tr>
+          <!-- END Found -->
+          <!-- BEGIN NotFound -->
+          <tr> 
+            <td colspan="3" class="fields" bgcolor="#F6F6F6">&quot;{searchKey}&quot; 
+              not found</td>
+          </tr>
+          <!-- END NotFound -->
+        </table>
+      </form>
+      <!-- END Table -->
+      <form name="form3" method="post" action="">
+        <input type="button" name="Submit2" value="Close" onClick="window.close();">
+      </form>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

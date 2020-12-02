@@ -1,0 +1,233 @@
+<?
+/*
+	Class: Recordset
+	
+	Author : Juanito M. Calingacion, Jr.
+	Date   : December 08, 2005, actually i had created this in 2003
+	
+	Description : A mysql 'driver' implementing the Recordset 'interface'
+	PHP5 usage would have been implements
+	PHP4 usage would be the extends
+	
+	All 'drivers' defines the Recordset class as in this case
+	differ only
+	
+	You may use the code freely provided you do not remove copyright notices
+	
+*/
+require_once("irecordset.phc");
+
+class Recordset extends IRecordset{
+
+      var $connectionstring;
+      var $host;
+      var $database;
+      var $user;
+      var $password;
+
+      var $connection; //connection handle
+      var $recordsource; //query string
+      var $resultsethandle;
+      var $record;  //current record;
+      var $recordcount;
+
+      var $lasterror;
+      var $absoluteposition;
+
+      function Recordset($strConnect){
+	          
+               if(!$strConnect){
+                   die("empty connection string");
+               }
+               $this->connectionstring=$strConnect;
+      }
+
+      function parse(){
+               $arr=explode(' ',$this->connectionstring);
+               $arraycount=count($arr);
+               $conn=array();
+               for($i=0;$i<$arraycount;$i++){
+                   $temp=explode('=', $arr[$i]);
+                   if(count($temp)==1){ //just in case an empty password is given
+                        $temp[1]="";
+                   }
+                   $conn[($temp[0])]=$temp[1];
+               }
+               $this->host=$conn['host'];
+               $this->database=$conn['database'];
+               $this->user=$conn['user'];
+               $this->password=$conn['password'];
+               //print $this->database;
+               return ($this->host<>"" and $this->database<>"");
+
+      }
+      // intended for multiple sql statements delimited by semi-colon
+      // so we can wrap these statements in a transaction later
+      function exec( $strSQL ){
+         
+          //retrieve each SQL statement
+          $statements=explode(";", $strSQL );
+          $howmany=count($statements);
+          for($i=0;$i<$howmany;$i++){
+              $success=@mysql_query( $statements[$i], $this->connection);
+              if(!$success){
+                  //rollback here
+                  $this->lasterror=$statements[$i]." failed. ".mysql_error();
+                  return false;
+              }
+          }
+          if($howmany>0){
+              $this->lasterror="No SQL statements specified to exec()";
+              return false;
+          }
+          return true;
+      }
+      
+      /*
+      	The open method is the workhorse in setting up the resultset for later retrieval/navigation
+      	by such methods as moveXXXX, fields(X), fetchAll() and getRecord
+      	
+      */
+      
+      function open($strSQL){
+               if(!$this->parse()){
+                   die("error parsing");
+                   return false;
+               }
+               $this->connection=@mysql_pconnect($this->host,$this->user, $this->password);           
+               if(!$this->connection){
+                   $this->lasterror=mysql_errno()." ".mysql_error();                   
+                    return false;
+               }
+               //open the database
+               if(!@mysql_select_db($this->database, $this->connection)){
+                    $this->lasterror=mysql_errno()." ".mysql_error();                    
+                    return false;
+               }
+
+               //select
+               $this->recordsource=$strSQL;               
+               $this->resultsethandle=@mysql_query($strSQL, $this->connection);
+               if(!$this->resultsethandle){
+                   $this->lasterror=mysql_errno()." ".mysql_error();
+                   return false;
+               }
+
+               $this->recordcount=@mysql_num_rows($this->resultsethandle);
+               
+               $this->record=@mysql_fetch_array($this->resultsethandle);
+
+               if(!$this->record){
+                  //$this->eof=true;
+                  //$this->bof=true;
+                  $this->lasterror="No record found";
+
+                  $this->absoluteposition=-1;
+               }else{
+                   //print $this->record[1];
+                     $this->absoluteposition=1; //firstrecord;
+               }
+
+               return true;
+
+      }
+
+      /*
+      	Use this method to get field values from the resultset created in the open() method
+      	Usage: $rs->fields(fieldname);
+      	
+      */
+      function fields($strField){
+               if($this->eof()){
+                  die(" Reached end of file");
+               }
+               return $this->record[$strField];
+      }
+
+      /*
+      	Return the number of records in the resultset
+      */
+      function getRecordcount(){
+               return $this->recordcount;
+      }
+
+      function moveFirst(){
+               if($this->recordcount>0){
+                  @mysql_data_seek($this->resultsethandle,0);
+                  $this->record=@mysql_fetch_array($this->resultsethandle);
+                  if($this->record){
+                      $this->absoluteposition=1;
+                  }
+               }
+      }
+
+      function moveLast(){
+               if($this->recordcount>0){
+                  @mysql_data_seek($this->resultsethandle, $this->recordcount-1);
+                  $this->absoluteposition=$this->recordcount;
+                  $this->record=@mysql_fetch_array($this->resultsethandle);
+               }
+      }
+
+      function moveNext(){
+               if($this->recordcount>$this->absoluteposition){
+                  $this->record=@mysql_fetch_array($this->resultsethandle);
+                  $this->absoluteposition++;
+
+               }else{
+                     $this->absoluteposition=-1;
+               }
+      }
+
+      function movePrevious(){
+               if($this->absoluteposition>0){
+                   $this->absoluteposition--;
+               }else{
+                     if($this->recordcount>0){
+                        $this->moveLast();
+                     }
+               }
+               if($this->absoluteposition>0){
+                  @mysql_data_seek($this->resultsethandle,$this->absoluteposition-1);
+                  $this->record=@mysql_fetch_array($this->resultsethandle);
+               }
+
+      }
+
+      /*
+      	Get the current record in the record instance variable populated during moveXXXX operations
+      	
+      */
+      function getRecord(){
+	           //print $this->record[0];	           
+               return $this->record;
+               
+      }
+      
+      function fetchAll(){
+      }
+
+      function eof(){
+               return($this->absoluteposition==-1); //if current record is -1 eof
+      }
+
+      function bof(){
+                return(($this->absoluteposition==0) and ($this->recordcount>0)); // if no current record
+      }
+
+      function getLasterror(){
+               return $this->lasterror;
+      }
+
+      function getAbsoluteposition(){
+               return $this->absoluteposition;
+
+      }
+
+
+
+}
+
+
+
+?>

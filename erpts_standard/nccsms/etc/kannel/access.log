@@ -1,0 +1,105 @@
+2003-05-26 10:35:55 Log begins
+2003-05-26 10:36:34 Log begins
+2003-05-26 10:44:37 Log begins
+2003-05-26 10:45:25 Log begins
+2003-05-26 10:46:03 Log begins
+2003-05-26 10:47:16 Log begins
+2003-05-26 10:48:28 Log begins
+2003-05-26 10:51:00 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:3:Nop] [udh:0:]
+2003-05-26 10:51:14 FAILED Send SMS [SMSC:] [SVC:nothing] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:31:You asked nothing and I did it!] [udh:0:]
+2003-07-16 23:23:17 Log begins
+2003-07-16 23:23:34 Log begins
+2003-07-16 23:24:13 send-SMS request added - sender:rpts:0999666666 127.0.0.1 target:0917-8990331 request: 'this is a text'
+2003-07-16 23:24:14 Log ends
+2003-07-16 23:24:50 Log begins
+2003-07-16 23:24:58 Log begins
+2003-07-16 23:25:45 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:3:Nop] [udh:0:]
+2003-07-16 23:25:45 SMS request sender:+639178990331 request: 'Nop' fixed answer: 'Welcome to NCC-FOO SMS service. Nothing Done!'
+2003-07-16 23:25:48 Sent SMS [SMSC:] [SVC:nothing] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:45:Welcome to NCC-FOO SMS service. Nothing Done!] [udh:0:]
+2003-07-17 00:17:48 send-SMS request failed - Sender missing and no global set, rejected
+2003-07-17 00:17:55 send-SMS request failed - Sender missing and no global set, rejected
+2003-07-17 00:17:56 send-SMS request failed - Sender missing and no global set, rejected
+2003-07-17 00:21:30 Log ends
+2003-07-17 00:21:31 Log ends
+2003-07-17 00:21:51 Log begins
+2003-07-17 00:22:00 Log begins
+2003-07-17 00:24:12 send-SMS request failed - Sender missing and no global set, rejected
+2003-07-17 00:24:37 send-SMS request failed - Sender missing and no global set, rejected
+2003-07-17 00:25:48 send-SMS request added - sender:rpts:0999666666 127.0.0.1 target:639178990331 request: 'this is a text'
+2003-07-17 00:25:53 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:0999666666] [to:639178990331] [flags:0:1:0:0:0] [msg:14:this is a text] [udh:0:]
+2003-07-17 00:27:04 send-SMS request added - sender:rpts:0999666666 127.0.0.1 target:09178990331 request: 'this is a text'
+2003-07-17 00:27:07 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:0999666666] [to:09178990331] [flags:0:1:0:0:0] [msg:14:this is a text] [udh:0:]
+2003-07-17 00:36:13 Log ends
+2003-07-17 00:36:14 Log ends
+2003-07-17 00:36:40 Log begins
+2003-07-17 00:36:48 Log begins
+2003-07-17 00:39:39 send-SMS request added - sender:rpts:09165733626 192.168.2.224 target:09178990331 request: ''test me''
+2003-07-17 00:39:43 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:09165733626] [to:09178990331] [flags:0:1:0:0:0] [msg:9:'test me'] [udh:0:]
+2003-07-17 00:40:40 send-SMS request added - sender:rpts:09165733626 192.168.2.224 target:09178990331 request: 'test me'
+2003-07-17 00:40:43 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:09165733626] [to:09178990331] [flags:0:1:0:0:0] [msg:7:test me] [udh:0:]
+2003-07-17 00:46:51 Log ends
+2003-07-17 00:46:52 Log ends
+2003-07-17 00:47:13 Log begins
+2003-07-17 00:47:21 Log begins
+2003-07-17 00:48:04 Log ends
+2003-07-17 00:48:05 Log ends
+2003-07-17 00:48:17 Log begins
+2003-07-17 00:48:26 Log begins
+2003-07-17 00:48:34 Log begins
+2003-07-17 00:49:45 Log ends
+2003-07-17 00:49:46 Log ends
+2003-07-17 00:50:19 Log begins
+2003-07-17 00:50:28 Log begins
+2003-07-17 00:51:33 send-SMS request added - sender:rpts:0999666666 127.0.0.1 target:09178990331 request: 'this is a text'
+2003-07-17 00:51:36 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:0999666666] [to:09178990331] [flags:0:1:0:0:0] [msg:14:this is a text] [udh:0:]
+2003-07-17 00:59:41 send-SMS request added - sender:rpts:0999666666 127.0.0.1 target:09178990331 request: 'testme'
+2003-07-17 00:59:44 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:0999666666] [to:09178990331] [flags:0:1:0:0:0] [msg:6:testme] [udh:0:]
+2003-07-17 01:15:30 Log ends
+2003-07-17 01:15:31 Log ends
+2003-07-17 01:15:49 Log begins
+2003-07-17 01:15:56 Log begins
+2003-07-17 01:16:48 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:7:rpts me] [udh:0:]
+2003-07-17 01:16:48 SMS HTTP-request sender:+639178990331 request: 'Could not fetch content, sorry.' url: '' reply: -1 ''
+2003-07-17 01:16:50 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:31:Could not fetch content, sorry.] [udh:0:]
+2003-07-17 01:17:32 Log ends
+2003-07-17 01:17:33 Log ends
+2003-07-17 01:18:36 Log begins
+2003-07-17 01:18:47 Log begins
+2003-07-17 01:18:55 Log begins
+2003-07-17 01:19:05 Log begins
+2003-07-17 01:19:32 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:7:rpts me] [udh:0:]
+2003-07-17 01:19:32 SMS HTTP-request sender:+639178990331 request: 'Could not fetch content, sorry.' url: '' reply: -1 ''
+2003-07-17 01:19:34 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:31:Could not fetch content, sorry.] [udh:0:]
+2003-07-17 01:22:00 Log ends
+2003-07-17 01:22:01 Log ends
+2003-07-17 01:22:20 Log begins
+2003-07-17 01:22:31 Log begins
+2003-07-17 01:24:09 Log ends
+2003-07-17 01:24:10 Log ends
+2003-07-17 01:24:17 Log begins
+2003-07-17 01:24:24 Log begins
+2003-07-17 01:24:35 Log begins
+2003-07-17 01:25:26 send-SMS request added - sender:rpts:09165733626 127.0.0.1 target:09178990331 request: 'testme'
+2003-07-17 01:25:30 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:09165733626] [to:09178990331] [flags:0:1:0:0:0] [msg:6:testme] [udh:0:]
+2003-07-17 01:28:54 Log ends
+2003-07-17 01:28:55 Log ends
+2003-07-17 01:40:30 Log begins
+2003-07-17 01:40:45 Log begins
+2003-07-17 01:41:11 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:7:Default] [udh:0:]
+2003-07-17 01:41:11 SMS request sender:+639178990331 request: 'Default' fixed answer: 'Welcome to NCC SMS Service. No service specified'
+2003-07-17 01:41:14 Sent SMS [SMSC:] [SVC:default] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:48:Welcome to NCC SMS Service. No service specified] [udh:0:]
+2003-07-17 01:41:49 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:8:Rpts me ] [udh:0:]
+2003-07-17 01:41:49 SMS HTTP-request sender:+639178990331 request: 'got it' url: 'http://localhost/nccsms/respond.php?key=me&phone=%2B639178990331&text=&time=2003-07-17+01:33:50' reply: 200 '<< successful >>'
+2003-07-17 01:41:51 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:6:got it] [udh:0:]
+2003-07-17 01:47:32 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:8:Rpts me ] [udh:0:]
+2003-07-17 01:47:32 SMS HTTP-request sender:+639178990331 request: 'I will find a user with this cellphone number +639178990331' url: 'http://localhost/nccsms/respond.php?key=me&phone=%2B639178990331&text=&time=2003-07-17+01:39:33' reply: 200 '<< successful >>'
+2003-07-17 01:47:34 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:59:I will find a user with this cellphone number +639178990331] [udh:0:]
+2003-07-17 02:03:12 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:8:Rpts me ] [udh:0:]
+2003-07-17 02:03:12 SMS HTTP-request sender:+639178990331 request: 'Sorry, I don't know who you are, if there is a discrepancy, please update your owner's information at the municipal assessor's office.' url: 'http://localhost/nccsms/respond.php?key=me&phone=%2B639178990331&text=&time=2003-07-17+01:55:13' reply: 200 '<< successful >>'
+2003-07-17 02:03:15 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:134:Sorry, I don't know who you are, if there is a discrepancy, please update your owner's information at the municipal assessor's office.] [udh:0:]
+2003-07-17 02:04:26 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:8:Rpts me ] [udh:0:]
+2003-07-17 02:04:26 SMS HTTP-request sender:+639178990331 request: 'Greetings Kendrick Paterno. Welcome to the RPTS SMS service of the municipality. Are you ready to pay your taxes' url: 'http://localhost/nccsms/respond.php?key=me&phone=%2B639178990331&text=&time=2003-07-17+01:56:27' reply: 200 '<< successful >>'
+2003-07-17 02:04:29 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:112:Greetings Kendrick Paterno. Welcome to the RPTS SMS service of the municipality. Are you ready to pay your taxes] [udh:0:]
+2003-07-17 02:06:57 Receive SMS [SMSC:] [SVC:] [ACT:] [from:+639178990331] [to:1234] [flags:0:1:0:0:0] [msg:8:Rpts me ] [udh:0:]
+2003-07-17 02:06:57 SMS HTTP-request sender:+639178990331 request: 'Greetings Kendrick Paterno. Welcome to the RPTS SMS service of the municipality. Are you ready to pay your taxes? When ready just send 'rpts update'' url: 'http://localhost/nccsms/respond.php?key=me&phone=%2B639178990331&text=&time=2003-07-17+01:58:57' reply: 200 '<< successful >>'
+2003-07-17 02:07:00 Sent SMS [SMSC:] [SVC:rpts] [ACT:] [from:1234] [to:+639178990331] [flags:0:1:0:0:0] [msg:148:Greetings Kendrick Paterno. Welcome to the RPTS SMS service of the municipality. Are you ready to pay your taxes? When ready just send 'rpts update'] [udh:0:]

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+<!-- BEGIN Page -->
+	<page width="592" height="784" number="{pageNumber}" orientation="0">
+
+
+		<textitem xpos="296" ypos="724" font="Times New Roman-Bold" size="18" align="center">OFFICE OF THE MUNICIPAL/CITY ASSESSOR</textitem>
+
+		<textitem xpos="492" ypos="684" font="Times New Roman" size="11" align="right">{date}</textitem>
+
+		<textitem xpos="296" ypos="644" font="Times New Roman-Bold" size="16" align="center">C E R T I F I C A T I O N</textitem>
+
+		<lineitem x1="212" y1="640" x2="382" y2="640">certification</lineitem>
+
+		<textbox hmode="0" x1="50" y1="600" x2="612" y2="540" font="Times New Roman" size="12">
+To Whom It May Concern:
+
+This is to certify that based on the records on file at this office that the following individuals, organizations, or corporations:
+
+{nameList}
+
+has / have had no improvements on any real property registered or declared in his / her / their names in this city / municipality for taxation purposes as of this date.
+
+This certification is issued upon the request of {requestorName} at {requestorLocation} for whatever purpose this may serve.
+
+
+
+
+
+
+
+
+{signatory}
+OIC - {designation}
+
+
+
+
+
+O.R. No.: {orNumber}
+Date of Issue: {orDate}
+
+
+		</textbox>
+
+	</page>
+<!-- END Page -->
+
+</contents>

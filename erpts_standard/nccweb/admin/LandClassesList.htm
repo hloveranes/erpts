@@ -1,0 +1,338 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="../css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+<script language="Javascript">
+
+function editLandClasses(id){
+	document.LandClassesList.action = 'LandClassesEncode.php{Session}';
+	LandClassesList.formAction.value = 'edit';
+	LandClassesList.landClassesID.value = id;
+	LandClassesList.submit();
+}
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", status=1, toolbar=no, scrollbars=no, resizable=no");
+}
+
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="../images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="../images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="../images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="../images/steps/step00.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="../images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="../images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="../images/title/title_adminmodule.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="../images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="../images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="../images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td background="../images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+
+		  <tr align="center"> 
+		   <td width="0" align=left class="common" colspan=4><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right colspan=7>
+			<a href="home.php{Session}" class="navi" title="Admin Home">Admin Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="../home.php{Session}" class="navi" title="Home">Home</a>
+		    <font class="navi">|</font>
+			<a href="../Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+		   <td width="0"><a href="eRPTSSettingsEncode.php{Session}" class="navi" title="eRPTS Settings">eRPTS Settings</a></td>
+		   <td width="0" class="navi">|</td>
+		   <td width="0"><a href="UserList.php{Session}" class="navi" title="Users List">Users</a></td>
+		   <td width="0" class="navi">|</td>
+		   <td width="0"><a href="MasterAddressList.php{Session}" class="navi" title="Location"">Location</a></td>
+		   <td width="0" class="navi">|</td>
+		   <td width="0"><a href="MasterPropertyList.php{Session}" class="navi" title="Property">Property</a></td>
+		   <td width="0" class="navi">|</td>
+		   <td width="0"><a href="GeneralRevision.php{Session}" class="navi" title="General Revision">General Revision</a></td>
+		   <td width="0" class="navi">|</td>
+		   <td width="0"><a href="../../nccsms/home.php{Session}" class="navi" title="Alerts">Alerts</a></td>
+		  </tr>
+
+		 </table></td>
+		<td width="75"> <img SRC="../images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+	  </table>
+          </td>
+          <td> <img SRC="../images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="../images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="top"> <img SRC="../images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="../images/inner_14.jpg"> <img SRC="../images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="../images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+		  <tr> 
+		   <td align="center" valign="top" class="subtitle"> <table width="90%" border="0" cellspacing="0" cellpadding="0">
+			 <tr> 
+			  <td class="subtitle" align="center"><br>Property : Land Classification<br>&nbsp;</td>
+			 </tr>
+			</table></td>
+		  </tr>
+		  <tr> 
+		   <td align="center" valign="top" class="title">
+		   
+  		    <form name="propertyMenu">
+			<table border=0 cellpadding=0 cellspacing=5 align=center>
+			<tr>
+			 <td class="navi" valign=top>
+			 <a href="javascript:document.propertyMenu.landMenu.focus();" class="navi">Land</a><br>
+			 <font color="#999999">+<br>++&gt;</font>
+			 <select name="landMenu" onChange="document.location.href=document.propertyMenu.landMenu.value;">
+			  <option value="#">...</option>
+			  <option value="LandClassesList.php{Session}" selected>Classification</option>
+			  <option value="LandActualUsesList.php{Session}">Actual Uses</option>
+			  <option value="LandSubclassesList.php{Session}">Subclasses</option>
+			 </select>
+			 </td>
+			 <td width="0" class="navi" valign=top>|</td>
+			 <td class="navi" valign=top>
+			 <a href="javascript:document.propertyMenu.plantsTreesMenu.focus();" class="navi">Plants & Trees</a><br>
+			 <font color="#aaaaaa">+<br>++&gt;</font>
+			 <select name="plantsTreesMenu" onChange="document.location.href=document.propertyMenu.plantsTreesMenu.value;">
+			  <option value="#">...</option>
+			  <option value="PlantsTreesActualUsesList.php{Session}">Actual Uses</option>
+			  <option value="PlantsTreesClassesList.php{Session}">Classes</option>
+			 </select>
+			 </td>
+			 <td width="0" class="navi" valign=top>|</td>
+			 <td class="navi" valign=top>
+			 <a href="javascript:document.propertyMenu.improvementsBuildingsMenu.focus();" class="navi">Buildings & Improvements</a><br>
+ 			 <font color="#dddddd">+<br>++&gt;</font>
+			 <select name="improvementsBuildingsMenu" onChange="document.location.href=document.propertyMenu.improvementsBuildingsMenu.value;">
+			  <option value="#">...</option>
+			  <option value="ImprovementsBuildingsActualUsesList.php{Session}">Actual Uses</option>
+			  <option value="ImprovementsBuildingsClassesList.php{Session}">Classes</option>
+			  <option value="ImprovementsBuildingsDepreciationList.php{Session}">Depreciation</option>
+			 </select>
+			 </td>
+			 <td width="0" class="navi" valign=top>|</td>
+			 <td class="navi" valign=top>
+			 <a href="javascript:document.propertyMenu.machineriesMenu.focus();" class="navi">Machineries</a><br>
+ 			 <font color="#eeeeee">+<br>++&gt;</font>
+			 <select name="machineriesMenu" onChange="document.location.href=document.propertyMenu.machineriesMenu.value;">
+			  <option value="#">...</option>
+			  <option value="MachineriesActualUsesList.php{Session}">Actual Uses</option>
+			  <!-- <option value="MachineriesClassesList.php{Session}">Classes</option> -->
+			  <option value="MachineriesDepreciationList.php{Session}">Depreciation</option>
+			 </select>
+			 </td>
+			</tr>
+			</table>
+		    </form>
+
+			<img src="../images/spacer.gif" width="10" height="15"></td>
+		  </tr>
+		  <tr> 
+		   <td align="left" valign="top">
+
+		    <table border=0 cellspacing=0 cellpadding=0 width="95%" align=center>
+			<tr>
+				<td class="common" align=left>
+				    - <a href="MasterPropertyList.php{Session}" class="common">back to Property Menu</a><br>
+					- <a href="javascript:openWin('LandClassesEncode.php{Session}', 'LandClassesEncode', 300,150,470,310);" class="common">encode Land Classification</a><br>
+					<br>
+					<span class="common"><font color="#FF0000"><b>{msg}</b></font></span>
+					<br>
+				</td>
+				<td class="common" align=right>
+				 <form name="print">
+				  <input type="button" value="Print" onClick="window.open('LandClassesListPrint.php{Session}&sortBy={sortBy}&sortOrder={sortOrder}', 'printLandClassesList', 'position:absolute; left=50, top=15, width=790, height=590, status=1, menubar=1, toolbar=1, scrollbars=1, resizable=1');">
+				  <br>
+				  <font size=1>* prints ONLY active records</font>
+				 </form>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td class="fields" align=right>
+
+				 <!-- BEGIN ShowInactiveOn -->
+				 <b>Showing Inactive Records</b>
+				 |
+				 <a href="LandClassesList.php{Session}&sortBy={sortBy}&sortOrder={sortOrder}&hideInactive=true">Hide Inactive Records</a>
+				 <!-- END ShowInactiveOn -->
+
+				 <!-- BEGIN HideInactiveOn -->
+				 <a href="LandClassesList.php{Session}&sortBy={sortBy}&sortOrder={sortOrder}&hideInactive=false">Show Inactive Records</a>
+				 |
+				 <b>Hiding Inactive Records</b>
+				 <!-- END HideInactiveOn -->
+
+				</td>
+			</tr>
+			</table>
+
+<!-- BEGIN Table -->
+
+
+<form name="LandClassesList" method="post" action="LandClassesList.php{Session}">
+ <input type="hidden" name="formAction" value="delete">
+ <input type="hidden" name="sortBy" value="{sortBy}">
+ <input type="hidden" name="sortOrder" value="{sortOrder}">
+ <input type="hidden" name="hideInactive" value="{hideInactive}">
+
+ <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ACACAC">
+  <tr>
+   <td bgcolor="#ACACAC"><table border="0" cellspacing="1" cellpadding="4" width="100%" bgcolor="#dddddd">
+	 <tr bgcolor="#dddddd"> 
+	  <td class="fields" width=30 align=center>
+		<!-- BEGIN AscendingLandClassesID -->
+		 <img src="images/asc_order.png" border=0 alt="Ascending">
+		<!-- END AscendingLandClassesID -->
+		<!-- BEGIN DescendingLandClassesID -->
+		 <img src="images/desc_order.png" border=0 alt="Descending">
+		<!-- END DescendingLandClassesID -->
+	    <a href="LandClassesList.php{Session}&sortBy=landClassesID&sortOrder={landClassesIDSortOrder}&hideInactive={hideInactive}"><b>ID</b></a>
+	  </td>
+	  <td class="fields" align=center>
+		<!-- BEGIN AscendingCode -->
+		 <img src="images/asc_order.png" border=0 alt="Ascending">
+		<!-- END AscendingCode -->
+		<!-- BEGIN DescendingCode -->
+		 <img src="images/desc_order.png" border=0 alt="Descending">
+		<!-- END DescendingCode -->
+	   <a href="LandClassesList.php{Session}&sortBy=code&sortOrder={codeSortOrder}&hideInactive={hideInactive}"><b>code</b></a>
+	  </td>
+	  <td class="fields" align=center width=100>
+		<!-- BEGIN AscendingDescription -->
+		 <img src="images/asc_order.png" border=0 alt="Ascending">
+		<!-- END AscendingDescription -->
+		<!-- BEGIN DescendingDescription -->
+		 <img src="images/desc_order.png" border=0 alt="Descending">
+		<!-- END DescendingDescription -->
+	   <a href="LandClassesList.php{Session}&sortBy=description&sortOrder={descriptionSortOrder}&hideInactive={hideInactive}"><b>description</b></a>
+	  </td>
+	  <td class="fields" align=center width=100>
+		<!-- BEGIN AscendingAssessmentLevel -->
+		 <img src="images/asc_order.png" border=0 alt="Ascending">
+		<!-- END AscendingAssessmentLevel -->
+		<!-- BEGIN DescendingAssessmentLevel -->
+		 <img src="images/desc_order.png" border=0 alt="Descending">
+		<!-- END DescendingAssessmentLevel -->
+	   <a href="LandClassesList.php{Session}&sortBy=assessmentLevel&sortOrder={assessmentLevelSortOrder}&hideInactive={hideInactive}"><b>assessment<br>level (%)</a></b>
+	  </td>
+	  <td class="fields" align=center>
+		<!-- BEGIN AscendingStatus -->
+		 <img src="images/asc_order.png" border=0 alt="Ascending">
+		<!-- END AscendingStatus -->
+		<!-- BEGIN DescendingStatus -->
+		 <img src="images/desc_order.png" border=0 alt="Descending">
+		<!-- END DescendingStatus -->
+	   <a href="LandClassesList.php{Session}&sortBy=status&sortOrder={statusSortOrder}&hideInactive={hideInactive}"><b>status</b></a>
+	  </td>
+	  <td class="fields" align=center> <input type="button" name="btnUpdateStatus" style="font-size:10px;" onClick="document.LandClassesList.formAction.value='activate'; document.LandClassesList.submit();"> 
+		  <script language="Javascript">
+			document.LandClassesList.btnUpdateStatus.value = "  Update\nStatus ";
+		  </script>
+	  </td>
+	  <td class="fields" align="center"> Edit </td>
+	  <!--
+	  <td class="common" align="center"> 
+				   <input type="submit" name="Submit" value="Delete"> 
+	  -->
+	  </td>
+	 </tr>
+	 <!-- BEGIN LandClassesList -->
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align=center>
+	   <b>{landClassesID}</b>
+	  </td>
+	  <td class="fields"><a href="javascript:openWin('LandClassesEncode.php{Session}&landClassesID={landClassesID}&formAction=edit','LandClassesEncode',300,150,470,310)">{code}</a></td>
+	  <td class="fields">{description}</td>
+	  <td class="fields" align=center>{value}</td>
+	  <td class="fields" align=center>{status}</td>
+	  <td class="fields" align=center> <input type="checkbox" name="status[]" value="{landClassesID}" {statusCheck}> 
+	  </td>
+	  			  <td class="common" align="center"> 
+				   <input type="button" name="editButton" value="Edit" onClick="openWin('LandClassesEncode.php{Session}&landClassesID={landClassesID}&formAction=edit','editLandClassesWindow',300,150,470,310);" style="font-size:10px;"> 
+	  </td>
+	  <!--
+	  <td class="common" align="center"> <input type="checkbox" name="landClassesID[]" value="{landClassesID}"> 
+	  -->
+	  </td>
+	 </tr>
+	 <!-- END LandClassesList -->
+	</table>
+ </table>
+</form>
+<!-- END Table --></td>
+		  </tr>
+		  </table>
+                <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top"><img src="../images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="fileds_comment">Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="../images/inner_16.jpg"> <img SRC="../images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="../images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="../images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="../images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

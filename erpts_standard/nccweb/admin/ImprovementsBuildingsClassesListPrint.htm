@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>eRPTS for {lguName}: Master Tables: {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="../css/elgu.css" rel="stylesheet" type="text/css">
+</head>
+<body BGCOLOR=#ffffff link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=10 TOPMARGIN=10 MARGINWIDTH=10 MARGINHEIGHT=10>
+
+<table width="750" border=0 cellspacing=0 cellpadding=1 bgcolor="#acacac">
+<tr>
+	<td align=left>
+
+		<table width="100%" align=left cellspacing=1 cellpadding=2 border=0>
+		<tr bgcolor="#ffffff">
+			<td>
+				<table border=0 cellpadding=0 cellspacing=0 width="100%">
+				<tr>
+					<td class="subtitle" align=center>
+						eRPTS for {lguName}
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	
+	</td>
+</tr>
+</table>
+
+<br>
+
+<table width="750" border=0 cellspacing=0 cellpadding=1 bgcolor="#acacac">
+<tr>
+	<td align=left>
+
+		<table width="100%" align=left cellspacing=1 cellpadding=2 border=0>
+		<tr bgcolor="#ffffff">
+			<td>
+				<table border=0 cellpadding=0 cellspacing=0 width="100%">
+				<tr>
+					<td class="subtitle" align=left valign=top>
+						Master Tables:<br>{TITLE}
+					</td>
+					<td class="fields" align=right valign=top>
+						<b>Records:</b> <font class="subtitle">{totalRecords}</font> <font size=1>{activeInactive}</font>
+						<br><br>
+						<b>Sorted By:</b> {sortBy}
+						|
+						<b>Sort Order:</b> {sortOrder}
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+</table>
+
+<br>
+
+<table width="750" border=0 cellspacing=0 cellpadding=1 bgcolor="#acacac">
+<tr>
+	<td align=left>
+
+		<table width="100%" align=left cellspacing=1 cellpadding=2 border=0>
+		<tr bgcolor="#ffffff">
+			<td class="fields" align=center width=30>
+			<b>ID</b>				
+			</td>
+			<td class="fields" align=left width="200">
+			<b>code</b>				
+			</td>
+			<td class="fields" align=left>
+			<b>description</b>				
+			</td>
+			<td class="fields" align=right>
+			<b>unit value</b>				
+			</td>
+		</tr>
+
+		<!-- BEGIN ImprovementsBuildingsClassesList -->
+		<tr bgcolor="#ffffff">
+			<td class="fields" align=right>
+			<b>{improvementsBuildingsClassesID}</b>				
+			</td>
+			<td class="fields" align=left>
+			{code}
+			</td>
+			<td class="fields" align=left>
+			{description}
+			</td>
+			<td class="fields" align=right>
+			{value}
+			</td>
+		</tr>
+		<!-- END ImprovementsBuildingsClassesList -->
+		
+		</table>
+
+	</td>
+</tr>
+
+
+
+</body>
+</html>

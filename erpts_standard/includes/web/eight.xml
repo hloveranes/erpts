@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<contents>
+<!-- BEGIN Page -->
+	    <page height="609" width="783" number="{pageNumber}" orientation="0">
+		
+		<textitem xpos="391" ypos="580" font="Helvetica" size="7" align="center">Republic of the Philippines</textitem>
+
+		<textitem xpos="391" ypos="570" font="Helvetica" size="7" align="center">{lguType} OF {lguName}</textitem>
+		<textitem xpos="391" ypos="560" font="Helvetica" size="7" align="center">OFFICE OF THE TREASURER</textitem>
+
+
+		<textitem xpos="391" ypos="521" font="Helvetica" size="9" align="center">REVENUE FROM REAL PROPERTY TAX</textitem>
+        <textitem xpos="65" ypos="495" font="Helvetica" size="7">Date by Month : {monthYearString}</textitem>
+		<textitem xpos="189" ypos="495" font="Helvetica" size="7">BASIC</textitem>		
+		<textitem xpos="425" ypos="495" font="Helvetica" size="7">SEF</textitem>				
+		<textitem xpos="130" ypos="482" font="Helvetica" size="7">Date</textitem>
+		<textitem xpos="189" ypos="482" font="Helvetica" size="7">Current Year</textitem>
+		<textitem xpos="260" ypos="482" font="Helvetica" size="7">Preceding Year</textitem>
+		<textitem xpos="320" ypos="482" font="Helvetica" size="7">Penalties</textitem>
+		<textitem xpos="375" ypos="482" font="Helvetica" size="7">Discount</textitem>
+		<textitem xpos="425" ypos="482" font="Helvetica" size="7">Current Year</textitem>
+		<textitem xpos="495" ypos="482" font="Helvetica" size="7">Preceding Year</textitem>
+		<textitem xpos="555" ypos="482" font="Helvetica" size="7">Penalties</textitem>
+		<textitem xpos="615" ypos="482" font="Helvetica" size="7">Discount</textitem>
+		
+		<!-- BEGIN Row -->
+		<textitem align="right" xpos="145" ypos="{yposLine}" font="Helvetica" size="7">{collectionDate}</textitem>
+		<textitem align="right" xpos="229" ypos="{yposLine}" font="Helvetica" size="7">{paidBasic}</textitem>
+		<textitem align="right" xpos="309" ypos="{yposLine}" font="Helvetica" size="7">{priorBasic}</textitem>
+		<textitem align="right" xpos="349" ypos="{yposLine}" font="Helvetica" size="7">{penaltyBasic}</textitem>
+		<textitem align="right" xpos="404" ypos="{yposLine}" font="Helvetica" size="7">({discountBasic})</textitem>
+		<textitem align="right" xpos="466" ypos="{yposLine}" font="Helvetica" size="7">{paidSEF}</textitem>
+		<textitem align="right" xpos="546" ypos="{yposLine}" font="Helvetica" size="7">{priorSEF}</textitem>
+		<textitem align="right" xpos="586" ypos="{yposLine}" font="Helvetica" size="7">{penaltySEF}</textitem>
+		<textitem align="right" xpos="641" ypos="{yposLine}" font="Helvetica" size="7">({discountSEF})</textitem>
+		<!-- END Row -->
+
+		<!-- BEGIN Totals -->
+		<textitem align="right" xpos="145" ypos="58" font="Helvetica" size="7">Totals:</textitem>
+		<textitem align="right" xpos="229" ypos="58" font="Helvetica" size="7">{totalPaidBasic}</textitem>
+		<textitem align="right" xpos="309" ypos="58" font="Helvetica" size="7">{totalPriorBasic}</textitem>
+		<textitem align="right" xpos="349" ypos="58" font="Helvetica" size="7">{totalPenaltyBasic}</textitem>
+		<textitem align="right" xpos="404" ypos="58" font="Helvetica" size="7">({totalDiscountBasic})</textitem>
+		<textitem align="right" xpos="466" ypos="58" font="Helvetica" size="7">{totalPaidSEF}</textitem>
+		<textitem align="right" xpos="546" ypos="58" font="Helvetica" size="7">{totalPriorSEF}</textitem>
+		<textitem align="right" xpos="586" ypos="58" font="Helvetica" size="7">{totalPenaltySEF}</textitem>
+		<textitem align="right" xpos="641" ypos="58" font="Helvetica" size="7">({totalDiscountSEF})</textitem>
+		<!-- END Totals -->
+		
+		<textitem align="right" xpos="750" ypos="45" font="Helvetica" size="7">Page {pageNumber} of {totalPages}</textitem>
+		
+		<lineitem x1="756" y1="508" x2="35" y2="508">blurb</lineitem>  
+		<lineitem x1="756" y1="470" x2="35" y2="470">blurb</lineitem>  	
+			
+			</page>
+<!-- END Page -->
+	</contents>

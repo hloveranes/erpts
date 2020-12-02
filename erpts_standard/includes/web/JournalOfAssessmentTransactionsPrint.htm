@@ -1,0 +1,257 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="Javascript">
+function goFirst(){
+	document.JournalOfAssessmentTransactionsPrint.page.selectedIndex=0;
+	document.JournalOfAssessmentTransactionsPrint.submit();
+}
+function goPrevious(){
+	previousPage = parseInt(parseInt(document.JournalOfAssessmentTransactionsPrint.currentPage.value)-parseInt(1));
+	if(previousPage<=0) previousPage = 1;
+		document.JournalOfAssessmentTransactionsPrint.page.selectedIndex = previousPage-1;
+		document.JournalOfAssessmentTransactionsPrint.submit();
+}
+function goNext(){
+	nextPage = parseInt(parseInt(document.JournalOfAssessmentTransactionsPrint.currentPage.value) + parseInt(1));
+	if(nextPage>=document.JournalOfAssessmentTransactionsPrint.numOfPages.value) nextPage = document.JournalOfAssessmentTransactionsPrint.numOfPages.value;
+		document.JournalOfAssessmentTransactionsPrint.page.selectedIndex = nextPage-1;
+		document.JournalOfAssessmentTransactionsPrint.submit();								
+}
+function goLast(){
+	document.JournalOfAssessmentTransactionsPrint.page.selectedIndex = document.JournalOfAssessmentTransactionsPrint.numOfPages.value-1;
+	document.JournalOfAssessmentTransactionsPrint.submit();
+}
+</script>
+</head>
+<body bgcolor="#ffffff" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="JournalOfAssessmentTransactionsPrint" action="JournalOfAssessmentTransactionsPrint.php" method=get>
+
+<input type="hidden" name="rpts_Session" value="{rpts_Session}">
+<input type="hidden" name="formAction" value="view">
+
+<input type="hidden" name="formArray[filterByLocation]" value="{formArray[filterByLocation]}">
+<input type="hidden" name="formArray[filterByDate]" value="{formArray[filterByDate]}">
+<input type="hidden" name="formArray[province]" value="{formArray[province]}">
+<input type="hidden" name="formArray[municipalityCity]" value="{formArray[municipalityCity]}">
+<input type="hidden" name="formArray[district]" value="{formArray[district]}">
+<input type="hidden" name="formArray[barangay]" value="{formArray[barangay]}">
+<input type="hidden" name="formArray[filterFrom_month]" value="{formArray[filterFrom_month]}">
+<input type="hidden" name="formArray[filterFrom_day]" value="{formArray[filterFrom_day]}">
+<input type="hidden" name="formArray[filterFrom_year]" value="{formArray[filterFrom_year]}">
+<input type="hidden" name="formArray[filterTo_month]" value="{formArray[filterTo_month]}">
+<input type="hidden" name="formArray[filterTo_day]" value="{formArray[filterTo_day]}">
+<input type="hidden" name="formArray[filterTo_year]" value="{formArray[filterTo_year]}">
+
+<table border=0 cellpadding=0 align=left width="100%">
+	<!-- BEGIN PageNavigationOne -->
+		  <tr>
+			<td>
+				<table width="100%">
+				<tr>
+					<td class="fileds_comment">
+						<input type="button" value="&lt;&lt;" class="fileds_comment" onClick="goFirst();">
+						|
+						<input type="button" value="&lt;" class="fileds_comment" onClick="goPrevious();">
+						|
+						<input type="button" value="&gt;" class="fileds_comment" onClick="goNext();">
+						|
+						<input type="button" value="&gt;&gt;" class="fileds_comment" onClick="goLast();">
+						&nbsp;&nbsp;
+
+						[ 
+						Page 
+						<select class="fileds_comment" name="page">
+							<!-- BEGIN PageListOne -->
+							<option value="{page}" {page_sel}>{page}</option>
+							<!-- END PageListOne -->
+						</select>
+						of 
+						<b>{numOfPages}</b>
+						]
+						<input type="hidden" name="currentPage" value="{currentPage}">
+						<input type="hidden" name="numOfPages" value="{numOfPages}">
+						
+						<input type="submit" value="Go" class="fileds_comment">
+						|
+						<input type="reset" value="Reset" class="fileds_comment">
+						<input type="button" value="Refresh" class="fileds_comment" onClick="window.location.reload();">
+					</td>
+				</tr>
+				</table>
+			</td>
+		  </tr>
+		  <!-- END PageNavigationOne -->
+
+<!-- BEGIN Report -->
+	<tr>
+		<td align="center" valign="top">
+			<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#333333" class="fields">
+			<tr>
+				<td bgcolor="#aaaaaa" class="subtitle" align=center colspan=14>
+					JOURNAL OF ASSESSMENT TRANSACTIONS
+				</td>
+			</tr>
+			<!-- BEGIN FilterLocationDetails -->
+			<tr>
+				<td bgcolor="#cccccc" class="fields" align=center colspan=14>
+					Province: <b>{province}</b>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					Municipality/City: <b>{municipalityCity}</b>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					District: <b>{district}</b>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					Barangay: <b>{barangay}</b>
+					</font>
+				</td>
+			</tr>
+			<!-- END FilterLocationDetails -->
+			<!-- BEGIN FilterDateDetails -->
+			<tr>
+				<td bgcolor="#cccccc" class="fields" align=center colspan=14>
+					Date of Transaction(s): <b>{filterFrom_month}/{filterFrom_day}/{filterFrom_year}</b> to <b>{filterTo_month}/{filterTo_day}/{filterTo_year}</b>
+
+					</font>
+				</td>
+			</tr>
+			<!-- END FilterDateDetails -->
+
+			<tr>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center nowrap>
+					<b>Transaction<br>Number</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center nowrap>
+					<b>Date</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center nowrap>
+					<b>TDN/ARP</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center width=150>
+					<b>Property Index Number</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Name of Owner</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" align=center nowrap>
+					<b>Transaction Code</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>From</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Property Location</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Kind</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Classification</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Land Area</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Market Value</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>Assessed Value</b>
+				</td>
+				<td bgcolor="#dddddd" class="fields" nowrap align=center>
+					<b>RPU</b>
+				</td>
+
+			</tr>
+			<!-- BEGIN ReportList -->
+			<tr>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					<b>{transactionNumber}</b>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					<b>{date}</b>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+                    {arpNumber}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{propertyIndexNumber}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{firstOwner}</b>
+                    {none}<font size=1>{andOthers}</font>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{transactionCode}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					<b>{fromFirstOwner}</b>
+                    {fromNone}<font size=1>{fromAndOthers}</font>
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{location}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{kind}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					{classification}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					{landArea}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					{marketValue}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right>
+					{assessedValue}
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top>
+					&nbsp;
+				</td>
+
+			</tr>
+			<!-- END ReportList -->
+
+			<!-- BEGIN PageTotalLandArea -->
+			<tr>
+				<td bgcolor="#ffffff" class="fields" valign=top colspan=8>
+					&nbsp;
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right colspan=3>
+					<B>Total Land Area for Page:</B> {pageTotalLandArea} sqm.
+				</td>
+				<td bgcolor="#ffffff" class="fields" valign=top align=right colspan=3>
+					&nbsp;
+				</td>
+			</tr>
+			<!-- END PaegTotalLandArea -->
+
+			<!-- BEGIN TotalLandArea -->
+			<tr>
+				<td bgcolor="#ffffff" class="fields" valign=top colspan=8>
+					&nbsp;
+				</td>
+				<td bgcolor="#f6f6f6" class="fields" valign=top align=right colspan=3>
+					<B>Total Land Area:</B> {totalLandArea} sqm.
+				</td>
+				<td bgcolor="#ffffff" class="fields" valign=top align=right colspan=3>
+					&nbsp;
+				</td>
+			</tr>
+			<!-- END TotalLandArea -->
+
+
+		  </table>
+		</td>
+	</tr>
+<!-- END Report -->
+</table>
+
+<!-- BEGIN NotFound -->
+no records to list
+<!-- END NotFound -->
+
+</form>
+</body>
+</html>

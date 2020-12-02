@@ -1,0 +1,237 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript">
+  
+function setDefaults(){
+	window.resizeTo(560,550);
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+function validateForm(){
+	switch(document.GISTechnicalDescription.formAction.value){
+		case "add":
+			if(document.GISTechnicalDescription.pointType.value==""){
+				document.GISTechnicalDescription.pointType.focus();
+				alert("Point Type is blank.");
+				return false;
+			}
+			else if(document.GISTechnicalDescription.quadrant.value==""){
+				document.GISTechnicalDescription.quadrant.focus();
+				alert("Quadrant is blank.");
+				return false;
+			}
+			else if(document.GISTechnicalDescription.bearingDeg.value==""){
+				document.GISTechnicalDescription.bearingDeg.focus();
+				alert("Degree of Bearing is blank.");
+				return false;
+			}
+			else if(document.GISTechnicalDescription.bearingMin.value==""){
+				document.GISTechnicalDescription.bearingMin.focus();
+				alert("Minute of Bearing is blank.");
+				return false;
+			}
+			else if(document.GISTechnicalDescription.distance.value==""){
+				document.GISTechnicalDescription.distance.focus();
+				alert("Distance is blank.");
+				return false;
+			}
+			break;
+		case "save":
+			if(document.GISTechnicalDescription.cadastralLotNumber.value==""){
+				alert("Cadastral Lot Number is blank.");
+				document.GISTechnicalDescription.cadastralLotNumber.focus();
+				return false;
+			}
+
+			else if(document.GISTechnicalDescription.pointsExist.value!="true"){
+				alert("Points are required. You must Add Points.");
+				return false;
+			}
+			break;
+	}
+	return true;
+}
+
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="GISTechnicalDescription" method="post" action="GISTechnicalDescriptionEncode.php{Session}" onSubmit="return validateForm();">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>GIS Technical Description</b> </td>
+	 </tr>
+	 <tr bgcolor="#CCCCCC"> 
+	  <td colspan="3" class="fileds_comment" align="left" nowrap>Technical Description</td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="40">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+	   <input name="cadastralLotNumber" type="text" id="cadastralLotNumber" value="{cadastralLotNumber}" size="30" maxlength="32"> 
+	   <br>
+	   (Cadastral Lot Number) <br> </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="40">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+	   <table border=0 cellpadding=2 cellspacing=0 width="100%">
+	   <tr bgcolor="#CCCCCC">
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center">
+		   <strong>&nbsp;</strong>
+		  </td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap> 
+		   <B>point type</B>
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap> 
+		   <B>quadrant</B>
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap> 
+		   <B>bearing</B> (deg)
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap> 
+		   <B>bearing</B> (min)
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap> 
+		   <B>distance</B> (m)
+		  </td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>
+		   &nbsp;
+		  </td>
+	   </tr>
+
+	   <tr>
+	      <td bgcolor="#F6F6F6" class="fileds_comment" align="center"><strong>point</strong>&nbsp;</td>
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center"> 
+		   <select name="pointType">
+		    <option value=""></option>
+			<option value="0">0 : tie-line</option>
+		    <option value="1">1 : corners</option>
+		   </select>
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center"> 
+		   <select name="quadrant">
+		    <option value=""></option>
+			<option value="0">0: NW</option>
+		    <option value="1">1: NE</option>
+		    <option value="2">2: SE</option>
+		    <option value="3">3: SW</option>
+		   </select>
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center"> 
+		   <input name="bearingDeg" type="text" size=5 style="align-text:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center"> 
+		   <input name="bearingMin" type="text" size=5 style="align-text:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment" align="center"> 
+		   <input name="distance" type="text" size=5 style="align-text:center;">
+		  </td>
+		  <td bgcolor="#F6F6F6" class="fileds_comment">
+		   <input name="addPointBtn" type="submit" value="add" style="height:19px; width:25px" onClick="javascript:document.GISTechnicalDescription.formAction.value='add';">
+		  </td>
+	   </tr>
+
+	   <!-- BEGIN PointsList -->
+
+	   <tr>
+
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>
+		   {pointID}.
+		  </td>
+		
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap> 
+		   <input name="pointsArray[{pointID}][pointType]" value="{pointType}" size=5 readonly style="text-align:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>-</td>
+
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap> 
+		   <input name="pointsArray[{pointID}][quadrant]" value="{quadrant}" size=5 readonly style="text-align:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>-</td>
+
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>
+		   <input name="pointsArray[{pointID}][bearingDeg]" value="{bearingDeg}" size=5 readonly style="text-align:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>-</td>
+
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap> 
+		   <input name="pointsArray[{pointID}][bearingMin]" value="{bearingMin}" size=5 readonly style="text-align:center;">
+		  </td>
+  		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap>-</td>
+
+		  <td bgcolor="#F6F6F6" align="center" class="fileds_comment" nowrap> 
+		   <input name="pointsArray[{pointID}][distance]" value="{distance}" size=5 readonly style="text-align:center;">
+		  </td>
+
+		  <td bgcolor="#F6F6F6" class="fileds_comment">
+		   <input name="delPointBtn" type="submit" value="del" style="height:19px; width:25px" onClick="javascript:document.GISTechnicalDescription.formAction.value='del'; document.GISTechnicalDescription.delPointID.value={pointID};">
+		  </td>
+	   </tr>
+
+	   <!-- END PointsList -->
+
+	   </table>
+	  </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp;</td>
+	  <td colspan="2" class="fileds_comment" align="left" valign="middle" bgcolor="#F6F6F6">
+	   <input name="afsID" type="hidden" id="afsID" value="{afsID}"> 
+	   <input type="hidden" name="pointsExist" value="{pointsExist}">
+	   <input type="hidden" name="delPointID">
+	   <input type="hidden" name="formAction" value="save">
+
+	   <!-- BEGIN SubmitButton -->
+	   <input type="submit" value="Save" name="submit" onClick="javascript:document.GISTechnicalDescription.formAction.value='save';"> 
+	   <input type="reset" name="Submit2" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

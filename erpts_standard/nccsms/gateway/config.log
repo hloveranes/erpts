@@ -1,0 +1,257 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:704: checking host system type
+configure:807: checking for gcc
+configure:920: checking whether the C compiler (gcc  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  -rdynamic) works
+configure:936: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c  1>&5
+configure:962: checking whether the C compiler (gcc  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  -rdynamic) is a cross-compiler
+configure:967: checking whether we are using GNU C
+configure:976: gcc -E conftest.c
+configure:995: checking whether gcc accepts -g
+configure:1038: checking for a BSD compatible install
+configure:1093: checking for ranlib
+configure:1125: checking for bison
+configure:1125: checking for byacc
+configure:1158: checking for flex
+configure:1192: checking for yywrap in -ll
+configure:1211: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -ll   1>&5
+/usr/bin/ld: cannot find -ll
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 1200 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char yywrap();
+
+int main() {
+yywrap()
+; return 0; }
+configure:1236: checking for convert
+configure:1271: checking for perl
+configure:1306: checking size of short
+configure:1325: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c  1>&5
+configure:1345: checking size of int
+configure:1364: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c  1>&5
+configure:1384: checking size of long
+configure:1403: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c  1>&5
+configure:1423: checking size of long long
+configure:1442: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c  1>&5
+configure:1472: checking for log in -lm
+configure:1491: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lm   1>&5
+configure:1484: warning: conflicting types for built-in function 'log'
+configure:1519: checking for accept in -lsocket
+configure:1538: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lsocket  -lm  1>&5
+/usr/bin/ld: cannot find -lsocket
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 1527 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char accept();
+
+int main() {
+accept()
+; return 0; }
+configure:1566: checking for inet_ntoa in -lnsl
+configure:1585: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lnsl  -lm  1>&5
+configure:1613: checking for inet_ntop in -lresolv
+configure:1632: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv  -lnsl -lm  1>&5
+configure:1660: checking for inet_ntop in -lbind
+configure:1679: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lbind  -lresolv -lnsl -lm  1>&5
+/usr/bin/ld: cannot find -lbind
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 1668 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char inet_ntop();
+
+int main() {
+inet_ntop()
+; return 0; }
+configure:1708: checking for pthread_exit in -lpthread
+configure:1727: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lpthread  -lresolv -lnsl -lm  1>&5
+configure:1749: checking for libiconv in -liconv
+configure:1768: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -liconv  -lresolv -lnsl -lm  -lpthread 1>&5
+/usr/bin/ld: cannot find -liconv
+collect2: ld returned 1 exit status
+configure: failed program was:
+#line 1757 "configure"
+#include "confdefs.h"
+/* Override any gcc2 internal prototype to avoid an error.  */
+/* We use char because int might match the return type of a gcc2
+    builtin and then its argument prototype would still apply.  */
+char libiconv();
+
+int main() {
+libiconv()
+; return 0; }
+configure:1791: checking how to run the C preprocessor
+configure:1812: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1871: checking for ANSI C header files
+configure:1884: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1951: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:1978: checking for sys/ioctl.h
+configure:1988: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1978: checking for sys/time.h
+configure:1988: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1978: checking for sys/types.h
+configure:1988: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1978: checking for unistd.h
+configure:1988: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1978: checking for sys/poll.h
+configure:1988: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for pthread.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for getopt.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for syslog.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for iconv.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for zlib.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for execinfo.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2018: checking for stdlib.h
+configure:2028: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2058: checking for sys/socket.h
+configure:2068: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2058: checking for sys/sockio.h
+configure:2068: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2064:24: sys/sockio.h: No such file or directory
+configure: failed program was:
+#line 2063 "configure"
+#include "confdefs.h"
+#include <sys/sockio.h>
+configure:2058: checking for net/if.h
+configure:2068: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2058: checking for netinet/in.h
+configure:2068: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2104: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure: In function `main':
+configure:2100: warning: initialization discards qualifiers from pointer target type
+configure:2123: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure: In function `main':
+configure:2119: warning: initialization discards qualifiers from pointer target type
+configure:2140: checking for gettimeofday
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for select
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for socket
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for strdup
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2152: warning: conflicting types for built-in function 'strdup'
+configure:2140: checking for getopt_long
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for localtime_r
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for gmtime_r
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for backtrace
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2140: checking for srandom
+configure:2168: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2193: checking for getopt
+configure:2221: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2244: checking for gethostbyname_r
+configure:2272: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2287: checking for which type of gethostbyname_r
+configure:2307: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure: In function `main':
+configure:2301: error: storage size of 'data' isn't known
+configure:2302: error: too few arguments to function `gethostbyname_r'
+configure: failed program was:
+#line 2293 "configure"
+#include "confdefs.h"
+
+#include <netdb.h>
+  
+int main() {
+
+        char *name;
+        struct hostent *he;
+        struct hostent_data data;
+        (void) gethostbyname_r(name, he, &data);
+     
+; return 0; }
+configure:2332: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure:2459: checking for socklen_t in <sys/socket.h>
+configure:2475: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure:2498: checking for getopt in <stdio.h>
+configure:2510: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure: In function `main':
+configure:2506: error: `getopt' undeclared (first use in this function)
+configure:2506: error: (Each undeclared identifier is reported only once
+configure:2506: error: for each function it appears in.)
+configure: failed program was:
+#line 2503 "configure"
+#include "confdefs.h"
+#include <stdio.h>
+int main() {
+void *foo = getopt;
+; return 0; }
+configure:2532: checking for getopt in <unistd.h>
+configure:2544: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure:2571: checking for regex.h
+configure:2581: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:2603: checking for regcomp
+configure:2631: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2672: checking for working pthreads
+configure:2703: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2717: checking for pthread_spinlock support
+configure:2732: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure:2747: checking for pthread_rwlock support
+configure:2764: gcc -c  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE  conftest.c 1>&5
+configure:2779: checking for sem_init in -lrt
+configure:2798: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lrt  -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2826: checking for semaphore support
+configure:2852: gcc -o conftest  -D_XOPEN_SOURCE=600 -D_BSD_SOURCE   -rdynamic conftest.c -lrt -lresolv -lnsl -lm  -lpthread 1>&5
+configure:2880: checking for xml2-config
+configure:2920: checking libxml version
+configure:2964: checking whether to compile with PCRE support
+configure:3243: checking for jade
+configure:3273: checking for jadetex
+configure:3303: checking for pdfjadetex
+configure:3333: checking for dvips
+configure:3363: checking for fig2dev
+configure:3393: checking for convert
+configure:3434: checking for /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl
+configure:3434: checking for /usr/lib/sgml/stylesheets/nwalsh-modular/html/docbook.dsl
+configure:3434: checking for /usr/share/sgml/docbook/dsssl-stylesheets-1.59/html/docbook.dsl
+configure:3434: checking for /usr/share/sgml/docbook/dsssl-stylesheets-1.77/html/docbook.dsl
+configure:3434: checking for /usr/share/sgml/docbook/dsssl-stylesheets/html/docbook.dsl
+configure:3434: checking for /usr/share/sgml/docbook/dsssl/modular/html/docbook.dsl
+configure:3434: checking for /usr/local/lib/sgml/stylesheet/dsssl/docbook/nwalsh/html/docbook.dsl
+configure:3434: checking for /usr/local/lib/sgml/stylesheets/nwalsh-modular/html/docbook.dsl
+configure:3434: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets-1.59/html/docbook.dsl
+configure:3434: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets-1.77/html/docbook.dsl
+configure:3434: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets/html/docbook.dsl
+configure:3434: checking for /usr/local/share/sgml/docbook/dsssl/modular/html/docbook.dsl
+configure:3474: checking for /usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh/print/docbook.dsl
+configure:3474: checking for /usr/lib/sgml/stylesheets/nwalsh-modular/print/docbook.dsl
+configure:3474: checking for /usr/share/sgml/docbook/dsssl-stylesheets-1.59/print/docbook.dsl
+configure:3474: checking for /usr/share/sgml/docbook/dsssl-stylesheets-1.77/print/docbook.dsl
+configure:3474: checking for /usr/share/sgml/docbook/dsssl-stylesheets/print/docbook.dsl
+configure:3474: checking for /usr/share/sgml/docbook/dsssl/modular/print/docbook.dsl
+configure:3474: checking for /usr/local/lib/sgml/stylesheet/dsssl/docbook/nwalsh/print/docbook.dsl
+configure:3474: checking for /usr/local/lib/sgml/stylesheets/nwalsh-modular/print/docbook.dsl
+configure:3474: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets-1.59/print/docbook.dsl
+configure:3474: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets-1.77/print/docbook.dsl
+configure:3474: checking for /usr/local/share/sgml/docbook/dsssl-stylesheets/print/docbook.dsl
+configure:3474: checking for /usr/local/share/sgml/docbook/dsssl/modular/print/docbook.dsl
+configure:3658: checking which malloc to use
+configure:4047: checking whether to compile with SSL support
+configure:4372: checking whether to compile with MySQL support
+configure:4662: checking whether to compile with LibSDB support
+configure:4838: checking whether to compile with SQLite support
+configure:4990: checking whether to compile with Oracle support
+configure:5189: checking whether to compile with PostgresSQL support

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<contents>
+	<!-- BEGIN Page -->	
+	    <page height="783" width="609" number="{pageNumber}" orientation="0">
+		
+		<textitem align="center" xpos="304" ypos="713" font="Helvetica" size="7">Republic of the Philippines</textitem>
+		<textitem align="center" xpos="304" ypos="673" font="Helvetica" size="7">QUARTERLY COMPARATIVE REPORTS OF THE ACTUAL REAL PROPERTY TAX COLLECTIONS</textitem>
+		<textitem xpos="140" ypos="650" font="Helvetica" size="7">Actual Collections for the Quarter</textitem>
+		<textitem xpos="360" ypos="650" font="Helvetica" size="7">Collections Target for the Quarter</textitem>
+
+		<textitem align="right" xpos="94" ypos="633" font="Helvetica" size="7">Quarter</textitem>
+		<textitem xpos="140" ypos="633" font="Helvetica" size="7">Basic</textitem>
+		<textitem xpos="210" ypos="633" font="Helvetica" size="7">SEF</textitem>
+		<textitem xpos="280" ypos="633" font="Helvetica" size="7">Penalty</textitem>
+		<textitem xpos="360" ypos="633" font="Helvetica" size="7">Basic</textitem>
+		<textitem xpos="430" ypos="633" font="Helvetica" size="7">SEF</textitem>
+		<textitem xpos="500" ypos="633" font="Helvetica" size="7">Penalty</textitem>
+		<textitem align="right" xpos="590" ypos="35" font="Helvetica" size="7">Page {pageNumber} of {totalPages}</textitem>
+
+		<!-- BEGIN Row -->
+		<textitem align="right" xpos="94" ypos="{ypos}" font="Helvetica" size="7">{quarter}</textitem>
+		<textitem align="right" xpos="164" ypos="{ypos}" font="Helvetica" size="7">{paidBasic}</textitem>
+		<textitem align="right" xpos="230" ypos="{ypos}" font="Helvetica" size="7">{paidSEF}</textitem>
+		<textitem align="right" xpos="310" ypos="{ypos}" font="Helvetica" size="7">{paidPenalty}</textitem>
+		<textitem align="right" xpos="384" ypos="{ypos}" font="Helvetica" size="7">{basic}</textitem>
+		<textitem align="right" xpos="450" ypos="{ypos}" font="Helvetica" size="7">{sef}</textitem>
+		<textitem align="right" xpos="530" ypos="{ypos}" font="Helvetica" size="7">{penalty}</textitem>
+		<!-- END Row -->
+		
+		<lineitem x1="555" y1="661" x2="26" y2="661">blurb</lineitem>  
+		<lineitem x1="555" y1="641" x2="26" y2="641">blurb</lineitem>  
+		<lineitem x1="555" y1="626" x2="26" y2="626">blurb</lineitem>  			
+		
+		</page>
+	
+	<!-- END Page -->
+	</contents>

@@ -1,0 +1,71 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+<title>{TITLE}</title>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="javascript: setDefaults();">
+
+             <br>
+
+             <form name="landForm" method="post" action="AFSDetails.php{Session}&type=land">
+			 <table align=center border="0" cellpadding="2" cellspacing="1">
+               <tr>
+                <td class="fileds_comment" colspan="5" bgcolor="#F6F6F6">
+                    search:
+                    <input type="text" name="searchKey" value="{searchKey}">
+                    <input type="button" name="SubmitSearch" value="Search" onClick="document.RPTOPList.formAction.value='search'; document.RPTOPList.submit();">
+                    <font color="#777777">&nbsp;&nbsp;(searches by: arpNumber, PIN)</font>
+                </td>
+               </tr>
+
+               <tr>
+                <td class="fileds_comment" colspan="5" bgcolor="#F6F6F6">
+				- <a href="PropertySearchList.php{Session}">view all</a><br>
+	              <br>
+                  {pageOf}
+                </td>
+               </tr>
+               <!-- BEGIN NotFound -->
+               <tr>
+                <td class="fileds_comment" colspan="5" bgcolor="#F6F6F6">
+                 &lt;&lt; back to <a href="PropertySearchList.php{Session}">PropertySearchList</a>
+                 <br><br>
+                 <font size=2>&quot;{searchKey}&quot;
+                  not found
+                 </font>
+                 <br>&nbsp;<br>
+                </td>
+               </tr>
+               <!-- END NotFound -->
+			  <tr align="center">
+			   <td width="20%" bgcolor="#CCCCCC" class="fileds_comment"><b>ARP Number</b></td>
+			   <td width="20%" bgcolor="#CCCCCC" class="fileds_comment"><b>Property Index Number</b></td>
+			   <td width="20%" bgcolor="#CCCCCC" class="fileds_comment"><b>Tax Declaraion Number</b></td>
+			   <td width="20%" bgcolor="#CCCCCC" class="fileds_comment"><b>Assessment Value</b></td>
+			   <td width="20%" bgcolor="#CCCCCC" class="fileds_comment">
+                &nbsp;
+			   </td>
+			  </tr>
+			  <!-- BEGIN LandListHead -->
+			  <tr align="left">
+			   <td class="fileds_comment"  colspan="5" bgcolor="#F6F6F6" valign="middle">
+			   <b>LAND</b>
+               </td>
+			  </tr>
+			  <!-- END LandListHead -->
+			  <!-- BEGIN LandList -->
+			  <tr align="left">
+			   <td class="fileds_comment"  align="center" bgcolor="#F6F6F6" valign="middle"><a href="javascript: openWin('LandEncode.php{Session}&propertyID={propertyID}&formAction=edit','popupWindow',50,50,450,520);">{arpNumber}</a></td>
+			   <td class="fileds_comment"  align="center" bgcolor="#F6F6F6" valign="middle">{propertyIndexNumber}</td>
+			   <td align="center" class="fileds_comment" bgcolor="#F6F6F6" valign="middle"><a href="javascript: openWin('TDEncode.php{Session}&propertyID={propertyID}&tdID={tdID}&propertyType={propertyType}&formAction={landFormAction}','popupWindow',50,50,450,520);">{tdNumber}</a></td>
+			   <td align="center" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">{assessedValue}</td>
+			   <td align="center" class="fileds_comment" bgcolor="#F6F6F6" valign="middle">Edit &gt;&gt;</td>
+			  </tr>
+              <!-- END LandList -->			
+		     </table>
+		     </form>
+
+
+</body>
+</html>

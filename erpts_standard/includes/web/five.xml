@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<contents>
+		<!-- BEGIN Page -->
+    	<page height="783" width="609" number="{page}" orientation="0">
+		<textitem xpos="304" ypos="729" font="Helvetica" size="9" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="304" ypos="717" font="Helvetica" size="9" align="center">{lguType} OF {lguName}</textitem>
+		<textitem xpos="304" ypos="705" font="Helvetica" size="9" align="center">OFFICE OF THE TREASURER</textitem>
+
+		<textitem xpos="304" ypos="678" font="Helvetica" size="9" align="center">SUMMARY OF COLLECTIBLES FROM DELINQUENT TAXPAYER BY CLASSIFICATION</textitem>
+		<textitem xpos="304" ypos="668" font="Helvetica" size="9" align="center">({classification})</textitem>
+
+		<textitem xpos="53" ypos="643" font="Helvetica" size="7">Property</textitem>
+		<textitem xpos="53" ypos="633" font="Helvetica" size="7">Index No.</textitem>
+		<textitem xpos="133" ypos="643" font="Helvetica" size="7">Tax</textitem>	
+		<textitem xpos="133" ypos="633" font="Helvetica" size="7">Declaration No.</textitem>	
+		<textitem xpos="220" ypos="643" font="Helvetica" size="7">Year</textitem>	
+		<textitem xpos="220" ypos="633" font="Helvetica" size="7">Delinquent</textitem>	
+		<textitem xpos="295" ypos="643" font="Helvetica" size="7">Amount of Basic</textitem>	
+		<textitem xpos="295" ypos="633" font="Helvetica" size="7">Tax Deliquent</textitem>	
+		<textitem xpos="385" ypos="643" font="Helvetica" size="7">Amount of SEF</textitem>
+		<textitem xpos="385" ypos="633" font="Helvetica" size="7">Tax Delinquent</textitem>
+		<textitem xpos="459" ypos="643" font="Helvetica" size="7">Penalty</textitem>	
+		<textitem xpos="520" ypos="641" font="Helvetica" size="7">Total Delinquent</textitem>	
+
+		<!-- BEGIN Row -->		
+		<textitem align="right" xpos="49" ypos="{ypos}" font="Helvetica" size="7">{recordCtr}.</textitem>
+		<textitem align="left" xpos="53" ypos="{ypos}" font="Helvetica" size="7">{propertyIndexNumber}</textitem>
+		<textitem align="left" xpos="133" ypos="{ypos}" font="Helvetica" size="7">{taxDeclarationNumber}</textitem>	
+		<textitem align="left" xpos="220" ypos="{ypos}" font="Helvetica" size="7">{yearDelinquent}</textitem>	
+		<textitem align="right" xpos="340" ypos="{ypos}" font="Helvetica" size="7">{basicAmountDelinquent}</textitem>	
+		<textitem align="right" xpos="430" ypos="{ypos}" font="Helvetica" size="7">{sefAmountDelinquent}</textitem>
+		<textitem align="right" xpos="490" ypos="{ypos}" font="Helvetica" size="7">{penalty}</textitem>	
+		<textitem align="right" xpos="570" ypos="{ypos}" font="Helvetica" size="7">{totalDelinquent}</textitem>	
+		<!-- END Row -->
+
+		<!-- BEGIN Totals -->
+		<textitem align="right" xpos="49" ypos="75" font="Helvetica" size="7">Totals:</textitem>
+		<textitem align="left" xpos="53" ypos="75" font="Helvetica" size="7"></textitem>
+		<textitem align="left" xpos="133" ypos="75" font="Helvetica" size="7"></textitem>	
+		<textitem align="left" xpos="220" ypos="75" font="Helvetica" size="7"></textitem>	
+		<textitem align="right" xpos="340" ypos="75" font="Helvetica" size="7">{totalBasicAmountDelinquent}</textitem>	
+		<textitem align="right" xpos="430" ypos="75" font="Helvetica" size="7">{totalSefAmountDelinquent}</textitem>
+		<textitem align="right" xpos="490" ypos="75" font="Helvetica" size="7">{totalPenalty}</textitem>	
+		<textitem align="right" xpos="570" ypos="75" font="Helvetica" size="7">{totalTotalDelinquent}</textitem>	
+		<!-- END Totals -->
+
+		<textitem xpos="500" ypos="55" font="Helvetica" size="7">Page {page} of {numOfPages}</textitem>	
+		
+		<lineitem x1="582" y1="657" x2="50" y2="657">blurb</lineitem>  
+		<lineitem x1="582" y1="626" x2="50" y2="626">blurb</lineitem>  
+	
+	
+	 </page>
+	 <!-- END Page -->
+</contents>

@@ -1,0 +1,126 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<table width="100%">
+	<tr>
+		<td width="50%">BLGF Form No. 2-d (Revised 2000)</td>
+		<td width="50%" align="right">Annex B-3</td>
+	</tr>
+	<tr><td colspan="2" align="center">RECORD OF REAL PROPERTY TAX COLLECTION</td></tr>
+	<tr><td colspan="2" align="center">BASIC AND SEF</td></tr>
+	<tr><td colspan="2">LGU: {lgu}</td></tr>
+	<tr><td colspan="2">PERIOD: {startDate} - {endDate}</td></tr>
+	<tr><td colspan="2">RPU CALSSIFICATION: {rpuClass}</td></tr>
+</table>
+<table border="1" cellpadding="1" cellspacing="1">
+	<tr>
+		<td align="center" valign="bottom">Date<br>&nbsp;<br>(1)</td>
+		<td align="center" valign="bottom">Taxpayer<br>&nbsp;<br>(2)</td>
+		<td align="center" valign="bottom">Period<br>Covered<br>&nbsp;<br>(3)</td>
+		<td align="center" valign="bottom">O.R. No.<br>&nbsp;<br>(4)</td>
+		<td align="center" valign="bottom">Name of<br>Barangay<br>&nbsp;<br>(5)</td>
+		<td colspan="7" align="center">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tr><td colspan="7" align="center">BASIC TAX</td></tr>
+				<tr>
+					<td align="center" valign="bottom">Current<br>Year<br>(6)</td>
+					<td align="center" valign="bottom">Discount<br>&nbsp;<br>(7)</td>
+					<td align="center" valign="bottom">Prior<br>Year(s)<br>(8)</td>
+					<td colspan="2" align="center" valign="bottom">
+						<table border="1" cellpadding="0" cellspacing="0">
+							<tr><td colspan="2">Penalties</td></tr>
+							<tr>
+								<td>Current<br>Year<br>(9)</td>
+								<td>Prior<br>Year(s)<br>(10)</td>
+							</tr>
+						</table>
+					</td>
+					<td align="center" valign="bottom">Sub-Total<br>Gross Coll.<br><font size="1">6+8+9+10</font><br>(11)</td>
+					<td align="center" valign="bottom">Sub-Total<br>Net Coll.<br><font size="1">6-7+8+9+10</font><br>(12)</td>
+				</tr>
+			</table>
+		</td>
+		<td colspan="7" align="center">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tr><td colspan="7" align="center">S E F</td></tr>
+				<tr>
+					<td align="center" valign="bottom">Current<br>Year<br>(6)</td>
+					<td align="center" valign="bottom">Discount<br>&nbsp;<br>(7)</td>
+					<td align="center" valign="bottom">Prior<br>Year(s)<br>(8)</td>
+					<td colspan="2" align="center" valign="bottom">
+						<table border="1" cellpadding="0" cellspacing="0">
+							<tr><td colspan="2">Penalties</td></tr>
+							<tr>
+								<td>Current<br>Year<br>(9)</td>
+								<td>Prior<br>Year(s)<br>(10)</td>
+							</tr>
+						</table>
+					</td>
+					<td align="center" valign="bottom">Sub-Total<br>Gross Coll.<br><font size="1">6+8+9+10</font><br>(11)</td>
+					<td align="center" valign="bottom">Sub-Total<br>Net Coll.<br><font size="1">6-7+8+9+10</font><br>(12)</td>
+				</tr>
+			</table>
+		</td>
+		<td colspan="4" align="center" valign="top">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tr><td colspan="4" align="center">IDLE LANDS</td></tr>
+				<tr>
+					<td align="center" valign="bottom">Current<br>Year<br>(20)</td>
+					<td align="center" valign="bottom">Prior<br>Year(s)<br>(21)</td>
+					<td align="center" valign="bottom">Penalties<br>&nbsp;<br>(22)</td>
+					<td align="center" valign="bottom">Total<br>&nbsp;<br>(23)</td>
+				</tr>
+			</table>
+		</td>
+		<td align="center">
+			<table border="1" cellpadding="0" cellspacing="0">
+				<tr><td align="center" valign="bottom">SPECIAL LEVY</td></tr>
+				<tr><td align="center" valign="bottom">Total</td></tr>
+			</table>
+		</td>
+		<td align="center" valign="bottom">Total<br>Non-Cash<br>&nbsp;<br>(25)</td>
+		<td align="center" valign="bottom">Grand Total<br>Gross Coll.<br><font size="1">11+18+23+24+25</font><br>&nbsp;<br>(26)</td>
+		<td align="center" valign="bottom">Grand Total<br>Net Coll.<br><font size="1">12+19+23+24+25</font><br>&nbsp;<br>(27)</td>
+	</tr>
+	<!-- BEGIN ROW -->
+	<tr>
+		<td>{datePaid}</td>
+		<td>{taxpayerName}</td>
+		<td>{periodCovered}</td>
+		<td>{orNo}</td>
+		<td>{barangay}</td>
+
+		<td>{paidBasic}</td>
+		<td>{discountBasic}</td>
+		<td>{priorBasic}</td>
+		<td>{penaltyBasic}</td>
+		<td>{priorPenaltyBasic}</td>
+		<td>{totalGrossBasic}</td>
+		<td>{totalNetBasic}</td>
+
+		<td>{paidSEF}</td>
+		<td>{discountSEF}</td>
+		<td>{priorSEF}</td>
+		<td>{penaltySEF}</td>
+		<td>{priorPenaltySEF}</td>
+		<td>{totalGrossSEF}</td>
+		<td>{totalNetSEF}</td>
+
+		<td>{paidIdle}</td>
+		<td>{priorIdle}</td>
+		<td>{penaltyIdle}</td>
+		<td>{totalidle}</td>
+
+		<td>{specialLevy}</td>
+
+		<td>{totalNonCash}</td>
+
+		<td>{grandTotalGrossColl}</td>
+		<td>grandTotalNetColl</td>
+	</tr>
+	<!-- END ROW -->
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="306" width="684" number="1" orientation="0">
+    <textitem xpos="278" ypos="262" font="Helvetica" size="10" align="center">{prevORNum}</textitem>
+    <textitem xpos="361" ypos="262" font="Helvetica" size="10" align="center">{prevORDate}</textitem>
+    <textitem xpos="457" ypos="262" font="Helvetica" size="10" align="center">{prevORAmount}</textitem>
+    <textitem xpos="608" ypos="219" font="Helvetica" size="10" align="center">{tdNum}</textitem>
+    <textitem xpos="606" ypos="202" font="Helvetica" size="10" align="center">{rptopNum}</textitem>
+    <textitem xpos="618" ypos="186" font="Helvetica" size="10" align="center">{barangayNum}</textitem>
+    <textitem xpos="327" ypos="205" font="Helvetica" size="10" align="right">{res}</textitem>
+    <textitem xpos="391" ypos="205" font="Helvetica" size="10" align="right">{comm}</textitem>
+    <textitem xpos="454" ypos="205" font="Helvetica" size="10" align="right">{educ}</textitem>
+    <textitem xpos="516" ypos="205" font="Helvetica" size="10" align="right">{assessedValue}</textitem>
+    <textitem xpos="297" ypos="162" font="Helvetica" size="7" align="center">{1ST}</textitem>
+    <textitem xpos="333" ypos="162" font="Helvetica" size="7" align="center">{2ND}</textitem>
+    <textitem xpos="368" ypos="162" font="Helvetica" size="7" align="center">{3RD}</textitem>
+    <textitem xpos="403" ypos="162" font="Helvetica" size="7" align="center">{4TH}</textitem>
+    <textitem xpos="350" ypos="162" font="Helvetica" size="7" align="center">{paymentPeriod}</textitem>
+    <textitem xpos="421" ypos="144" font="Helvetica" size="10" align="right">{gf}</textitem>
+    <textitem xpos="421" ypos="124" font="Helvetica" size="10" align="right">{ib}</textitem>
+    <textitem xpos="421" ypos="104" font="Helvetica" size="10" align="right">{cb}</textitem>
+    <textitem xpos="421" ypos="84" font="Helvetica" size="10" align="right">{sef}</textitem>
+    <textitem xpos="421" ypos="64" font="Helvetica" size="10" align="right">{subTotal}</textitem>
+    <textitem xpos="421" ypos="44" font="Helvetica" size="10" align="right">{pd1185}</textitem>
+    <textitem xpos="421" ypos="24" font="Helvetica" size="10" align="right">{periodTotal}</textitem>
+    <textitem xpos="460" ypos="144" font="Helvetica" size="10" align="center">{discount}</textitem>
+    <textitem xpos="460" ypos="124" font="Helvetica" size="10" align="center">{discount}</textitem>
+    <textitem xpos="460" ypos="104" font="Helvetica" size="10" align="center">{discount}</textitem>
+    <textitem xpos="460" ypos="84" font="Helvetica" size="10" align="center">{discount}</textitem>
+    <textitem xpos="530" ypos="144" font="Helvetica" size="10" align="center">{interest}</textitem>
+    <textitem xpos="530" ypos="124" font="Helvetica" size="10" align="center">{interest}</textitem>
+    <textitem xpos="530" ypos="104" font="Helvetica" size="10" align="center">{interest}</textitem>
+    <textitem xpos="530" ypos="84" font="Helvetica" size="10" align="center">{interest}</textitem>
+    <textitem xpos="646" ypos="144" font="Helvetica" size="10" align="right">{totGF}</textitem>
+    <textitem xpos="646" ypos="124" font="Helvetica" size="10" align="right">{totIB}</textitem>
+    <textitem xpos="646" ypos="104" font="Helvetica" size="10" align="right">{totCB}</textitem>
+    <textitem xpos="646" ypos="84" font="Helvetica" size="10" align="right">{totSEF}</textitem>
+    <textitem xpos="646" ypos="64" font="Helvetica" size="10" align="right">{totSubTotal}</textitem>
+    <textitem xpos="646" ypos="44" font="Helvetica" size="10" align="right">{totPD1185}</textitem>
+    <textitem xpos="646" ypos="24" font="Helvetica" size="10" align="right">{grandTotal}</textitem>
+    <textblock xpos="xxx" ypos="yyy" font="Helvetica" size="10" >{ownerName}</textblock>
+    <textblock xpos="xxx" ypos="yyy" font="Helvetica" size="10" >{ownerAddress}</textblock>
+    <textblock xpos="xxx" ypos="yyy" font="Helvetica" size="10" >{location}</textblock>
+    <textitem xpos="207" ypos="224" font="Helvetica" size="8" >{Land}</textitem>
+    <textitem xpos="207" ypos="215" font="Helvetica" size="8" >{Improvement}</textitem>
+    <textitem xpos="207" ypos="206" font="Helvetica" size="8" >{Machinery}</textitem>
+    <textitem xpos="207" ypos="210" font="Helvetica" size="8" >{propertyType}</textitem>
+    <textitem xpos="65" ypos="71" font="Helvetica" size="10" align="center">{lotNum}</textitem>
+    <textitem xpos="155" ypos="71" font="Helvetica" size="10" align="center">{blockNum}</textitem>
+   </page>
+</contents>
+

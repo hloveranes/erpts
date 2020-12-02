@@ -1,0 +1,514 @@
+<html>
+<head>
+<title>eLGU - RPTS - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/numeric.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+//-->
+</script>
+<script language="Javascript1.2">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=1");
+	puffup.focus(true);
+}
+//-->
+</script>
+
+<script language="Javascript">
+function getFormElementByName(elementName){
+	for(i=0 ; i<document.RPTOPBatchEncode.elements.length ; i++){
+		if(document.RPTOPBatchEncode.elements[i].name==elementName){
+			return document.RPTOPBatchEncode.elements[i];
+		}
+	}
+	return false;
+}
+</script>
+
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+    <td align="center" valign="top"><table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step{stepNumber}.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_rpu_management.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+              <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td align="center" valign="middle" background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+
+		  <tr align="center"> 
+		   <td width="0" align=left class="common" colspan=4><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right colspan=5>
+		    <a href="AssessorsHome.php{Session}" class="navi" title="Assessor's Module : Home">AM : Home</a>
+			<font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+		   <td width="0" nowrap align=center><a href="RPUManagementHome.php{Session}" class="navi" title="RPU Management">RPU Management</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap align=center><a href="ODList.php{Session}" class="navi" title="Real Property Units (RPU List)">RPU List</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="AFSList.php{Session}" class="navi" title="Field Appraisal & Assessment Sheet (FAAS List)">FAAS List</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="TDList.php{Session}" class="navi" title="Tax Declaration (TD List)">TD List</a></td>
+		   <td width="0" class="navi">|</td>
+
+		   <td width="0" nowrap><a href="RPTOPList.php{Session}" class="navi" title="Real Property Tax Order of Payment (RPTOP List)">RPTOP List</a></td>
+
+		  </tr>
+
+		 </table></td>
+		<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+	   </tr>
+			</table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+        <tr> 
+          
+	 <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/bg_middle.jpg" bgcolor="#CCCCCC">
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0" background="images/background/bg_middle.jpg">
+              <tr> 
+                <td align="left" valign="top">
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="subtitle"> 
+                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+						  <tr>
+						   <td colspan=2>&nbsp;</td>
+						  </tr>
+                          <tr> 
+                            <td class="subtitle">RPTOP Batch Encode</td>
+                            <td align="right" valign="top"><a href="#down"><img src="images/arrow_down.gif" width="40" height="30" border="0"></a></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top"> 
+<form name="RPTOPBatchEncode" method="post" action="RPTOPBatchEncode.php{Session}">
+  <input type="hidden" name="formAction" value="runBatchEncode">
+  <!-- BEGIN RPTOPNumberForm -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td>&nbsp;</td>
+      <td align=center> 
+        <table width="570" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>RPTOP 
+	   INFORMATION</b></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap rowspan=2>RPTOP Number
+	   <br><br>
+	   Latest: <b>{latestRPTOPNumber}</b>
+	  
+	  </td>
+	  <td class="fileds_comment" colspan="2">
+		<table border=0>
+		<tr>
+			<td>
+				<input name="rptopNumber[prefix]" type="text" id="rptopNumber[prefix]" size="20" style="text-align:right;" value="{rptopNumber[prefix]}" onBlur="validatePrefix(this);">
+			</td>
+			<td>
+				<input name="rptopNumber[delimeter]" type="text" id="rptopNumber[delimeter]" size="10" style="text-align:right;" value="{rptopNumber[delimeter]}" onBlur="validateDelimeter(this)" maxlength=1>
+			</td>
+			<td>
+				<input name="rptopNumber[startNumber]" type="text" id="rptopNumber[startNumber]" size="20" style="text-align:right;" value="{rptopNumber[startNumber]}" onBlur="validateStartNumber(this);">
+			</td>
+		</tr>
+		<tr>
+			<td class="fileds_comment">
+				(prefix)
+			</td>
+			<td class="fileds_comment">
+				(delimeter)
+			</td>
+			<td class="fileds_comment">
+				(start number)
+			</td>
+		</tr>
+		</table>
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" colspan="2">
+		Sample: <input name="rptopNumber[sample]" type="text" id="rptopNumber[sample]" disabled size="30" style="background-color:#dddddd;" value="{rptopNumber[sample]}">
+	  </td>
+	 </tr>
+
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>taxable 
+	   Year </td>
+	  <td class="fileds_comment" colspan="2"> <!--input name="taxableYear" type="text" id="taxableYear" value="{taxableYear}" size="30"-->
+	   <select name="taxableYear">
+		<!-- BEGIN YearList -->
+		<option value="{year}" {taxableYear_sel}>{year}</option>
+		<!-- END YearList -->
+	   </select> </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>city Assessor</td>
+	  <td class="fileds_comment" colspan="2"><select name="cityAssessorID" id="cityAssessorID" style="width:300">
+		<option value="0">none</option>
+		<!-- BEGIN CityAssessorList -->
+		<option value="{id}" {cityAssessorID_sel}>{name}</option>
+		<!-- END CityAssessorList -->
+	   </select></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>city Treasurer</td>
+	  <td class="fileds_comment" colspan="2"><select name="cityTreasurerID" id="cityTreasurerID" style="width:300">
+		<option value="0">none</option>
+		<!-- BEGIN CityTreasurerList -->
+		<option value="{id}" {cityTreasurerID_sel}>{name}</option>
+		<!-- END CityTreasurerList -->
+	   </select></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>set limit</td>
+	  <td class="fileds_comment" colspan="2"><select name="limit">
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="30">30</option>
+	   </select></td>
+	 </tr>
+	 <tr>
+	  <td class="fileds_comment" align="right" colspan=3>
+		<input name="nextBtn" type="button" value="Start RPTOP Batch Encode >" onClick="validateForm();">
+	  </td>
+	 </tr>
+
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+	<tr>
+	  <td colspan="3">
+		&nbsp;
+	  </td>
+	</tr>
+  </table>
+
+  <script language="Javascript">
+	function validateForm(){
+		prefix = getFormElementByName("rptopNumber[prefix]");
+		delimeter = getFormElementByName("rptopNumber[delimeter]");
+		startNumber = getFormElementByName("rptopNumber[startNumber]");
+
+		if(prefix.value==""){
+			if(delimeter.value!=""){
+				alert("prefix is blank");
+				prefix.focus();
+				return false;
+			}
+		}
+
+		if(delimeter.value==""){
+			if(prefix.value!=""){
+				alert("delimeter is blank");
+				delimeter.focus();
+				return false;
+			}
+		}
+
+		if(startNumber==""){
+			alert("startNumber is blank");
+			startNumber.focus();
+			return false;
+		}
+		else if(!isNumeric(startNumber.value)){
+			alert("startNumber must be numeric");
+			startNumber.focus();
+			return false;
+		}
+
+		if(confirm("This may take a few minutes to process. Are you sure you want to start RPTOP Batch Encode now?\n")){
+			document.RPTOPBatchEncode.nextBtn.disabled = true;
+			document.RPTOPBatchEncode.nextBtn.value = "Processing, please wait... >";
+			document.RPTOPBatchEncode.submit();
+		}
+		else{
+			return false;
+		}
+	}
+	function validatePrefix(prefix){
+		// if parameter is blank
+		if(prefix==""){
+			prefix = getFormElementByName("rptopNumber[prefix]");
+		}
+		updateSampleRPTOPNumber();
+	}
+	function validateDelimeter(delimeter){
+		// if parameter is blank
+		if(delimeter==""){
+			delimeter = getFormElementByName("rptopNumber[delimeter]");
+		}
+		if(delimeter.value!=""){
+			if(isNumeric(delimeter.value)){
+				alert("delimeter must not be numeric.");
+				delimeter.focus();
+				return false;
+			}		
+		}
+		updateSampleRPTOPNumber();
+	}
+	function validateStartNumber(startNumber){
+		// if parameter is blank
+		if(startNumber==""){
+			startNumber = getFormElementByName("rptopNumber[startNumber]");
+		}
+		if(startNumber.value==""){
+			alert("startNumber is blank.");
+			startNumber.focus();
+			return false;
+		}
+		else{
+			if(!isNumeric(startNumber.value)){
+				alert("startNumber must be numeric");
+				startNumber.focus();
+				return false;
+			}
+		}
+		updateSampleRPTOPNumber();
+	}
+	function updateSampleRPTOPNumber(){
+		prefix = getFormElementByName("rptopNumber[prefix]");;
+		delimeter = getFormElementByName("rptopNumber[delimeter]");
+		startNumber = getFormElementByName("rptopNumber[startNumber]");
+		sample = getFormElementByName("rptopNumber[sample]");
+		sample.value = prefix.value+delimeter.value+startNumber.value;
+	}
+  </script>
+  <!-- END RPTOPNumberForm -->
+
+  <!-- BEGIN OwnerListForm -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+
+    <tr> 
+      <td>&nbsp;</td>
+      <td align=center> 
+        <table width="570" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+
+	 <tr> 
+	  <td colspan="4" class="fileds_comment" valign="middle" align="left">
+		<input type="button" value="< Previous" onClick="javascript:history.back();">
+	  </td>
+	 </tr>
+
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="4" class="fileds_comment" valign="middle" align="left"><b>RPTOP INFORMATION</b></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" valign="middle" align="left" width="100">
+		RPTOP Number:
+	  </td>
+	  <td class="fileds_comment" valign="middle" align="left" colspan="3">
+		<table border=0>
+		<tr>
+			<td class="fileds_comment" align=center>
+				<b>{rptopNumber[prefix]}</b>
+			</td>
+			<td class="fileds_comment" align=center>
+				<b>{rptopNumber[delimeter]}</b>
+			</td>
+			<td class="fileds_comment" align=center>
+				<b>{rptopNumber[startNumber]}</b>
+			</td>
+		</tr>
+		<tr>
+			<td class="fileds_comment" align=center>
+				(prefix)
+			</td>
+			<td class="fileds_comment" align=center>
+				(delimeter)
+			</td>
+			<td class="fileds_comment" align=center>
+				(start number)
+			</td>
+		</tr>
+		</table>
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" valign="middle" align="left" width="100">
+		taxableYear:
+	  </td>
+	  <td class="fileds_comment" valign="middle" align="left" colspan="3">
+	    <b>{taxableYear}</b>
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" valign="middle" nowrap>city Assessor:</td>
+	  <td class="fileds_comment" valign="middle" align="left" colspan="3">
+	    <b>{cityAssessor}</b>
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" valign="middle" nowrap>city Treasurer:</td>
+	  <td class="fileds_comment" valign="middle" align="left" colspan="3">
+	    <b>{cityTreasurer}</b>
+	  </td>
+	 </tr>
+
+	 <tr> 
+	  <td colspan="4" class="fileds_comment" valign="middle" align="left">&nbsp;</td>
+	 </tr>
+
+	 </table>
+
+	 <table width="570" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="4" class="fileds_comment" valign="middle" align="left"><b><font size=4>{total}</font></b> <b>NEW RPTOPS Created</b></td>
+	 </tr>
+
+	 <!-- BEGIN OwnerListColumns -->
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" valign="middle" align="left" width="150" nowrap>
+	   rptop number
+	  </td>
+	  <td class="fileds_comment" valign="middle" align="left" width="185">
+			owner name
+  	  </td>
+	 </tr>
+	 <!-- END OwnerListColumns -->
+
+	 <!-- BEGIN OwnerList -->
+	 <tr bgcolor="#F6F6F6"> 
+	  <td bgcolor="#F6F6F6" class="fileds_comment" align=left> 
+			{i}. <a href="RPTOPDetails.php{Session}&rptopID={newRPTOP[rptopID]}&formAction=view"><b>{newRPTOP[rptopNumber]}</b></a>
+	  </td>
+	  <td class="fileds_comment" valign="middle" align="left" width="250">
+			<B>{ownerName}</B>
+  	  </td>
+	 </tr>
+	 <!-- END OwnerList -->
+	 <!-- BEGIN OwnerListEmpty -->
+	 <tr bgcolor="#F6F6F6">
+	  <td colspan=4 class="fileds_comment" align="center">
+	   no new RPTOPs created
+	  </td>
+	 </tr>
+	 <!-- END OwnerListEmpty -->
+
+
+		</table>
+	  </td>
+	</tr>
+	<tr>
+	  <td colspan="3">
+		&nbsp;
+	  </td>
+	</tr>
+  </table>
+  <!-- END OwnerListForm -->
+
+
+</form>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="fileds_comment">Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <a name="#down"></a></td>
+          <td background="images/inner_16.jpg"> <img SRC="images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr><tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>eLGU - Statement Of Account</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<!-- BEGIN STAT -->
+{status_report}
+<!-- END STAT -->
+	<table width="100%">
+		<tr><td align="right">Date: {currentDate}</td></tr>
+		<tr><td align="center">Republic of the Philippines</td></tr>
+		<tr><td align="center">Municipality of {municipality}</td></tr>
+		<tr><td align="center">Office of the Municipal Assessor</td></tr>
+		<tr><td align="center">&nbsp;</td></tr>
+		<tr>
+			<td>
+				<table>
+					<tr>	
+						<td>Owner No.: </td>
+						<td>{ownerNo}</td>
+					</tr>
+					<tr>	
+						<td>Name: </td>
+						<td><!-- BEGIN PERSONLIST -->
+								{ownerName} 
+							<!-- END PERSONLIST -->
+							<!-- BEGIN CompanyList -->
+								{companyName} 
+							<!-- END CompanyList -->
+						</td>
+					</tr>
+					<tr>	
+						<td>Address: </td>
+						<td><!-- BEGIN Address -->
+								{ownerAddress} 
+							<!-- END Address -->		
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td>
+			<p>
+			Sir/Madam:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;This is to inform you that the real property tax(es) due and payable for the year <u>{payableYear}</u>
+			on the property/properties located in this municipality and ownership of which is/are stated in your name for
+			taxation purposes, as well as for subsequent years until you are informed of any change/s, is/are as follows:
+			</p>
+			</td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>	
+			<td>
+				<table border="1">
+					<tr>
+						<TD colspan=7>
+							<table width="100%">
+								<tr>
+						<td>A.</td>
+						<td width="100%" align="center">N O T I C E&nbsp;&nbsp;&nbsp;O F&nbsp;&nbsp;&nbsp;A S S E S S M E N T</td>
+								</tr>
+							</table>
+						</TD>
+
+						<TD colspan=3>
+							<table width="100%">
+								<tr>
+						<td>B.</td>
+						<TD width="100%" align="center">T A X&nbsp;&nbsp;&nbsp;B I L L</TD>
+								</tr>
+							</table>
+						</TD>
+					</tr>
+					<tr>
+						<td colspan="7" align="center">S U M M A R Y&nbsp;&nbsp;&nbsp;O F&nbsp;&nbsp;&nbsp;R E A L&nbsp;&nbsp;&nbsp;P R O P E R T Y&nbsp;&nbsp;&nbsp;A S S E S S M E N T</td>
+						<TD COLSPAN="3" align="center">T A X&nbsp;&nbsp;&nbsp;D U E</TD>
+					</tr>
+					<tr>
+						<td align="center">CURRENT TDN</td>
+						<td align="center">PROPERTY INDEX NUMBER</td>
+						<td align="center">LOCATION</td>
+						<td align="center">KIND</td>
+						<td align="center">CLASS</td>
+						<td align="center">MARKET VALUE</td>
+						<td align="center">ASSESSED VALUE</td>
+						<td align="center">BASIC TAX</td>
+						<td align="center">S.E.F. TAX</td>
+						<td align="center">TOTAL</td>
+					</tr>
+					<!-- BEGIN ROW -->	
+					<tr>
+						<td>{currentTDNo}</td>
+						<td>{pin}</td>
+						<td>{location}</td>
+						<td>{kind}</td>
+						<td>{class}</td>
+						<td align="right">{marketValue}</td>
+						<td align="right">{assessedValue}</td>
+						<td align="right">{basic}</td>
+						<td align="right">{sef}</td>
+						<td align="right">{total}</td>
+					</tr>
+					<!-- END ROW -->
+					<tr>
+						<td colspan="4">&nbsp;</td>
+						<td>TOTAL</td>
+						<td align="right">{totalMarketValue}</td>
+						<td align="right">{totalAssessedValue}</td>
+						<td align="right">{totalBasic}</td>
+						<td align="right">{totalSEF}</td>
+						<td align="right">{totalTaxDue}</td>
+					</tr>
+
+				</table>
+			</td>
+		</tr>		
+	</table>
+</body>
+</html>

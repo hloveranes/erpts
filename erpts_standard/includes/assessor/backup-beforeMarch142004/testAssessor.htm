@@ -1,0 +1,273 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 //EN">
+<html>
+<head>
+       <title>{TITLE}</title>
+</head>
+
+<script language="Javascript">
+function ClearFormOnPHP(){
+         document.myForm.formAction.value = "clear";
+         document.myForm.submit();
+}
+
+</script>
+
+<body>
+
+<form method=post action="testAssessor.php" name="myForm">
+
+<table border=0>
+
+<tr>
+
+ <td valign=top>
+ 
+     <table border=0>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       assessorId:
+      </font></td>
+      <td><font face="arial" size=2>
+       <input type="text" name="myAssessorId" value="{myAssessorId}">
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       personId:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myPersonId" value="{myPersonId}">
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       lastName:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myLastName" value="{myLastName}">
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       firstName:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myFirstName" value="{myFirstName}">
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       middleName:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myMiddleName" value="{myMiddleName}">
+      </font></td>
+     </tr>
+
+     <tr>
+     <td align=right><font face="arial" size=2>
+      gender:
+     </font></td>
+     <td align=right><font face="arial" size=2>
+       <input type="text" name="myGender" value="{myGender}">
+      </font></td>
+     </tr>
+     
+     <tr>
+      <td align=right><font face="arial" size=2>
+       myBirthday:
+      </font></td>
+      <td><font face="arial" size=2>
+       <input type="text" name="myBirthday" value="{myBirthday}">
+      </font></td>
+     </tr>
+     
+     <tr>
+      <td align=right><font face="arial" size=2>
+       myMaritalStatus:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myMaritalStatus" value="{myMaritalStatus}">
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       myTin:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myTin" value="{myTin}">
+      </font></td>
+     </tr>
+
+     
+     </table>
+
+
+ </td>
+ 
+ <td valign=top>
+ 
+     <table border=0>
+
+     <tr>
+      <td align=right valign=top><font face="arial" size=2>
+       myAddress:
+      </font></td>
+      <td align=right valign=top><font face="arial" size=1>
+       <table border=0>
+       <tr>
+        <td><font face="arial" size=1>
+         myAddressID
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myAddressID" value="{myAddressID}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myNumber
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myNumber" value="{myNumber}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myStreet
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myStreet" value="{myStreet}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myBarangay
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myBarangay" value="{myBarangay}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myDistrict
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myDistrict" value="{myDistrict}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myMunicipalityCity
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myMunicipalityCity" value="{myMunicipalityCity}">
+        </font></td>
+       </tr>
+       <tr>
+        <td><font face="arial" size=1>
+         myProvince
+        </font></td>
+        <td><font face="arial" size=1>
+         <input type="text" style="font-size:10px; font-family:verdana;" name="myProvince" value="{myProvince}">
+        </font></td>
+       </tr>
+
+       </table>
+      </font></td>
+     </tr>
+
+     <tr>
+      <td align=right><font face="arial" size=2>
+       myTelephone:
+      </font></td>
+      <td align=right><font face="arial" size=2>
+       <input type="text" name="myTelephone" value="{myTelephone}">
+      </font></td>
+     </tr>
+
+     <tr>
+     <td align=right><font face="arial" size=2>
+     myMobileNumber:
+     </font></td>
+     <td align=right><font face="arial" size=2>
+       <input type="text" name="myMobileNumber" value="{myMobileNumber}">
+      </font></td>
+     </tr>
+     
+     <tr>
+     <td align=right><font face="arial" size=2>
+     myEmail:
+     </font></td>
+     <td align=right><font face="arial" size=2>
+       <input type="text" name="myEmail" value="{myEmail}">
+      </font></td>
+     </tr>
+
+     <tr>
+     <td align=right><font face="arial" size=2>
+     myPosition:
+     </font></td>
+     <td align=right><font face="arial" size=2>
+       <input type="text" name="myPosition" value="{myPosition}">
+      </font></td>
+     </tr>
+
+     </table>
+ 
+ </td>
+
+</tr>
+
+<tr>
+ <td align=center colspan=2 bgcolor="#eeeeee"><font face="arial" size=2>
+  <input type="hidden" name="formAction" value="submit">
+  <!-- BEGIN SubmitButton -->
+  <input type="submit" name="btnSubmit" value="submit">
+  <input type="button" name="btnClear" value="clear" onClick="ClearFormOnPHP();">
+  <!-- END SubmitButton -->
+ </font></td>
+</tr>
+
+</table>
+
+</form>
+
+<!-- BEGIN myXMLentries -->
+
+<table border=0 cellpadding=1 cellspacing=0 width="450" align=left>
+<tr>
+ <td bgcolor="#acacac">
+  <table width="100%" cellpadding=10 cellspacing=0>
+  <tr>
+   <td bgcolor="#ffffff" nowrap>
+   
+   <font face="verdana" size=2>
+
+    {myParsedXML}
+    
+   </font>
+   
+   </td>
+   
+   <td>
+   
+     <textarea rows=30 cols=65 style="font-size:10px; font-family:verdana;">{myXML}</textarea>
+     
+   </td>
+   
+  </tr>
+  </table>
+ </td>
+</tr>
+</table>
+
+<!-- END myXMLentries -->
+
+</body>
+</html>

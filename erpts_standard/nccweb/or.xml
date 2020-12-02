@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+<!-- BEGIN ReceiptPage -->
+    <page height="369" width="778" number="{pageNumber}" 
+orientation="0">
+<!--<page height="339" width="778" number="{pageNumber}" 
+orientation="0">-->
+          <textitem xpos="355" ypos="325" font="Helvetica-Narrow-Bold" size="18" align="center">OFFICIAL RECEIPT OF THE REPUBLIC OF THE PHILIPPINES</textitem>
+          <textitem xpos="355" ypos="314" font="Times-Bold" size="14" align="center">Municipal Treasurer's Real 
+Property Tax Receipt</textitem>
+          <textitem xpos="69" ypos="342" font="Times-Bold" size="11" align="center">Accountable Form No. 56</textitem>
+          <textitem xpos="69" ypos="329" font="Times-Bold" size="11" align="center">(Revised 1992)</textitem>
+          <!--<textitem xpos="69" ypos="287" font="Times-Bold" size="11" align="center">(COMPUTER 
+COPY)</textitem>-->
+          <textitem xpos="157" ypos="346" font="Times-Bold" size="10" >Previous Tax Receipt No. </textitem>
+		  <textitem xpos="270" ypos="345" font="Times-Bold" size="13" >{prevORNum}</textitem>
+          <textitem xpos="346" ypos="342" font="Times-Bold" size="9" >dated </textitem>
+		  <textitem xpos="372" ypos="345" font="Times-Bold" size="12.5" >{porMonth} 
+{porDay}</textitem>
+          <textitem xpos="451" ypos="342" font="Times-Bold" size="9" >for the year </textitem>
+		  <textitem xpos="510" ypos="345" font="Times-Bold" size="12.5" >{porYear}</textitem>
+          <textitem xpos="550" ypos="340" font="Times-Bold" size="24" >No. {orNum}</textitem>
+          <!-- top right corner to place page number
+		     <textitem xpos="698" ypos="322" font="Times-Bold" size="9" align="right">{receiptPageNumber}</textitem>
+		  -->
+          <!--<textitem xpos="688" ypos="306" font="Times-Bold" size="16" >T</textitem>-->
+          <textitem xpos="87" ypos="300" font="Times-Bold" size="7" >Municipality/Province</textitem>
+          <textitem xpos="157" ypos="297" font="Times-Bold" size="12" >{province}</textitem>
+          <textitem xpos="293" ypos="300" font="Times-Bold" size="7" >City</textitem>
+          <textitem xpos="363" ypos="297" font="Times-Bold" size="12" >{city}</textitem>
+          <textitem xpos="501" ypos="300" font="Times-Bold" size="7" >Date </textitem>
+	  <textitem xpos="610" ypos="297" font="Times-Bold" size="13" align="right">{orDate}</textitem>
+          <image xpos="19" ypos="236" src="images/orLogo.jpg" height="70" width="60">Logo</image>
+          <textitem xpos="88" ypos="272" font="Times" size="9" >RECEIVED FROM: </textitem>
+	<textbox x1="170" y1="275" x2="630" y2="275" font="Times-Bold" size="9" hmode="0">{receivedFrom}</textbox>
+<!--<textitem xpos="170" ypos="275" font="Times-Bold" size="9" >{receivedFrom}</textitem>-->
+          <textitem xpos="180" ypos="253" font="Times" size="10" >the sum of </textitem>
+		  <!-- yTotalInWords is either 245 or 235 -->
+		   <textbox x1="240" y1="{y1TotalInWords}" x2="530" y2="280" font="Times" size="8.5" hmode="0">{totalInWords}</textbox>
+		   <textitem xpos="668" ypos="255" font="Times-Bold" size="18" align="right">P 
+{amountPaid}</textitem>
+          <textitem xpos="686" ypos="233" font="Times" size="9" ></textitem>
+          <textitem xpos="87" ypos="241" font="Times" size="9" >Philippine Currency, in full or as installment payment of REAL PROPERTY TAX for the Calendar Year {orYear} upon property described</textitem>
+          <textitem xpos="87" ypos="231" font="Times" size="9" >in the Assessment Rolls as follows</textitem>
+          <!--<textitem xpos="652" ypos="211" font="Times-Bold" size="8" align="right">{receiptType}</textitem>-->
+          <textitem xpos="53" ypos="221" font="Times" size="7.5" align="center">NAME OF DECLARED</textitem>
+          <textitem xpos="53" ypos="214" font="Times" size="8.5" align="center">OWNER</textitem>
+          <textitem xpos="136" ypos="218" font="Times" size="8.5" align="center">LOCATION</textitem>
+          <textitem xpos="135" ypos="209" font="Times" size="8.5" align="center">NO. AND STREET</textitem>
+          <textitem xpos="136" ypos="200" font="Times" size="8.5" align="center" >OR BARANGAY</textitem>
+          <textitem xpos="202" ypos="218" font="Times" size="8.5" align="center">LOT</textitem>
+          <textitem xpos="202" ypos="209" font="Times" size="8.5" align="center">AND BLOCK</textitem>
+          <textitem xpos="202" ypos="200" font="Times" size="8.5" align="center">NO.</textitem>
+          <textitem xpos="255" ypos="218" font="Times" size="8.5" align="center">TAX</textitem>
+          <textitem xpos="255" ypos="209" font="Times" size="8.5" align="center">DEC.</textitem>
+          <textitem xpos="255" ypos="200" font="Times" size="8.5" align="center">NUMBER</textitem>
+          <textitem xpos="354" ypos="218" font="Times" size="8.5" align="center">ASSESSED VALUE</textitem>
+          <textitem xpos="306" ypos="200" font="Times" size="8.5" align="center">LAND</textitem>
+          <textitem xpos="350" ypos="200" font="Times" size="8.5" align="center">IMPROV'NT</textitem>
+          <textitem xpos="400" ypos="200" font="Times" size="8.5" align="center">TOTAL</textitem>
+          <textitem xpos="455" ypos="211" font="Times" size="8.5" align="center">TAX</textitem>
+          <textitem xpos="455" ypos="204" font="Times" size="8.5" align="center">DUE</textitem>
+          <textitem xpos="513" ypos="218" font="Times" size="8.5" align="center">INSTALLMENT</textitem>
+          <textitem xpos="489" ypos="200" font="Times" size="8.5" align="center">No.</textitem>
+          <textitem xpos="529" ypos="200" font="Times" size="8.5" align="center">Payment</textitem>
+          <textitem xpos="577" ypos="211" font="Times" size="8.5" align="center">FULL</textitem>
+          <textitem xpos="577" ypos="204" font="Times" size="8.5" align="center">PAYMENT</textitem>
+          <textitem xpos="622" ypos="211" font="Times" size="8.5" align="center">DISC'T./</textitem>
+          <textitem xpos="622" ypos="204" font="Times" size="8.5" align="center">PENALTY</textitem>
+          <textitem xpos="665" ypos="210" font="Times" size="8.5" align="center">TOTAL</textitem>
+<textitem xpos="578" ypos="53" font="Times" size="8" align="center">BASIC</textitem>
+<textitem xpos="578" ypos="33" font="Times" size="8" align="center">SEF</textitem>
+<textitem xpos="578" ypos="13" font="Times-Bold" size="8" align="center">TOTAL</textitem>
+		  <textitem xpos="678" ypos="53" font="Times" size="12" 
+align="right">{total}</textitem>
+<textitem xpos="678" ypos="33" font="Times" size="12" align="right">{sefTotal}</textitem>
+<textitem xpos="678" ypos="13" font="Times-Bold" size="15" align="right">{amountPaid}</textitem>
+          <textitem xpos="39" ypos="54" font="Times-Bold" size="9" >Total taxes paid through : {paymentMode} {checkNumber} {dateOfCheck} {draweeBank}</textitem>
+          <textitem xpos="386" ypos="69" font="Times-Bold" size="7" ></textitem>
+          <textitem xpos="590" ypos="90" font="Times" size="6" align="right">{fullPmtTotal}</textitem>
+          <textitem xpos="18" ypos="26" font="Times" size="9" >*Payment without penalty may be made within the 
+periods stated below if by installment</textitem>
+          <textitem xpos="40" ypos="18" font="Times" size="9" >1st Installment- January 1 to March 31, of the 
+year</textitem>
+          <textitem xpos="40" ypos="08" font="Times" size="9" >2nd Installment- February 1 to June 30, of the 
+year</textitem>
+          <textitem xpos="240" ypos="18" font="Times" size="9" >3rd Installment- July 1 to Sept 30, of the 
+year</textitem>
+          <textitem xpos="240" ypos="08" font="Times" size="9" >4th Installment- October 1 to Dec 31, of the 
+year</textitem>
+
+          <textitem xpos="490" ypos="24" font="Times" size="9" align="center">{cityTreasurer}</textitem>
+          <textitem xpos="490" ypos="11" font="Times" size="9" align="center">Municipal Treasurer</textitem>
+      <!--<textitem xpos="610" ypos="24" font="Times" size="9" align="center">{deputyTreasurer}</textitem>-->
+ <!--<textitem xpos="610" ypos="11" font="Times" size="9" align="center">Deputy</textitem></textitem>-->
+	  <lineitem x1="259" y1="342" x2="341" y2="342">Previous OR</lineitem>
+          <lineitem x1="372" y1="342" x2="444" y2="342">Dated</lineitem>
+          <lineitem x1="500" y1="342" x2="540" y2="342">Year</lineitem>
+          <lineitem x1="17" y1="310" x2="695" y2="310">logo1</lineitem>
+          <lineitem x1="17" y1="310" x2="17" y2="228">logo2</lineitem>
+          <lineitem x1="17" y1="228" x2="695" y2="228">logo3</lineitem>
+          <lineitem x1="82" y1="228" x2="82" y2="310">logo4</lineitem>
+          <lineitem x1="695" y1="310" x2="695" y2="228">TopRight</lineitem>
+          <lineitem x1="82" y1="293" x2="695" y2="293">Municipality</lineitem>
+          <lineitem x1="283" y1="294" x2="283" y2="310">City</lineitem>
+          <lineitem x1="495" y1="294" x2="495" y2="310">Date</lineitem>
+          <lineitem x1="164" y1="272" x2="620" y2="272">Received</lineitem>
+          <lineitem x1="240" y1="250" x2="520" y2="250">sum of</lineitem>
+          <lineitem x1="560" y1="253" x2="688" y2="253">pesos</lineitem>
+          <lineitem x1="91" y1="67" x2="91" y2="228">Declared Owner</lineitem>
+          <lineitem x1="176" y1="67" x2="176" y2="228">Location</lineitem>
+          <lineitem x1="226" y1="67" x2="226" y2="228">Lot</lineitem>
+          <lineitem x1="284" y1="67" x2="284" y2="228">TD Num</lineitem>
+          <lineitem x1="328" y1="67" x2="328" y2="213">Land</lineitem>
+          <lineitem x1="372" y1="67" x2="372" y2="213">Improvement</lineitem>
+          <lineitem x1="430" y1="67" x2="430" y2="228">Total</lineitem>
+          <lineitem x1="478" y1="67" x2="478" y2="228">Tax Due</lineitem>
+          <lineitem x1="510" y1="67" x2="510" y2="213">Install Num</lineitem>
+          <lineitem x1="548" y1="67" x2="548" y2="228">Payment</lineitem>
+          <lineitem x1="600" y1="67" x2="600" y2="228">Full</lineitem>
+          <lineitem x1="644" y1="67" x2="644" y2="228">Penalty</lineitem>
+          <lineitem x1="478" y1="213" x2="548" y2="213">Installment</lineitem>
+          <lineitem x1="284" y1="213" x2="430" y2="213">Assessed Value</lineitem>
+     	  <lineitem x1="17" y1="yy" x2="xx" y2="yy">Full</lineitem>
+          <lineitem x1="17" y1="yy" x2="xx" y2="yy">Full</lineitem>
+          <lineitem x1="17" y1="197" x2="695" y2="197">Full</lineitem>
+    <!--  <lineitem x1="17" y1="160" x2="695" y2="160">Full</lineitem>
+          <lineitem x1="17" y1="145" x2="695" y2="145">Full</lineitem>
+          <lineitem x1="17" y1="130" x2="695" y2="130">Full</lineitem>
+          <lineitem x1="17" y1="115" x2="695" y2="115">Full</lineitem>
+          <lineitem x1="17" y1="100" x2="695" y2="100">Full</lineitem>-->
+	<!--<lineitem x1="519" y1="47" x2="695" y2="47">Treasurer</lineitem>-->
+          <lineitem x1="425" y1="20" x2="550" y2="20">Deputy</lineitem>
+          <lineitem x1="17" y1="70" x2="695" y2="70">double line 1</lineitem>
+          <lineitem x1="17" y1="67" x2="695" y2="67">double line 1</lineitem>
+          <lineitem x1="17" y1="47" x2="695" y2="47">double line 2</lineitem>
+          <lineitem x1="17" y1="44" x2="695" y2="44">double line 2</lineitem>
+	  <lineitem x1="565" y1="28" x2="695" y2="28">total line</lineitem>
+          <textitem xpos="540" ypos="90" font="Times" size="6" align="right">{partialPmtTotal}</textitem>
+
+          <textbox x1="16" y1="188" x2="86" y2="175" font="Times" size="7">{ownerName1}</textbox>
+          <textbox x1="16" y1="168" x2="86" y2="155" font="Times" size="7">{ownerName2}</textbox>
+          <textbox x1="16" y1="148" x2="86" y2="135" font="Times" size="7">{ownerName3}</textbox>
+          <textbox x1="16" y1="128" x2="86" y2="115" font="Times" size="7">{ownerName4}</textbox>
+          <textbox x1="16" y1="108" x2="86" y2="95" font="Times" size="7">{ownerName5}</textbox>
+          <textbox x1="16" y1="88" x2="86" y2="75" font="Times" size="7">{ownerName6}</textbox>
+
+          <textbox x1="94" y1="188" x2="173" y2="175" font="Arial" size="8">{lotAddress1}</textbox>
+<!--          <textitem xpos="180" ypos="168" font="Times" size="7" align="left">{blockNumber1}</textitem> -->
+          <textitem xpos="200" ypos="182" font="Arial" size="7" align="center">{blockNumber1}{landClass1}</textitem>
+          <textitem xpos="255" ypos="188" font="Times-Bold" size="9.5" align="center">{idleStatus1}{tdNum1}</textitem>
+          <textitem xpos="255" ypos="182" font="Arial" size="7" align="center">{dueDate1}</textitem>
+          <textitem xpos="325" ypos="185" font="Arial" size="8" align="right">{assessedValueLand1}</textitem>
+          <textitem xpos="370" ypos="185" font="Arial" size="8" align="right">{assessedValueOthers1}</textitem>
+          <textitem xpos="428" ypos="185" font="Arial" size="9" align="right">{assessedValue1}</textitem>
+          <textitem xpos="476" ypos="185" font="Arial" size="9" align="right">{subTotal1}</textitem>
+          <textitem xpos="485" ypos="185" font="Arial" size="7" align="center">{num1}</textitem>
+          <textitem xpos="540" ypos="185" font="Arial" size="7" align="right">{partialPmt1}</textitem>
+          <textitem xpos="598" ypos="185" font="Arial-Bold" size="9" align="right">{fullPmt1}</textitem>
+          <textitem xpos="625" ypos="185" font="Arial-Bold" size="9" align="center">{penalty1}</textitem>
+          <textitem xpos="650" ypos="185" font="Arial-Bold" size="9" align="left">{grandTotal1}</textitem>
+
+          <textbox x1="94" y1="168" x2="173" y2="155" font="Arial" size="8">{lotAddress2}</textbox>
+<!--          <textitem xpos="180" ypos="153" font="Times" size="6" align="left">{blockNumber2}</textitem> -->
+          <textitem xpos="200" ypos="162" font="Arial" size="7" align="center">{blockNumber2}{landClass2}</textitem>
+          <textitem xpos="255" ypos="168" font="Times-Bold" size="9.5" align="center">{idleStatus2}{tdNum2}</textitem>
+          <textitem xpos="255" ypos="162" font="Arial" size="7" align="center">{dueDate2}</textitem>
+          <textitem xpos="325" ypos="165" font="Arial" size="8" align="right">{assessedValueLand2}</textitem>
+          <textitem xpos="370" ypos="165" font="Arial" size="8" align="right">{assessedValueOthers2}</textitem>
+          <textitem xpos="428" ypos="165" font="Arial" size="9" align="right">{assessedValue2}</textitem>
+          <textitem xpos="476" ypos="165" font="Arial" size="9" align="right">{subTotal2}</textitem>
+          <textitem xpos="485" ypos="165" font="Arial" size="7" align="center">{num2}</textitem>
+          <textitem xpos="540" ypos="165" font="Arial" size="7" align="right">{partialPmt2}</textitem>
+          <textitem xpos="598" ypos="165" font="Arial-Bold" size="9" align="right">{fullPmt2}</textitem>
+          <textitem xpos="625" ypos="165" font="Arial-Bold" size="9" align="center">{penalty2} </textitem>
+          <textitem xpos="650" ypos="165" font="Arial-Bold" size="9" align="left">{grandTotal2}</textitem>
+
+          <textbox x1="94" y1="148" x2="173" y2="135" font="Arial" size="8">{lotAddress3}</textbox>
+<!--          <textitem xpos="180" ypos="138" font="Times" size="6" align="left">{blockNumber3}</textitem> -->
+          <textitem xpos="200" ypos="142" font="Arial" size="7" align="center">{blockNumber3}{landClass3}</textitem>
+          <textitem xpos="255" ypos="148" font="Times-Bold" size="9.5" align="center">{idleStatus3}{tdNum3}</textitem>
+          <textitem xpos="255" ypos="142" font="Arial" size="7" align="center">{dueDate3}</textitem>
+          <textitem xpos="325" ypos="145" font="Arial" size="8" align="right">{assessedValueLand3}</textitem>
+          <textitem xpos="370" ypos="145" font="Arial" size="8" align="right">{assessedValueOthers3}</textitem>
+          <textitem xpos="428" ypos="145" font="Arial" size="9" align="right">{assessedValue3}</textitem>
+          <textitem xpos="476" ypos="145" font="Arial" size="9" align="right">{subTotal3}</textitem>
+          <textitem xpos="485" ypos="145" font="Arial" size="7" align="center">{num3}</textitem>
+          <textitem xpos="540" ypos="145" font="Arial" size="7" align="right">{partialPmt3}</textitem>
+          <textitem xpos="598" ypos="145" font="Arial-Bold" size="9" align="right">{fullPmt3}</textitem>
+          <textitem xpos="625" ypos="145" font="Arial-Bold" size="9" align="center">{penalty3} </textitem>
+          <textitem xpos="650" ypos="145" font="Arial-Bold" size="9" align="left">{grandTotal3}</textitem>
+
+          <textbox x1="94" y1="128" x2="173" y2="115" font="Arial" size="8">{lotAddress4}</textbox>
+<!--          <textitem xpos="180" ypos="123" font="Times" size="6" align="left">{blockNumber4}</textitem> -->
+          <textitem xpos="200" ypos="122" font="Arial" size="7" align="center">{blockNumber4}{landClass4}</textitem>
+          <textitem xpos="255" ypos="128" font="Times-Bold" size="9.5" align="center">{idleStatus4}{tdNum4}</textitem>
+          <textitem xpos="255" ypos="122" font="Arial" size="7" align="center">{dueDate4}</textitem>
+          <textitem xpos="325" ypos="125" font="Arial" size="8" align="right">{assessedValueLand4}</textitem>
+          <textitem xpos="370" ypos="125" font="Arial" size="8" align="right">{assessedValueOthers4}</textitem>
+          <textitem xpos="428" ypos="125" font="Arial" size="9" align="right">{assessedValue4}</textitem>
+          <textitem xpos="476" ypos="125" font="Arial" size="9" align="right">{subTotal4}</textitem>
+          <textitem xpos="485" ypos="125" font="Arial" size="7" align="center">{num4}</textitem>
+          <textitem xpos="540" ypos="125" font="Arial" size="7" align="right">{partialPmt4}</textitem>
+          <textitem xpos="598" ypos="125" font="Arial-Bold" size="9" align="right">{fullPmt4}</textitem>
+          <textitem xpos="625" ypos="125" font="Arial-Bold" size="9" align="center">{penalty4} </textitem>
+          <textitem xpos="650" ypos="125" font="Arial-Bold" size="9" align="left">{grandTotal4}</textitem>
+
+          <textbox x1="94" y1="108" x2="173" y2="95" font="Arial" size="8">{lotAddress5}</textbox>
+<!--          <textitem xpos="180" ypos="108" font="Times" size="6" align="left">{blockNumber5}</textitem> -->
+          <textitem xpos="200" ypos="102" font="Arial" size="7" align="center">{blockNumber5}{landClass5}</textitem>
+          <textitem xpos="255" ypos="108" font="Times-Bold" size="9.5" align="center">{idleStatus5}{tdNum5}</textitem>
+          <textitem xpos="255" ypos="102" font="Arial" size="7" align="center">{dueDate5}</textitem>
+          <textitem xpos="325" ypos="105" font="Arial" size="8" align="right">{assessedValueLand5}</textitem>
+          <textitem xpos="370" ypos="105" font="Arial" size="8" align="right">{assessedValueOthers5}</textitem>
+          <textitem xpos="428" ypos="105" font="Arial" size="9" align="right">{assessedValue5}</textitem>
+          <textitem xpos="476" ypos="105" font="Arial" size="9" align="right">{subTotal5}</textitem>
+          <textitem xpos="485" ypos="105" font="Arial" size="7" align="center">{num5}</textitem>
+          <textitem xpos="540" ypos="105" font="Arial" size="7" align="right">{partialPmt5}</textitem>
+          <textitem xpos="598" ypos="105" font="Arial-Bold" size="9" align="right">{fullPmt5}</textitem>
+          <textitem xpos="625" ypos="105" font="Arial-Bold" size="9" align="center">{penalty5} </textitem>
+          <textitem xpos="650" ypos="105" font="Arial-Bold" size="9" align="left">{grandTotal5}</textitem>
+
+          <textbox x1="94" y1="88" x2="173" y2="75" font="Arial" size="8">{lotAddress6}</textbox>
+<!--          <textitem xpos="180" ypos="93" font="Times" size="6" align="left">{blockNumber6}</textitem> -->
+          <textitem xpos="200" ypos="82" font="Arial" size="7" align="center">{blockNumber6}{landClass6}</textitem>
+          <textitem xpos="255" ypos="88" font="Times-Bold" size="9.5" align="center">{idleStatus6}{tdNum6}</textitem>
+          <textitem xpos="255" ypos="82" font="Arial" size="7" align="center">{dueDate6}</textitem>
+          <textitem xpos="325" ypos="85" font="Arial" size="8" align="right">{assessedValueLand6}</textitem>
+          <textitem xpos="370" ypos="85" font="Arial" size="8" align="right">{assessedValueOthers6}</textitem>
+          <textitem xpos="428" ypos="85" font="Arial" size="9" align="right">{assessedValue6}</textitem>
+          <textitem xpos="476" ypos="85" font="Arial" size="9" align="right">{subTotal6}</textitem>
+          <textitem xpos="485" ypos="85" font="Arial" size="7" align="center">{num6}</textitem>
+          <textitem xpos="540" ypos="85" font="Arial" size="7" align="right">{partialPmt6}</textitem>
+          <textitem xpos="598" ypos="85" font="Arial-Bold" size="9" align="right">{fullPmt6}</textitem>
+          <textitem xpos="625" ypos="85" font="Arial-Bold" size="9" align="center">{penalty6} </textitem>
+          <textitem xpos="650" ypos="85" font="Arial-Bold" size="9" align="left">{grandTotal6}</textitem>
+   </page>
+<!-- END ReceiptPage -->
+</contents>
+

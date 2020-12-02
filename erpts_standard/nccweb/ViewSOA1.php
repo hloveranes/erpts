@@ -1,0 +1,258 @@
+<?php 
+# Setup PHPLIB in this Area
+include_once "../includes/web/prepend.php";
+include_once "../includes/assessor/Address.php";
+include_once "../includes/assessor/AFS.php";
+include_once "../includes/assessor/Company.php";
+include_once "../includes/assessor/CompanyRecords.php";
+include_once "../includes/assessor/Person.php";
+include_once "../includes/assessor/PersonRecords.php";
+include_once "../includes/assessor/Owner.php";
+include_once "../includes/assessor/LandActualUses.php";
+include_once "../includes/assessor/ImprovementsBuildingsActualUses.php";
+include_once "../includes/assessor/RPTOP.php";
+include_once "../includes/assessor/RPTOPRecords.php";
+include_once "../includes/assessor/MunicipalityCity.php";
+include_once "../includes/assessor/MunicipalityCityRecords.php";
+include_once "../includes/collection/dues.php";
+include('web/clibPDFWriter.php');
+
+#####################################
+# Define Interface Class
+#####################################
+class RPTOPList{
+	
+	var $tpl;
+	var $formArray;
+	var $sess;
+	
+	function RPTOPList($sess,$http_post_vars){
+		$this->tpl = new rpts_Template(getcwd());
+		$this->tpl->set_file("rptsTemplate", "soa.xml") ;
+		#$this->tpl->set_file("rptsTemplate", "ViewSOA1.htm");
+				
+		$this->sess = $sess;
+		
+		foreach ($http_post_vars as $key=>$value) {
+			$this->formArray[$key] = $value;
+		}
+		#echo("munID=".$this->formArray[municipalityCityID]."<br>");
+	}
+	function setForm(){
+		foreach ($this->formArray as $key => $value){
+			$this->tpl->set_var($key, $value);
+		}
+	}
+		
+	function Main(){
+
+		$this->formArray['currentDate'] = date("F d, Y");
+		
+		$MunicipalityCityDetails = new SoapObject(NCCBIZ."MunicipalityCityDetails.php", "urn:Object");		
+		#test values
+		//$this->formArray['municipalityCityID']=1;
+		
+		if (!$xmlStr = $MunicipalityCityDetails->getMunicipalityCityDetails($this->formArray['municipalityCityID'])){
+			#echo($xmlStr);
+			exit("xml failed for municipality");
+			//header("Location: ".$this->sess->url("ViewSOA.php")."&status=2");
+		}
+		else{
+			if(!$domDoc = domxml_open_mem($xmlStr)) {
+				echo("error xmlDoc");
+			}
+			else {
+				$MunicipalityCity = new MunicipalityCity;
+				$MunicipalityCity->parseDomDocument($domDoc);
+				$this->formArray['municipality'] = $MunicipalityCity->getDescription();
+			}
+		}
+
+		if($this->formArray['personID'] != ""){
+			$person = new Person();
+			$person->selectRecord($this->formArray['personID']);
+			$this->tpl->set_var(ownerName,$person->getFullName());
+			$this->tpl->set_var(ownerNo,$person->getTin());
+			$address = $person->addressArray[0];
+
+			if(is_object($address)){
+				$this->tpl->set_var(ownerAddress,$address->getNumber() ." ".$address->getStreet()." ".$address->getBarangay()." ".$address->getDistrict()." ".$address->getMunicipalitycity()." ".$address->getProvince());
+			}
+			else{
+				$this->tpl->set_var(ownerAddress,"");
+			}
+
+			$db = new DB_RPTS();
+			$sql = "SELECT rptopID FROM Owner inner join OwnerPerson on Owner.ownerID=OwnerPerson.ownerID WHERE Owner.rptopID <> '' AND OwnerPerson.personID=".$this->formArray['personID'];
+			$db->query($sql);
+		}else{
+			$company = new Company();
+			$company->selectRecord($this->formArray['companyID']);
+			$this->tpl->set_var(ownerName,$company->getCompanyName());
+			$this->tpl->set_var(ownerNo,$company->getCompanyID());
+			$address = $company->addressArray[0];
+			$this->tpl->set_var(ownerAddress,$address->getNumber() ." ".$address->getStreet()." ".$address->getBarangay()." ".$address->getDistrict()." ".$address->getMunicipalitycity()." ".$address->getProvince());
+			$db = new DB_RPTS();
+			$sql = "SELECT rptopID FROM Owner inner join OwnerPerson on Owner.ownerID=OwnerPerson.ownerID WHERE Owner.rptopID <> '' AND OwnerPerson.personID=".$this->formArray['companyID'];
+			$db->query($sql);
+		}
+		$ypos=325;
+		$this->tpl->set_block("rptsTemplate","ROW","RowBlk");	
+		for($i=0;$db->next_record();$i++){
+		
+			$rptopID = $db->f("rptopID");
+				$RPTOPDetails = new SoapObject(NCCBIZ."RPTOPDetails.php", "urn:Object");
+				if (!$xmlStr = $RPTOPDetails->getRPTOP($rptopID)){
+				//	exit("xml failed for RPTOP");
+					header("Location: ".$this->sess->url("ViewSOA.php")."&status=1");
+				}else{
+			//echo $xmlStr;
+					if(!$domDoc = domxml_open_mem($xmlStr)) {
+					$this->tpl->set_block("rptsTemplate", "OwnerListTable", "OwnerListTableBlock");
+					$this->tpl->set_var("OwnerListTableBlock", "error xmlDoc");
+					}else {
+						$rptop = new RPTOP;
+						$td = new TD();
+						$rptop->parseDomDocument($domDoc);
+
+						foreach($rptop as $key => $value){
+							$this->formArray['payableYear'] = $rptop->getTaxableYear();
+							$rptopID = $rptop->getRptopID();
+							
+							if($key=="tdArray"){
+								$tdCtr = 0;
+								if (count($value)){										
+									foreach($value as $tkey => $tvalue){			
+										$td->selectRecord($tvalue->getTdID());
+										$assessedValue = number_format($td->getAssessedValue(),2,".","");
+										$propertyType = $td->getPropertyType();
+										$TaxDeclarationNumber = $td->getTaxDeclarationNumber();
+
+										$afsID = $td->getAfsID();
+										$afs = new AFS();
+										$afs->selectRecord($afsID);
+										$od = new OD();
+										$od->selectRecord($afs->getOdID());
+										$addr = $od->getLocationAddress();
+										
+		  				 					if(count($addr)){
+											$location = strtoupper($addr->getNumber()." ".substr($addr->getBarangay(),0,4)." ".substr($addr->getMunicipalityCity(),0,3)." ".substr($addr->getProvince(),0,3));
+												$munCityID = $addr->getMunicipalityCityID();											
+											}
+											if(count($afs->landArray)){
+												foreach($afs->landArray as $afsKey => $afsValue){
+													$actualUse = $afsValue->getActualUse();
+													$landActualUses = new LandActualUses();
+													$landActualUses->selectRecord($actualUse);
+													$Code = $landActualUses->getCode();
+												}
+											}
+											if(count($afs->improvementsBuildingsArray)){
+												foreach($afs->improvementsBuildingsArray as $afsKey => $afsValue){
+													$actualUse = $afsValue->getActualUse();
+													$improvementsBuildingsActualUses = new improvementsBuildingsActualUses();
+													$improvementsBuildingsActualUses->selectRecord($actualUse);
+													$Code = $improvementsBuildingsActualUses->getCode();
+												}
+											}
+											if($munCityID == $this->formArray['municipalityCityID']){
+												$this->tpl->set_var(location,$location);
+												$this->tpl->set_var("class",$Code);
+												$this->tpl->set_var(kind,strtoupper(substr($propertyType,0,4)));
+												$this->tpl->set_var(currentTDNo,$TaxDeclarationNumber);
+												$this->tpl->set_var(municipality,$addr->getMunicipalityCity());
+												//$dues = new Dues();
+												//$dues->create($td->getTdID(),"2003");
+												//$totTaxDue += $dues->getSEF()+$dues->getBasic();
+
+												$dues = new Dues($tvalue->getTdID(),$rptop->getTaxableYear(),$assessedValue);
+
+											 	$paymentPeriod = $dues->getPaymentMode();
+												$totalTaxDue = $dues->getPaidBasic($paymentPeriod) + $dues->getPaidSEF($paymentPeriod) + $dues->getPaidIdle($paymentPeriod);
+												
+												if ($dues->getAmnesty()) {
+													$dues->setPctPenalty(0.0);
+												} else {
+													$totalTaxDue += $dues->getPenalty($paymentPeriod);
+											
+												}
+			
+			
+												 if ($dues->getIsDiscount()) {
+													$taxDue->setDiscount($totalTaxDue);
+													$totalTaxDue -= $dues->getDiscount();
+														
+												 }
+
+												$interest = $dues->getPctPenalty();
+												if ($interest>0 && $paymentPeriod!="Annual") $paymentPeriod="Annual";
+
+												$basic = number_format($dues->getPaidBasic(),"2",".","");
+												$this->tpl->set_var(basic,$basic);												
+												$totBasic += $basic;
+												$sef = number_format($dues->getPaidSEF(),"2",".","");
+												$this->tpl->set_var(sef,$sef);
+												$totSEF += number_format($sef,"2",".","");
+												$this->tpl->set_var(total,number_format($sef+$basic,"2",".",""));
+												$this->tpl->set_var(marketValue,number_format($afs->getTotalMarketValue(),2));
+												$totMarketValue += $afs->getTotalMarketValue();
+												$this->tpl->set_var(assessedValue,number_format($afs->getTotalAssessedValue(),2));
+												$totAssessedValue += $afs->getTotalAssessedValue();																
+												$pIndexNo = $afs->getPropertyIndexNumber();
+													if($pIndexNo==""){
+														$pIndexNo = "No value specified";	
+													}
+													$ypos = $ypos-10;
+													$this->tpl->set_var(ypos,$ypos);
+												$this->tpl->set_var(pin,$pIndexNo);			
+												$this->tpl->parse("RowBlk","ROW",true);
+											}
+								}#end foreach($value)						
+							}#end if coun value
+				
+							$this->tpl->set_var(totalMarketValue,number_format($totMarketValue,2));
+							$this->tpl->set_var(totalAssessedValue,number_format($totAssessedValue,2));
+							$this->tpl->set_var(totalBasic,number_format($totBasic,2));
+							$this->tpl->set_var(totalSEF,number_format($totSEF,2));
+							$this->tpl->set_var(totalTaxDue,number_format($totalTaxDue,2));
+						}
+					}
+				}
+			}		
+							
+		}
+		$this->setForm();
+
+		$this->tpl->set_var("Session", $this->sess->url(""));
+/*		$this->tpl->parse("templatePage", "rptsTemplate");
+		$this->tpl->finish("templatePage");
+		$this->tpl->p("templatePage");
+*/
+
+		$this->tpl->parse("templatePage", "rptsTemplate");
+		$this->tpl->finish("templatePage");
+		
+       $rptrpdf = new PDFWriter;
+       $rptrpdf->setOutputXML($this->tpl->get('templatePage'),"string");
+       $rptrpdf->writePDF("viewSOA.pdf");
+
+	}
+
+}
+
+#####################################
+# Define Procedures and Functions
+#####################################
+
+##########################################################
+# Begin Program Script
+##########################################################
+page_open(array("sess" => "rpts_Session",
+	"auth" => "rpts_Challenge_Auth"
+	//"perm" => "rpts_Perm"
+	));
+if(!$page) $page = 1;
+$rptopList = new RPTOPList($sess,$HTTP_POST_VARS);
+$rptopList->main();
+?>
+<?php page_close(); ?>

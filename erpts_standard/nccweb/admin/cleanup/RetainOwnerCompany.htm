@@ -1,0 +1,282 @@
+<html>
+<head>
+<title>eLGU - Database Cleanup - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style>
+ A.x{text-decoration:none;}
+ A:Hover{color:#ff0000;}
+ .smallfont{font-family:arial; font-size:9px;}
+ .mediumfont{font-family:arial; font-size:11px;}
+ .largefont{font-family:arial; font-size:16px;}
+</style>
+<script language="Javascript">
+function toggle(id){
+ 	obj=document.getElementById(id);
+ 	if (obj.style.display=='none') {
+		obj.style.display='';
+	}
+	else {
+		obj.style.display='none';
+	}
+}
+function confirmUndo(){
+	if(confirm("Are you sure you want to UNDO the Merge?")){
+		document.RetainOwnerCompany.submit();
+	}
+}
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="RetainOwnerCompany" action="MergeOwnerCompanyConfirm.php{Session}" method="post">
+<table width="100%" border="0" cellpadding="10" cellspacing="0" align=center>
+<tr>
+	<td valign=top align=left>
+		&nbsp;
+		&nbsp;
+		<font face="arial" size=2 color="#ffffff">
+			<b>{uname}</b> : {today}
+		</font>
+	</td>
+	<td valign=top align=right>
+		<font face="arial" size=2>
+		&nbsp;
+	    &nbsp;
+		&nbsp;
+	    &nbsp;
+		<a href="../../Logout.php" class="x" title="Logout"><font color="#ffffff">Logout</font></a>
+		</font>
+	</td>
+</tr>
+<tr>
+	<td valign=top align=left>
+		<font color="#f6f6f6" class="mediumfont">&lt; <a href="OwnerCompanyList.php{Session}"><b>back to list</b></a></font> | 
+		<font color="#f6f6f6" class="largefont"><b>MERGED TO RETAINED OWNER</b></font>
+	</td>
+</tr>
+<tr>
+	<td colspan=2 bgcolor="#f6f6f6">
+		<font face="arial" size=2>
+		&nbsp;&nbsp;
+		<a href="OwnerList.php{Session}" class="x"><b>Cleanup Owners</b></a> : 
+		<a href="OwnerPersonList.php{Session}" class="x"><b>Persons</b></a>
+		|
+		<a href="OwnerCompanyList.php{Session}" class="x"><b><U>Companies</U></b></a>
+		<br><br>
+		&nbsp;&nbsp;
+		Ownership of properties transferred to retained Company and remaining Companies have been disabled.<br>Click "<b>Undo Merge</b>" to revert this process, or go <a href="OwnerCompanyList.php{Session}"><B>back to the list</B></a> &gt;
+		</font>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr>
+	<td valign=top align=left class="smallfont" bgcolor="#cccccc">
+		<input type="button" value="UNDO MERGE" onClick="confirmUndo();">		
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr bgcolor="#cccccc">
+	<td valign=top align="center" class="smallfont">
+	 show/hide<br>
+	 properties
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 companyID
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 companyName
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 address
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 tin
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 telephone
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 fax
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 website
+	</td>
+	<td valign="middle" align="left" class="smallfont">
+	 email
+	</td>
+</tr>
+<!-- BEGIN OwnerCompanyList -->
+<tr bgcolor="#f6f6f6">
+	<td align="center"><input type="checkbox" onClick="toggle('companyDetails{companyID}');"></td>
+	<td class="smallfont">
+	 {companyID}
+	 <input type="hidden" name="companyID[]" value="{companyID}">
+	</td>
+	<td class="smallfont">
+	 {companyName}
+	</td class="smallfont">
+	<td class="smallfont">
+	 {address}
+	</td>
+	<td class="smallfont">
+	 {tin}
+	</td>
+	<td class="smallfont">
+	 {telephone}
+	</td>
+	<td class="smallfont">
+	 {fax}
+	</td>
+	<td class="smallfont">
+	 {website}
+	</td>
+	<td class="smallfont">
+	 {email}
+	</td>
+</tr>
+<tr id="companyDetails{companyID}" style="display:none;">
+<td bgcolor="#cccccc">&nbsp;</td>
+<td colspan=8 bgcolor="#cccccc">
+	<table border=0 cellpadding=10 cellspacing=1 width="100%">
+<!-- BEGIN ODList -->
+	<tr bgcolor="#f6f6f6">
+		<td class="smallfont">
+			<table border=0 cellpadding=0 width="100%">
+			<tr>
+				<td class="smallfont" colspan=4>
+					<B>odID:</B> {odID}<br>
+					<B>afsID:</B> {afsID}<br>
+					<B>tdID:</B> {tdID}<br><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="smallfont" colspan=4>
+					<B>locationAddress:</B> {locationAddress}<br>
+					<br>
+					<B>propertyIndexNumber:</B> {propertyIndexNumber} <br>
+					<B>arpNumber:</b> {arpNumber} <br>
+					<br>
+					<B>taxDeclarationNumber:</B> {taxDeclarationNumber} <br>
+					<B>propertyType:</B> {propertyType}<br><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{landLabel}
+					<!-- BEGIN LandList -->
+						{land[propertyID]}
+						{land[octTctNumber]}
+						{land[surveyNumber]}
+	
+						{land[north]}
+						{land[south]}
+						{land[east]}
+						{land[west]}
+	
+						{land[description]}
+						{land[classification]}
+						{land[subClass]}
+						{land[actualUse]}
+	
+						{land[area]}
+					<!-- END LandList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{plantsTreesLabel}
+					<!-- BEGIN PlantsTreesList -->
+						{plantsTrees[propertyID]}
+					    {plantsTrees[surveyNumber]}
+
+						{plantsTrees[productClass]}
+						{plantsTrees[kind]}
+						{plantsTrees[actualUse]}
+
+						{plantsTrees[areaPlanted]}
+						{plantsTrees[number]}
+					<!-- END PlantsTreesList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{improvementsBuildingsLabel}
+					<!-- BEGIN ImprovementsBuildingsList -->
+						{improvementsBuildings[propertyID]}
+						{improvementsBuildings[foundation]}
+						{improvementsBuildings[columnsBldg]}
+						{improvementsBuildings[beams]}
+						{improvementsBuildings[trussFraming]}
+						{improvementsBuildings[roof]}
+
+						{improvementsBuildings[buildingClassification]}
+						{improvementsBuildings[kind]}
+						{improvementsBuildings[actualUse]}
+					<!-- END ImprovementsBuildingsList -->
+				</td>
+				<td class="smallfont" align="left" valign="top" width="25%">
+					{machineriesLabel}
+					<!-- BEGIN MachineriesList -->
+						{machineries[propertyID]}
+
+						{machineries[machineryDescription]}
+						{machineries[brand]}
+						{machineries[modelNumber]}
+						{machineries[capacity]}
+
+						{machineries[kind]}
+						{machineries[actualUse]}
+					<!-- END MachineriesList -->
+				</td>
+			</tr>
+			</table>
+			<br>			
+		</td>
+	</tr>
+<!-- END ODList -->
+	</table>
+</td>
+</tr>
+<!-- END OwnerCompanyList -->
+<!-- BEGIN DisabledCompanyList -->
+<tr bgcolor="#dfdfdf">
+	<td align="center" class="smallfont"><I>disabled</I></td>
+	<td class="smallfont">
+	 <I>{companyID}</I>
+	 <input type="hidden" name="companyID[]" value="{companyID}">
+	</td>
+	<td class="smallfont">
+	 <I>{companyName}</I>
+	</td class="smallfont">
+	<td class="smallfont">
+	 <I>{address}</I>
+	</td>
+	<td class="smallfont">
+	 <I>{tin}</I>
+	</td>
+	<td class="smallfont">
+	 <I>{telephone}</I>
+	</td>
+	<td class="smallfont">
+	 <I>{fax}</I>
+	</td>
+	<td class="smallfont">
+	 <I>{website}</I>
+	</td>
+	<td class="smallfont">
+	 <I>{email}</I>
+	</td>
+</tr>
+<!-- END DisabledCompanyList -->
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr>
+	<td valign=top align=left class="smallfont" bgcolor="#cccccc">
+		<input type="button" value="UNDO MERGE" onClick="confirmUndo();">			
+	</td>
+</tr>
+</table>
+<input type="hidden" name="formAction" value="rollback">
+<!-- BEGIN RollbackSQLList -->
+<input type="hidden" name="rollbackSQL[]" value="{rollbackSQL}">
+<!-- END RollbackSQLList -->
+</form>
+</body>
+</html>

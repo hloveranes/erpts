@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+	<page height="784" width="584" number="1" orientation="0">
+
+		<textitem xpos="292" ypos="744" font="Times-Bold" size="11" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="292" ypos="732" font="Times-Bold" size="11" align="center">{lguType} of {lguName}</textitem>
+		<textitem xpos="292" ypos="712" font="Times-Bold" size="14" align="center">Office of the City/Municipal Treasurer</textitem>
+
+		<textitem xpos="292" ypos="672" font="Times-Bold" size="12" align="center">FINAL DEMAND LETTER</textitem>
+
+		<textitem xpos="449" ypos="632" font="Times-Bold" size="11" align="center">{date}</textitem>
+		<lineitem x1="399" y1="628" x2="499" y2="628">date</lineitem>
+
+		<textitem xpos="85" ypos="612" font="Times-Bold" size="10" align="left">{ownerName}</textitem>
+		<textitem xpos="85" ypos="592" font="Times-Roman" size="9" align="left">{address1}</textitem>
+		<textitem xpos="85" ypos="572" font="Times-Roman" size="9" align="left">{address2}</textitem>
+
+		<lineitem x1="85" y1="608" x2="350" y2="608">ownerName</lineitem>
+		<lineitem x1="85" y1="588" x2="350" y2="588">address1</lineitem>
+		<lineitem x1="85" y1="568" x2="350" y2="568">address2</lineitem>
+
+		<textitem xpos="85" ypos="528" font="Times-Roman" size="11" align="left">Sir/Madam:</textitem>
+		<textitem xpos="135" ypos="488" font="Times-Roman" size="11" align="left">Our records show that you received a</textitem>
+		<textitem xpos="305" ypos="488" font="Times-Italic" size="12" align="left">"Notice of Delinquency in the Payment of</textitem>
+		<textitem xpos="85" ypos="473" font="Times-Italic" size="12" align="left">Real Property Tax"</textitem>
+		<textitem xpos="184" ypos="473" font="Times-Roman" size="12" align="left">dated</textitem>
+
+		<textitem xpos="280" ypos="473" font="Times-Bold" size="11" align="center">{noticeDate}</textitem>
+		<lineitem x1="215" y1="471" x2="345" y2="471">noticeDate</lineitem>
+		<textitem xpos="352" ypos="473" font="Times-Roman" size="12" align="left">and that the total amount of such</textitem>
+		<textitem xpos="85" ypos="458" font="Times-Roman" size="12" align="left">taxes and penalties amounted to   P</textitem>
+		<textitem xpos="262" ypos="458" font="Times-Bold" size="11" align="left">{amount}</textitem>
+		<lineitem x1="258" y1="456" x2="345" y2="456">amount</lineitem>
+		<textitem xpos="347" ypos="458" font="Times-Bold" size="11" align="left">.</textitem>
+
+		<textitem xpos="135" ypos="428" font="Times-Roman" size="11" align="left">Despite the aforesaid Notice, records fail to show receipt of your payment of the</textitem>
+		<textitem xpos="85" ypos="413" font="Times-Roman" size="11" align="left">taxes due.  However, please inform this Office immediately in case you have already paid</textitem>
+		<textitem xpos="85" ypos="398" font="Times-Roman" size="11" align="left">said taxes.</textitem>
+
+		<textitem xpos="135" ypos="368" font="Times-Roman" size="11" align="left">On the other hand, if no payment thereof was made, please see us the soonest time</textitem>
+		<textitem xpos="85" ypos="353" font="Times-Roman" size="11" align="left">possible to settle your obligation.</textitem>
+
+		<textitem xpos="135" ypos="328" font="Times-Roman" size="11" align="left">In the event that no advice is received from you within seven (7) days from the date</textitem>
+		<textitem xpos="85" ypos="313" font="Times-Roman" size="11" align="left">of receipt of this letter, we shall presume that the above taxes have not been paid and that</textitem>
+		<textitem xpos="85" ypos="298" font="Times-Roman" size="11" align="left">you agree to the amount set forth in the Notice. In such case, the property included in the</textitem>
+		<textitem xpos="85" ypos="283" font="Times-Roman" size="11" align="left">Notice shall be scheduled for sale at public auction and the name of the declared owner of</textitem>
+		<textitem xpos="85" ypos="268" font="Times-Roman" size="11" align="left">said property shall be listed together with a description of the same in Notices of Sale of</textitem>
+		<textitem xpos="85" ypos="253" font="Times-Roman" size="11" align="left">Delinquent Properties pursuant to Section 178 of R.A. 7160, otherwise known as the Local</textitem>
+		<textitem xpos="85" ypos="238" font="Times-Roman" size="11" align="left">Government Code of 1991.</textitem>
+
+		<textitem xpos="335" ypos="193" font="Times-Roman" size="11" align="left">Very truly yours,</textitem>
+		<textitem xpos="335" ypos="148" font="Times-Bold" size="11" align="left">{signatory}</textitem>
+		<textitem xpos="335" ypos="133" font="Times-Roman" size="11" align="left">{designation}</textitem>
+
+
+
+
+
+	</page>
+</contents>

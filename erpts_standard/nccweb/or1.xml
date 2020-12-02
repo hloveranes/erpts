@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="339" width="718" number="1" orientation="0">
+          <textitem xpos="355" ypos="295" font="Helvetica-Narrow-Bold" size="13" align="center">OFFICIAL RECEIPT OF THE REPUBLIC OF THE PHILIPPINES</textitem>
+          <textitem xpos="355" ypos="284" font="Times-Bold" size="9" align="center">Provincial or City Treasurer's Real Property Tax Receipt</textitem>
+          <textitem xpos="69" ypos="312" font="Times-Bold" size="9" align="center">Accountable Form No. 56</textitem>
+          <textitem xpos="69" ypos="299" font="Times-Bold" size="9" align="center">(Revised 1992)</textitem>
+          <textitem xpos="69" ypos="287" font="Times-Bold" size="9" align="center">(COMPUTER COPY)</textitem>
+          <textitem xpos="187" ypos="312" font="Times-Bold" size="9" >Previous Tax Receipt No.</textitem>
+          <textitem xpos="346" ypos="312" font="Times-Bold" size="9" >dated </textitem>
+		  <textitem xpos="380" ypos="314" font="Times-Bold" size="9" >October 3</textitem>
+          <textitem xpos="451" ypos="312" font="Times-Bold" size="9" >for the year </textitem>
+		  <textitem xpos="510" ypos="314" font="Times-Bold" size="9" >2003</textitem>
+          <textitem xpos="549" ypos="306" font="Times-Bold" size="16" >No. 2</textitem>
+          <textitem xpos="678" ypos="306" font="Times-Bold" size="16" >T</textitem>
+          <textitem xpos="87" ypos="270" font="Times-Bold" size="7" >Municipality/Province </textitem>
+          <textitem xpos="293" ypos="270" font="Times-Bold" size="7" >City </textitem>
+          <textitem xpos="501" ypos="270" font="Times-Bold" size="7" >Date </textitem>
+          <textitem xpos="590" ypos="256" font="Times-Bold" size="7" >October 3</textitem>
+          <textitem xpos="641" ypos="256" font="Times-Bold" size="7" >,2003</textitem>
+          <!--textitem xpos="656" ypos="256" font="Times-Bold" size="7" >03</textitem-->
+          <image xpos="19" ypos="206" src="/var/www/hosts/localhost/docs/nccweb/official.jpg">Logo</image>
+          <textitem xpos="106" ypos="233" font="Times" size="9" >Received From </textitem>
+		  <textitem xpos="170" ypos="235" font="Times" size="9" >Andre Shwartz Berlusconni</textitem>
+          <textitem xpos="406" ypos="233" font="Times" size="9" >the sum of </textitem>
+		   <textitem xpos="456" ypos="235" font="Times" size="9" >Four Centavos</textitem>
+          <textitem xpos="602" ypos="233" font="Times" size="9" >pesos (</textitem>
+		   <textitem xpos="640" ypos="233" font="Times" size="9" >P 0.04</textitem>
+          <textitem xpos="686" ypos="233" font="Times" size="9" >)</textitem>
+          <textitem xpos="87" ypos="223" font="Times" size="9" >Philippine Currency, in full or as installment payment of REAL PROPERTY TAX for the Calendar Year  upon property described</textitem>
+          <textitem xpos="87" ypos="213" font="Times" size="9" >in the Assessment Rolls as follows</textitem>
+          <textitem xpos="402" ypos="213" font="Times-Bold" size="7" >BASIC TAX</textitem>
+          <textitem xpos="512" ypos="213" font="Times-Bold" size="7" >SPECIAL EDUCATION FUND</textitem>
+          <textitem xpos="53" ypos="191" font="Times" size="6" align="center">NAME OF DECLARED</textitem>
+          <textitem xpos="53" ypos="184" font="Times" size="6" align="center">OWNER</textitem>
+          <textitem xpos="136" ypos="198" font="Times" size="6" align="center">LOCATION</textitem>
+          <textitem xpos="136" ypos="189" font="Times" size="6" align="center">NUMBER AND STREET</textitem>
+          <textitem xpos="136" ypos="180" font="Times" size="6" align="center" >OR BARANGAY</textitem>
+          <textitem xpos="202" ypos="198" font="Times" size="6" align="center">LOT</textitem>
+          <textitem xpos="202" ypos="189" font="Times" size="6" align="center">AND BLOCK</textitem>
+          <textitem xpos="202" ypos="180" font="Times" size="6" align="center">NUMBER</textitem>
+          <textitem xpos="255" ypos="198" font="Times" size="6" align="center">TAX</textitem>
+          <textitem xpos="255" ypos="189" font="Times" size="6" align="center">DECLARATION</textitem>
+          <textitem xpos="255" ypos="180" font="Times" size="6" align="center">NUMBER</textitem>
+          <textitem xpos="354" ypos="198" font="Times" size="6" align="center">ASSESSED VALUE</textitem>
+          <textitem xpos="306" ypos="180" font="Times" size="6" align="center">LAND</textitem>
+          <textitem xpos="350" ypos="180" font="Times" size="6" align="center">IMPROV'NT</textitem>
+          <textitem xpos="398" ypos="180" font="Times" size="6" align="center">TOTAL</textitem>
+          <textitem xpos="448" ypos="191" font="Times" size="6" align="center">TAX</textitem>
+          <textitem xpos="448" ypos="184" font="Times" size="6" align="center">DUE</textitem>
+          <textitem xpos="513" ypos="198" font="Times" size="6" align="center">INSTALLMENT</textitem>
+          <textitem xpos="489" ypos="180" font="Times" size="6" align="center">No.</textitem>
+          <textitem xpos="529" ypos="180" font="Times" size="6" align="center">Payment</textitem>
+          <textitem xpos="578" ypos="191" font="Times" size="6" align="center">FULL</textitem>
+          <textitem xpos="578" ypos="184" font="Times" size="6" align="center">PAYMENT</textitem>
+          <textitem xpos="621" ypos="191" font="Times" size="6" align="center">PENALTY</textitem>
+          <textitem xpos="621" ypos="184" font="Times" size="6" align="center">PERCENT</textitem>
+          <textitem xpos="658" ypos="190" font="Times" size="6" align="center">TOTAL</textitem>
+		  <textitem xpos="688" ypos="69" font="Times" size="6" align="center">0.04</textitem>
+          <textitem xpos="39" ypos="69" font="Times-Bold" size="7" >Total taxes paid by Money Order, Treasury Warrant or Check No. 12346789</textitem>
+          <textitem xpos="386" ypos="69" font="Times-Bold" size="7" >dated</textitem>
+		   <textitem xpos="420" ypos="69" font="Times-Bold" size="7" >October 3</textitem>
+          <textitem xpos="565" ypos="90" font="Times" size="6" align="center">1.92</textitem>
+          <textitem xpos="469" ypos="69" font="Times-Bold" size="7" >,2003 </textitem>
+          <!--textitem xpos="483" ypos="70" font="Times-Bold" size="9" >03</textitem-->
+          <textitem xpos="32" ypos="50" font="Times" size="9" >*Payment without penalty may be made within the periods stated below if by installment</textitem>
+          <textitem xpos="110" ypos="42" font="Times" size="9" >1st Installment- January 1 to March 31, of the year</textitem>
+          <textitem xpos="110" ypos="32" font="Times" size="9" >2nd Installment- February 1 to June 30, of the year</textitem>
+          <textitem xpos="110" ypos="22" font="Times" size="9" >3rd Installment- July 1 to Sept 30, of the year</textitem>
+          <textitem xpos="110" ypos="12" font="Times" size="9" >4th Installment- October 1 to Dec 31, of the year</textitem>
+          <textitem xpos="610" ypos="37" font="Times" size="9" align="center">Provincial or City Treasurer</textitem>
+          <textitem xpos="610" ypos="11" font="Times" size="9" align="center">Deputy</textitem>
+
+          <lineitem x1="290" y1="312" x2="341" y2="312">Previous OR</lineitem>
+          <lineitem x1="372" y1="312" x2="444" y2="312">Dated</lineitem>
+          <lineitem x1="513" y1="312" x2="526" y2="312">Year</lineitem>
+          <lineitem x1="17" y1="280" x2="695" y2="280">logo1</lineitem>
+          <lineitem x1="17" y1="280" x2="17" y2="205">logo2</lineitem>
+          <lineitem x1="17" y1="205" x2="695" y2="205">logo3</lineitem>
+          <lineitem x1="82" y1="205" x2="82" y2="280">logo4</lineitem>
+          <lineitem x1="695" y1="280" x2="695" y2="205">TopRight</lineitem>
+          <lineitem x1="82" y1="253" x2="695" y2="253">Municipality</lineitem>
+          <lineitem x1="287" y1="253" x2="287" y2="280">City</lineitem>
+          <lineitem x1="495" y1="253" x2="495" y2="280">Date</lineitem>
+          <lineitem x1="164" y1="233" x2="401" y2="233">Received</lineitem>
+          <lineitem x1="454" y1="233" x2="594" y2="233">sum of</lineitem>
+          <lineitem x1="637" y1="233" x2="685" y2="233">pesos</lineitem>
+          <lineitem x1="91" y1="85" x2="91" y2="205">Declared Owner</lineitem>
+          <lineitem x1="176" y1="85" x2="176" y2="205">Location</lineitem>
+          <lineitem x1="226" y1="85" x2="226" y2="205">Lot</lineitem>
+          <lineitem x1="284" y1="85" x2="284" y2="205">TD Num</lineitem>
+          <lineitem x1="328" y1="85" x2="328" y2="193">Land</lineitem>
+          <lineitem x1="372" y1="85" x2="372" y2="193">Improvement</lineitem>
+          <lineitem x1="422" y1="85" x2="422" y2="205">Total</lineitem>
+          <lineitem x1="473" y1="85" x2="473" y2="205">Tax Due</lineitem>
+          <lineitem x1="504" y1="65" x2="504" y2="193">Install Num</lineitem>
+          <lineitem x1="554" y1="65" x2="554" y2="205">Payment</lineitem>
+          <lineitem x1="600" y1="65" x2="600" y2="205">Full</lineitem>
+          <lineitem x1="645" y1="65" x2="645" y2="205">Penalty</lineitem>
+          <lineitem x1="473" y1="193" x2="554" y2="193">Installment</lineitem>
+          <lineitem x1="284" y1="193" x2="422" y2="193">Assessed Value</lineitem>
+          <lineitem x1="17" y1="yy" x2="xx" y2="yy">Full</lineitem>
+          <lineitem x1="17" y1="yy" x2="xx" y2="yy">Full</lineitem>
+          <lineitem x1="17" y1="175" x2="695" y2="175">Full</lineitem>
+          <lineitem x1="17" y1="160" x2="695" y2="160">Full</lineitem>
+          <lineitem x1="17" y1="145" x2="695" y2="145">Full</lineitem>
+          <lineitem x1="17" y1="130" x2="695" y2="130">Full</lineitem>
+          <lineitem x1="17" y1="115" x2="695" y2="115">Full</lineitem>
+          <lineitem x1="17" y1="100" x2="695" y2="100">Full</lineitem>
+          <lineitem x1="519" y1="47" x2="695" y2="47">Treasurer</lineitem>
+          <lineitem x1="519" y1="20" x2="695" y2="20">Deputy</lineitem>
+          <lineitem x1="17" y1="85" x2="695" y2="85">double line 1</lineitem>
+          <lineitem x1="17" y1="82" x2="695" y2="82">double line 1</lineitem>
+          <lineitem x1="17" y1="65" x2="695" y2="65">double line 2</lineitem>
+          <lineitem x1="17" y1="62" x2="695" y2="62">double line 2</lineitem>
+          
+          
+              
+          <textitem xpos="20" ypos="165" font="Times" size="6" align="left">Berlusconni, Andre Shwartz</textitem>
+
+          <textitem xpos="100" ypos="165" font="Times" size="6" align="left"> </textitem>
+          <textitem xpos="180" ypos="165" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="230" ypos="165" font="Times" size="6" align="left"> 51130</textitem>
+          <textitem xpos="290" ypos="165" font="Times" size="6" align="left">0.00</textitem>
+          <textitem xpos="330" ypos="165" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="380" ypos="165" font="Times" size="6" align="left">0.00</textitem>
+          <textitem xpos="430" ypos="165" font="Times" size="6" align="left">1.17</textitem>
+          <textitem xpos="475" ypos="165" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="510" ypos="165" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="560" ypos="165" font="Times" size="6" align="left">1.17</textitem>
+          <textitem xpos="605" ypos="165" font="Times" size="6" align="left">18 %</textitem>
+          <textitem xpos="693" ypos="165" font="Times" size="6" align="right">0.02</textitem>
+
+              
+          <textitem xpos="20" ypos="165" font="Times" size="6" align="left"></textitem>
+
+          <textitem xpos="100" ypos="150" font="Times" size="6" align="left"> </textitem>
+          <textitem xpos="180" ypos="150" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="230" ypos="150" font="Times" size="6" align="left"> 26340</textitem>
+          <textitem xpos="290" ypos="150" font="Times" size="6" align="left">0.00</textitem>
+          <textitem xpos="330" ypos="150" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="380" ypos="150" font="Times" size="6" align="left">0.00</textitem>
+          <textitem xpos="430" ypos="150" font="Times" size="6" align="left">0.75</textitem>
+          <textitem xpos="475" ypos="150" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="510" ypos="150" font="Times" size="6" align="left"></textitem>
+          <textitem xpos="560" ypos="150" font="Times" size="6" align="left">0.75</textitem>
+          <textitem xpos="605" ypos="150" font="Times" size="6" align="left">18 %</textitem>
+          <textitem xpos="693" ypos="150" font="Times" size="6" align="right">0.02</textitem>
+
+		  
+   </page>
+</contents>
+

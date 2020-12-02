@@ -1,0 +1,96 @@
+<html><!-- #BeginTemplate "/Templates/base.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>RPTS: Encode OR</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<table width="75%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td><!-- #BeginEditable "bodytext" -->
+      <form name="encodeOR" method="post" action="{self}">
+        <p>{receiptNumberMsg}</p>
+        <p>Previous OR Number 
+          <input type="text" name="number" value="{number}">
+          Date 
+          <input type="text" name="date" value="{date}" >
+          Amount 
+          <input type="text" name="amount" value="{amount}">
+          <br>
+          TD No. 
+          <input type="text" name="tdNum" value="{tdNum}">
+          <br>
+          RPTOP No. 
+          <input type="text" name="rptopNum" value="{rptopNum}">
+        </p>
+        <p>Period Covered (choose only one)<br>
+          Annual 
+          <input type="radio" name="paymentMode" value="A n n u a l" {checkedAnnual}>&nbsp;&nbsp;
+          Q1 
+          <input type="radio" name="paymentMode" value="Q1" {checkedQ1}>
+          Q2 
+          <input type="radio" name="paymentMode" value="Q2" {checkedQ2}>
+          Q3 
+          <input type="radio" name="paymentMode" value="Q3" {checkedQ3}>
+          Q4 
+          <input type="radio" name="paymentMode" value="Q4" {checkedQ4}>
+        </p> 
+        <table width="100%" border="0" cellspacing="0">
+          <tr> 
+            <td colspan="2">&nbsp;</td>
+            <td>Discount % </td>
+            <td>Interest %</td>
+          </tr>
+          <tr> 
+            <td>Basic Tax GF (70%) </td>
+            <td> 
+              <input type="text" name="gf" value="{gf}">
+            </td>
+            <td> 
+              <input type="text" name="discountPct" value="{discountPct}" >
+            </td>
+            <td> 
+              <input type="text" name="penaltyPct" value="{penaltyPct}">
+            </td>
+          </tr>
+          <tr> 
+            <td>Basic Tax IB (15%)</td>
+            <td colspan="3"> 
+              <input type="text" name="ib" value="{ib}">
+            </td>
+          </tr>
+          <tr> 
+            <td>Basic Tax CB(15%) </td>
+            <td colspan="3"> 
+              <input type="text" name="cb" value="{cb}">
+              Note: Basic Tax GF + Basic Tax IB + Basic Tax CB = Basic Tax</td>
+          </tr>
+          <tr> 
+            <td>SEF </td>
+            <td colspan="3"> 
+              <input type="text" name="sef" value="{sef}">
+              {sefMsg} </td>
+          </tr>
+          <tr> 
+            <td>P.D.1185</td>
+            <td colspan="3"> 
+              <input type="text" name="pd1185" value="{pd1185}">
+            </td>
+          </tr>
+          <tr> 
+            <td>Date of Payment </td>
+            <td colspan="3"> 
+              <input type="text" name="paymentDate" value="{paymentDate}">
+            </td>
+          </tr>
+        </table>
+        <p> 
+          <input type="submit" name="submitOR" value="Submit" >
+          <input type="submit" name="submitOR" value="Reset"> 
+        </p>
+      </form><!-- #EndEditable --></td>
+  </tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

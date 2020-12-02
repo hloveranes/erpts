@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+<!-- BEGIN Page -->
+	<page width="592" height="784" number="{pageNumber}" orientation="0">
+
+		<textitem xpos="296" ypos="744" font="Helvetica" size="11" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="296" ypos="728" font="Helvetica" size="11" align="center">{lguType} of {lguName}</textitem>
+		<textitem xpos="296" ypos="712" font="Helvetica" size="11" align="center">Office of the Treasurer</textitem>
+
+		<textitem xpos="296" ypos="692" font="Helvetica" size="11" align="center">Collection of Real Property by Owner's Name</textitem>
+		<textitem xpos="296" ypos="676" font="Helvetica" size="11" align="center">As of {date}</textitem>
+
+		<textitem xpos="55" ypos="636" font="Helvetica" size="11" align="center">Owner's Name</textitem>
+		<textitem xpos="200" ypos="636" font="Helvetica" size="11" align="center">Tax Dec. No.</textitem>
+		<textitem xpos="285" ypos="636" font="Helvetica" size="11" align="center">Date Paid</textitem>
+		<textitem xpos="353" ypos="636" font="Helvetica" size="11" align="center">OR No.</textitem>
+		<textitem xpos="414" ypos="636" font="Helvetica" size="11" align="center">Basic</textitem>
+		<textitem xpos="475" ypos="636" font="Helvetica" size="11" align="center">SEF</textitem>
+		<textitem xpos="540" ypos="636" font="Helvetica" size="11" align="center">Amount Paid</textitem>
+
+		<!-- BEGIN CollectionList -->
+		<!-- cYPos = 616 -->
+
+		<textitem xpos="19" ypos="{cYPos}" font="Helvetica" size="10" align="right">{i}.</textitem>
+		<textitem xpos="23" ypos="{cYPos}" font="Helvetica" size="10" align="left">{ownerName}</textitem>
+		<textitem xpos="23" ypos="{cYPos2}" font="Helvetica" size="10" align="left">{ownerName2}</textitem>
+		<textitem xpos="200" ypos="{cYPos}" font="Helvetica" size="10" align="center">{taxDeclarationNumber}</textitem>
+		<textitem xpos="285" ypos="{cYPos}" font="Helvetica" size="9" align="center">{datePaid}</textitem>
+		<textitem xpos="315" ypos="{cYPos}" font="Helvetica" size="9" align="left">{orNumber}</textitem>
+		<textitem xpos="435" ypos="{cYPos}" font="Helvetica" size="10" align="right">{basicTax}</textitem>
+		<textitem xpos="492" ypos="{cYPos}" font="Helvetica" size="10" align="right">{sefTax}</textitem>
+		<textitem xpos="577" ypos="{cYPos}" font="Helvetica" size="10" align="right">{total}</textitem>
+
+		<!-- END CollectionList -->
+
+		<!-- stYPos = cYPos-30 -->
+
+		<textitem xpos="355" ypos="{stYPos}" font="Helvetica" size="10" align="right">SUBTOTAL</textitem>
+		<textitem xpos="435" ypos="{stYPos}" font="Helvetica" size="10" align="right">{stBasicTax}</textitem>
+		<textitem xpos="492" ypos="{stYPos}" font="Helvetica" size="10" align="right">{stSefTax}</textitem>
+		<textitem xpos="577" ypos="{stYPos}" font="Helvetica" size="10" align="right">{stTotal}</textitem>
+
+		<!-- BEGIN GrandTotal -->
+
+		<!-- gtYPos = stYPos - 20 -->
+
+		<textitem xpos="355" ypos="{gtYPos}" font="Helvetica" size="10" align="right">GRAND TOTAL</textitem>
+		<textitem xpos="435" ypos="{gtYPos}" font="Helvetica" size="10" align="right">{gtBasicTax}</textitem>
+		<textitem xpos="492" ypos="{gtYPos}" font="Helvetica" size="10" align="right">{gtSefTax}</textitem>
+		<textitem xpos="577" ypos="{gtYPos}" font="Helvetica" size="10" align="right">{gtTotal}</textitem>
+
+		<!-- END GrandTotal -->
+
+
+	</page>
+
+<!-- END Page -->
+</contents>

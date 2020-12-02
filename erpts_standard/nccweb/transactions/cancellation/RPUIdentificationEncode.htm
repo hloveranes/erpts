@@ -1,0 +1,111 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript">
+  
+function setDefaults(){
+	window.resizeTo(550,350);
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="RPUIdentificationEncode" method="post" action="RPUIdentificationEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>RPU Identification Numbers</b> </td>
+	 </tr>
+	 <tr bgcolor="#CCCCCC"> 
+	  <td colspan="3" class="fileds_comment" align="left" nowrap>Identification 
+	   Numbers </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="90">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+	   <input name="arpNumber" type="text" id="arpNumber" value="{arpNumber}" size="30" maxlength="32"> 
+	   <br>
+	   (ARP Number) <br> </td>
+	 </tr>
+
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="90">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+	   <input name="propertyIndexNumber" type="text" id="propertyIndexNumber" value="{propertyIndexNumber}" size="30" maxlength="32"> 
+	   <br>
+	   (Property Index Number) <br> </td>
+	 </tr>
+
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="90">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+		<input type="radio" name="taxability" value="Taxable">
+		Taxable
+		&nbsp;
+		<input type="radio" name="taxability" value="Exempt">
+		Exempt
+		<script language="Javascript">
+			if("{taxability}"=="Exempt")
+				document.RPUIdentificationEncode.taxability[1].checked = true;
+			else
+				document.RPUIdentificationEncode.taxability[0].checked = true;
+		</script>
+	   <br>
+	   (Taxability) <br> </td>
+	 </tr>
+
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="90">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment">
+		<select name="effectivity">
+			<option value=""></option>
+			<!-- BEGIN EffectivityList -->
+			<option value="{effectivityYear}" {effectivity_sel}>{effectivityYear}</option>
+			<!-- END EffectivityList -->					
+		</select>
+	   <br>
+	   (Effectivity) <br> </td>
+	 </tr>
+
+	 <tr> 
+	  <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp;</td>
+	  <td colspan="2" class="fileds_comment" align="left" valign="middle" bgcolor="#F6F6F6">
+	   <input name="afsID" type="hidden" id="afsID" value="{afsID}"> 
+	   <input type="hidden" name="formAction" value="save">
+
+	   <!-- BEGIN SubmitButton -->
+	   <input type="submit" value="Submit" name="submit"> 
+	   <input type="reset" name="Submit2" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

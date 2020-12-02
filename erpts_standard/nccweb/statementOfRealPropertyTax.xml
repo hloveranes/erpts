@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+<!-- BEGIN Page -->
+    <page height="784" width="584" number="{PageNumber}" orientation="0">
+    <textitem xpos="300" ypos="737" font="Helvetica" size="10" align="center">Republic of the Philippines</textitem>
+    <textitem xpos="300" ypos="725" font="Helvetica" size="10" align="center">{lguType} OF {lguName}</textitem>
+    <textitem xpos="300" ypos="713" font="Helvetica" size="10" align="center">{provinceName}</textitem>
+    <textitem xpos="300" ypos="689" font="Helvetica" size="10" align="center">OFFICE OF THE CITY/MUNICIPAL TREASURER</textitem>
+
+    <textitem xpos="300" ypos="661" font="Helvetica-Bold" size="10" align="center">STATEMENT OF REAL PROPERTY TAX</textitem>
+    <textitem xpos="300" ypos="647" font="Helvetica-Bold" size="10" align="center">of</textitem>
+    <textitem xpos="300" ypos="632" font="Helvetica-Bold" size="10" align="center">{ownerName}</textitem>
+    <textitem xpos="300" ypos="618" font="Helvetica-Bold" size="10" align="center">{today}</textitem>
+
+    <textitem xpos="100" ypos="584" font="Helvetica-Bold" size="10" align="center">TD NO.</textitem>
+    <textitem xpos="180" ypos="584" font="Helvetica-Bold" size="10" align="center">CLASS</textitem>
+    <textitem xpos="297" ypos="584" font="Helvetica-Bold" size="10" align="center">LOCATION</textitem>
+    <textitem xpos="422" ypos="584" font="Helvetica-Bold" size="10" align="center">YEAR</textitem>
+    <textitem xpos="510" ypos="584" font="Helvetica-Bold" size="10" align="center">TAX DUE</textitem>
+
+    <textitem xpos="464" ypos="564" font="Helvetica" size="10" align="left">P</textitem>
+
+	<!-- tdYPos starts at 546 decrements by 15 until 279 -->
+	<!-- BEGIN TDList -->
+
+    <textitem xpos="100" ypos="{tdYPos}" font="Helvetica" size="10" align="center">{arpNumber}</textitem>
+    <textitem xpos="180" ypos="{tdYPos}" font="Helvetica" size="9" align="center">{class}</textitem>
+    <textitem xpos="214" ypos="{tdYPos}" font="Helvetica" size="9" align="left">{location}</textitem>
+    <textitem xpos="422" ypos="{tdYPos}" font="Helvetica" size="9" align="center">{year}</textitem>
+    <textitem xpos="546" ypos="{tdYPos}" font="Helvetica" size="10" align="right">{taxDue}</textitem>
+
+	<!-- END TDList -->
+
+<!-- BEGIN TotalDue -->
+    <textitem xpos="422" ypos="258" font="Helvetica" size="10" align="center">TOTAL</textitem>
+    <textitem xpos="546" ypos="258" font="Helvetica" size="10" align="right">{totalTaxDue}</textitem>
+
+    <textitem xpos="464" ypos="258" font="Helvetica" size="10" align="left">P</textitem>
+<!-- END TotalDue -->
+
+    <textitem xpos="50" ypos="218" font="Helvetica" size="10" align="left">Prepared by:</textitem>
+    <textitem xpos="379" ypos="218" font="Helvetica" size="10" align="left">Approved:</textitem>
+
+    <textitem xpos="120" ypos="173" font="Helvetica" size="10" align="center">{preparedBy}</textitem>
+    <textitem xpos="120" ypos="158" font="Helvetica" size="10" align="center">{preparedByDesignation}</textitem>
+
+    <textitem xpos="450" ypos="173" font="Helvetica" size="10" align="center">{approvedBy}</textitem>
+    <textitem xpos="450" ypos="158" font="Helvetica" size="10" align="center">{approvedByDesignation1}</textitem>
+    <textitem xpos="450" ypos="143" font="Helvetica" size="10" align="center">{approvedByDesignation2}</textitem>
+
+
+
+	<lineitem x1="50" y1="600" x2="550" y2="600">top-border</lineitem>
+	<lineitem x1="50" y1="575" x2="550" y2="575">heading-line</lineitem>
+
+	<lineitem x1="50" y1="600" x2="50" y2="250">left-border</lineitem>
+
+	<lineitem x1="150" y1="600" x2="150" y2="250">column-1-line</lineitem>
+	<lineitem x1="210" y1="600" x2="210" y2="250">column-2-line</lineitem>
+	<lineitem x1="385" y1="600" x2="385" y2="250">column-3-line</lineitem>
+	<lineitem x1="460" y1="600" x2="460" y2="250">column-4-line</lineitem>
+
+	
+	<lineitem x1="550" y1="600" x2="550" y2="250">right-border</lineitem>
+
+
+
+	<lineitem x1="550" y1="600" x2="550" y2="250">right-border</lineitem>
+	<lineitem x1="50" y1="250" x2="550" y2="250">bottom-border</lineitem>
+
+	
+	
+	
+
+   </page>
+<!-- END Page -->
+</contents>

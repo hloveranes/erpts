@@ -1,0 +1,105 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+  function validateForm(iform) {
+  		if (iform.rptopNumber.value=="") {
+			alert("rptopNumber required.");
+			iform.rptopNumber.focus();
+			return false;
+		}
+	iform.submit();
+	return true;
+  }
+
+function setDefaults(){
+	window.resizeTo(580,490);
+}
+
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="RPTOPEncode" method="post" action="RPTOPEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>RPTOP 
+	   INFORMATION</b></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>RPTOP Number</td>
+	  <td class="fileds_comment" colspan="2"> <input name="rptopNumber" type="text" id="rptopNumber" value="{rptopNumber}" size="30"> 
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>taxable 
+	   Year </td>
+	  <td class="fileds_comment" colspan="2"> <!--input name="taxableYear" type="text" id="taxableYear" value="{taxableYear}" size="30"-->
+	   <select name="taxableYear">
+		<!-- BEGIN YearList -->
+		<option value="{year}" {taxableYear_sel}>{year}</option>
+		<!-- END YearList -->
+	   </select> </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>city Assessor</td>
+	  <td class="fileds_comment" colspan="2"><select name="cityAssessorID" id="cityAssessorID" style="width:300">
+		<option value="0">none</option>
+		<!-- BEGIN CityAssessorList -->
+		<option value="{id}" {cityAssessorID_sel}>{name}</option>
+		<!-- END CityAssessorList -->
+	   </select></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6">
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>city Treasurer</td>
+	  <td class="fileds_comment" colspan="2"><select name="cityTreasurerID" id="cityTreasurerID" style="width:300">
+		<option value="0">none</option>
+		<!-- BEGIN CityTreasurerList -->
+		<option value="{id}" {cityTreasurerID_sel}>{name}</option>
+		<!-- END CityTreasurerList -->
+	   </select></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="center" valign="middle">&nbsp; </td>
+	  <td colspan="2" class="fileds_comment" align="center" valign="middle"> <input type="hidden" name="formAction" value="save"> 
+	   <input name="rptopID" type="hidden" id="rptopID" value="{rptopID}"> 
+	   <!-- BEGIN SubmitButton -->
+	   <input type="button" value="Submit" onClick="validateForm(document.RPTOPEncode);"> 
+	   <input type="reset" name="Submit2" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

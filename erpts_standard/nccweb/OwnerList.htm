@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="Javascript1.2">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=no, resizable=no");
+	puffup.focus();
+}
+function checkAction(axn){
+	document.OwnerList.formAction.value = axn;
+	//alert(document.OwnerList.formAction.value);
+	if (confirmSubmit())
+	document.OwnerList.submit();
+}
+function confirmSubmit(){
+	axn = document.OwnerList.formAction.value;
+	if(!confirm(axn+' selected items?'))
+		return false;
+	else
+		return true;
+}
+//-->
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" class="common">
+<!-- BEGIN OwnerListTable -->
+<form name="OwnerList" method="post" action="OwnerList.php{Session}" onSubmit="javascript: return confirmSubmit();">
+  Owner List - Person<br>
+  - <a href="javascript: openWin('PersonEncode.php{Session}','popupWindow',300,150,450,520);" class="common">encode 
+  person</a> 
+  <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#333333">
+    <!-- BEGIN PersonTable -->
+    <tr> 
+      <td class="common" width="20"><b><font color="#FFFFFF">personID</font></b></td>
+      <td class="common"><b><font color="#FFFFFF">Name</font></b></td>
+      <td class="common" width="100"><b><font color="#FFFFFF">Telephone</font></b></td>
+      <td class="common" width="100"><b><font color="#FFFFFF">Mobile number</font></b></td>
+      <td class="common" width="50" align="center"><font color="#FFFFFF"></font> 
+      </td>
+      <td class="common" width="50" align="center"> <font color="#FFFFFF"> 
+        <input type="button" name="Submit" value="Delete" onClick="javascript: checkAction('delete');">
+        <input type="button" name="Button" value="Remove" onClick="javascript: checkAction('remove');">
+        </font></td>
+    </tr>
+    <!-- BEGIN PersonList -->
+    <tr bgcolor="#FFFFFF"> 
+      <td class="common">{personID}</td>
+      <td class="common"><a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=view','popupWindow',300,150,350,400)">{fullName}</a></td>
+      <td class="common">{telephone}</td>
+      <td class="common">{mobileNumber}</td>
+      <td class="common" align="center"> <b><a href="javascript: openWin('PersonEncode.php{Session}&personID={personID}&formAction=edit','popupWindow',300,150,450,520)">Edit>></a></b> 
+      </td>
+      <td class="common" align="center"> 
+        <input type="checkbox" name="personID[]" value="{personID}">
+      </td>
+    </tr>
+    <!-- END PersonList -->
+    <!-- END PersonTable -->
+    <!-- BEGIN PersonDBEmpty -->
+	<tr bgcolor="#FFFFFF"> 
+      <td class="common" colspan="6">database empty</td>
+    </tr>
+	<!-- END PersonDBEmpty -->	
+  </table>
+  <br>
+  <br>
+  Owner List - Company<br>
+  - <a href="javascript: openWin('CompanyEncode.php{Session}','popupWindow',300,150,450,520);">encode 
+  company </a> 
+  <table width="100%" border="0" cellspacing="1" cellpadding="3" bgcolor="#333333">
+    <!-- BEGIN CompanyTable -->
+    <tr> 
+      <td class="common" width="20"><b><font color="#FFFFFF">companyID</font></b></td>
+      <td class="common"><b><font color="#FFFFFF">Company Name</font></b></td>
+      <td class="common" width="100"><b><font color="#FFFFFF">Telephone</font></b></td>
+      <td class="common" width="100"><b><font color="#FFFFFF">Fax</font></b></td>
+      <td class="common" width="50" align="center"><font color="#FFFFFF"></font> 
+      </td>
+      <td class="common" width="50" align="center"> <font color="#FFFFFF">
+        <input type="button" name="Submit" value="Delete" onClick="javascript: checkAction('delete');">
+        <input type="button" name="Button" value="Remove" onClick="javascript: checkAction('remove');">
+        </font></td>
+    </tr>
+    <!-- BEGIN CompanyList -->
+    <tr bgcolor="#FFFFFF"> 
+      <td class="common">{companyID}</td>
+      <td class="common"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=view','popupWindow',300,150,450,500)">{companyName}</a></td>
+      <td class="common">{telephone}</td>
+      <td class="common">{fax}</td>
+      <td class="common" align="center"> <b><a href="javascript: openWin('CompanyEncode.php{Session} &companyID={companyID}&formAction=edit','popupWindow',300,150,450,500)">Edit>></a></b> 
+      </td>
+      <td class="common" align="center"> 
+        <input type="checkbox" name="companyID[]" value="{companyID}">
+      </td>
+    </tr>
+    <!-- END CompanyList -->
+    <!-- END CompanyTable -->
+    <!-- BEGIN CompanyDBEmpty -->
+	<tr bgcolor="#FFFFFF"> 
+      <td class="common" colspan="6">database empty</td>
+    </tr>
+	<!-- END CompanyDBEmpty -->	
+  </table>
+  <font color="#FFFFFF">
+  <input type="hidden" name="formAction" value="delete">
+  </font> {msg} 
+</form>
+<!-- END OwnerListTable -->
+
+</body>
+</html>

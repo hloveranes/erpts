@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript1.2">
+<!--
+function setDefaults(){
+	window.resizeTo(450,370);
+}
+function refreshParent() {
+	//window.opener.location.reload();
+	window.close();
+}
+
+//-->
+</script>
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#FFFFFF" text="#000000" background="images/background/bg_middle.jpg" onLoad="javascript: setDefaults();" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- BEGIN Table -->
+<form name="editCompany" method="post" action="CompanyEncode.php{Session}">
+ <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+   <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+   <td>&nbsp;</td>
+   <td><table width="400" border="0" cellspacing="1" cellpadding="3" align="center">
+	 <tr> 
+	  <td class="fileds_comment" colspan="3" bgcolor="#F6F6F6" nowrap><b>OWNER 
+	   INFORMATION - Company/Group</b></td>
+	 </tr>
+	 <!-- BEGIN companyID -->
+	 <tr> 
+	  <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>CompanyID</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b>{companyID}</b></td>
+	 </tr>
+	 <!-- END companyID -->
+	 <tr> 
+	  <td class="fileds_comment" align="right" width="100" bgcolor="#F6F6F6" nowrap>Company/Group 
+	   Name</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b> 
+	   {companyName} </b></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>TIN</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b> 
+	   {tin} </b></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" rowspan="3" bgcolor="#F6F6F6" nowrap align="right">Address 
+	   <input type="hidden" name="addressID" value="{addressID}"> </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" width="150"> <b>{number}</b><br>
+	   (Number) </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" width="150"> <b>{street}</b><br>
+	   (Street) </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> <b>{barangay}</b><br>
+	   (Barangay) </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> <b>{district}</b><br>
+	   (District) </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> <b>{municipalityCity}</b><br>
+	   (Municipality/City) </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left"> <b>{province}</b><br>
+	   (Province) </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Telephone</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b> 
+	   {telephone} </b></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Fax</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b> 
+	   {fax} </b></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Email</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><b> 
+	   {email} </b></td>
+	 </tr>
+	 <tr>
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6" nowrap>Website</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" align="left" colspan="2"><strong>{website}</strong></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" bgcolor="#F6F6F6" nowrap><b> </b></td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> <input type="hidden" name="formAction" value="edit"> 
+	   <input type="hidden" name="companyID" value="{companyID}"> <input type="hidden" name="odID" value="{odID}"> 
+	   <!-- BEGIN ViewOnly -->
+	   <input type="button" name="Submit" value="Edit" onClick="document.editCompany.submit();"> 
+	   <!-- END ViewOnly -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table> 
+	
+   </td>
+   <td>&nbsp;</td>
+  </tr>
+  <tr> 
+   <td colspan="3">&nbsp;</td>
+  </tr>
+ </table>
+ </form>
+<!-- END Table -->
+
+</body>
+</html>

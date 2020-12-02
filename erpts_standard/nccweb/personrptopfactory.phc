@@ -1,0 +1,41 @@
+<?
+/*
+	Class : RPUFactory
+	Author: Juanito M. Calingacion, Jr.
+	Date  : 2003
+			Modified Dec 07, 2005 for Lubao implementation of eRPTS
+			
+	Description: Implements or rather extends DBFactory. Reads data from an eRPTS database
+			     Using the Recordset Library
+			     Used by custom.rpu.phc that provides the core classes to retrieve real property information
+			     from the database
+
+	Mod'ed: alxjvr, 2006.02.27
+*/
+
+class PersonRPTOPFactory extends DBFactory{
+	  var $rsowners;
+	  
+
+      function PersonRPTOPFactory($connectionstring,$sql){
+	           //print $sql;
+	           //$this->rsowners=new Recordset();
+	           
+               $this->rs=new Recordset($connectionstring);
+               $success= $this->rs->open($sql);              
+      }
+
+      function fetchRPTOP(){
+               $record=parent::fetchCurrent();           
+               $objRPTOP=new PersonRPTOP($record);
+               return $objRPTOP;
+      }
+      
+      function fetchOwners($odID){
+	      
+      }
+      
+
+}
+
+?>

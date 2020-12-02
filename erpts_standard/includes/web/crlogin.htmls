@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>Municipality of {Taguig} - Electronic Real Property Tax System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/asf.css" type="text/css">
+<script language="javascript" src="js/md5.js"></script>
+<script language="javascript">
+<!--
+  function doChallengeResponse() {
+    str = document.login.username.value + ":" +
+          document.login.password.value + ":" +
+          document.login.challenge.value;
+
+    document.login.response.value = MD5(str);
+    document.login.password.value = "";
+    document.login.submit();
+  }
+// -->
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" link="#CC0000" vlink="#CC0000" alink="#CC0000" background="images/bg_whiteboxes.gif">
+<form name="login" action="<?php print $this->url() ?>" method=post>
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td><img src="images/spacer.gif" width="10" height="25"></td>
+    </tr>
+    <tr> 
+      <td align="center" class="mainnav"> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="24" align="right" valign="bottom"><img src="images/left_top.gif" width="21" height="23"></td>
+            <td bgcolor="#FFFFFF" width="100%">&nbsp;</td>
+            <td width="24" align="left" valign="bottom"><img src="images/right_top.gif" width="24" height="23"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" class="mainnav" bgcolor="#FFFFFF"> 
+        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td align="center" valign="top"><img src="images/logo.gif" width="126" height="128"> 
+              <!--Logo of NCC or of the Municipality using the system. -->
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"> 
+        <p><img src="images/spacer.gif" width="10" height="15"></p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"> 
+        <p class="system_tit"><span class="rp">Republic of the Philippines</span><br>
+          <span class="municipality">Municipality of {Taguig}</span></p>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF">Electronic 
+        Real Property Tax System</td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="subtitle">
+          <tr> 
+            <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+          </tr>
+          <tr> 
+            <td align="center" class="mainnav"> username: 
+              <input type="text" name="username" value="<?php print (isset($this->auth["uname"]) ? $this->auth["uname"] : "" ) ?>" size=32 class="fileds_comment" maxlength=32>
+            </td>
+          </tr>
+          <tr> 
+            <td align="center"><img src="images/spacer.gif" width="10" height="15"></td>
+          </tr>
+          <tr> 
+            <td align="center" class="mainnav"> password: 
+              <input type="password" name="password" size="32" class="fileds_comment" maxlength="32">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+          </tr>
+          <tr> 
+            <td align="center" valign="top" class="title" bgcolor="#FFFFFF"> 
+              <input onClick="doChallengeResponse(); return false;" type="submit" name="submitbtn" value="Enter" style="background:#E0E0E0;font-size: 14pt; border:0; color:#999999;font-family: arial">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center"><img src="images/spacer.gif" width="10" height="15"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"> 
+        <?php global $username; if ( isset($username) ): ?>
+        <!-- failed login code -->
+        <p> 
+        <table>
+          <tr> 
+            <td colspan=2>
+              <div align="center"><font color="red" face="Arial, Helvetica, sans-serif" size="2"><b>Either 
+                your username or your password are invalid.<br>
+                Please try again!</b></font></div>
+            </td>
+          </tr>
+        </table>
+        <?php endif ?>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="fileds_comment" bgcolor="#FFFFFF">Tampering 
+        with this system is criminally punishable under Philippine Laws.<br>
+        &copy; Republic of the Philippines National Computer Center. All Rights 
+        Reserved. </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top"> 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td width="24" align="right" valign="bottom"><img src="images/bottom_left.gif" width="21" height="24"></td>
+            <td bgcolor="#FFFFFF" width="100%">&nbsp;</td>
+            <td width="24" align="left" valign="bottom"><img src="images/bottom_right.gif" width="24" height="24"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr> 
+      <td align="center" valign="top">&nbsp;</td>
+    </tr>
+  </table>
+  <input type="hidden" name="challenge" value="<?php print $challenge ?>">
+  <input type="hidden" name="response"  value="">
+</form>
+</body>
+<script language="JavaScript">
+<!--
+  // Activate the appropriate input form field.
+  if (document.login.username.value == '') {
+    document.login.username.focus();
+  } else {
+    document.login.password.focus();
+  }
+// -->
+</script>
+</html>

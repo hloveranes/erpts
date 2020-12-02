@@ -1,0 +1,572 @@
+<html>
+<head>
+<title>eLGU - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<link href="css/elgu.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+
+<script language="Javascript">
+function setDefaultYear(type){
+	eval("document.AssessmentRollReport."+type+"year.options[1].selected = true");
+}
+function setDefaultMonth(type,month){
+	eval("document.AssessmentRollReport."+type+"month.options["+month+"].selected = true");
+}
+function setDefaultDay(type,day){
+	eval("document.AssessmentRollReport."+type+"day.options["+day+"].selected = true");
+}
+function setDays(type) {
+  var obj=eval("document.AssessmentRollReport."+type+"day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+  for (i=objlen-1; i>=28+nullfield; i--) obj.options.remove(i);
+  month_val = eval("document.AssessmentRollReport."+type+"month.value");
+  switch(month_val) {
+	case "2":
+		birthYear = eval("document.AssessmentRollReport."+type+"year.value");
+		if ((birthYear % 4) == 0) obj.options[28+nullfield]=new Option("29", "29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29", "29");
+		obj.options[29+nullfield]=new Option("30", "30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29", "29");
+		obj.options[29+nullfield]=new Option("30", "30");
+		obj.options[30+nullfield]=new Option("31", "31");
+		break;
+  }
+  obj.options[daySelected].selected = true;
+}
+</script>
+
+<script language="Javascript">
+ barangay = new Array();
+ district = new Array();
+ municipalityCity = new Array();
+<!-- BEGIN JSBarangayList -->
+ barangay[{i}] = new Array('{barangay}', '{barangayID}', '{districtID}');
+<!-- END JSBarangayList -->
+<!-- BEGIN JSDistrictList -->
+ district[{i}] = new Array('{district}', '{districtID}', '{municipalityCityID}');
+<!-- END JSDistrictList -->
+<!-- BEGIN JSMunicipalityCityList -->
+ municipalityCity[{i}] = new Array('{municipalityCity}', '{municipalityCityID}', '{provinceID}');
+<!-- END JSMunicipalityCityList -->
+
+function filterBarangayList(){
+	ClearList(document.AssessmentRollReport.barangay);
+    FillList(document.AssessmentRollReport.barangay, barangay, document.AssessmentRollReport.district.value);
+}
+function filterDistrictList(){
+	ClearList(document.AssessmentRollReport.district);
+	FillList(document.AssessmentRollReport.district, district, document.AssessmentRollReport.municipalityCity.value);
+	filterBarangayList();
+}
+function filterMunicipalityCityList(){
+	ClearList(document.AssessmentRollReport.municipalityCity);
+	FillList(document.AssessmentRollReport.municipalityCity, municipalityCity, document.AssessmentRollReport.province.value);
+	filterDistrictList();
+	filterBarangayList();
+}
+
+function ClearList(documentList){
+	for(i = documentList.options.length-1 ; i >= 0 ; i--){
+		documentList.options[i] = null;
+	}
+}
+
+function FilterArray(arrayList, filter){
+	filteredArray = new Array();
+	j = 0;
+	for(i=0 ; i< arrayList.length ; i++){
+		singleArray = arrayList[i];
+		if(singleArray[2]==filter){
+			filteredArray[j] = new Option(singleArray[0], singleArray[1]);
+			j++;
+		}
+	}
+	return(filteredArray);
+}
+
+function FillList(documentList, arrayList, filter){
+    arrayList = FilterArray(arrayList, filter);
+	for(i = 0 ; i < arrayList.length ; i++){
+		documentList.options[i] = arrayList[i];
+	}
+	if(documentList.options[0]){
+		documentList.options[0].selected = true;
+	}
+}
+
+function setDefaults(){
+	filterMunicipalityCityList();
+	filterDistrictList();
+	filterBarangayList();
+
+	setDefaultDay('filterFrom_','{dayToday}');
+	setDefaultDay('filterTo_', '{dayToday}');
+
+	setDefaultMonth('filterFrom_','{monthToday}');
+	setDefaultYear('filterFrom_');
+
+	setDefaultMonth('filterTo_','{monthToday}');
+	setDefaultYear('filterTo_');
+}
+</script>
+
+<script language="Javascript">
+
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", status=1, toolbar=0, menubar=1, scrollbars=1, resizable=1");
+}
+
+function getSelectedOption(dropdown){
+	eval("i = document.AssessmentRollReport."+dropdown+".selectedIndex");
+	if(i>=0){
+		eval("v = document.AssessmentRollReport."+dropdown+".options["+i+"].value");
+		return v;
+	}
+	else{
+		return false;
+	}
+}
+
+function showPrintWindow(){
+	nF = document.AssessmentRollReport.noFilter.checked;
+	fL = document.AssessmentRollReport.filterByLocation.checked;
+	fD = document.AssessmentRollReport.filterByDate.checked;
+
+	if(nF==true){
+		showPrintAllWindow();
+		return false;
+	}
+
+	fL_p = getSelectedOption('province');	
+	fL_m = getSelectedOption('municipalityCity');
+	fL_d = getSelectedOption('district');
+	fL_b = getSelectedOption('barangay');
+
+	fF_m = getSelectedOption('filterFrom_month');
+	fF_d = getSelectedOption('filterFrom_day');
+	fF_y = getSelectedOption('filterFrom_year');
+
+	fT_m = getSelectedOption('filterTo_month');
+	fT_d = getSelectedOption('filterTo_day');
+	fT_y = getSelectedOption('filterTo_year');
+
+	if(fL==true){
+		if(fL_p==false){
+			alert("Cannot show Print Window.\nPlease select a location to filter by.");
+			return false;
+		}
+		else if(fL_p==""){
+			alert("Cannot show Print Window.\nPlease select a location to filter by.");
+			return false;
+		}
+	}
+
+	if(fD==true){
+			if(fF_y=="" || fF_m=="" || fF_d=="" || fT_y=="" || fT_m=="" || fT_d==""){
+				alert("Cannot show Print Window.\nDates must be valid.");
+				return false;
+			}
+
+			fF = new Date(fF_y, fF_m-1, fF_d);
+			fT = new Date(fT_y, fT_m-1, fT_d);
+			if(fF > fT){
+				alert("Cannot show Print Window.\nFROM date must be before TO date.");
+				return false;
+			}
+	}
+
+	if(fL==false && fD==false){
+		alert("Cannot show Print Window. \nPlease check Filter by Location or Filter by Date or both to run query.");
+		return false;
+	}
+
+	url = "AssessmentRollReportPrint.php{Session}&formAction=view";
+	url+= "&formArray[filterByLocation]="+fL;
+	url+= "&formArray[filterByDate]="+fD;
+	url+= "&formArray[province]="+fL_p;
+	url+= "&formArray[municipalityCity]="+fL_m;
+	url+= "&formArray[district]="+fL_d;
+	url+= "&formArray[barangay]="+fL_b;
+	url+= "&formArray[filterFrom_month]="+fF_m;
+	url+= "&formArray[filterFrom_day]="+fF_d;
+	url+= "&formArray[filterFrom_year]="+fF_y;
+	url+= "&formArray[filterTo_month]="+fT_m;
+	url+= "&formArray[filterTo_day]="+fT_d;
+	url+= "&formArray[filterTo_year]="+fT_y;
+
+	openWin(url, 'AssessmentRollReportPrint', 0, 0, 800, 600);
+}
+
+function showPrintAllWindow(){
+	if(confirm("Are you sure you wish to Print ALL WITHOUT ANY FILTERING?\nNote: This may take a couple of minutes to load.")){
+		filterToYearList = document.AssessmentRollReport.filterTo_year;
+		fT_y = filterToYearList.options[1].value;
+
+		url = "AssessmentRollReportPrint.php{Session}&formAction=view";
+		url+= "&formArray[filterByLocation]=false";
+		url+= "&formArray[filterByDate]=true";
+		url+= "&formArray[province]=";
+		url+= "&formArray[municipalityCity]=";
+		url+= "&formArray[district]=";
+		url+= "&formArray[barangay]=";
+		url+= "&formArray[filterFrom_month]=1";
+		url+= "&formArray[filterFrom_day]=1";
+		url+= "&formArray[filterFrom_year]=1970";
+		url+= "&formArray[filterTo_month]=12";
+		url+= "&formArray[filterTo_day]=31";
+		url+= "&formArray[filterTo_year]="+fT_y;
+	
+		openWin(url, 'AssessmentRollReportPrint', 0, 0, 800, 600);
+	}
+	return false;
+}
+
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="setDefaults();">
+<form name="AssessmentRollReport" action="AssessmentRollReport.php{Session}" method=get>
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td align="center" valign="top"> 
+      <table WIDTH=100 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <tr> 
+          <td> <img SRC="images/inner_01.jpg" WIDTH=18 HEIGHT=9 ></td>
+          <td> <img SRC="images/inner_02.jpg" WIDTH=27 HEIGHT=9 ></td>
+          <td COLSPAN=2> <img SRC="images/inner_03.jpg" WIDTH=598 HEIGHT=9 ></td>
+          <td COLSPAN=3 ROWSPAN=2><img SRC="images/steps/step00.jpg" WIDTH=157 HEIGHT=133 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_05.jpg" WIDTH=18 HEIGHT=124 ></td>
+          <td> <img SRC="images/inner_06.jpg" WIDTH=27 HEIGHT=124 ></td>
+          <td COLSPAN=2 bgcolor="#CCCCCC"> <img SRC="images/title/title_am_reports.jpg" WIDTH=598 HEIGHT=124 ></td>
+        </tr>
+
+		<!-- start of navigation menu -->
+
+        <tr> 
+          <td> <img SRC="images/inner_08.jpg" WIDTH=18 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_09.jpg" WIDTH=27 HEIGHT=53 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/nav/nav_b_08_bg.jpg" bgcolor="#CCCCCC"> 
+            <table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+			   <tr> 
+			    <td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+				<td background="images/nav_area_bg.jpg">
+					<table width="100%%" border="0" cellspacing="0" cellpadding="0">
+		  <tr align="center"> 
+		   <td width="0" align=left class="common"><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right>
+			<a href="AssessorsHome.php{Session}" class="navi" title="Assessor's Module : Home">AM : Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+		   <td width="0" nowrap colspan=2 class="navi"><a href="RPUManagementHome.php{Session}" class="navi" title="Real Property Units Management">RPU Management</a>
+
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		   |
+
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		   <!-- BEGIN TransactionsLink -->
+           <a href="TransactionsHome.php{Session}" class="navi" title="Transactions">Transactions</a>
+		   <!-- END TransactionsLink -->
+		   <!-- BEGIN TransactionsLinkText -->
+           <font class="navi"><font color="#eeeeee">Transactions</font></font>
+		   <!-- END TransactionsLinkText -->
+
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+		   |
+
+		   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		   
+		   <a href="ReportsHome.php{Session}" class="navi" title="Reports">Reports</a>
+		   
+		   </td>
+
+		  </tr>
+
+				 </table>
+			    </td>
+				<td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+		       </tr>
+			</table>
+          </td>
+          <td> <img SRC="images/inner_11.jpg" WIDTH=36 HEIGHT=53 ></td>
+          <td> <img SRC="images/inner_12.jpg" WIDTH=17 HEIGHT=53 ></td>
+        </tr>
+
+		<!-- end of navigation menu -->
+
+        <tr> 
+          <td align="center" valign="top"> <img SRC="images/inner_13.jpg" WIDTH=18 HEIGHT=375 ></td>
+          <td background="images/inner_14.jpg"> <img SRC="images/spacer.gif" WIDTH=27 HEIGHT=1 ></td>
+          <td COLSPAN=3 align="left" valign="top" background="images/background/bg_middle.jpg" bgcolor="#CCCCCC"> 
+            <table width="702" height="375" border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td align="left" valign="top"> 
+                  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tr> 
+                      <td align="center" valign="top" class="subtitle"> 
+                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                          <tr> 
+                            
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="subtitle"><img src="images/spacer.gif" width="10" height="15">
+
+					  <br>Assessment Roll Report 
+					  <br><br>
+					  					  
+					  
+					  </td>
+                    </tr>
+
+                    <tr> 
+                      <td align="center" valign="top" class="fields">
+
+					    Total Records in Assessment Roll: <b>{totalRecords}</b><br>&nbsp;
+					  </td>
+                    </tr>
+
+					<tr>
+					  <td align="center">
+
+						<table border=0 cellpadding=1 cellspacing=0 width="90%">
+						<tr>
+							<td bgcolor="#777777">
+							<table border=0 cellpadding=4 cellspacing=0 width="100%">
+							<tr>
+								<td bgcolor="#cccccc" class="fields" colspan=2>
+								  <input type="checkbox" style="background-color:#cccccc;" name="filterByLocation">
+								  Filter by <b>Location</b>:
+								</td>
+							</tr>
+							<tr>
+							  <td class="fileds_comment" bgcolor="#dddddd">
+							   Province <br>
+								<select name="province" style="font-size:10px; width=175;" 		onChange="filterMunicipalityCityList();">
+								    <option value=""></option>
+									<!-- BEGIN ProvinceList -->
+									<option value = "{provinceID}" {province_sel}>{province}</option>
+									<!-- END ProvinceList -->
+							   </select>
+							   <br>&nbsp;
+							  </td>
+							  <td class="fileds_comment" bgcolor="#dddddd">
+								Municipality/City <br>
+								<select name="municipalityCity" style="font-size:10px; width=175;" onChange="filterDistrictList();">
+								    <option value=""></option>
+									<!-- BEGIN MunicipalityCityList -->
+								<option value = "{municipalityCityID}" 	{municipalityCity_sel}>{municipalityCity}</option>
+									<!-- END MunicipalityCityList -->
+							   </select> 
+							   <br>&nbsp;
+							  </td>
+							</tr>
+							<tr>
+							  <td class="fileds_comment" valign=top bgcolor="#dddddd">
+								District <br>
+								<select name="district" style="font-size:10px; width=175;" onChange="filterBarangayList();">
+								    <option value=""></option>
+									<!-- BEGIN DistrictList -->
+									<option value = "{districtID}" {district_sel}>{district}</option>
+									<!-- END DistrictList -->
+							   </select>
+							  </td>
+							  <td class="fileds_comment" valign=top bgcolor="#dddddd">
+								Barangay <br>
+								<select name="barangay" style="font-size:10px; width=175;">
+								    <option value=""></option>
+									<!-- BEGIN BarangayList -->
+									<option value = "{barangayID}" {barangay_sel}>{barangay}</option>
+									<!-- END BarangayList -->
+								</select>
+							  </td>
+							</tr>
+							<tr>
+							 <td colspan=2 bgcolor="#dddddd">&nbsp;</td>
+							</tr>
+
+							<tr>
+								<td bgcolor="#cccccc" class="fields" colspan=2>
+								  <input type="checkbox" style="background-color:#cccccc;" name="filterByDate">
+								  Filter by <b>Date Created</b>:
+								</td>
+							</tr>
+
+							<tr>
+								<td bgcolor="#dddddd">
+									<table border=0 cellpadding=0 cellspacing=2>
+									<tr>
+									 <td class="fields" valign=middle align=right width=50>
+									  <B>From:</B><br>&nbsp;
+									 </td>
+									 <td class="fileds_comment">
+										 <select name="filterFrom_month" id="filterFrom_month" onChange="javascript:setDays('filterFrom_')">
+										   <option value=""></option>
+										   <!-- BEGIN filterFrom_MonthList -->
+										   <option value = "{filterFrom_monthValue}" {filterFrom_month_sel}>{filterFrom_month}</option>
+										   <!-- END filterFrom_MonthList -->
+										  </select><br>(month)</td>
+									 <td class="fileds_comment">
+										  <select name="filterFrom_day" id="filterFrom_day">
+										   <option value=""></option>
+										   <!-- BEGIN filterFrom_DayList -->
+										   <option value = "{filterFrom_dayValue}" {filterFrom_day_sel}>{filterFrom_dayValue}</option>
+										   <!-- END filterFrom_DayList -->
+										  </select><br>(day)</td>
+									 <td class="fileds_comment">
+										  <select name="filterFrom_year" onChange="javascript:setDays('filterFrom_')">
+										   <option value=""></option>
+										   <!-- BEGIN filterFrom_YearList -->
+										   <option value = "{filterFrom_yearValue}" {filterFrom_year_sel}>{filterFrom_yearValue}</option>
+										   <!-- END filterFrom_YearList -->
+										  </select><br>(year) </td>
+									</tr>
+									</table>								 
+								</td>
+
+								<td bgcolor="#dddddd">
+									<table border=0 cellpadding=0 cellspacing=2>
+									<tr>
+									 <td class="fields" valign=middle align=right width=50>
+									  <B>To:</B><br>&nbsp;
+									 </td>
+									 <td class="fileds_comment">
+										 <select name="filterTo_month" id="filterTo_month" onChange="javascript:setDays('filterTo_')">
+										   <option value=""></option>
+										   <!-- BEGIN filterTo_MonthList -->
+										   <option value = "{filterTo_monthValue}" {filterTo_month_sel}>{filterTo_month}</option>
+										   <!-- END filterTo_MonthList -->
+										  </select><br>(month)</td>
+									 <td class="fileds_comment">
+										  <select name="filterTo_day" id="filterTo_day">
+										   <option value=""></option>
+										   <!-- BEGIN filterTo_DayList -->
+										   <option value = "{filterTo_dayValue}" {filterTo_day_sel}>{filterTo_dayValue}</option>
+										   <!-- END filterTo_DayList -->
+										  </select><br>(day)</td>
+									 <td class="fileds_comment">
+										  <select name="filterTo_year" onChange="javascript:setDays('filterTo_')">
+										   <option value=""></option>
+										   <!-- BEGIN filterTo_YearList -->
+										   <option value = "{filterTo_yearValue}" {filterTo_year_sel}>{filterTo_yearValue}</option>
+										   <!-- END filterTo_YearList -->
+										  </select><br>(year) </td>
+									</tr>
+									</table>								 
+								</td>
+							</tr>
+
+							<tr>
+							 <td colspan=2 bgcolor="#cccccc" align=center>
+							  <input type="button" value="Print" onClick="showPrintWindow();">
+							 </td>
+							</tr>
+
+							<tr>
+							 <td colspan=2 bgcolor="#dddddd" align="right" class="fileds_comment">
+							  * <input type="checkbox" style="background-color:#dddddd;" name="noFilter">
+								  <b>Print ALL (No Filtering)</b>
+							 </td>
+							</tr>
+
+
+							</table>
+							</td>
+						</tr>
+
+
+						</table>
+
+
+					  </td>
+					</tr>
+
+
+
+                    <tr> 
+                      <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+                    </tr>
+                    <tr> 
+                      <td align="center" valign="top" class="fileds_comment">
+					    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+						Tampering 
+                        with this system is criminally punishable under Philippine 
+                        Laws.<br>
+                        &copy; Republic of the Philippines National Computer Center. 
+                        All Rights Reserved. </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td background="images/inner_16.jpg"> <img SRC="images/spacer.gif " WIDTH=36 HEIGHT=375 ></td>
+          <td> <img SRC="images/inner_17.jpg" WIDTH=17 HEIGHT=375 ></td>
+        </tr>
+        <tr> 
+          <td> <img SRC="images/inner_18.jpg" WIDTH=18 HEIGHT=39></td>
+          <td> <img SRC="images/inner_19.jpg" WIDTH=27 HEIGHT=39></td>
+          <td> <img SRC="images/inner_20.jpg" WIDTH=355 HEIGHT=39></td>
+          <td> <img SRC="images/inner_21.jpg" WIDTH=243 HEIGHT=39></td>
+          <td> <img SRC="images/inner_22.jpg" WIDTH=104 HEIGHT=39></td>
+          <td> <img SRC="images/inner_23.jpg" WIDTH=36 HEIGHT=39></td>
+          <td> <img SRC="images/inner_24.jpg" WIDTH=17 HEIGHT=39></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

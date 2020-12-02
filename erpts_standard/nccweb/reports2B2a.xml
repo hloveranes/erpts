@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<contents>
+   <page height="612" width="1008" number="1" orientation="0">
+
+		<textitem xpos="18" ypos="597" font="Helvetica" size="9">BLGF Form No.2-a (Revised 2000)</textitem>
+		<textitem xpos="940" ypos="588" font="Helvetica" size="9">Annex B</textitem>
+		<textitem xpos="290" ypos="588" font="Helvetica" size="11">CONSOLIDATED QUARTERLY REPORT ON REAL PROPERTY TAX COLLECTIONS</textitem>
+
+		<textitem xpos="428" ypos="555" font="Helvetica" size="9">Municipal/City of {municipalityCity}</textitem>
+		<textitem xpos="428" ypos="540" font="Helvetica" size="9">Province of {province}</textitem>
+		<textitem xpos="428" ypos="525" font="Helvetica" size="9">As of the Quarter Ending {quarterEndingDate} , {year}</textitem>		
+		<textitem xpos="428" ypos="510" font="Helvetica" size="9">Rate of Levy {levyRate}</textitem>		
+				
+		<textitem xpos="920" ypos="555" font="Helvetica" size="9">No. of Bgys. {noBgys}</textitem>						
+		<lineitem x1="970" y1="550" x2="985" y2="550">blurb</lineitem> 
+
+		<textitem xpos="254" ypos="494" font="Helvetica" size="9">Basic Real Property Tax</textitem>
+		<textitem xpos="481" ypos="494" font="Helvetica" size="9">Special Education Fund(RA5447)</textitem>
+		
+		<textitem xpos="90" ypos="474" font="Helvetica" size="9">Property</textitem>
+		<textitem xpos="85" ypos="460" font="Helvetica" size="9">Classification</textitem>		
+		
+		<textitem xpos="185" ypos="485" font="Helvetica" size="9">CURRENT YEAR</textitem>
+		<lineitem x1="876" y1="493" x2="170" y2="493">blurb</lineitem> 
+		<lineitem x1="170" y1="484" x2="264" y2="484">blurb</lineitem> 
+		<lineitem x1="264" y1="288" x2="264" y2="493">blurb</lineitem> 
+  	    <lineitem x1="227" y1="288" x2="227" y2="484">blurb</lineitem> 
+		<lineitem x1="301" y1="288" x2="301" y2="493">blurb</lineitem> 		
+		<lineitem x1="301" y1="484" x2="367" y2="484">blurb</lineitem> 
+		<lineitem x1="367" y1="288" x2="367" y2="493">blurb</lineitem> 		
+
+		<textitem xpos="172" ypos="475" font="Helvetica" size="8">Net Collections</textitem>
+		<textitem xpos="175" ypos="460" font="Helvetica" size="8">(Gross-Disc)</textitem>		
+		<textitem xpos="190" ypos="445" font="Helvetica" size="9">(1)</textitem>		
+		
+		<textitem xpos="229" ypos="460" font="Helvetica" size="8">Discount</textitem>
+		<textitem xpos="239" ypos="445" font="Helvetica" size="8">(2)</textitem>		
+				
+		<textitem xpos="265" ypos="475" font="Helvetica" size="8">Previous</textitem>
+		<textitem xpos="267" ypos="460" font="Helvetica" size="8">Years</textitem>
+		<textitem xpos="277" ypos="445" font="Helvetica" size="8">(3)</textitem>
+								
+		<textitem xpos="312" ypos="485" font="Helvetica" size="9">PENALTIES</textitem>
+		<textitem xpos="303" ypos="475" font="Helvetica" size="8">Current</textitem>
+		<textitem xpos="305" ypos="460" font="Helvetica" size="8">Years</textitem>
+		<textitem xpos="315" ypos="445" font="Helvetica" size="8">(4)</textitem>
+		
+		<lineitem x1="333" y1="288" x2="333" y2="484">blurb</lineitem> 		
+		<textitem xpos="335" ypos="475" font="Helvetica" size="8">Previous</textitem>
+		<textitem xpos="340" ypos="460" font="Helvetica" size="8">Years</textitem>
+		<textitem xpos="345" ypos="445" font="Helvetica" size="8">(5)</textitem>
+		
+		<textitem xpos="377" ypos="475" font="Helvetica" size="9">Total</textitem>
+		<textitem xpos="368" ypos="460" font="Helvetica" size="8">(1)+(2)+(3)+</textitem>
+		<textitem xpos="370" ypos="445" font="Helvetica" size="8">(4)+(5)=(6)</textitem>
+
+		
+		<textitem xpos="415" ypos="485" font="Helvetica" size="9">CURRENT YEAR</textitem>
+		<lineitem x1="411" y1="484" x2="501" y2="484">blurb</lineitem> 		
+		<lineitem x1="501" y1="288" x2="501" y2="493">blurb</lineitem> 		
+		<lineitem x1="545" y1="288" x2="545" y2="493">blurb</lineitem> 		
+		<lineitem x1="468" y1="288" x2="468" y2="484">blurb</lineitem> 		
+
+		<textitem xpos="412" ypos="475" font="Helvetica" size="8">Net Collections</textitem>
+		<textitem xpos="419" ypos="460" font="Helvetica" size="8">(Gross-Disc)</textitem>		
+		<textitem xpos="428" ypos="445" font="Helvetica" size="9">(7)</textitem>		
+
+		<textitem xpos="470" ypos="460" font="Helvetica" size="8">Discount</textitem>		
+		<textitem xpos="479" ypos="445" font="Helvetica" size="9">(8)</textitem>		
+
+		<textitem xpos="503" ypos="475" font="Helvetica" size="8">Previous</textitem>
+		<textitem xpos="508" ypos="460" font="Helvetica" size="8">Years</textitem>
+		<textitem xpos="515" ypos="445" font="Helvetica" size="8">(9)</textitem>
+
+		
+		<textitem xpos="550" ypos="485" font="Helvetica" size="9">PENALTIES</textitem>
+		<lineitem x1="545" y1="484" x2="623" y2="484">blurb</lineitem> 				
+		<lineitem x1="624" y1="288" x2="624" y2="493">blurb</lineitem> 
+		<lineitem x1="584" y1="288" x2="584" y2="484">blurb</lineitem> 				
+
+		<textitem xpos="549" ypos="475" font="Helvetica" size="8">Current</textitem>
+		<textitem xpos="550" ypos="460" font="Helvetica" size="8">Years</textitem>		
+		<textitem xpos="552" ypos="445" font="Helvetica" size="9">(10)</textitem>		
+
+		<textitem xpos="588" ypos="475" font="Helvetica" size="8">Previous</textitem>		
+		<textitem xpos="589" ypos="460" font="Helvetica" size="8">Years</textitem>				
+		<textitem xpos="593" ypos="445" font="Helvetica" size="9">(11)</textitem>		
+
+
+		<textitem xpos="633" ypos="475" font="Helvetica" size="9">Total</textitem>
+		<textitem xpos="629" ypos="460" font="Helvetica" size="8">(7)+(8)+(9)+</textitem>
+		<textitem xpos="625" ypos="445" font="Helvetica" size="8">(10)+(11)=(12)</textitem>
+		
+
+		<textitem xpos="726" ypos="494" font="Helvetica" size="8">IDLE LANDS</textitem>
+
+		<textitem xpos="682" ypos="475" font="Helvetica" size="8">Current</textitem>
+		<textitem xpos="684" ypos="460" font="Helvetica" size="8">Years</textitem>		
+		<textitem xpos="686" ypos="445" font="Helvetica" size="9">(13)</textitem>		
+
+		<lineitem x1="712" y1="288" x2="712" y2="493">blurb</lineitem> 				
+		
+		<textitem xpos="714" ypos="475" font="Helvetica" size="8">Prior</textitem>
+		<textitem xpos="717" ypos="460" font="Helvetica" size="8">Years</textitem>		
+		<textitem xpos="719" ypos="445" font="Helvetica" size="9">(14)</textitem>		
+
+
+		<textitem xpos="749" ypos="475" font="Helvetica" size="8">Penalties</textitem>
+		<textitem xpos="757" ypos="445" font="Helvetica" size="9">(15)</textitem>		
+
+		<textitem xpos="788" ypos="475" font="Helvetica" size="8">Total</textitem>
+		<textitem xpos="790" ypos="445" font="Helvetica" size="9">(16)</textitem>		
+		
+		<textitem xpos="830" ypos="475" font="Helvetica" size="9">Total</textitem>
+        <textitem xpos="835" ypos="445" font="Helvetica" size="9">(17)</textitem>
+		
+		<textitem xpos="888" ypos="490" font="Helvetica" size="9">Total</textitem>
+        <textitem xpos="888" ypos="475" font="Helvetica" size="9">Non-</textitem>
+		<textitem xpos="888" ypos="460" font="Helvetica" size="9">Cash</textitem>
+		<textitem xpos="888" ypos="445" font="Helvetica" size="9">(18)</textitem>
+		
+		<textitem xpos="915" ypos="490" font="Helvetica" size="9">Total Collection</textitem>
+		<textitem xpos="915" ypos="475" font="Helvetica" size="9">Basic and SEF</textitem>
+		<textitem xpos="915" ypos="460" font="Helvetica" size="9">(6)+(12)+(16)+(17)</textitem>
+		<textitem xpos="915" ypos="445" font="Helvetica" size="9">+(18)=(19)</textitem>
+		
+		
+		<lineitem x1="748" y1="288" x2="748" y2="493">blurb</lineitem> 				
+		<lineitem x1="784" y1="288" x2="784" y2="493">blurb</lineitem> 				
+		<lineitem x1="816" y1="288" x2="816" y2="501">blurb</lineitem> 						
+
+		<textitem xpos="817" ypos="494" font="Helvetica" size="8">SPECIAL LEVY</textitem>
+		
+		<!-- VERTICAL -->
+		<lineitem x1="37" y1="502" x2="991" y2="502">blurb</lineitem>  
+		<lineitem x1="37" y1="502" x2="37" y2="189">blurb</lineitem> 
+		<lineitem x1="991" y1="189" x2="991" y2="502">blurb</lineitem> 
+		<lineitem x1="37" y1="189" x2="991" y2="189">blurb</lineitem> 
+
+		<lineitem x1="912" y1="189" x2="912" y2="502">blurb</lineitem> 
+		<lineitem x1="877" y1="189" x2="877" y2="502">blurb</lineitem> 		
+		<lineitem x1="679" y1="189" x2="679" y2="502">blurb</lineitem> 
+		<lineitem x1="411" y1="189" x2="411" y2="502">blurb</lineitem> 		
+		<lineitem x1="169" y1="189" x2="169" y2="502">blurb</lineitem> 				
+		
+		<!-- VERTICAL -->
+		
+		<!-- START HORIZONTAL LINE -->
+		<lineitem x1="991" y1="441" x2="37" y2="441">blurb</lineitem> 			
+		<lineitem x1="991" y1="428" x2="37" y2="428">blurb</lineitem> 		
+		<lineitem x1="991" y1="418" x2="37" y2="418">blurb</lineitem> 		
+		<lineitem x1="991" y1="408" x2="37" y2="408">blurb</lineitem> 		
+		<lineitem x1="991" y1="398" x2="37" y2="398">blurb</lineitem> 		
+		<lineitem x1="991" y1="388" x2="37" y2="388">blurb</lineitem> 				
+		<lineitem x1="991" y1="378" x2="37" y2="378">blurb</lineitem> 		
+		<lineitem x1="991" y1="368" x2="37" y2="368">blurb</lineitem> 		
+		<lineitem x1="991" y1="358" x2="37" y2="358">blurb</lineitem> 		
+		<lineitem x1="991" y1="348" x2="37" y2="348">blurb</lineitem> 		
+		<lineitem x1="991" y1="338" x2="37" y2="338">blurb</lineitem> 		
+		<lineitem x1="991" y1="328" x2="37" y2="328">blurb</lineitem> 		
+		<!--lineitem x1="991" y1="318" x2="37" y2="318">blurb</lineitem> 		
+		<lineitem x1="991" y1="308" x2="37" y2="308">blurb</lineitem--> 		
+		<lineitem x1="991" y1="318" x2="37" y2="318">blurb</lineitem> 		
+		<lineitem x1="991" y1="288" x2="37" y2="288">blurb</lineitem> 		
+		<lineitem x1="991" y1="278" x2="37" y2="278">blurb</lineitem> 		
+		<lineitem x1="991" y1="238" x2="37" y2="238">blurb</lineitem> 		
+		<lineitem x1="991" y1="228" x2="37" y2="228">blurb</lineitem> 		
+		<lineitem x1="991" y1="208" x2="37" y2="208">blurb</lineitem> 
+		<lineitem x1="169" y1="265" x2="991" y2="265"/>
+		<lineitem x1="169" y1="250" x2="991" y2="250"/>
+				
+		<!-- END HORIZONTAL LINE -->
+	
+	<textitem xpos="55" ypos="178" font="Helvetica" size="9">Frequency:Quarterly</textitem>
+	<textitem xpos="55" ypos="168" font="Helvetica" size="9">Due Date: Submission to</textitem>
+	<textitem xpos="95" ypos="158" font="Helvetica" size="9">1. BLGF Central Office by the Regional Director and City Municipal Treasurers</textitem>
+	<textitem xpos="100" ypos="148" font="Helvetica" size="9">of Metro Manila: On or before the end of the month immmediately following the quarter.</textitem>
+
+
+	<textitem xpos="55" ypos="98" font="Helvetica" size="9">No. of copies: Four(4)</textitem>
+	<textitem xpos="105" ypos="88" font="Helvetica" size="9">1. BLGF Central Office</textitem>
+	<textitem xpos="105" ypos="78" font="Helvetica" size="9">2. BLGF Regional Office</textitem>
+	<textitem xpos="105" ypos="58" font="Helvetica" size="9">4. File</textitem>
+	
+	<textitem xpos="55" ypos="420" font="Helvetica" size="9">1. Residential</textitem>
+ 	<textitem xpos="55" ypos="410" font="Helvetica" size="9">2. Agricultural</textitem>
+ 	<textitem xpos="55" ypos="400" font="Helvetica" size="9">3. Commercial</textitem>
+	<textitem xpos="55" ypos="390" font="Helvetica" size="9">4. Industrial</textitem>
+    <textitem xpos="55" ypos="380" font="Helvetica" size="9">5. Mineral</textitem>
+	<textitem xpos="55" ypos="370" font="Helvetica" size="9">6. Timber</textitem>
+	<textitem xpos="55" ypos="360" font="Helvetica" size="9">7. Special</textitem>
+	<textitem xpos="75" ypos="350" font="Helvetica" size="9">a. Hospital</textitem>
+	<textitem xpos="75" ypos="340" font="Helvetica" size="9">b. Scientific</textitem>
+	<textitem xpos="75" ypos="330" font="Helvetica" size="9">c. Cultural</textitem>
+	<textitem xpos="75" ypos="320" font="Helvetica" size="9">d. Others</textitem>
+	<textitem xpos="105" ypos="295" font="Helvetica" size="9">Totals </textitem>
+	<textitem xpos="65" ypos="280" font="Helvetica" size="9">Disposition Of Proceeds</textitem>
+	<textitem xpos="250" ypos="280" font="Helvetica" size="9">General Fund</textitem>
+	<textitem xpos="475" ypos="280" font="Helvetica" size="9">Special Educational Fund</textitem>
+    <textitem xpos="945" ypos="280" font="Helvetica" size="9"> Totals</textitem>
+	<textitem xpos="70" ypos="270" font="Helvetica" size="9">Provincial/City Share</textitem>
+	
+	<textitem xpos="178" ypos="253" font="Helvetica" size="9">Idle Lands</textitem>
+	<textitem xpos="179" ypos="240" font="Helvetica" size="9">Special Levy</textitem>
+	
+    <textitem xpos="50" ypos="230" font="Helvetica" size="9">Municipal Share</textitem>
+    <textitem xpos="50" ypos="212" font="Helvetica" size="9">Barangay Share</textitem>
+    <textitem xpos="75" ypos="195" font="Helvetica" size="9">Total Share</textitem>
+    <textitem xpos="562" ypos="173" font="Helvetica" size="9">Certified Correct:</textitem>
+    <textitem xpos="677" ypos="144" font="Helvetica" size="9">Provincial/City/Municipal Treasurer</textitem>
+
+		<!-- <textitem xpos="" ypos="" font="Helvetica" size="9">Certified Correct</textitem> -->
+		<!-- <textitem xpos="" ypos="" font="Helvetica" size="9"> Provincial Treasurer</textitem> -->
+
+	<!-- BEGIN ROW -->
+		<textitem align="right" xpos="223" ypos="420" font="Helvetica" size="9">{paidBasic1}</textitem>
+		<textitem align="right" xpos="260" ypos="420" font="Helvetica" size="9">({discountBasic1})</textitem>
+		<textitem align="right" xpos="298" ypos="420" font="Helvetica" size="9">{priorBasic1}</textitem>
+		<textitem align="right" xpos="330" ypos="420" font="Helvetica" size="9">{penaltyBasic1}</textitem>
+		<textitem align="right" xpos="364" ypos="420" font="Helvetica" size="9">{priorPenaltyBasic1}</textitem>
+		<textitem align="right" xpos="408" ypos="420" font="Helvetica" size="9">{totalNetBasic1}</textitem>
+		<textitem align="right" xpos="465" ypos="420" font="Helvetica" size="9">{paidSEF1}</textitem>
+		<textitem align="right" xpos="498" ypos="420" font="Helvetica" size="9">({discountSEF1})</textitem>
+		<textitem align="right" xpos="541" ypos="420" font="Helvetica" size="9">{priorSEF1}</textitem>
+		<textitem align="right" xpos="581" ypos="420" font="Helvetica" size="9">{penaltySEF1}</textitem>
+		<textitem align="right" xpos="620" ypos="420" font="Helvetica" size="9">{priorPenaltySEF1}</textitem>
+		<textitem align="right" xpos="675" ypos="420" font="Helvetica" size="9">{totalNetSEF1}</textitem>
+		<textitem align="right" xpos="709" ypos="420" font="Helvetica" size="9">{paidIdle1}</textitem>
+		<textitem align="right" xpos="745" ypos="420" font="Helvetica" size="9">{priorIdle1}</textitem>
+		<textitem align="right" xpos="781" ypos="420" font="Helvetica" size="9">{penaltyIdle1}</textitem>
+		<textitem align="right" xpos="812" ypos="420" font="Helvetica" size="9">{totalIdle1}</textitem>
+		<textitem align="right" xpos="874" ypos="420" font="Helvetica" size="9">{specialLevy1}</textitem>
+		<textitem align="right" xpos="908" ypos="420" font="Helvetica" size="9">{totalNonCash1}</textitem>
+		<textitem align="right" xpos="988" ypos="420" font="Helvetica" size="9">{grandTotalNetCol1}</textitem>
+
+		<textitem align="right" xpos="223" ypos="410" font="Helvetica" size="9">{paidBasic2}</textitem>
+		<textitem align="right" xpos="260" ypos="410" font="Helvetica" size="9">({discountBasic2})</textitem>
+		<textitem align="right" xpos="298" ypos="410" font="Helvetica" size="9">{priorBasic2}</textitem>
+		<textitem align="right" xpos="330" ypos="410" font="Helvetica" size="9">{penaltyBasic2}</textitem>
+		<textitem align="right" xpos="364" ypos="410" font="Helvetica" size="9">{priorPenaltyBasic2}</textitem>
+		<textitem align="right" xpos="408" ypos="410" font="Helvetica" size="9">{totalNetBasic2}</textitem>
+		<textitem align="right" xpos="465" ypos="410" font="Helvetica" size="9">{paidSEF2}</textitem>
+		<textitem align="right" xpos="498" ypos="410" font="Helvetica" size="9">({discountSEF2})</textitem>
+		<textitem align="right" xpos="541" ypos="410" font="Helvetica" size="9">{priorSEF2}</textitem>
+		<textitem align="right" xpos="581" ypos="410" font="Helvetica" size="9">{penaltySEF2}</textitem>
+		<textitem align="right" xpos="620" ypos="410" font="Helvetica" size="9">{priorPenaltySEF2}</textitem>
+		<textitem align="right" xpos="675" ypos="410" font="Helvetica" size="9">{totalNetSEF2}</textitem>
+		<textitem align="right" xpos="709" ypos="410" font="Helvetica" size="9">{paidIdle2}</textitem>
+		<textitem align="right" xpos="745" ypos="410" font="Helvetica" size="9">{priorIdle2}</textitem>
+		<textitem align="right" xpos="781" ypos="410" font="Helvetica" size="9">{penaltyIdle2}</textitem>
+		<textitem align="right" xpos="812" ypos="410" font="Helvetica" size="9">{totalIdle2}</textitem>
+		<textitem align="right" xpos="874" ypos="410" font="Helvetica" size="9">{specialLevy2}</textitem>
+		<textitem align="right" xpos="908" ypos="410" font="Helvetica" size="9">{totalNonCash2}</textitem>
+		<textitem align="right" xpos="988" ypos="410" font="Helvetica" size="9">{grandTotalNetCol2}</textitem>
+
+		<textitem align="right" xpos="223" ypos="400" font="Helvetica" size="9">{paidBasic3}</textitem>
+		<textitem align="right" xpos="260" ypos="400" font="Helvetica" size="9">({discountBasic3})</textitem>
+		<textitem align="right" xpos="298" ypos="400" font="Helvetica" size="9">{priorBasic3}</textitem>
+		<textitem align="right" xpos="330" ypos="400" font="Helvetica" size="9">{penaltyBasic3}</textitem>
+		<textitem align="right" xpos="364" ypos="400" font="Helvetica" size="9">{priorPenaltyBasic3}</textitem>
+		<textitem align="right" xpos="408" ypos="400" font="Helvetica" size="9">{totalNetBasic3}</textitem>
+		<textitem align="right" xpos="465" ypos="400" font="Helvetica" size="9">{paidSEF3}</textitem>
+		<textitem align="right" xpos="498" ypos="400" font="Helvetica" size="9">({discountSEF3})</textitem>
+		<textitem align="right" xpos="541" ypos="400" font="Helvetica" size="9">{priorSEF3}</textitem>
+		<textitem align="right" xpos="581" ypos="400" font="Helvetica" size="9">{penaltySEF3}</textitem>
+		<textitem align="right" xpos="620" ypos="400" font="Helvetica" size="9">{priorPenaltySEF3}</textitem>
+		<textitem align="right" xpos="675" ypos="400" font="Helvetica" size="9">{totalNetSEF3}</textitem>
+		<textitem align="right" xpos="709" ypos="400" font="Helvetica" size="9">{paidIdle3}</textitem>
+		<textitem align="right" xpos="745" ypos="400" font="Helvetica" size="9">{priorIdle3}</textitem>
+		<textitem align="right" xpos="781" ypos="400" font="Helvetica" size="9">{penaltyIdle3}</textitem>
+		<textitem align="right" xpos="812" ypos="400" font="Helvetica" size="9">{totalIdle3}</textitem>
+		<textitem align="right" xpos="874" ypos="400" font="Helvetica" size="9">{specialLevy3}</textitem>
+		<textitem align="right" xpos="908" ypos="400" font="Helvetica" size="9">{totalNonCash3}</textitem>
+		<textitem align="right" xpos="988" ypos="400" font="Helvetica" size="9">{grandTotalNetCol3}</textitem>
+
+		<textitem align="right" xpos="223" ypos="390" font="Helvetica" size="9">{paidBasic4}</textitem>
+		<textitem align="right" xpos="260" ypos="390" font="Helvetica" size="9">({discountBasic4})</textitem>
+		<textitem align="right" xpos="298" ypos="390" font="Helvetica" size="9">{priorBasic4}</textitem>
+		<textitem align="right" xpos="330" ypos="390" font="Helvetica" size="9">{penaltyBasic4}</textitem>
+		<textitem align="right" xpos="364" ypos="390" font="Helvetica" size="9">{priorPenaltyBasic4}</textitem>
+		<textitem align="right" xpos="408" ypos="390" font="Helvetica" size="9">{totalNetBasic4}</textitem>
+		<textitem align="right" xpos="465" ypos="390" font="Helvetica" size="9">{paidSEF4}</textitem>
+		<textitem align="right" xpos="498" ypos="390" font="Helvetica" size="9">({discountSEF4})</textitem>
+		<textitem align="right" xpos="541" ypos="390" font="Helvetica" size="9">{priorSEF4}</textitem>
+		<textitem align="right" xpos="581" ypos="390" font="Helvetica" size="9">{penaltySEF4}</textitem>
+		<textitem align="right" xpos="620" ypos="390" font="Helvetica" size="9">{priorPenaltySEF4}</textitem>
+		<textitem align="right" xpos="675" ypos="390" font="Helvetica" size="9">{totalNetSEF4}</textitem>
+		<textitem align="right" xpos="709" ypos="390" font="Helvetica" size="9">{paidIdle4}</textitem>
+		<textitem align="right" xpos="745" ypos="390" font="Helvetica" size="9">{priorIdle4}</textitem>
+		<textitem align="right" xpos="781" ypos="390" font="Helvetica" size="9">{penaltyIdle4}</textitem>
+		<textitem align="right" xpos="812" ypos="390" font="Helvetica" size="9">{totalIdle4}</textitem>
+		<textitem align="right" xpos="874" ypos="390" font="Helvetica" size="9">{specialLevy4}</textitem>
+		<textitem align="right" xpos="908" ypos="390" font="Helvetica" size="9">{totalNonCash4}</textitem>
+		<textitem align="right" xpos="988" ypos="390" font="Helvetica" size="9">{grandTotalNetCol4}</textitem>
+
+		<textitem align="right" xpos="223" ypos="380" font="Helvetica" size="9">{paidBasic5}</textitem>
+		<textitem align="right" xpos="260" ypos="380" font="Helvetica" size="9">({discountBasic5})</textitem>
+		<textitem align="right" xpos="298" ypos="380" font="Helvetica" size="9">{priorBasic5}</textitem>
+		<textitem align="right" xpos="330" ypos="380" font="Helvetica" size="9">{penaltyBasic5}</textitem>
+		<textitem align="right" xpos="364" ypos="380" font="Helvetica" size="9">{priorPenaltyBasic5}</textitem>
+		<textitem align="right" xpos="408" ypos="380" font="Helvetica" size="9">{totalNetBasic5}</textitem>
+		<textitem align="right" xpos="465" ypos="380" font="Helvetica" size="9">{paidSEF5}</textitem>
+		<textitem align="right" xpos="498" ypos="380" font="Helvetica" size="9">({discountSEF5})</textitem>
+		<textitem align="right" xpos="541" ypos="380" font="Helvetica" size="9">{priorSEF5}</textitem>
+		<textitem align="right" xpos="581" ypos="380" font="Helvetica" size="9">{penaltySEF5}</textitem>
+		<textitem align="right" xpos="620" ypos="380" font="Helvetica" size="9">{priorPenaltySEF5}</textitem>
+		<textitem align="right" xpos="675" ypos="380" font="Helvetica" size="9">{totalNetSEF5}</textitem>
+		<textitem align="right" xpos="709" ypos="380" font="Helvetica" size="9">{paidIdle5}</textitem>
+		<textitem align="right" xpos="745" ypos="380" font="Helvetica" size="9">{priorIdle5}</textitem>
+		<textitem align="right" xpos="781" ypos="380" font="Helvetica" size="9">{penaltyIdle5}</textitem>
+		<textitem align="right" xpos="812" ypos="380" font="Helvetica" size="9">{totalIdle5}</textitem>
+		<textitem align="right" xpos="874" ypos="380" font="Helvetica" size="9">{specialLevy5}</textitem>
+		<textitem align="right" xpos="908" ypos="380" font="Helvetica" size="9">{totalNonCash5}</textitem>
+		<textitem align="right" xpos="988" ypos="380" font="Helvetica" size="9">{grandTotalNetCol5}</textitem>
+
+		<textitem align="right" xpos="223" ypos="370" font="Helvetica" size="9">{paidBasic6}</textitem>
+		<textitem align="right" xpos="260" ypos="370" font="Helvetica" size="9">({discountBasic6})</textitem>
+		<textitem align="right" xpos="298" ypos="370" font="Helvetica" size="9">{priorBasic6}</textitem>
+		<textitem align="right" xpos="330" ypos="370" font="Helvetica" size="9">{penaltyBasic6}</textitem>
+		<textitem align="right" xpos="364" ypos="370" font="Helvetica" size="9">{priorPenaltyBasic6}</textitem>
+		<textitem align="right" xpos="408" ypos="370" font="Helvetica" size="9">{totalNetBasic6}</textitem>
+		<textitem align="right" xpos="465" ypos="370" font="Helvetica" size="9">{paidSEF6}</textitem>
+		<textitem align="right" xpos="498" ypos="370" font="Helvetica" size="9">({discountSEF6})</textitem>
+		<textitem align="right" xpos="541" ypos="370" font="Helvetica" size="9">{priorSEF6}</textitem>
+		<textitem align="right" xpos="581" ypos="370" font="Helvetica" size="9">{penaltySEF6}</textitem>
+		<textitem align="right" xpos="620" ypos="370" font="Helvetica" size="9">{priorPenaltySEF6}</textitem>
+		<textitem align="right" xpos="675" ypos="370" font="Helvetica" size="9">{totalNetSEF6}</textitem>
+		<textitem align="right" xpos="709" ypos="370" font="Helvetica" size="9">{paidIdle6}</textitem>
+		<textitem align="right" xpos="745" ypos="370" font="Helvetica" size="9">{priorIdle6}</textitem>
+		<textitem align="right" xpos="781" ypos="370" font="Helvetica" size="9">{penaltyIdle6}</textitem>
+		<textitem align="right" xpos="812" ypos="370" font="Helvetica" size="9">{totalIdle6}</textitem>
+		<textitem align="right" xpos="874" ypos="370" font="Helvetica" size="9">{specialLevy6}</textitem>
+		<textitem align="right" xpos="908" ypos="370" font="Helvetica" size="9">{totalNonCash6}</textitem>
+		<textitem align="right" xpos="988" ypos="370" font="Helvetica" size="9">{grandTotalNetCol6}</textitem>
+
+		<textitem align="right" xpos="223" ypos="360" font="Helvetica" size="9">{paidBasic7}</textitem>
+		<textitem align="right" xpos="260" ypos="360" font="Helvetica" size="9">({discountBasic7})</textitem>
+		<textitem align="right" xpos="298" ypos="360" font="Helvetica" size="9">{priorBasic7}</textitem>
+		<textitem align="right" xpos="330" ypos="360" font="Helvetica" size="9">{penaltyBasic7}</textitem>
+		<textitem align="right" xpos="364" ypos="360" font="Helvetica" size="9">{priorPenaltyBasic7}</textitem>
+		<textitem align="right" xpos="408" ypos="360" font="Helvetica" size="9">{totalNetBasic7}</textitem>
+		<textitem align="right" xpos="465" ypos="360" font="Helvetica" size="9">{paidSEF7}</textitem>
+		<textitem align="right" xpos="498" ypos="360" font="Helvetica" size="9">({discountSEF7})</textitem>
+		<textitem align="right" xpos="541" ypos="360" font="Helvetica" size="9">{priorSEF7}</textitem>
+		<textitem align="right" xpos="581" ypos="360" font="Helvetica" size="9">{penaltySEF7}</textitem>
+		<textitem align="right" xpos="620" ypos="360" font="Helvetica" size="9">{priorPenaltySEF7}</textitem>
+		<textitem align="right" xpos="675" ypos="360" font="Helvetica" size="9">{totalNetSEF7}</textitem>
+		<textitem align="right" xpos="709" ypos="360" font="Helvetica" size="9">{paidIdle7}</textitem>
+		<textitem align="right" xpos="745" ypos="360" font="Helvetica" size="9">{priorIdle7}</textitem>
+		<textitem align="right" xpos="781" ypos="360" font="Helvetica" size="9">{penaltyIdle7}</textitem>
+		<textitem align="right" xpos="812" ypos="360" font="Helvetica" size="9">{totalIdle7}</textitem>
+		<textitem align="right" xpos="874" ypos="360" font="Helvetica" size="9">{specialLevy7}</textitem>
+		<textitem align="right" xpos="908" ypos="360" font="Helvetica" size="9">{totalNonCash7}</textitem>
+		<textitem align="right" xpos="988" ypos="360" font="Helvetica" size="9">{grandTotalNetCol7}</textitem>
+
+		<textitem align="right" xpos="223" ypos="350" font="Helvetica" size="9">{paidBasic8}</textitem>
+		<textitem align="right" xpos="260" ypos="350" font="Helvetica" size="9">({discountBasic8})</textitem>
+		<textitem align="right" xpos="298" ypos="350" font="Helvetica" size="9">{priorBasic8}</textitem>
+		<textitem align="right" xpos="330" ypos="350" font="Helvetica" size="9">{penaltyBasic8}</textitem>
+		<textitem align="right" xpos="364" ypos="350" font="Helvetica" size="9">{priorPenaltyBasic8}</textitem>
+		<textitem align="right" xpos="408" ypos="350" font="Helvetica" size="9">{totalNetBasic8}</textitem>
+		<textitem align="right" xpos="465" ypos="350" font="Helvetica" size="9">{paidSEF8}</textitem>
+		<textitem align="right" xpos="498" ypos="350" font="Helvetica" size="9">({discountSEF8})</textitem>
+		<textitem align="right" xpos="541" ypos="350" font="Helvetica" size="9">{priorSEF8}</textitem>
+		<textitem align="right" xpos="581" ypos="350" font="Helvetica" size="9">{penaltySEF8}</textitem>
+		<textitem align="right" xpos="620" ypos="350" font="Helvetica" size="9">{priorPenaltySEF8}</textitem>
+		<textitem align="right" xpos="675" ypos="350" font="Helvetica" size="9">{totalNetSEF8}</textitem>
+		<textitem align="right" xpos="709" ypos="350" font="Helvetica" size="9">{paidIdle8}</textitem>
+		<textitem align="right" xpos="745" ypos="350" font="Helvetica" size="9">{priorIdle8}</textitem>
+		<textitem align="right" xpos="781" ypos="350" font="Helvetica" size="9">{penaltyIdle8}</textitem>
+		<textitem align="right" xpos="812" ypos="350" font="Helvetica" size="9">{totalIdle8}</textitem>
+		<textitem align="right" xpos="874" ypos="350" font="Helvetica" size="9">{specialLevy8}</textitem>
+		<textitem align="right" xpos="908" ypos="350" font="Helvetica" size="9">{totalNonCash8}</textitem>
+		<textitem align="right" xpos="988" ypos="350" font="Helvetica" size="9">{grandTotalNetCol8}</textitem>
+
+		<textitem align="right" xpos="223" ypos="340" font="Helvetica" size="9">{paidBasic9}</textitem>
+		<textitem align="right" xpos="260" ypos="340" font="Helvetica" size="9">({discountBasic9})</textitem>
+		<textitem align="right" xpos="298" ypos="340" font="Helvetica" size="9">{priorBasic9}</textitem>
+		<textitem align="right" xpos="330" ypos="340" font="Helvetica" size="9">{penaltyBasic9}</textitem>
+		<textitem align="right" xpos="364" ypos="340" font="Helvetica" size="9">{priorPenaltyBasic9}</textitem>
+		<textitem align="right" xpos="408" ypos="340" font="Helvetica" size="9">{totalNetBasic9}</textitem>
+		<textitem align="right" xpos="465" ypos="340" font="Helvetica" size="9">{paidSEF9}</textitem>
+		<textitem align="right" xpos="498" ypos="340" font="Helvetica" size="9">({discountSEF9})</textitem>
+		<textitem align="right" xpos="541" ypos="340" font="Helvetica" size="9">{priorSEF9}</textitem>
+		<textitem align="right" xpos="581" ypos="340" font="Helvetica" size="9">{penaltySEF9}</textitem>
+		<textitem align="right" xpos="620" ypos="340" font="Helvetica" size="9">{priorPenaltySEF9}</textitem>
+		<textitem align="right" xpos="675" ypos="340" font="Helvetica" size="9">{totalNetSEF9}</textitem>
+		<textitem align="right" xpos="709" ypos="340" font="Helvetica" size="9">{paidIdle9}</textitem>
+		<textitem align="right" xpos="745" ypos="340" font="Helvetica" size="9">{priorIdle9}</textitem>
+		<textitem align="right" xpos="781" ypos="340" font="Helvetica" size="9">{penaltyIdle9}</textitem>
+		<textitem align="right" xpos="812" ypos="340" font="Helvetica" size="9">{totalIdle9}</textitem>
+		<textitem align="right" xpos="874" ypos="340" font="Helvetica" size="9">{specialLevy9}</textitem>
+		<textitem align="right" xpos="908" ypos="340" font="Helvetica" size="9">{totalNonCash9}</textitem>
+		<textitem align="right" xpos="988" ypos="340" font="Helvetica" size="9">{grandTotalNetCol9}</textitem>
+
+		<textitem align="right" xpos="223" ypos="330" font="Helvetica" size="9">{paidBasic10}</textitem>
+		<textitem align="right" xpos="260" ypos="330" font="Helvetica" size="9">({discountBasic10})</textitem>
+		<textitem align="right" xpos="298" ypos="330" font="Helvetica" size="9">{priorBasic10}</textitem>
+		<textitem align="right" xpos="330" ypos="330" font="Helvetica" size="9">{penaltyBasic10}</textitem>
+		<textitem align="right" xpos="364" ypos="330" font="Helvetica" size="9">{priorPenaltyBasic10}</textitem>
+		<textitem align="right" xpos="408" ypos="330" font="Helvetica" size="9">{totalNetBasic10}</textitem>
+		<textitem align="right" xpos="465" ypos="330" font="Helvetica" size="9">{paidSEF10}</textitem>
+		<textitem align="right" xpos="498" ypos="330" font="Helvetica" size="9">({discountSEF10})</textitem>
+		<textitem align="right" xpos="541" ypos="330" font="Helvetica" size="9">{priorSEF10}</textitem>
+		<textitem align="right" xpos="581" ypos="330" font="Helvetica" size="9">{penaltySEF10}</textitem>
+		<textitem align="right" xpos="620" ypos="330" font="Helvetica" size="9">{priorPenaltySEF10}</textitem>
+		<textitem align="right" xpos="675" ypos="330" font="Helvetica" size="9">{totalNetSEF10}</textitem>
+		<textitem align="right" xpos="709" ypos="330" font="Helvetica" size="9">{paidIdle10}</textitem>
+		<textitem align="right" xpos="745" ypos="330" font="Helvetica" size="9">{priorIdle10}</textitem>
+		<textitem align="right" xpos="781" ypos="330" font="Helvetica" size="9">{penaltyIdle10}</textitem>
+		<textitem align="right" xpos="812" ypos="330" font="Helvetica" size="9">{totalIdle10}</textitem>
+		<textitem align="right" xpos="874" ypos="330" font="Helvetica" size="9">{specialLevy10}</textitem>
+		<textitem align="right" xpos="908" ypos="330" font="Helvetica" size="9">{totalNonCash10}</textitem>
+		<textitem align="right" xpos="988" ypos="330" font="Helvetica" size="9">{grandTotalNetCol10}</textitem>
+
+		<textitem align="right" xpos="223" ypos="320" font="Helvetica" size="9">{paidBasic11}</textitem>
+		<textitem align="right" xpos="260" ypos="320" font="Helvetica" size="9">({discountBasic11})</textitem>
+		<textitem align="right" xpos="298" ypos="320" font="Helvetica" size="9">{priorBasic11}</textitem>
+		<textitem align="right" xpos="330" ypos="320" font="Helvetica" size="9">{penaltyBasic11}</textitem>
+		<textitem align="right" xpos="364" ypos="320" font="Helvetica" size="9">{priorPenaltyBasic11}</textitem>
+		<textitem align="right" xpos="408" ypos="320" font="Helvetica" size="9">{totalNetBasic11}</textitem>
+		<textitem align="right" xpos="465" ypos="320" font="Helvetica" size="9">{paidSEF11}</textitem>
+		<textitem align="right" xpos="498" ypos="320" font="Helvetica" size="9">({discountSEF11})</textitem>
+		<textitem align="right" xpos="541" ypos="320" font="Helvetica" size="9">{priorSEF11}</textitem>
+		<textitem align="right" xpos="581" ypos="320" font="Helvetica" size="9">{penaltySEF11}</textitem>
+		<textitem align="right" xpos="620" ypos="320" font="Helvetica" size="9">{priorPenaltySEF11}</textitem>
+		<textitem align="right" xpos="675" ypos="320" font="Helvetica" size="9">{totalNetSEF11}</textitem>
+		<textitem align="right" xpos="709" ypos="320" font="Helvetica" size="9">{paidIdle11}</textitem>
+		<textitem align="right" xpos="745" ypos="320" font="Helvetica" size="9">{priorIdle11}</textitem>
+		<textitem align="right" xpos="781" ypos="320" font="Helvetica" size="9">{penaltyIdle11}</textitem>
+		<textitem align="right" xpos="812" ypos="320" font="Helvetica" size="9">{totalIdle11}</textitem>
+		<textitem align="right" xpos="874" ypos="320" font="Helvetica" size="9">{specialLevy11}</textitem>
+		<textitem align="right" xpos="908" ypos="320" font="Helvetica" size="9">{totalNonCash11}</textitem>
+		<textitem align="right" xpos="988" ypos="320" font="Helvetica" size="9">{grandTotalNetCol11}</textitem>
+
+	<!-- END ROW -->
+	
+		<textitem align="right" xpos="223" ypos="295" font="Helvetica" size="9">{totalPaidBasic}</textitem>
+		<textitem align="right" xpos="260" ypos="295" font="Helvetica" size="9">({totalDiscountBasic})</textitem>
+		<textitem align="right" xpos="298" ypos="295" font="Helvetica" size="9">{totalPriorBasic}</textitem>
+		<textitem align="right" xpos="330" ypos="295" font="Helvetica" size="9">{totalPenaltyBasic}</textitem>
+		<textitem align="right" xpos="364" ypos="295" font="Helvetica" size="9">{totalPriorPenaltyBasic}</textitem>
+		<textitem align="right" xpos="408" ypos="295" font="Helvetica" size="9">{totalTotalNetBasic}</textitem>
+		<textitem align="right" xpos="465" ypos="295" font="Helvetica" size="9">{totalPaidSEF}</textitem>
+		<textitem align="right" xpos="498" ypos="295" font="Helvetica" size="9">({totalDiscountSEF})</textitem>
+		<textitem align="right" xpos="541" ypos="295" font="Helvetica" size="9">{totalPriorSEF}</textitem>
+		<textitem align="right" xpos="581" ypos="295" font="Helvetica" size="9">{totalPenaltySEF}</textitem>
+		<textitem align="right" xpos="620" ypos="295" font="Helvetica" size="9">{totalPriorPenaltySEF}</textitem>
+		<textitem align="right" xpos="675" ypos="295" font="Helvetica" size="9">{totalTotalNetSEF}</textitem>
+		<textitem align="right" xpos="709" ypos="295" font="Helvetica" size="9">{totalPaidIdle}</textitem>
+		<textitem align="right" xpos="745" ypos="295" font="Helvetica" size="9">{totalPriorIdle}</textitem>
+		<textitem align="right" xpos="781" ypos="295" font="Helvetica" size="9">{totalPenaltyIdle}</textitem>
+		<textitem align="right" xpos="812" ypos="295" font="Helvetica" size="9">{totalTotalIdle}</textitem>
+		<textitem align="right" xpos="874" ypos="295" font="Helvetica" size="9">{totalSpecialLevy}</textitem>
+		<textitem align="right" xpos="908" ypos="295" font="Helvetica" size="9">{totalTotalNonCash}</textitem>
+		<textitem align="right" xpos="988" ypos="295" font="Helvetica" size="9">{totalGrandTotalNetCol}</textitem>
+
+</page>
+</contents>
+

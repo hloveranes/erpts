@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="607" width="836" number="1" orientation="0">
+    <textitem xpos="398" ypos="555" font="Helvetica-Bold" size="9" align="center">REPUBLIC OF THE PHILIPPINES</textitem>
+    <textitem xpos="398" ypos="545" font="Helvetica-Bold" size="9" align="center">Municipal of {municipality}</textitem>
+    <textitem xpos="398" ypos="535" font="Helvetica-Bold" size="9" align="center">Office of the Municipal Assessor</textitem>   
+    <textitem xpos="634" ypos="561" font="Helvetica" size="9">DATE :</textitem>
+	<textitem xpos="687" ypos="561" font="Helvetica" size="9">{currentDate}</textitem>
+    <textitem xpos="30" ypos="506" font="Helvetica" size="9">Owner No.:</textitem>
+    <textitem xpos="99" ypos="506" font="Helvetica" size="9">{ownerNo}</textitem>
+    <textitem xpos="30" ypos="494" font="Helvetica" size="9">Name :</textitem>
+    <textitem xpos="99" ypos="494" font="Helvetica" size="9"><!-- BEGIN PERSONLIST -->{ownerName} <!-- END PERSONLIST --> <!-- BEGIN CompanyList -->
+								{companyName} 
+							<!-- END CompanyList --></textitem>
+    <textitem xpos="30" ypos="483" font="Helvetica" size="9">Address:</textitem>
+    <textitem xpos="99" ypos="483" font="Helvetica" size="9"><!-- BEGIN Address -->	{ownerAddress} 	<!-- END Address --></textitem>
+    <textitem xpos="30" ypos="460" font="Helvetica" size="9">Sir/Madam</textitem>
+    <textitem xpos="34" ypos="450" font="Helvetica" size="9">This is to inform you that the real property tax(es) due and payable for the year 2003 on the property located in the municiplity and ownership  of whichis/are</textitem>
+    <textitem xpos="30" ypos="440" font="Helvetica" size="9">stated in your name for taxation purposes. (as well as for subsequent years until you are informed of any change(s), is/are as follows:</textitem>
+    <textitem xpos="268" ypos="397" font="Helvetica" size="9">NOTICE OF ASSESSMENT</textitem>
+	<textitem xpos="245" ypos="370" font="Helvetica" size="9">SUMMARY OF REAL PROPERTY ASSESSMENT</textitem>
+    <textitem xpos="671" ypos="375" font="Helvetica" size="9">TAX DUE</textitem>
+    <textitem xpos="1576" ypos="730" font="Helvetica" size="8">CURRENT TDN</textitem>
+    <textitem xpos="1384" ypos="730" font="Helvetica" size="8">PROPERTY IDEX NUMBER</textitem>
+    <textitem xpos="1009" ypos="730" font="Helvetica" size="8">KIND</textitem>
+    <textitem xpos="1145" ypos="730" font="Helvetica" size="8" >LOCATION</textitem>
+    <textitem xpos="955" ypos="730" font="Helvetica" size="8" >CLASS</textitem>
+	<textitem xpos="845" ypos="730" font="Helvetica" size="8" >MARKET VALUE</textitem>
+	<textitem xpos="671" ypos="730" font="Helvetica" size="8" >ASSESSED VALUE</textitem>
+    <textitem xpos="515" ypos="730" font="Helvetica" size="8" >BASIC TAX</textitem>
+	<textitem xpos="340" ypos="730" font="Helvetica" size="8" >S.E.F. TAX</textitem>
+	<textitem xpos="673" ypos="400" font="Helvetica" size="8" >TAX BILL</textitem>
+	<textitem xpos="45" ypos="345" font="Helvetica" size="8" >CURRENT TDN</textitem>
+	<textitem xpos="135" ypos="345" font="Helvetica" size="8" >PROPERTY INDEX NUMBER</textitem>
+	<textitem xpos="289" ypos="345" font="Helvetica" size="8" >LOCATION</textitem>
+	<textitem xpos="353" ypos="345" font="Helvetica" size="8" >KIND</textitem>
+	<textitem xpos="380" ypos="345" font="Helvetica" size="8" >CLASS</textitem>
+	<textitem xpos="430" ypos="345" font="Helvetica" size="8" >MARKET VALUE</textitem>
+	<textitem xpos="515" ypos="345" font="Helvetica" size="8" >ASSESSED VALUE</textitem>
+	<textitem xpos="615" ypos="345" font="Helvetica" size="8" >BASIC TAX</textitem>
+	<textitem xpos="675" ypos="345" font="Helvetica" size="8" > S.E.F. TAX</textitem>
+	<textitem xpos="755" ypos="345" font="Helvetica" size="8" >TOTAL</textitem>
+	<textitem xpos="360" ypos="167" font="Helvetica" size="8" >TOTAL</textitem>
+	<textitem xpos="680" ypos="113" font="Helvetica" size="8" >Municipal Treasurer</textitem>
+	<textitem xpos="500" ypos="113" font="Helvetica" size="8" >Municipal Assesor</textitem>
+	<textitem xpos="680" ypos="125" font="Helvetica" size="8" >{name}</textitem>
+	<textitem xpos="500" ypos="125" font="Helvetica" size="8" >{name}</textitem>
+	<textitem xpos="48" ypos="105" font="Helvetica" size="8" >Note</textitem>
+    <textitem xpos="70" ypos="105" font="Helvetica" size="8" >1.Kindly inform the Assessor's office of any error or omission that you may discover in this Notice.</textitem>
+    <textitem xpos="70" ypos="95" font="Helvetica" size="8" >2. Please present this Notice to the Office of the Treasurer when payment is made. Payments may be made every quarter in four (4) equal installments not later than march 31st</textitem>
+	<textitem xpos="70" ypos="85" font="Helvetica" size="8" >(1st quarter), June 30th (2nd quarter), September 30th (3rd quarter) December 31st (4th quarter)</textitem>
+    <textitem xpos="70" ypos="75" font="Helvetica" size="8" >3. Payments for the entire year should be made not later than March 31st.</textitem> 
+    <textitem xpos="70" ypos="65" font="Helvetica" size="8" >4. This Notice pertains only to current year taxes and does not include deliquencies for previous years which are subject of a separate Notice when applicable Delinquent.</textitem>
+<!-- BEGIN ROW -->
+	<textitem align="center" xpos="80" ypos="{ypos}" font="Helvetica" size="8" >{currentTDNo}</textitem>
+	<textitem align="center" xpos="190" ypos="{ypos}" font="Helvetica" size="8" >{pin}</textitem>
+	<textitem align="center" xpos="295" ypos="{ypos}" font="Helvetica" size="8" >{location}</textitem>
+	<textitem align="center" xpos="355" ypos="{ypos}" font="Helvetica" size="8" >{kind}</textitem>
+	<textitem align="center" xpos="395" ypos="{ypos}" font="Helvetica" size="8" >{class}</textitem>
+	<textitem align="right" xpos="505" ypos="{ypos}" font="Helvetica" size="8" >{marketValue}</textitem>
+	<textitem align="right" xpos="596" ypos="{ypos}" font="Helvetica"  size="8" >{assessedValue}</textitem>
+	<textitem align="right" xpos="667" ypos="{ypos}" font="Helvetica" size="8" >{basic}</textitem>
+	<textitem align="right" xpos="728" ypos="{ypos}" font="Helvetica" size="8" >{sef}</textitem>
+	<textitem align="right" xpos="799" ypos="{ypos}" font="Helvetica" size="8" >{total}</textitem>
+
+
+<!-- END ROW -->	
+	<textitem align="right" xpos="505" ypos="167" font="Helvetica" size="8" >{totalMarketValue}</textitem>
+	<textitem align="right" xpos="596" ypos="167" font="Helvetica"  size="8" >{totalAssessedValue}</textitem>
+	<textitem align="right" xpos="667" ypos="167" font="Helvetica" size="8" >{totalTaxDue}</textitem>
+	<textitem align="right" xpos="728" ypos="167" font="Helvetica" size="8" >{totalBasic}</textitem>
+	<textitem align="right" xpos="799" ypos="167" font="Helvetica" size="8" >{totalSEF}</textitem>
+		
+	<lineitem x1="38" y1="414" x2="800" y2="414">blurb</lineitem>  
+	<lineitem x1="802" y1="389" x2="38" y2="389">blurb</lineitem> 
+	<lineitem x1="802" y1="362" x2="38" y2="362">blurb</lineitem> 
+	<lineitem x1="802" y1="337" x2="41" y2="337">blurb</lineitem> 
+	<lineitem x1="802" y1="186" x2="38" y2="186">blurb</lineitem> 
+	<lineitem x1="802" y1="162" x2="420" y2="162">blurb</lineitem> 
+	<lineitem x1="802" y1="415" x2="802" y2="162">blurb</lineitem>  
+	<lineitem x1="730" y1="362" x2="730" y2="162">blurb</lineitem>  
+	<lineitem x1="670" y1="362" x2="670" y2="162">blurb</lineitem>  
+	<lineitem x1="600" y1="362" x2="600" y2="162">blurb</lineitem>  
+	<lineitem x1="510" y1="362" x2="510" y2="162">blurb</lineitem>  
+	<lineitem x1="420" y1="362" x2="420" y2="162">blurb</lineitem>  
+	<lineitem x1="375" y1="362" x2="375" y2="185">blurb</lineitem>  
+	<lineitem x1="340" y1="362" x2="340" y2="185">blurb</lineitem> 
+    <lineitem x1="250" y1="362" x2="250" y2="185">blurb</lineitem> 
+	<lineitem x1="120" y1="362" x2="120" y2="185">blurb</lineitem>  
+    <lineitem x1="38" y1="415" x2="38" y2="185">blurb</lineitem> 
+	<lineitem x1="" y1="362" x2="" y2="162">blurb</lineitem>  
+	 <lineitem x1="" y1="362" x2="" y2="162">blurb</lineitem> 
+	 </page>
+</contents>

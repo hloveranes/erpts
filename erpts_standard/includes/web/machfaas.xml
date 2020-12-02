@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="784" width="584" number="1" orientation="0">
+    <textitem xpos="300" ypos="737" font="Helvetica-Bold" size="9" align="center">REAL PROPERTY FIELD APPRAISAL AND ASSESSMENT SHEET - MACHINERY</textitem>
+	<textitem xpos="55" ypos="718" font="Helvetica-Bold" size="9" align="left">ARP NO.:</textitem>
+	<textitem xpos="180" ypos="708" font="Helvetica" size="9" align="center">{arpNumber}</textitem>
+	<textitem xpos="305" ypos="718" font="Helvetica-Bold" size="9" align="left">PIN:</textitem>
+	<textitem xpos="430" ypos="708" font="Helvetica" size="9" align="center">{propertyIndexNumber}</textitem>
+
+	<textitem xpos="55" ypos="678" font="Helvetica-Bold" size="9" align="left">Owner:</textitem>
+    <textbox x1="55" y1="668" x2="300" y2="658" font="Helvetica" size="9" align="left">{owner}</textbox>
+
+	<textitem xpos="305" ypos="678" font="Helvetica-Bold" size="9" align="left">Address:</textitem>
+    <textbox x1="345" y1="678" x2="545" y2="668" font="Helvetica" size="8" align="left">{ownerAddress}</textbox>
+
+	<textitem xpos="305" ypos="658" font="Helvetica-Bold" size="9" align="left">Tel. No.:</textitem>
+	<textitem xpos="345" ypos="658" font="Helvetica" size="9" align="left">{ownerTelNo}</textitem>
+
+	<textitem xpos="55" ypos="638" font="Helvetica-Bold" size="9" align="left">User/Administrator:</textitem>
+    <textbox x1="55" y1="628" x2="300" y2="618" font="Helvetica" size="9" align="left">{userAdmin}</textbox>
+
+	<textitem xpos="305" ypos="638" font="Helvetica-Bold" size="9" align="left">Address:</textitem>
+    <textbox x1="345" y1="638" x2="545" y2="628" font="Helvetica" size="8" align="left">{userAdminAddress}</textbox>
+
+	<textitem xpos="305" ypos="618" font="Helvetica-Bold" size="9" align="left">Tel. No.:</textitem>
+	<textitem xpos="345" ypos="618" font="Helvetica" size="9" align="left">{userAdminTelNo}</textitem>
+
+	<textitem xpos="55" ypos="598" font="Helvetica-Bold" size="9" align="left">Bldg. Owner</textitem>
+	<textitem xpos="112" ypos="598" font="Helvetica-Italic" size="9" align="left">(Where Machinery is Located)</textitem>
+    <textbox x1="55" y1="588" x2="300" y2="578" font="Helvetica" size="9" align="left">{buildingOwner}</textbox>	
+	
+	<textitem xpos="305" ypos="598" font="Helvetica-Bold" size="9" align="left">Bldg. PIN:</textitem>
+    <textbox x1="305" y1="588" x2="550" y2="578" font="Helvetica" size="9" align="left">{buildingPIN}</textbox>	
+	
+	<textitem xpos="55" ypos="558" font="Helvetica-Bold" size="9" align="left">Land Owner</textitem>
+	<textitem xpos="112" ypos="558" font="Helvetica-Italic" size="9" align="left">(Where Machinery is Located)</textitem>
+    <textbox x1="55" y1="548" x2="300" y2="538" font="Helvetica" size="9" align="left">{landOwner}</textbox>
+	
+	<textitem xpos="305" ypos="558" font="Helvetica-Bold" size="9" align="left">Land PIN:</textitem>
+    <textbox x1="305" y1="548" x2="550" y2="538" font="Helvetica" size="9" align="left">{landPIN}</textbox>	
+	
+	<textitem xpos="55" ypos="518" font="Helvetica-Bold" size="9" align="left">No./Street</textitem>
+    <textbox x1="55" y1="508" x2="300" y2="498" font="Helvetica" size="9" align="left">{number} {street}</textbox>
+
+	<textitem xpos="305" ypos="518" font="Helvetica-Bold" size="9" align="left">Brgy./Dist:</textitem>
+    <textbox x1="305" y1="508" x2="550" y2="498" font="Helvetica" size="9" align="left">{barangay} {district}</textbox>	
+	
+	<textitem xpos="55" ypos="478" font="Helvetica-Bold" size="9" align="left">Municipality</textitem>
+    <textbox x1="55" y1="468" x2="300" y2="458" font="Helvetica" size="9" align="left">{municipality}</textbox>
+
+	<textitem xpos="305" ypos="478" font="Helvetica-Bold" size="9" align="left">Province/City:</textitem>
+    <textbox x1="305" y1="468" x2="550" y2="458" font="Helvetica" size="9" align="left">{city} {province}</textbox>	
+
+	<textitem xpos="75" ypos="438" font="Helvetica-Bold" size="8" align="center">Machinery</textitem>
+	<textitem xpos="75" ypos="426" font="Helvetica-Bold" size="8" align="center">Description</textitem>
+	<textitem xpos="125" ypos="438" font="Helvetica-Bold" size="8" align="center">Brand &amp;</textitem>
+	<textitem xpos="125" ypos="426" font="Helvetica-Bold" size="8" align="center">Model No.</textitem>
+	<textitem xpos="175" ypos="432" font="Helvetica-Bold" size="8" align="center">Capacity Hp</textitem>
+	<textitem xpos="225" ypos="438" font="Helvetica-Bold" size="8" align="center">Date</textitem>
+	<textitem xpos="225" ypos="426" font="Helvetica-Bold" size="8" align="center">Acquired</textitem>
+	<textitem xpos="275" ypos="438" font="Helvetica-Bold" size="8" align="center">Cond. W/n</textitem>
+	<textitem xpos="275" ypos="426" font="Helvetica-Bold" size="8" align="center">Acquired</textitem>
+	<textitem xpos="350" ypos="438" font="Helvetica-Bold" size="8" align="center">Economic Life</textitem>
+	<textitem xpos="325" ypos="426" font="Helvetica-Bold" size="8" align="center">Estimated</textitem>
+	<textitem xpos="375" ypos="426" font="Helvetica-Bold" size="8" align="center">Remaining</textitem>
+	<textitem xpos="425" ypos="438" font="Helvetica-Bold" size="8" align="center">Date of</textitem>
+	<textitem xpos="425" ypos="426" font="Helvetica-Bold" size="8" align="center">Instl'n</textitem>
+	<textitem xpos="475" ypos="438" font="Helvetica-Bold" size="8" align="center">Date of</textitem>
+	<textitem xpos="475" ypos="426" font="Helvetica-Bold" size="8" align="center">Operat'n</textitem>
+	<textitem xpos="525" ypos="432" font="Helvetica-Bold" size="8" align="center">Remarks</textitem>
+	<textitem xpos="55" ypos="410" font="Helvetica" size="8" align="left">{tbl1Desc1}</textitem>
+	<textitem xpos="55" ypos="395" font="Helvetica" size="8" align="left">{tbl1Desc2}</textitem>
+	<textitem xpos="55" ypos="380" font="Helvetica" size="8" align="left">{tbl1Desc3}</textitem>
+	<textitem xpos="55" ypos="365" font="Helvetica" size="8" align="left">{tbl1Desc4}</textitem>
+	<textitem xpos="55" ypos="350" font="Helvetica" size="8" align="left">{tbl1Desc5}</textitem>
+	<textitem xpos="55" ypos="335" font="Helvetica" size="8" align="left">{tbl1Desc6}</textitem>
+	<textitem xpos="55" ypos="320" font="Helvetica" size="8" align="left">{tbl1Desc7}</textitem>
+	<textitem xpos="55" ypos="305" font="Helvetica" size="8" align="left">{tbl1Desc8}</textitem>
+	<textitem xpos="55" ypos="290" font="Helvetica" size="8" align="left">{tbl1Desc9}</textitem>
+	<textitem xpos="105" ypos="410" font="Helvetica" size="8" align="left">{brandNo1}</textitem>
+	<textitem xpos="105" ypos="395" font="Helvetica" size="8" align="left">{brandNo2}</textitem>
+	<textitem xpos="105" ypos="380" font="Helvetica" size="8" align="left">{brandNo3}</textitem>
+	<textitem xpos="105" ypos="365" font="Helvetica" size="8" align="left">{brandNo4}</textitem>
+	<textitem xpos="105" ypos="350" font="Helvetica" size="8" align="left">{brandNo5}</textitem>
+	<textitem xpos="105" ypos="335" font="Helvetica" size="8" align="left">{brandNo6}</textitem>
+	<textitem xpos="105" ypos="320" font="Helvetica" size="8" align="left">{brandNo7}</textitem>
+	<textitem xpos="105" ypos="305" font="Helvetica" size="8" align="left">{brandNo8}</textitem>
+	<textitem xpos="105" ypos="290" font="Helvetica" size="8" align="left">{brandNo9}</textitem>
+	<textitem xpos="195" ypos="410" font="Helvetica" size="8" align="right">{capacity1}</textitem>
+	<textitem xpos="195" ypos="395" font="Helvetica" size="8" align="right">{capacity2}</textitem>
+	<textitem xpos="195" ypos="380" font="Helvetica" size="8" align="right">{capacity3}</textitem>
+	<textitem xpos="195" ypos="365" font="Helvetica" size="8" align="right">{capacity4}</textitem>
+	<textitem xpos="195" ypos="350" font="Helvetica" size="8" align="right">{capacity5}</textitem>
+	<textitem xpos="195" ypos="335" font="Helvetica" size="8" align="right">{capacity6}</textitem>
+	<textitem xpos="195" ypos="320" font="Helvetica" size="8" align="right">{capacity7}</textitem>
+	<textitem xpos="195" ypos="305" font="Helvetica" size="8" align="right">{capacity8}</textitem>
+	<textitem xpos="195" ypos="290" font="Helvetica" size="8" align="right">{capacity9}</textitem>
+	<textitem xpos="225" ypos="410" font="Helvetica" size="8" align="center">{dateAcq1}</textitem>
+	<textitem xpos="225" ypos="395" font="Helvetica" size="8" align="center">{dateAcq2}</textitem>
+	<textitem xpos="225" ypos="380" font="Helvetica" size="8" align="center">{dateAcq3}</textitem>
+	<textitem xpos="225" ypos="365" font="Helvetica" size="8" align="center">{dateAcq4}</textitem>
+	<textitem xpos="225" ypos="350" font="Helvetica" size="8" align="center">{dateAcq5}</textitem>
+	<textitem xpos="225" ypos="335" font="Helvetica" size="8" align="center">{dateAcq6}</textitem>
+	<textitem xpos="225" ypos="320" font="Helvetica" size="8" align="center">{dateAcq7}</textitem>
+	<textitem xpos="225" ypos="305" font="Helvetica" size="8" align="center">{dateAcq8}</textitem>
+	<textitem xpos="225" ypos="290" font="Helvetica" size="8" align="center">{dateAcq9}</textitem>
+	<textitem xpos="275" ypos="410" font="Helvetica" size="8" align="center">{condAcq1}</textitem>
+	<textitem xpos="275" ypos="395" font="Helvetica" size="8" align="center">{condAcq2}</textitem>
+	<textitem xpos="275" ypos="380" font="Helvetica" size="8" align="center">{condAcq3}</textitem>
+	<textitem xpos="275" ypos="365" font="Helvetica" size="8" align="center">{condAcq4}</textitem>
+	<textitem xpos="275" ypos="350" font="Helvetica" size="8" align="center">{condAcq5}</textitem>
+	<textitem xpos="275" ypos="335" font="Helvetica" size="8" align="center">{condAcq6}</textitem>
+	<textitem xpos="275" ypos="320" font="Helvetica" size="8" align="center">{condAcq7}</textitem>
+	<textitem xpos="275" ypos="305" font="Helvetica" size="8" align="center">{condAcq8}</textitem>
+	<textitem xpos="275" ypos="290" font="Helvetica" size="8" align="center">{condAcq9}</textitem>]
+	<textitem xpos="345" ypos="410" font="Helvetica" size="8" align="right">{lifeEst1}</textitem>
+	<textitem xpos="345" ypos="395" font="Helvetica" size="8" align="right">{lifeEst2}</textitem>
+	<textitem xpos="345" ypos="380" font="Helvetica" size="8" align="right">{lifeEst3}</textitem>
+	<textitem xpos="345" ypos="365" font="Helvetica" size="8" align="right">{lifeEst4}</textitem>
+	<textitem xpos="345" ypos="350" font="Helvetica" size="8" align="right">{lifeEst5}</textitem>
+	<textitem xpos="345" ypos="335" font="Helvetica" size="8" align="right">{lifeEst6}</textitem>
+	<textitem xpos="345" ypos="320" font="Helvetica" size="8" align="right">{lifeEst7}</textitem>
+	<textitem xpos="345" ypos="305" font="Helvetica" size="8" align="right">{lifeEst8}</textitem>
+	<textitem xpos="345" ypos="290" font="Helvetica" size="8" align="right">{lifeEst9}</textitem>
+	<textitem xpos="395" ypos="410" font="Helvetica" size="8" align="right">{lifeRem1}</textitem>
+	<textitem xpos="395" ypos="395" font="Helvetica" size="8" align="right">{lifeRem2}</textitem>
+	<textitem xpos="395" ypos="380" font="Helvetica" size="8" align="right">{lifeRem3}</textitem>
+	<textitem xpos="395" ypos="365" font="Helvetica" size="8" align="right">{lifeRem4}</textitem>
+	<textitem xpos="395" ypos="350" font="Helvetica" size="8" align="right">{lifeRem5}</textitem>
+	<textitem xpos="395" ypos="335" font="Helvetica" size="8" align="right">{lifeRem6}</textitem>
+	<textitem xpos="395" ypos="320" font="Helvetica" size="8" align="right">{lifeRem7}</textitem>
+	<textitem xpos="395" ypos="305" font="Helvetica" size="8" align="right">{lifeRem8}</textitem>
+	<textitem xpos="395" ypos="290" font="Helvetica" size="8" align="right">{lifeRem9}</textitem>
+	<textitem xpos="425" ypos="410" font="Helvetica" size="8" align="center">{dateInst1}</textitem>
+	<textitem xpos="425" ypos="395" font="Helvetica" size="8" align="center">{dateInst2}</textitem>
+	<textitem xpos="425" ypos="380" font="Helvetica" size="8" align="center">{dateInst3}</textitem>
+	<textitem xpos="425" ypos="365" font="Helvetica" size="8" align="center">{dateInst4}</textitem>
+	<textitem xpos="425" ypos="350" font="Helvetica" size="8" align="center">{dateInst5}</textitem>
+	<textitem xpos="425" ypos="335" font="Helvetica" size="8" align="center">{dateInst6}</textitem>
+	<textitem xpos="425" ypos="320" font="Helvetica" size="8" align="center">{dateInst7}</textitem>
+	<textitem xpos="425" ypos="305" font="Helvetica" size="8" align="center">{dateInst8}</textitem>
+	<textitem xpos="425" ypos="290" font="Helvetica" size="8" align="center">{dateInst9}</textitem>
+	<textitem xpos="475" ypos="410" font="Helvetica" size="8" align="center">{dateOper1}</textitem>
+	<textitem xpos="475" ypos="395" font="Helvetica" size="8" align="center">{dateOper2}</textitem>
+	<textitem xpos="475" ypos="380" font="Helvetica" size="8" align="center">{dateOper3}</textitem>
+	<textitem xpos="475" ypos="365" font="Helvetica" size="8" align="center">{dateOper4}</textitem>
+	<textitem xpos="475" ypos="350" font="Helvetica" size="8" align="center">{dateOper5}</textitem>
+	<textitem xpos="475" ypos="335" font="Helvetica" size="8" align="center">{dateOper6}</textitem>
+	<textitem xpos="475" ypos="320" font="Helvetica" size="8" align="center">{dateOper7}</textitem>
+	<textitem xpos="475" ypos="305" font="Helvetica" size="8" align="center">{dateOper8}</textitem>
+	<textitem xpos="475" ypos="290" font="Helvetica" size="8" align="center">{dateOper9}</textitem>
+	<textitem xpos="525" ypos="410" font="Helvetica" size="8" align="center">{remarks1}</textitem>
+	<textitem xpos="525" ypos="395" font="Helvetica" size="8" align="center">{remarks2}</textitem>
+	<textitem xpos="525" ypos="380" font="Helvetica" size="8" align="center">{remarks3}</textitem>
+	<textitem xpos="525" ypos="365" font="Helvetica" size="8" align="center">{remarks4}</textitem>
+	<textitem xpos="525" ypos="350" font="Helvetica" size="8" align="center">{remarks5}</textitem>
+	<textitem xpos="525" ypos="335" font="Helvetica" size="8" align="center">{remarks6}</textitem>
+	<textitem xpos="525" ypos="320" font="Helvetica" size="8" align="center">{remarks7}</textitem>
+	<textitem xpos="525" ypos="305" font="Helvetica" size="8" align="center">{remarks8}</textitem>
+	<textitem xpos="525" ypos="290" font="Helvetica" size="8" align="center">{remarks9}</textitem>
+
+	<textitem xpos="75" ypos="258" font="Helvetica-Bold" size="8" align="center">Machinery</textitem>
+	<textitem xpos="75" ypos="246" font="Helvetica-Bold" size="8" align="center">Description</textitem>
+	<textitem xpos="125" ypos="252" font="Helvetica-Bold" size="8" align="center">No. of Units</textitem>
+	<textitem xpos="175" ypos="258" font="Helvetica-Bold" size="8" align="center">Acquisition</textitem>
+	<textitem xpos="175" ypos="246" font="Helvetica-Bold" size="8" align="center">Cost</textitem>
+	<textitem xpos="225" ypos="252" font="Helvetica-Bold" size="8" align="center">Freight</textitem>
+	<textitem xpos="300" ypos="258" font="Helvetica-Bold" size="8" align="center">Additional Cost</textitem>
+	<textitem xpos="275" ypos="246" font="Helvetica-Bold" size="8" align="center">Insurance</textitem>
+	<textitem xpos="325" ypos="246" font="Helvetica-Bold" size="8" align="center">Instal'n</textitem>
+	<textitem xpos="375" ypos="252" font="Helvetica-Bold" size="8" align="center">Others</textitem>
+	<textitem xpos="425" ypos="258" font="Helvetica-Bold" size="8" align="center">Market</textitem>
+	<textitem xpos="425" ypos="246" font="Helvetica-Bold" size="8" align="center">Value</textitem>
+	<textitem xpos="475" ypos="252" font="Helvetica-Bold" size="8" align="center">Depreciation</textitem>
+	<textitem xpos="525" ypos="258" font="Helvetica-Bold" size="8" align="center">Depreciated</textitem>
+	<textitem xpos="525" ypos="246" font="Helvetica-Bold" size="8" align="center">Markt Value</textitem>
+	<textitem xpos="75" ypos="230" font="Helvetica" size="8" align="center">{tbl2Desc1}</textitem>
+	<textitem xpos="75" ypos="215" font="Helvetica" size="8" align="center">{tbl2Desc2}</textitem>
+	<textitem xpos="75" ypos="200" font="Helvetica" size="8" align="center">{tbl2Desc3}</textitem>
+	<textitem xpos="75" ypos="185" font="Helvetica" size="8" align="center">{tbl2Desc4}</textitem>
+	<textitem xpos="75" ypos="170" font="Helvetica" size="8" align="center">{tbl2Desc5}</textitem>
+	<textitem xpos="75" ypos="155" font="Helvetica" size="8" align="center">{tbl2Desc6}</textitem>
+	<textitem xpos="75" ypos="140" font="Helvetica" size="8" align="center">{tbl2Desc7}</textitem>
+	<textitem xpos="75" ypos="125" font="Helvetica" size="8" align="center">{tbl2Desc8}</textitem>
+	<textitem xpos="75" ypos="110" font="Helvetica" size="8" align="center">{tbl2Desc9}</textitem>
+	<textitem xpos="125" ypos="230" font="Helvetica" size="8" align="center">{units1}</textitem>
+	<textitem xpos="125" ypos="215" font="Helvetica" size="8" align="center">{units2}</textitem>
+	<textitem xpos="125" ypos="200" font="Helvetica" size="8" align="center">{units3}</textitem>
+	<textitem xpos="125" ypos="185" font="Helvetica" size="8" align="center">{units4}</textitem>
+	<textitem xpos="125" ypos="170" font="Helvetica" size="8" align="center">{units5}</textitem>
+	<textitem xpos="125" ypos="155" font="Helvetica" size="8" align="center">{units6}</textitem>
+	<textitem xpos="125" ypos="140" font="Helvetica" size="8" align="center">{units7}</textitem>
+	<textitem xpos="125" ypos="125" font="Helvetica" size="8" align="center">{units8}</textitem>
+	<textitem xpos="125" ypos="110" font="Helvetica" size="8" align="center">{units9}</textitem>
+	<textitem xpos="195" ypos="230" font="Helvetica" size="8" align="right">{acqCost1}</textitem>
+	<textitem xpos="195" ypos="215" font="Helvetica" size="8" align="right">{acqCost2}</textitem>
+	<textitem xpos="195" ypos="200" font="Helvetica" size="8" align="right">{acqCost3}</textitem>
+	<textitem xpos="195" ypos="185" font="Helvetica" size="8" align="right">{acqCost4}</textitem>
+	<textitem xpos="195" ypos="170" font="Helvetica" size="8" align="right">{acqCost5}</textitem>
+	<textitem xpos="195" ypos="155" font="Helvetica" size="8" align="right">{acqCost6}</textitem>
+	<textitem xpos="195" ypos="140" font="Helvetica" size="8" align="right">{acqCost7}</textitem>
+	<textitem xpos="195" ypos="125" font="Helvetica" size="8" align="right">{acqCost8}</textitem>
+	<textitem xpos="195" ypos="110" font="Helvetica" size="8" align="right">{acqCost9}</textitem>
+	<textitem xpos="245" ypos="230" font="Helvetica" size="8" align="right">{freight1}</textitem>
+	<textitem xpos="245" ypos="215" font="Helvetica" size="8" align="right">{freight2}</textitem>
+	<textitem xpos="245" ypos="200" font="Helvetica" size="8" align="right">{freight3}</textitem>
+	<textitem xpos="245" ypos="185" font="Helvetica" size="8" align="right">{freight4}</textitem>
+	<textitem xpos="245" ypos="170" font="Helvetica" size="8" align="right">{freight5}</textitem>
+	<textitem xpos="245" ypos="155" font="Helvetica" size="8" align="right">{freight6}</textitem>
+	<textitem xpos="245" ypos="140" font="Helvetica" size="8" align="right">{freight7}</textitem>
+	<textitem xpos="245" ypos="125" font="Helvetica" size="8" align="right">{freight8}</textitem>
+	<textitem xpos="245" ypos="110" font="Helvetica" size="8" align="right">{freight9}</textitem>
+	<textitem xpos="295" ypos="230" font="Helvetica" size="8" align="right">{insurnc1}</textitem>
+	<textitem xpos="295" ypos="215" font="Helvetica" size="8" align="right">{insurnc2}</textitem>
+	<textitem xpos="295" ypos="200" font="Helvetica" size="8" align="right">{insurnc3}</textitem>
+	<textitem xpos="295" ypos="185" font="Helvetica" size="8" align="right">{insurnc4}</textitem>
+	<textitem xpos="295" ypos="170" font="Helvetica" size="8" align="right">{insurnc5}</textitem>
+	<textitem xpos="295" ypos="155" font="Helvetica" size="8" align="right">{insurnc6}</textitem>
+	<textitem xpos="295" ypos="140" font="Helvetica" size="8" align="right">{insurnc7}</textitem>
+	<textitem xpos="295" ypos="125" font="Helvetica" size="8" align="right">{insurnc8}</textitem>
+	<textitem xpos="295" ypos="110" font="Helvetica" size="8" align="right">{insurnc9}</textitem>
+	<textitem xpos="345" ypos="230" font="Helvetica" size="8" align="right">{instaln1}</textitem>
+	<textitem xpos="345" ypos="215" font="Helvetica" size="8" align="right">{instaln2}</textitem>
+	<textitem xpos="345" ypos="200" font="Helvetica" size="8" align="right">{instaln3}</textitem>
+	<textitem xpos="345" ypos="185" font="Helvetica" size="8" align="right">{instaln4}</textitem>
+	<textitem xpos="345" ypos="170" font="Helvetica" size="8" align="right">{instaln5}</textitem>
+	<textitem xpos="345" ypos="155" font="Helvetica" size="8" align="right">{instaln6}</textitem>
+	<textitem xpos="345" ypos="140" font="Helvetica" size="8" align="right">{instaln7}</textitem>
+	<textitem xpos="345" ypos="125" font="Helvetica" size="8" align="right">{instaln8}</textitem>
+	<textitem xpos="345" ypos="110" font="Helvetica" size="8" align="right">{instaln9}</textitem>
+	<textitem xpos="395" ypos="230" font="Helvetica" size="8" align="right">{others1}</textitem>
+	<textitem xpos="395" ypos="215" font="Helvetica" size="8" align="right">{others2}</textitem>
+	<textitem xpos="395" ypos="200" font="Helvetica" size="8" align="right">{others3}</textitem>
+	<textitem xpos="395" ypos="185" font="Helvetica" size="8" align="right">{others4}</textitem>
+	<textitem xpos="395" ypos="170" font="Helvetica" size="8" align="right">{others5}</textitem>
+	<textitem xpos="395" ypos="155" font="Helvetica" size="8" align="right">{others6}</textitem>
+	<textitem xpos="395" ypos="140" font="Helvetica" size="8" align="right">{others7}</textitem>
+	<textitem xpos="395" ypos="125" font="Helvetica" size="8" align="right">{others8}</textitem>
+	<textitem xpos="395" ypos="110" font="Helvetica" size="8" align="right">{others9}</textitem>
+	<textitem xpos="445" ypos="230" font="Helvetica" size="8" align="right">{mrktVal1}</textitem>
+	<textitem xpos="445" ypos="215" font="Helvetica" size="8" align="right">{mrktVal2}</textitem>
+	<textitem xpos="445" ypos="200" font="Helvetica" size="8" align="right">{mrktVal3}</textitem>
+	<textitem xpos="445" ypos="185" font="Helvetica" size="8" align="right">{mrktVal4}</textitem>
+	<textitem xpos="445" ypos="170" font="Helvetica" size="8" align="right">{mrktVal5}</textitem>
+	<textitem xpos="445" ypos="155" font="Helvetica" size="8" align="right">{mrktVal6}</textitem>
+	<textitem xpos="445" ypos="140" font="Helvetica" size="8" align="right">{mrktVal7}</textitem>
+	<textitem xpos="445" ypos="125" font="Helvetica" size="8" align="right">{mrktVal8}</textitem>
+	<textitem xpos="445" ypos="110" font="Helvetica" size="8" align="right">{mrktVal9}</textitem>
+	<textitem xpos="495" ypos="230" font="Helvetica" size="8" align="right">{depr1}</textitem>
+	<textitem xpos="495" ypos="215" font="Helvetica" size="8" align="right">{depr2}</textitem>
+	<textitem xpos="495" ypos="200" font="Helvetica" size="8" align="right">{depr3}</textitem>
+	<textitem xpos="495" ypos="185" font="Helvetica" size="8" align="right">{depr4}</textitem>
+	<textitem xpos="495" ypos="170" font="Helvetica" size="8" align="right">{depr5}</textitem>
+	<textitem xpos="495" ypos="155" font="Helvetica" size="8" align="right">{depr6}</textitem>
+	<textitem xpos="495" ypos="140" font="Helvetica" size="8" align="right">{depr7}</textitem>
+	<textitem xpos="495" ypos="125" font="Helvetica" size="8" align="right">{depr8}</textitem>
+	<textitem xpos="495" ypos="110" font="Helvetica" size="8" align="right">{depr9}</textitem>
+
+	<textitem xpos="545" ypos="230" font="Helvetica" size="8" align="right">{depMVal1}</textitem>
+	<textitem xpos="545" ypos="215" font="Helvetica" size="8" align="right">{depMVal2}</textitem>
+	<textitem xpos="545" ypos="200" font="Helvetica" size="8" align="right">{depMVal3}</textitem>
+	<textitem xpos="545" ypos="185" font="Helvetica" size="8" align="right">{depMVal4}</textitem>
+	<textitem xpos="545" ypos="170" font="Helvetica" size="8" align="right">{depMVal5}</textitem>
+	<textitem xpos="545" ypos="155" font="Helvetica" size="8" align="right">{depMVal6}</textitem>
+	<textitem xpos="545" ypos="140" font="Helvetica" size="8" align="right">{depMVal7}</textitem>
+	<textitem xpos="545" ypos="125" font="Helvetica" size="8" align="right">{depMVal8}</textitem>
+	<textitem xpos="545" ypos="110" font="Helvetica" size="8" align="right">{depMVal9}</textitem>
+
+
+	<textitem xpos="75" ypos="95" font="Helvetica-Bold" size="8" align="center">TOTAL</textitem>
+	<textitem xpos="195" ypos="95" font="Helvetica" size="8" align="right">{totAcqCst}</textitem>
+	<textitem xpos="395" ypos="95" font="Helvetica" size="8" align="right">{totOthers}</textitem>
+	<textitem xpos="445" ypos="95" font="Helvetica" size="8" align="right">{totMrktVal}</textitem>
+
+
+    <!-- horizontal lines -->
+
+	<lineitem x1="50" y1="750" x2="550" y2="750">blurb</lineitem>
+	<lineitem x1="50" y1="90" x2="550" y2="90">blurb</lineitem>
+
+	<lineitem x1="50" y1="730" x2="550" y2="730">blurb</lineitem>
+	<lineitem x1="50" y1="690" x2="550" y2="690">blurb</lineitem>
+
+	<lineitem x1="50" y1="650" x2="550" y2="650">blurb</lineitem>
+	<lineitem x1="50" y1="610" x2="550" y2="610">blurb</lineitem>
+	<lineitem x1="50" y1="570" x2="550" y2="570">blurb</lineitem>
+	<lineitem x1="50" y1="530" x2="550" y2="530">blurb</lineitem>
+	<lineitem x1="50" y1="490" x2="550" y2="490">blurb</lineitem>
+	<lineitem x1="50" y1="450" x2="550" y2="450">blurb</lineitem>
+
+	<lineitem x1="300" y1="435" x2="400" y2="435">blurb</lineitem>
+	<lineitem x1="50" y1="420" x2="550" y2="420">blurb</lineitem>
+
+	<lineitem x1="50" y1="405" x2="550" y2="405">blurb</lineitem>
+	<lineitem x1="50" y1="390" x2="550" y2="390">blurb</lineitem>
+	<lineitem x1="50" y1="375" x2="550" y2="375">blurb</lineitem>
+	<lineitem x1="50" y1="360" x2="550" y2="360">blurb</lineitem>
+	<lineitem x1="50" y1="345" x2="550" y2="345">blurb</lineitem>
+	<lineitem x1="50" y1="330" x2="550" y2="330">blurb</lineitem>
+	<lineitem x1="50" y1="315" x2="550" y2="315">blurb</lineitem>
+	<lineitem x1="50" y1="300" x2="550" y2="300">blurb</lineitem>
+	<lineitem x1="50" y1="285" x2="550" y2="285">blurb</lineitem>
+
+	<lineitem x1="250" y1="255" x2="350" y2="255">blurb</lineitem>
+	<lineitem x1="50" y1="270" x2="550" y2="270">blurb</lineitem>
+
+	<lineitem x1="50" y1="240" x2="550" y2="240">blurb</lineitem>
+	<lineitem x1="50" y1="225" x2="550" y2="225">blurb</lineitem>
+	<lineitem x1="50" y1="210" x2="550" y2="210">blurb</lineitem>
+	<lineitem x1="50" y1="195" x2="550" y2="195">blurb</lineitem>
+	<lineitem x1="50" y1="180" x2="550" y2="180">blurb</lineitem>
+	<lineitem x1="50" y1="165" x2="550" y2="165">blurb</lineitem>
+	<lineitem x1="50" y1="150" x2="550" y2="150">blurb</lineitem>
+	<lineitem x1="50" y1="135" x2="550" y2="135">blurb</lineitem>
+	<lineitem x1="50" y1="120" x2="550" y2="120">blurb</lineitem>
+	<lineitem x1="50" y1="105" x2="550" y2="105">blurb</lineitem>
+
+	<!-- vertical lines -->
+	
+	<lineitem x1="50" y1="90" x2="50" y2="750">blurb</lineitem>
+	<lineitem x1="550" y1="90" x2="550" y2="750">blurb</lineitem>
+
+	<lineitem x1="300" y1="270" x2="300" y2="730">blurb</lineitem>
+	<lineitem x1="300" y1="90" x2="300" y2="255">blurb</lineitem>
+
+    <lineitem x1="100" y1="90" x2="100" y2="450">blurb</lineitem>
+	<lineitem x1="150" y1="90" x2="150" y2="450">blurb</lineitem>
+	<lineitem x1="200" y1="90" x2="200" y2="450">blurb</lineitem>
+	<lineitem x1="250" y1="90" x2="250" y2="450">blurb</lineitem>
+	<lineitem x1="350" y1="90" x2="350" y2="435">blurb</lineitem>
+	<lineitem x1="400" y1="90" x2="400" y2="450">blurb</lineitem>
+	<lineitem x1="450" y1="90" x2="450" y2="450">blurb</lineitem>
+	<lineitem x1="500" y1="90" x2="500" y2="450">blurb</lineitem>
+
+   </page>
+
+   <page height="784" width="584" number="2" orientation="0">
+
+    <textitem xpos="55" ypos="737" font="Helvetica-Bold" size="9" align="left">C. PROPERTY ASSESSMENT</textitem>
+
+	<textitem xpos="110" ypos="717" font="Helvetica-Bold" size="9" align="center">KIND</textitem>
+	<textitem xpos="240" ypos="717" font="Helvetica-Bold" size="9" align="center">MARKET VALUE</textitem>
+	<textitem xpos="360" ypos="717" font="Helvetica-Bold" size="9" align="center">ASSESSMENT LEVEL</textitem>
+	<textitem xpos="480" ypos="717" font="Helvetica-Bold" size="9" align="center">ASSESSED VALUE</textitem>
+	<textitem xpos="55" ypos="700" font="Helvetica" size="9" align="left">{kind1}</textitem>
+	<textitem xpos="55" ypos="685" font="Helvetica" size="9" align="left">{kind2}</textitem>
+	<textitem xpos="55" ypos="670" font="Helvetica" size="9" align="left">{kind3}</textitem>
+	<textitem xpos="55" ypos="655" font="Helvetica" size="9" align="left">{kind4}</textitem>
+	<textitem xpos="295" ypos="700" font="Helvetica" size="9" align="right">{marketValue1}</textitem>
+	<textitem xpos="295" ypos="685" font="Helvetica" size="9" align="right">{marketValue2}</textitem>
+	<textitem xpos="295" ypos="670" font="Helvetica" size="9" align="right">{marketValue3}</textitem>
+	<textitem xpos="295" ypos="655" font="Helvetica" size="9" align="right">{marketValue4}</textitem>
+	<textitem xpos="415" ypos="700" font="Helvetica" size="9" align="right">{assessmentLevel1}</textitem>
+	<textitem xpos="415" ypos="685" font="Helvetica" size="9" align="right">{assessmentLevel2}</textitem>
+	<textitem xpos="415" ypos="670" font="Helvetica" size="9" align="right">{assessmentLevel3}</textitem>
+	<textitem xpos="415" ypos="655" font="Helvetica" size="9" align="right">{assessmentLevel4}</textitem>
+	<textitem xpos="545" ypos="700" font="Helvetica" size="9" align="right">{assessmentValue1}</textitem>
+	<textitem xpos="545" ypos="685" font="Helvetica" size="9" align="right">{assessmentValue2}</textitem>
+	<textitem xpos="545" ypos="670" font="Helvetica" size="9" align="right">{assessmentValue3}</textitem>
+	<textitem xpos="545" ypos="655" font="Helvetica" size="9" align="right">{assessmentValue4}</textitem>
+	<textitem xpos="110" ypos="637" font="Helvetica-Bold" size="9" align="center">TOTAL</textitem>
+	<textitem xpos="295" ypos="637" font="Helvetica" size="9" align="right">{totalMarketValue}</textitem>
+	<textitem xpos="545" ypos="637" font="Helvetica" size="9" align="right">{totalAssessmentValue}</textitem>
+
+    <textitem xpos="55" ypos="617" font="Helvetica-Bold" size="9" align="left">Previous Owner:</textitem>
+    <textitem xpos="300" ypos="617" font="Helvetica" size="9" align="center">{previousOwner}</textitem>
+    <textitem xpos="425" ypos="617" font="Helvetica-Bold" size="9" align="left">Taxability:</textitem>
+    <textitem xpos="475" ypos="617" font="Helvetica" size="9" align="left">{taxability}</textitem>
+    <textitem xpos="55" ypos="597" font="Helvetica-Bold" size="9" align="left">Previous Assessed Value:</textitem>
+    <textitem xpos="300" ypos="597" font="Helvetica" size="9" align="center">{previousAssessedValue}</textitem>
+    <textitem xpos="425" ypos="597" font="Helvetica-Bold" size="9" align="left">Effectivity:</textitem>
+    <textitem xpos="475" ypos="597" font="Helvetica" size="9" align="left">{effectivity}</textitem>
+
+	<textitem xpos="55" ypos="547" font="Helvetica-Bold" size="9" align="left">ASSESSED BY:</textitem>
+    <textitem xpos="305" ypos="547" font="Helvetica-Bold" size="9" align="left">OWNER'S SIGNATURE:</textitem>
+	<textitem xpos="110" ypos="494" font="Helvetica" size="9" align="center">{assessedBy}</textitem>	
+	<textitem xpos="240" ypos="494" font="Helvetica" size="9" align="center">{dateAssessedBy}</textitem>
+	<textitem xpos="110" ypos="475" font="Helvetica-Bold" size="9" align="center">Name</textitem>
+	<textitem xpos="240" ypos="475" font="Helvetica-Bold" size="9" align="center">Date</textitem>
+
+	<textitem xpos="55" ypos="385" font="Helvetica-Bold" size="9" align="left">RECOMMENDING APPROVAL:</textitem>
+    <textitem xpos="305" ypos="385" font="Helvetica-Bold" size="9" align="left">APPROVED:</textitem>
+	<textitem xpos="110" ypos="332" font="Helvetica" size="9" align="center">{cityAssessor}</textitem>	
+	<textitem xpos="240" ypos="332" font="Helvetica" size="9" align="center">{dateCityAssessor}</textitem>
+	<textitem xpos="110" ypos="313" font="Helvetica-Bold" size="9" align="center">City / Mun. / Prov. Assessor</textitem>
+	<textitem xpos="240" ypos="313" font="Helvetica-Bold" size="9" align="center">Date</textitem>
+	<textitem xpos="360" ypos="332" font="Helvetica" size="9" align="center">{provincialAssessor}</textitem>	
+	<textitem xpos="490" ypos="332" font="Helvetica" size="9" align="center">{dateProvAssessor}</textitem>
+	<textitem xpos="360" ypos="313" font="Helvetica-Bold" size="9" align="center">City / Mun. / Prov. Assessor</textitem>
+	<textitem xpos="490" ypos="313" font="Helvetica-Bold" size="9" align="center">Date</textitem>
+
+	<textbox x1="55" y1="257" x2="570" y2="240" font="Helvetica" size="9" align="left">{memoranda}</textbox>
+
+	<textitem xpos="55" ypos="157" font="Helvetica-Bold" size="9" align="left">D. REFERENCE &amp; POSTING SUMMARY</textitem>
+    <textitem xpos="110" ypos="133" font="Helvetica-Bold" size="9" align="center">Pre &amp; Post Inspection</textitem>
+    <textitem xpos="240" ypos="133" font="Helvetica-Bold" size="9" align="center">Previous</textitem>
+    <textitem xpos="360" ypos="133" font="Helvetica-Bold" size="9" align="center">Present</textitem>
+	<textitem xpos="485" ypos="139" font="Helvetica-Bold" size="9" align="center">Posting</textitem>
+    <textitem xpos="450" ypos="124" font="Helvetica-Bold" size="9" align="center">Initial</textitem>
+    <textitem xpos="515" ypos="124" font="Helvetica-Bold" size="9" align="center">Date</textitem>
+	<textitem xpos="55" ypos="109" font="Helvetica-Bold" size="9" align="left">TD/ARP NO.</textitem>
+    <textitem xpos="55" ypos="94" font="Helvetica-Bold" size="9" align="left">Ass. Roll Page No.</textitem>
+    <textitem xpos="240" ypos="109" font="Helvetica" size="9" align="center">{previous1}</textitem>
+    <textitem xpos="240" ypos="94" font="Helvetica" size="9" align="center">{previous2}</textitem>
+    <textitem xpos="360" ypos="109" font="Helvetica" size="9" align="center">{present1}</textitem>
+    <textitem xpos="360" ypos="94" font="Helvetica" size="9" align="center">{present2}</textitem>
+    <textitem xpos="450" ypos="109" font="Helvetica" size="9" align="center">{initial2}</textitem>
+	<textitem xpos="450" ypos="94" font="Helvetica" size="9" align="center">{initial1}</textitem>
+    <textitem xpos="515" ypos="109" font="Helvetica" size="9" align="center">{postDate1}</textitem>
+    <textitem xpos="515" ypos="94" font="Helvetica" size="9" align="center">{postDate2}</textitem>
+
+	<!-- horizontal lines -->
+
+	<lineitem x1="50" y1="750" x2="550" y2="750">blurb</lineitem>
+	<lineitem x1="50" y1="90" x2="550" y2="90">blurb</lineitem>
+
+	<lineitem x1="50" y1="730" x2="550" y2="730">blurb</lineitem>
+	<lineitem x1="50" y1="710" x2="550" y2="710">blurb</lineitem>
+	<lineitem x1="50" y1="695" x2="550" y2="695">blurb</lineitem>
+	<lineitem x1="50" y1="680" x2="550" y2="680">blurb</lineitem>
+	<lineitem x1="50" y1="665" x2="550" y2="665">blurb</lineitem>
+	<lineitem x1="50" y1="650" x2="550" y2="650">blurb</lineitem>
+	<lineitem x1="50" y1="630" x2="550" y2="630">blurb</lineitem>
+
+	<lineitem x1="50" y1="610" x2="550" y2="610">blurb</lineitem>
+	<lineitem x1="50" y1="590" x2="550" y2="590">blurb</lineitem>
+
+	<lineitem x1="50" y1="487" x2="275" y2="487">blurb</lineitem>
+	<lineitem x1="300" y1="487" x2="525" y2="487">blurb</lineitem>
+
+	<lineitem x1="50" y1="325" x2="275" y2="325">blurb</lineitem>
+	<lineitem x1="300" y1="325" x2="525" y2="325">blurb</lineitem>
+
+	<lineitem x1="50" y1="170" x2="550" y2="170">blurb</lineitem>
+	<lineitem x1="50" y1="150" x2="550" y2="150">blurb</lineitem>
+	<lineitem x1="420" y1="135" x2="550" y2="135">blurb</lineitem>
+	<lineitem x1="50" y1="120" x2="550" y2="120">blurb</lineitem>
+	<lineitem x1="50" y1="105" x2="550" y2="105">blurb</lineitem>
+
+	<!-- vertical lines -->
+	
+	<lineitem x1="50" y1="90" x2="50" y2="750">blurb</lineitem>
+	<lineitem x1="550" y1="90" x2="550" y2="750">blurb</lineitem>
+
+	<lineitem x1="180" y1="730" x2="180" y2="630">blurb</lineitem>
+	<lineitem x1="300" y1="730" x2="300" y2="630">blurb</lineitem>
+	<lineitem x1="420" y1="730" x2="420" y2="590">blurb</lineitem>
+
+	<lineitem x1="180" y1="150" x2="180" y2="90">blurb</lineitem>
+	<lineitem x1="300" y1="150" x2="300" y2="90">blurb</lineitem>
+	<lineitem x1="420" y1="150" x2="420" y2="90">blurb</lineitem>
+	<lineitem x1="485" y1="135" x2="485" y2="90">blurb</lineitem>
+
+   </page>
+
+
+</contents>

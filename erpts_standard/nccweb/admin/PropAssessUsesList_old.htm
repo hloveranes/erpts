@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script language="Javascript">
+
+function editPropAssessUses(id){
+	document.PropAssessUsesList.action = 'PropAssessUsesEncode.php{Session}';
+	PropAssessUsesList.formAction.value = 'edit';
+	PropAssessUsesList.propAssessUsesID.value = id;
+	PropAssessUsesList.submit();
+}
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", status=1, toolbar=no, scrollbars=no, resizable=no");
+}
+
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000ff" vlink="#0000ff" alink="#990000">
+- <a href="MasterPropertyList.htm">back to Master Property List</a><br>
+- <a href="javascript:openWin('PropAssessUsesEncode.php{Session}', 'PropAssessUsesEncode', 300,150,570,510);">encode 
+Property Assessment Actual Uses</a><br>
+<br>
+<font color="#FF0000"><b>{msg}</b></font> <br>
+<!-- BEGIN Table -->
+<form name="PropAssessUsesList" method="post" action="PropAssessUsesList.php{Session}">
+ <table border="0" cellspacing="0" cellpadding="6" width="100%" bgcolor="#ffffff">
+    <tr bgcolor="#eeeeee">
+      <td class="common"><b>propAssessUsesID</b></td>
+      <td class="common"><b>code</b></td>
+      <td class="common" width=100><b>description</b></td>
+      <td class="common" width=100><b>value</b></td>
+      <td class="common"><b>status</b></td>
+      <td class="common" align=center>
+       <input type="button" value="Update Status" style="font-size:10px;" onClick="document.PropAssessUsesList.formAction.value='activate'; document.PropAssessUsesList.submit();">
+      </td>
+      <td class="common" align="center">
+        Edit
+      </td>
+      
+   <td class="common" align="center"> <input type="hidden" name="formAction" value="delete"> 
+	<input type="submit" name="Submit" value="Delete">
+      </td>
+    </tr>
+    <!-- BEGIN PropAssessUsesList -->
+    <tr>
+      <td class="common">{propAssessUsesID}</td>
+      <td class="common"><a href="javascript:openWin('PropAssessUsesEncode.php{Session}&propAssessUsesID={propAssessUsesID}&formAction=edit','PropAssessUsesEncode',300,150,570,510)">{code}</a></td>
+      <td class="common">{description}</td>
+      <td class="common">{value}</td>
+      <td class="common">{status}</td>
+      <td class="common" align=center>
+       <input type="checkbox" name="status[]" value="{propAssessUsesID}" {statusCheck}>
+      </td>
+      <td class="common" align="center">
+       <b><a href="javascript:openWin('PropAssessUsesEncode.php{Session}&propAssessUsesID={propAssessUsesID}&formAction=edit','editPropAssessUsesWindow',300,150,570,510)">Edit>></a></b>
+       &nbsp;
+       <input type="button" name="editButton" value="Edit" onClick="openWin('PropAssessUsesEncode.php{Session}&propAssessUsesID={propAssessUsesID}&formAction=edit','editPropAssessUsesWindow',300,150,570,510);" style="font-size:10px;">
+      </td>
+      <td class="common" align="center">
+        <input type="checkbox" name="propAssessUsesID[]" value="{propAssessUsesID}">
+      </td>
+    </tr>
+    <!-- END PropAssessUsesList -->
+  </table>
+</form>
+<!-- END Table -->
+</body>
+</html>

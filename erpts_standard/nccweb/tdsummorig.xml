@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+  <page width="592" height="784" number="1" orientation="0">
+	<!--<textitem xpos="20" ypos="600" font="Helvetica" size="8" align="left">RPA FORM NO.1A</textitem>-->
+	<image xpos="70" ypos="700" width="60" height="65" src="images/argao logo.jpg"></image>
+
+	<textitem xpos="330" ypos="704" font="Helvetica-Bold" size="14" align="center">DECLARATION OF REAL 
+PROPERTY</textitem>
+<textitem xpos="330" ypos="693" font="Helvetica" size="10" align="center">(Filed Under Republic Act No. 
+7160)</textitem>
+
+		<textitem xpos="50" ypos="671" font="Helvetica-Bold" size="10" align="left">Tax Declaration 
+Number:</textitem>
+		<textitem xpos="191" ypos="671" font="Helvetica-Bold" size="13.5" 
+align="left">{taxDeclarationNumber}</textitem>
+		<textitem xpos="346" ypos="671" font="Helvetica-Bold" size="10" align="left">Property Index 
+No.:</textitem>
+		<textitem xpos="442" ypos="671" font="Helvetica-Bold" size="12" 
+align="left">{propertyIndexNumber}</textitem>
+
+<!--<textitem xpos="300" ypos="661" font="Helvetica-Bold" size="14" align="center">DECLARATION OF REAL 
+PROPERTY</textitem>
+<textitem xpos="300" ypos="660" font="Helvetica" size="10" align="center">(Filed Under Republic Act No. 
+7160)</textitem>-->
+
+		<textitem xpos="50" ypos="653" font="Helvetica-Bold" size="10" align="left">Owner:</textitem>
+
+		<textbox x1="87" y1="653" x2="294.5" y2="638" font="Helvetica-Bold" size="10.5" 
+align="left">{Owner}</textbox>
+
+		<textitem xpos="355" ypos="653" font="Helvetica-Bold" size="10" align="left">Address:</textitem>
+		<textitem xpos="399" ypos="653"  font="Helvetica" size="10" align="left">{Address}</textitem>
+
+		<textitem xpos="50" ypos="617" font="Helvetica-Bold" size="10" align="left">Administrator:</textitem>
+		<textitem xpos="120" ypos="617" font="Helvetica" size="10" align="left">{administrator}</textitem>
+		<textitem xpos="322" ypos="617" font="Helvetica-Bold" size="10" align="left">Address:</textitem>
+		<textitem xpos="366" ypos="617" font="Helvetica" size="10" align="left">{adminAddress}</textitem>
+
+		<textitem xpos="50" ypos="595" font="Helvetica-Bold" size="10" align="left">Location of</textitem>
+		<textitem xpos="50" ypos="584" font="Helvetica-Bold" size="10" align="left">Property:</textitem>
+
+		<textitem xpos="210" ypos="586" font="Helvetica" size="10" align="center">{location}</textitem>
+		<textitem xpos="349" ypos="584" font="Helvetica" size="10" align="center"></textitem>
+		<textitem xpos="522" ypos="584" font="Helvetica" size="10" align="center"></textitem>
+
+		<textitem xpos="310" ypos="573" font="Helvetica" size="10" align="center">(Number and 
+Street, Barangay, City)</textitem>
+		<!--<textitem xpos="349" ypos="573" font="Helvetica" size="10" align="center">(Barangay)</textitem>
+		<textitem xpos="422" ypos="573" font="Helvetica" size="10" align="center">(City)</textitem>-->
+
+		<textitem xpos="50" ypos="551" font="Helvetica-Bold" size="10" align="left">OCT/TCT No:</textitem>
+		<textbox x1="114" y1="551" x2="152" y2="551" font="Helvetica" size="9" 
+align="left">{certificateOfTitleNumber}</textbox>
+
+	<textitem xpos="188" ypos="551" font="Helvetica-Bold" size="10" align="left">Survey No:</textitem>
+	<textbox x1="242" y1="551" x2="290" y2="551" font="Helvetica" size="9" align="left">{surveyNumber}</textbox>
+	<textitem xpos="326" ypos="551" font="Helvetica-Bold" size="10" align="left">Lot No:</textitem>
+	<textbox x1="362" y1="551" x2="428" y2="551" font="Helvetica" size="9" align="left">{lotNumber}</textbox>
+	<textitem xpos="474" ypos="551" font="Helvetica-Bold" size="10" align="left">Blk.No:</textitem>
+	<textbox x1="500" y1="551" x2="566" y2="551" font="Helvetica" size="9" align="left">{blockNumber}</textbox>
+
+		<textitem xpos="50" ypos="529" font="Helvetica-Bold" size="10" align="left">Boundaries:</textitem>
+
+		<textitem xpos="114" ypos="537" font="Helvetica-Bold" size="10" align="left">North:</textitem>
+	<textbox x1="154" y1="538" x2="363" y2="538" font="Helvetica" size="9" hmode="left">{north}</textbox>
+		<textitem xpos="363" ypos="537" font="Helvetica-Bold" size="10" align="left">South:</textitem>
+	<textbox x1="395" y1="538" x2="604" y2="538" font="Helvetica" size="9" hmode="left">{south}</textbox>
+		<textitem xpos="114" ypos="512" font="Helvetica-Bold" size="10" align="left">East:</textitem>
+	<textbox x1="154" y1="510" x2="363" y2="510" font="Helvetica" size="9" hmode="left">{east}</textbox>
+		<textitem xpos="363" ypos="512" font="Helvetica-Bold" size="10" align="left">West:</textitem>
+	<textbox x1="395" y1="510" x2="604" y2="510" font="Helvetica" size="9" hmode="left">{west}</textbox>
+
+<!--<textitem xpos="20" ypos="500" font="Helvetica" size="10" align="left">(State streets, streams or PIN by which 
+bounded, or names of owner of adjoining lands)</textitem>-->
+
+              <!--
+		<textitem xpos="40" ypos="474" font="Helvetica-Bold" size="10" align="left">Kind of Property</textitem>
+		<textitem xpos="146" ypos="474" font="Helvetica-Bold" size="10" align="left">Classification</textitem>
+		<textitem xpos="252" ypos="474" font="Helvetica-Bold" size="10" align="left">Market Value</textitem>
+		<textitem xpos="358" ypos="474" font="Helvetica-Bold" size="10" align="left">Assessment</textitem>
+		<textitem xpos="358" ypos="463" font="Helvetica-Bold" size="10" align="left">Level</textitem>
+		<textitem xpos="464" ypos="474" font="Helvetica-Bold" size="10" align="left">ASSESSED VALUE</textitem>
+-->
+
+		<textitem xpos="274" ypos="452" font="Helvetica-Bold" size="10" align="left">P</textitem>
+		<textitem xpos="476" ypos="452" font="Helvetica-Bold" size="10" align="left">P</textitem>
+
+		 <!-- inserted code from erpts argao 2page td.xml-->
+        <textitem xpos="70" ypos="474" font="Helvetica" size="10">Kind of Property</textitem>
+        <textitem xpos="176" ypos="474" font="Helvetica" size="10">Actual Use</textitem>
+        <textitem xpos="282" ypos="474" font="Helvetica" size="10">Adjusted Market Value</textitem>
+        <textitem xpos="388" ypos="474" font="Helvetica" size="10">Assessment Level</textitem>
+        <textitem xpos="494" ypos="474" font="Helvetica" size="10">Assessed Value</textitem>
+        <textitem xpos="102" ypos="452" font="Helvetica" size="10" align="center">{propertyKind1}</textitem>
+        <textitem xpos="176" ypos="452" font="Helvetica" size="10" align="left">{propertyActualUse1}</textitem>
+        <textitem xpos="367" ypos="452" font="Helvetica" size="10" align="right">{propertyMarketValue1}</textitem>
+ <textitem xpos="430" ypos="452" font="Helvetica" size="10" align="right">{propertyAssessmentLevel1}</textitem>            
+	<textitem xpos="568" ypos="452" font="Helvetica" size="10" align="right">{propertyAssessedValue1}</textitem>
+        <textitem xpos="102" ypos="441" font="Helvetica" size="10" align="center">{propertyKind2}</textitem>
+        <textitem xpos="176" ypos="441" font="Helvetica" size="10" align="left">{propertyActualUse2}</textitem>
+        <textitem xpos="367" ypos="441" font="Helvetica" size="10" align="right">{propertyMarketValue2}</textitem>
+ <textitem xpos="430" ypos="441" font="Helvetica" size="10" align="right">{propertyAssessmentLevel2}</textitem>
+        <textitem xpos="568" ypos="441" font="Helvetica" size="10" 
+align="right">{propertyAssessedValue2}</textitem>^M^M
+        <textitem xpos="102" ypos="430" font="Helvetica" size="7" align="center">{propertyKind3}</textitem>^M
+        <textitem xpos="136" ypos="430" font="Helvetica" size="7" align="left">{propertyActualUse3}</textitem>^M
+        <textitem xpos="367" ypos="430" font="Helvetica" size="7" align="right">{propertyMarketValue3}</textitem>^M
+ <textitem xpos="430" ypos="430" font="Helvetica" size="7" align="right">{propertyAssessmentLevel3}</textitem>
+        <textitem xpos="568" ypos="430" font="Helvetica" size="7" 
+align="right">{propertyAssessedValue3}</textitem>
+        <textitem xpos="102" ypos="419" font="Helvetica" size="7" align="center">{propertyKind4}</textitem>
+        <textitem xpos="176" ypos="419" font="Helvetica" size="7" align="left">{propertyActualUse4}</textitem>
+        <textitem xpos="367" ypos="419" font="Helvetica" size="7" align="right">{propertyMarketValue4}</textitem>
+ <textitem xpos="430" ypos="419" font="Helvetica" size="7" align="right">{propertyAssessmentLevel4}</textitem>
+        <textitem xpos="568" ypos="419" font="Helvetica" size="7" align="right">{propertyAssessedValue4}</textitem>
+                                <!-- inserted code from argao 2page td.xml ends here -->^M
+
+  <!--
+	<textitem xpos="40" ypos="452" font="Helvetica" size="10" align="left">{kind1}</textitem>
+	<textitem xpos="146" ypos="452" font="Helvetica" size="9" align="left">{classification1}</textitem>
+	<textitem xpos="337" ypos="452" font="Helvetica" size="10" align="right">{marketValue1}</textitem>
+	<textitem xpos="300" ypos="452" font="Helvetica" size="10" align="left">{assessmentLevel1}</textitem>
+	<textitem xpos="558" ypos="452" font="Helvetica" size="10" align="right">{assessedValue1}</textitem>
+
+	<textitem xpos="40" ypos="441" font="Helvetica" size="10" align="left">{kind2}</textitem>
+	<textitem xpos="146" ypos="441" font="Helvetica" size="9" align="left">{classification2}</textitem>
+	<textitem xpos="337" ypos="441" font="Helvetica" size="10" align="right">{marketValue2}</textitem>
+	<textitem xpos="300" ypos="441" font="Helvetica" size="10" align="left">{assessmentLevel2}</textitem>
+	<textitem xpos="558" ypos="441" font="Helvetica" size="10" align="right">{assessedValue2}</textitem>
+
+	<textitem xpos="40" ypos="430" font="Helvetica" size="10" align="left">{kind3}</textitem>
+	<textitem xpos="146" ypos="430" font="Helvetica" size="9" align="left">{classification3}</textitem>
+	<textitem xpos="337" ypos="430" font="Helvetica" size="10" align="right">{marketValue3}</textitem>
+	<textitem xpos="300" ypos="430" font="Helvetica" size="10" align="left">{assessmentLevel3}</textitem>
+	<textitem xpos="558" ypos="430" font="Helvetica" size="10" align="right">{assessedValue3}</textitem>
+
+
+	<textitem xpos="40" ypos="419" font="Helvetica" size="10" align="left">{kind4}</textitem>
+	<textitem xpos="146" ypos="419" font="Helvetica" size="9" align="left">{classification4}</textitem>
+	<textitem xpos="337" ypos="419" font="Helvetica" size="10" align="right">{marketValue4}</textitem>
+	<textitem xpos="300" ypos="419" font="Helvetica" size="10" align="left">{assessmentLevel4}</textitem>
+	<textitem xpos="558" ypos="419" font="Helvetica" size="10" align="right">{assessedValue4}</textitem>-->
+
+
+		<textitem xpos="262" ypos="408" font="Helvetica-Bold" size="10" align="right">TOTAL</textitem>
+		<textitem xpos="367" ypos="408" font="Helvetica" size="10" align="right">{totalMarketValue}</textitem>
+		<textitem xpos="274" ypos="408" font="Helvetica-Bold" size="10" align="left">P</textitem>
+
+		<textitem xpos="444" ypos="408" font="Helvetica-Bold" size="10" align="right">TOTAL</textitem>
+		<textitem xpos="475" ypos="408" font="Helvetica-Bold" size="10" align="left">P</textitem>
+	<textitem xpos="568" ypos="408" font="Helvetica" size="10" align="right">{totalAssessedValue}</textitem>
+
+		<textitem xpos="50" ypos="386" font="Helvetica-Bold" size="10" align="left">Total Assessed 
+Value:</textitem>
+		<textitem xpos="157" ypos="386" font="Helvetica" size="10" 
+align="left">{totalAssessedValueInWords}</textitem>
+		<textitem xpos="349" ypos="373" font="Helvetica" size="10" align="center">(Amount in Words)</textitem>
+
+		<textitem xpos="50" ypos="353" font="Helvetica-Bold" size="10" align="left">Area:</textitem>
+		<!--<textitem xpos="48" ypos="353" font="Helvetica" size="10" align="left">{totalArea} 
+{unit}</textitem>-->
+	<textitem xpos="78" ypos="353" font="Helvetica" size="10" align="left">{findingsTotalArea} {unit}</textitem>
+
+		<textitem xpos="424" ypos="353" font="Helvetica-Bold" size="10" align="left">Tax 
+Effectivity:</textitem>
+		<textitem xpos="500" ypos="353" font="Helvetica" size="10" align="left">{effectivity}</textitem>
+
+		<textitem xpos="50" ypos="342" font="Helvetica-Bold" size="10" align="left">Taxable [{isTaxable}]     
+Exempt [{isExempt}]</textitem>
+
+		<textitem xpos="50" ypos="305" font="Helvetica-Bold" size="10" align="left">Recommending 
+Approval:</textitem>
+
+	<textitem xpos="218" ypos="278" font="Helvetica" size="10" 
+align="center">{cityMunicipalAssessorName}</textitem>
+	<textitem xpos="218" ypos="267" font="Helvetica" size="10" align="center">Municipal Assessor</textitem>
+	<textitem xpos="330" ypos="305" font="Helvetica-Bold" size="10" align="left">Approved:</textitem>
+	<textitem xpos="478" ypos="278" font="Helvetica" size="10" align="center">{provincialAssessorName}</textitem>
+	<textitem xpos="478" ypos="267" font="Helvetica" size="10" align="center">Provincial Assessor</textitem>
+
+		<textitem xpos="210" ypos="225" font="Helvetica" size="10" align="left">{cancelsTDNumber}</textitem>
+		<textitem xpos="50" ypos="225" font="Helvetica-Bold" size="10" align="left">This declaration cancels 
+TD No.:</textitem>
+		<textitem xpos="280" ypos="225" font="Helvetica-Bold" size="10" align="left">Previous 
+Owner:</textitem>
+		<textitem xpos="360" ypos="225" font="Helvetica" size="10" align="left">{previousOwner}</textitem>
+		<textitem xpos="280" ypos="212" font="Helvetica-Bold" size="10" align="left">Previous Assessed 
+Value:</textitem>
+                <textitem xpos="405" ypos="212" font="Helvetica" size="10" 
+align="left">{previousAssessedValue}</textitem>
+		<textitem xpos="50" ypos="184" font="Helvetica-Bold" size="10" align="left">Memoranda:</textitem>
+		<textbox x1="110" y1="184" x2="572" y2="280" font="Helvetica" size="10.3" 
+align="left">{memoranda}</textbox>
+
+	<!--<textitem xpos="25" ypos="199" font="Helvetica-Bold" size="10" 
+align="left">Acknowledgement:</textitem>
+
+		<textitem xpos="414" ypos="199" font="Helvetica-Bold" size="10" align="left">Certification Fee: P</textitem>
+		<textitem xpos="414" ypos="188" font="Helvetica-Bold" size="10" align="left">O.R.No.:</textitem>
+		<textitem xpos="414" ypos="177" font="Helvetica-Bold" size="10" align="left">Date paid:</textitem>
+
+		<textitem xpos="155" ypos="166" font="Helvetica-Bold" size="10" 
+align="center">Owner/Administrator</textitem>
+		<textitem xpos="335" ypos="166" font="Helvetica-Bold" size="10" align="center">Date</textitem>
+                --> 
+
+<textitem xpos="50" ypos="72" font="Helvetica-Bold" size="10" align="left">IMPORTANT:</textitem>
+<textitem xpos="115" ypos="72" font="Helvetica-Bold" size="10" align="left">This declaration is for real property 
+taxation purposes and the valuation indicated herein are based</textitem>
+<textitem xpos="115" ypos="61" font="Helvetica-Bold" size="10" align="left">on the schedule of unit market 
+values prepared for the purpose and duly enacted into an Ordinance</textitem>
+<textitem xpos="115" ypos="50" font="Helvetica-Bold" size="10" align="left">by the 
+Sangguniang___________ under Ordinance No._______________ dated____________20___.</textitem>
+<textitem xpos="115" ypos="37" font="Helvetica-Bold" size="10" alig="left">It does not and cannot by 
+itself alone confer any ownership or legal title of property.</textitem>
+		<!-- Horizontal Lines -->
+
+		<lineitem x1="175" y1="669" x2="240" y2="669">taxDeclarationNumber</lineitem>
+		<lineitem x1="442" y1="669" x2="572" y2="669">propertyIndexNumber</lineitem>
+		<lineitem x1="87" y1="652" x2="290" y2="652">Owner1</lineitem>
+		<lineitem x1="87" y1="639" x2="290" y2="639">Owner2</lineitem>	
+		<lineitem x1="87" y1="626" x2="290" y2="626">Owner3</lineitem>
+		<lineitem x1="366" y1="626" x2="572" y2="626">Address</lineitem>
+
+		<lineitem x1="120" y1="605" x2="290" y2="605">administrator</lineitem>
+		<lineitem x1="366" y1="605" x2="572" y2="605">adminAddress</lineitem>
+
+		<lineitem x1="96" y1="582" x2="572" y2="582">location</lineitem>
+		<!--<lineitem x1="304" y1="582" x2="384" y2="582">barangay</lineitem>
+		<lineitem x1="442" y1="582" x2="572" y2="582">municipalityCity</lineitem>-->
+
+
+		<lineitem x1="114" y1="549" x2="185" y2="549">octTctNumber</lineitem>
+		<lineitem x1="242" y1="549" x2="323" y2="549">surveyNumber</lineitem>
+		<lineitem x1="362" y1="549" x2="473" y2="549">lotNumber</lineitem>
+		<lineitem x1="500" y1="549" x2="572" y2="549">blockNumber</lineitem>
+
+		<lineitem x1="149" y1="521" x2="331" y2="521">north</lineitem>
+		<lineitem x1="390" y1="521" x2="572" y2="521">south</lineitem>
+		<lineitem x1="144" y1="495" x2="331" y2="495">east</lineitem>
+		<lineitem x1="386" y1="495" x2="572" y2="495">west</lineitem>
+
+		<lineitem x1="51" y1="493" x2="577" y2="493">horizontal-line</lineitem>
+		<lineitem x1="51" y1="490" x2="577" y2="490">horizontal-line</lineitem>
+        
+		
+		
+		<lineitem x1="50" y1="450" x2="156" y2="450">kind1</lineitem>
+		<lineitem x1="176" y1="450" x2="262" y2="450">classification1</lineitem>
+		<lineitem x1="282" y1="450" x2="368" y2="450">marketValue1</lineitem>
+		<lineitem x1="388" y1="450" x2="465" y2="450">assessmentLevel1</lineitem>
+		<lineitem x1="484" y1="450" x2="572" y2="450">assessedValue1</lineitem>
+
+		<lineitem x1="50" y1="439" x2="156" y2="439">kind2</lineitem>
+		<lineitem x1="176" y1="439" x2="262" y2="439">classification2</lineitem>
+		<lineitem x1="282" y1="439" x2="368" y2="439">marketValue2</lineitem>
+		<lineitem x1="388" y1="439" x2="465" y2="439">assessmentLevel2</lineitem>
+		<lineitem x1="484" y1="439" x2="572" y2="439">assessedValue2</lineitem>
+
+		<lineitem x1="50" y1="428" x2="156" y2="428">kind3</lineitem>
+		<lineitem x1="176" y1="428" x2="262" y2="428">classification3</lineitem>
+		<lineitem x1="282" y1="428" x2="368" y2="428">marketValue3</lineitem>
+		<lineitem x1="388" y1="428" x2="465" y2="428">assessmentLevel3</lineitem>
+		<lineitem x1="484" y1="428" x2="572" y2="428">assessedValue3</lineitem>
+        
+		<lineitem x1="50" y1="417" x2="156" y2="417">kind4</lineitem>
+		<lineitem x1="176" y1="417" x2="262" y2="417">classification4</lineitem>
+		<lineitem x1="282" y1="417" x2="368" y2="417">marketValue4</lineitem>
+		<lineitem x1="388" y1="417" x2="465" y2="417">assessmentLevel4</lineitem>	  
+		<lineitem x1="484" y1="417" x2="572" y2="417">assessedValue4</lineitem> 
+		
+		<lineitem x1="282" y1="406" x2="368" y2="406">totalMarketValue</lineitem>
+		<lineitem x1="484" y1="406" x2="572" y2="406">totalAssessedValue</lineitem>
+
+		<lineitem x1="157" y1="384" x2="572" y2="384">totalAssessedValueInWords</lineitem>
+
+		<lineitem x1="78" y1="351" x2="190" y2="351">area</lineitem>
+		<lineitem x1="488" y1="351" x2="572" y2="351">effectivity</lineitem>
+
+		<lineitem x1="148" y1="276" x2="288" y2="276">RecommendingApproval</lineitem>
+		<lineitem x1="408" y1="276" x2="548" y2="276">Approved</lineitem>
+
+		<lineitem x1="210" y1="223" x2="275" y2="223">cancelsTDNumber</lineitem>
+		<lineitem x1="360" y1="223" x2="573" y2="223">previousOwner</lineitem>
+		<lineitem x1="405" y1="210" x2="460" y2="210">previousAssessedValue</lineitem>
+		<!--<lineitem x1="80" y1="233" x2="572" y2="233">memoranda-line-1</lineitem>
+                <lineitem x1="20" y1="222" x2="572" y2="222">memoranda-line-2</lineitem>
+                <lineitem x1="20" y1="211" x2="572" y2="211">memoranda-line-3</lineitem>	
+		<lineitem x1="20" y1="200" x2="572" y2="200">memoranda-line-4</lineitem>
+                <lineitem x1="20" y1="189" x2="572" y2="189">memoranda-line-5</lineitem>
+		<lineitem x1="20" y1="179" x2="572" y2="179">memoranda-line-6</lineitem>-->
+
+		<!--<lineitem x1="80" y1="253" x2="572" y2="253">memoranda-line-1</lineitem>
+		<lineitem x1="20" y1="242" x2="572" y2="242">memoranda-line-2</lineitem>
+		<lineitem x1="20" y1="231" x2="572" y2="231">memoranda-line-3</lineitem>
+		-->
+		<!-- Acknowledgement BOX -->
+             
+	    <!--<lineitem x1="20" y1="219" x2="20" y2="153">acknowledgementBox-left-border</lineitem>
+		<lineitem x1="572" y1="219" x2="572" y2="153">acknowledgementBox-right-border</lineitem>
+		<lineitem x1="20" y1="219" x2="572" y2="219">acknowledgementBox-top-border</lineitem>
+		<lineitem x1="20" y1="153" x2="572" y2="153">acknowledgementBox-bottom-border</lineitem>
+
+		<lineitem x1="504" y1="197" x2="567" y2="197">certificationFee</lineitem>
+		<lineitem x1="455" y1="186" x2="567" y2="186">orNo</lineitem>
+		
+		<lineitem x1="65" y1="175" x2="245" y2="175">ownerAdministrator</lineitem>
+		<lineitem x1="285" y1="175" x2="385" y2="175">date</lineitem>
+		<lineitem x1="464" y1="175" x2="567" y2="175">datePaid</lineitem>
+                -->
+		<!-- Page Border -->
+		<!--<lineitem x1="15" y1="714" x2="577" y2="714">top-border</lineitem>
+		<lineitem x1="15" y1="102" x2="577" y2="102">bottom-border</lineitem>
+		<lineitem x1="15" y1="714" x2="15" y2="102">left-border</lineitem>
+		<lineitem x1="577" y1="714" x2="577" y2="102">right-border</lineitem>-->
+	</page>
+</contents>

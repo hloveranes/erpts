@@ -1,0 +1,76 @@
+group = core
+admin-port = 13000
+smsbox-port = 13001
+wapbox-port = 13002
+wdp-interface-name = "*"
+admin-password = k2admin
+log-file = "/var/log/kannel.log"
+log-level = 0
+#box-deny-ip = "*.*.*.*"
+#box-allow-ip = "127.0.0.1"
+#admin-deny-ip = ""
+#admin-allow-ip = ""
+#unified-prefix = "00358,0"
+#access-log = "access.log"
+
+group = wapbox
+bearerbox-host = localhost
+log-file= "/var/log/wapbox.log"
+log-level = 0
+syslog-level = none
+
+group = smsc
+smsc = at2
+smsc-id = k2ia
+modemtype = auto
+#modemtype = nokiaphone
+device = /dev/ttyS0
+include = /etc/kannel/modems.conf
+
+#group = modems
+#id = nokiaphone
+#name = "Nokia Phone"
+#detect-string = "Nokia Mobile Phone"
+#need-sleep = true
+#keepalive-cmd = "AT+CBC;+CSQ"
+
+group = smsbox
+bearerbox-host = localhost
+sendsms-port = 13013
+global-sender = 123
+#sendsms-chars = "0123456789 +-"
+log-file = "/var/log/smsbox.log"
+log-level = 0
+#access-log = "access.log"
+
+group = sms-service
+keyword = echo
+get-url = "http://charybdis/~mia/relatv/testsms.php?sender=%p&text=%a"
+max-messages = 0
+#text = "okay"
+
+group = sms-service
+keyword = relatv
+get-url = "http://charybdis/relatv/relatv.php?text=%a&sender=%p"
+max-messages = 0
+
+group = sms-service
+keyword = test
+get-url = "http://charybdis/~mia/relatv/relatv.php?text=%a&sender=%p"
+#accept-x-kannel-headers = true
+max-messages = 0 
+#concatenation = true
+
+group = sms-service
+keyword = nop
+text = "You asked nothing and I did it!"
+
+group = sms-service
+keyword = default
+text = "No service specified"
+
+group = sendsms-user
+username = k2user
+password = k2user
+#user-deny-ip = ""
+#user-allow-ip = ""

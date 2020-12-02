@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+   <page height="612" width="1008" number="1" orientation="0">
+   <textitem xpos="244" ypos="570" font="Helvetica" size="11">Summary Of Real Property Assessments for ( {dbs} ) as of {date} </textitem>
+   
+    
+   <!-- outer box -->
+   <lineitem x1="10" x2="998" y1="555" y2="555"></lineitem>  
+   <lineitem x1="10" x2="998" y1="10" y2="10"></lineitem>  
+   <lineitem x1="10" x2="10" y1="10" y2="555"></lineitem>  
+   <lineitem x1="998" x2="998" y1="10" y2="555"></lineitem>  
+   
+   <!-- vertical choplines -->
+   <lineitem x1="90" x2="90" y1="10" y2="555"></lineitem>  
+   <lineitem x1="150" x2="150" y1="10" y2="555"></lineitem> 
+   <lineitem x1="210" x2="210" y1="10" y2="555"></lineitem> 
+   <lineitem x1="270" x2="270" y1="10" y2="540"></lineitem>  
+   <lineitem x1="320" x2="320" y1="10" y2="520"></lineitem>  
+   <lineitem x1="370" x2="370" y1="10" y2="540"></lineitem> 
+   <lineitem x1="420" x2="420" y1="10" y2="540"></lineitem> 
+   <lineitem x1="470" x2="470" y1="10" y2="540"></lineitem> 
+   <lineitem x1="520" x2="520" y1="10" y2="555"></lineitem> 
+   <lineitem x1="570" x2="570" y1="10" y2="540"></lineitem> 
+   <lineitem x1="620" x2="620" y1="10" y2="520"></lineitem> 
+   <lineitem x1="670" x2="670" y1="10" y2="540"></lineitem> 
+   <lineitem x1="720" x2="720" y1="10" y2="540"></lineitem> 
+   <lineitem x1="770" x2="770" y1="10" y2="540"></lineitem> 
+   <lineitem x1="820" x2="820" y1="10" y2="555"></lineitem> 
+   <lineitem x1="870" x2="870" y1="10" y2="555"></lineitem> 
+   <lineitem x1="930" x2="930" y1="10" y2="555"></lineitem>   
+   
+   <!-- horizontal choplines -->
+   <lineitem x1="10" x2="998" y1="505" y2="505"></lineitem>  
+   
+   <lineitem x1="10" x2="998" y1="475" y2="475"></lineitem>
+   <lineitem x1="10" x2="998" y1="455" y2="455"></lineitem>
+   <lineitem x1="10" x2="998" y1="430" y2="430"></lineitem>
+   <lineitem x1="10" x2="998" y1="405" y2="405"></lineitem>  
+   <lineitem x1="10" x2="998" y1="380" y2="380"></lineitem>
+   <lineitem x1="10" x2="998" y1="355" y2="355"></lineitem>
+   <lineitem x1="10" x2="998" y1="330" y2="330"></lineitem>
+   <lineitem x1="10" x2="998" y1="305" y2="305"></lineitem> 
+   <lineitem x1="10" x2="998" y1="280" y2="280"></lineitem>
+   <lineitem x1="10" x2="998" y1="255" y2="255"></lineitem>
+   <lineitem x1="10" x2="998" y1="230" y2="230"></lineitem>
+   <lineitem x1="10" x2="998" y1="205" y2="205"></lineitem>   
+   <lineitem x1="10" x2="998" y1="180" y2="180"></lineitem>   
+   <lineitem x1="10" x2="998" y1="155" y2="155"></lineitem>   
+   <lineitem x1="10" x2="998" y1="130" y2="130"></lineitem>   
+   <lineitem x1="10" x2="998" y1="105" y2="105"></lineitem>   
+   <lineitem x1="10" x2="998" y1="80" y2="80"></lineitem>   
+   <lineitem x1="10" x2="998" y1="55" y2="55"></lineitem>   
+   <lineitem x1="10" x2="998" y1="30" y2="30"></lineitem>   
+	
+  <textitem size="7" xpos="14" ypos="530">Property Classification</textitem>
+  <textitem size="7" xpos="14" ypos="485">Taxable</textitem>
+  <textitem size="7" xpos="14" ypos="465">1.Residential</textitem>
+  <textitem size="7" xpos="14" ypos="440">2.Agricultural</textitem>
+  <textitem size="7" xpos="14" ypos="415">3.Commercial</textitem>
+  <textitem size="7" xpos="14" ypos="390">4.Industrial</textitem>
+  <textitem size="7" xpos="14" ypos="365">5.Mineral</textitem>
+  <textitem size="7" xpos="14" ypos="340">6.Timber</textitem>
+  <textitem size="7" xpos="14" ypos="315">7.Special</textitem>
+  <textitem size="7" xpos="24" ypos="290">a.Hospital</textitem>
+  <textitem size="7" xpos="24" ypos="265">b.Scientific</textitem>
+  <textitem size="7" xpos="24" ypos="240">c.Cultural</textitem>
+  <textitem size="7" xpos="24" ypos="215">d.Others</textitem>
+  <textitem size="6" xpos="14" ypos="190">Totals:Taxable Properties</textitem>
+  <textitem size="7" xpos="14" ypos="165">Exempt</textitem>
+  <textitem size="7" xpos="14" ypos="140">1.Government</textitem>
+  <textitem size="7" xpos="14" ypos="115">2.Religious</textitem>
+  <textitem size="7" xpos="14" ypos="90">3.Charitable</textitem>
+  <textitem size="7" xpos="14" ypos="65">4.Educational</textitem>
+  <textitem size="7" xpos="14" ypos="40">5.Others</textitem>  
+  <textitem size="7" xpos="14" ypos="15">Grand Totals</textitem>  
+  
+  <textitem size="7" xpos="95" ypos="530">No. Of Real</textitem>
+  <textitem size="7" xpos="95" ypos="520">Property Units</textitem>
+  <textitem size="7" xpos="149" ypos="465" align="right">{RETaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="440" align="right">{AGTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="415" align="right">{COTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="390" align="right">{INTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="365" align="right">{MITaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="340" align="right">{TITaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="315" align="right">{SPTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="290" align="right">{HOTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="265" align="right">{SCTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="240" align="right">{CUTaxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="215" align="right">{OTTaxable_RealPropertyUnits}</textitem>
+  <textitem size="6" xpos="149" ypos="190" align="right">{Taxable_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="140" align="right">{GOExempt_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="115" align="right">{RLExempt_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="90" align="right">{CHExempt_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="65" align="right">{EDExempt_RealPropertyUnits}</textitem>
+  <textitem size="7" xpos="149" ypos="40" align="right">{OTExempt_RealPropertyUnits}</textitem>  
+  <textitem size="7" xpos="149" ypos="15" align="right">{TOTAL_RealPropertyUnits}</textitem> 
+  
+  <textitem size="7" xpos="160" ypos="530">Land Area </textitem>
+  <textitem size="7" xpos="160" ypos="520">in SQM</textitem>
+  <textitem size="7" xpos="208" ypos="465" align="right">{RETaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="440" align="right">{AGTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="415" align="right">{COTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="390" align="right">{INTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="365" align="right">{MITaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="340" align="right">{TITaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="315" align="right">{SPTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="290" align="right">{HOTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="265" align="right">{SCTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="240" align="right">{CUTaxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="215" align="right">{OTTaxable_LandArea}</textitem>
+  <textitem size="6" xpos="208" ypos="190" align="right">{Taxable_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="140" align="right">{GOExempt_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="115" align="right">{RLExempt_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="90" align="right">{CHExempt_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="65" align="right">{EDExempt_LandArea}</textitem>
+  <textitem size="7" xpos="208" ypos="40" align="right">{OTExempt_LandArea}</textitem>  
+  <textitem size="7" xpos="208" ypos="15" align="right">{TOTAL_LandArea}</textitem> 
+  
+  
+   <lineitem x1="210" x2="820" y1="540" y2="540"></lineitem>
+   <lineitem x1="210" x2="998" y1="520" y2="520"></lineitem>
+   
+ <textitem xpos="325" ypos="545" font="Helvetica" size="8">MarketValue</textitem>  
+   <textitem xpos="225" ypos="525" font="Helvetica" size="8">Land</textitem>     
+		<textitem size="7" xpos="268" ypos="465" align="right">{RETaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="440" align="right">{AGTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="415" align="right">{COTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="390" align="right">{INTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="365" align="right">{MITaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="340" align="right">{TITaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="315" align="right">{SPTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="290" align="right">{HOTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="265" align="right">{SCTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="240" align="right">{CUTaxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="215" align="right">{OTTaxable_LandMV}</textitem>
+		<textitem size="6" xpos="268" ypos="190" align="right">{Taxable_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="140" align="right">{GOExempt_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="115" align="right">{RLExempt_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="90" align="right">{CHExempt_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="65" align="right">{EDExempt_LandMV}</textitem>
+		<textitem size="7" xpos="268" ypos="40" align="right">{OTExempt_LandMV}</textitem>  
+		<textitem size="7" xpos="268" ypos="15" align="right">{TOTAL_LandMV}</textitem> 
+  
+   <textitem xpos="300" ypos="525" font="Helvetica" size="8">Buildings</textitem> 
+   <textitem xpos="272" ypos="510" font="Helvetica" size="6">P175,000 or less</textitem> 
+		<textitem size="7" xpos="318" ypos="465" align="right">{RETaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="440" align="right">{AGTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="415" align="right">{COTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="390" align="right">{INTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="365" align="right">{MITaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="340" align="right">{TITaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="315" align="right">{SPTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="290" align="right">{HOTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="265" align="right">{SCTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="240" align="right">{CUTaxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="215" align="right">{OTTaxable_BldgLessMV}</textitem>
+		<textitem size="6" xpos="318" ypos="190" align="right">{Taxable_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="140" align="right">{GOExempt_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="115" align="right">{RLExempt_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="90" align="right">{CHExempt_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="65" align="right">{EDExempt_BldgLessMV}</textitem>
+		<textitem size="7" xpos="318" ypos="40" align="right">{OTExempt_BldgLessMV}</textitem>  
+		<textitem size="7" xpos="318" ypos="15" align="right">{TOTAL_BldgLessMV}</textitem> 
+	
+	    
+	<textitem xpos="324" ypos="510" font="Helvetica" size="6">Over P175,000</textitem>  
+		<textitem size="7" xpos="368" ypos="465" align="right">{RETaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="440" align="right">{AGTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="415" align="right">{COTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="390" align="right">{INTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="365" align="right">{MITaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="340" align="right">{TITaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="315" align="right">{SPTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="290" align="right">{HOTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="265" align="right">{SCTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="240" align="right">{CUTaxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="215" align="right">{OTTaxable_BldgOverMV}</textitem>
+		<textitem size="6" xpos="368" ypos="190" align="right">{Taxable_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="140" align="right">{GOExempt_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="115" align="right">{RLExempt_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="90" align="right">{CHExempt_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="65" align="right">{EDExempt_BldgOverMV}</textitem>
+		<textitem size="7" xpos="368" ypos="40" align="right">{OTExempt_BldgOverMV}</textitem>  
+		<textitem size="7" xpos="368" ypos="15" align="right">{TOTAL_BldgOverMV}</textitem> 
+		
+   <textitem xpos="380" ypos="525" font="Helvetica" size="8">Mach.</textitem>  
+		<textitem size="7" xpos="418" ypos="465" align="right">{RETaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="440" align="right">{AGTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="415" align="right">{COTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="390" align="right">{INTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="365" align="right">{MITaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="340" align="right">{TITaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="315" align="right">{SPTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="290" align="right">{HOTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="265" align="right">{SCTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="240" align="right">{CUTaxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="215" align="right">{OTTaxable_MachMV}</textitem>
+		<textitem size="6" xpos="418" ypos="190" align="right">{Taxable_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="140" align="right">{GOExempt_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="115" align="right">{RLExempt_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="90" align="right">{CHExempt_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="65" align="right">{EDExempt_MachMV}</textitem>
+		<textitem size="7" xpos="418" ypos="40" align="right">{OTExempt_MachMV}</textitem>  
+		<textitem size="7" xpos="418" ypos="15" align="right">{TOTAL_MachMV}</textitem> 
+		   
+   <textitem xpos="426" ypos="525" font="Helvetica" size="8">Other Imp.</textitem>  
+		<textitem size="7" xpos="468" ypos="465" align="right">{RETaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="440" align="right">{AGTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="415" align="right">{COTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="390" align="right">{INTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="365" align="right">{MITaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="340" align="right">{TITaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="315" align="right">{SPTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="290" align="right">{HOTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="265" align="right">{SCTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="240" align="right">{CUTaxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="215" align="right">{OTTaxable_OtherMV}</textitem>
+		<textitem size="6" xpos="468" ypos="190" align="right">{Taxable_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="140" align="right">{GOExempt_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="115" align="right">{RLExempt_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="90" align="right">{CHExempt_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="65" align="right">{EDExempt_OtherMV}</textitem>
+		<textitem size="7" xpos="468" ypos="40" align="right">{OTExempt_OtherMV}</textitem>  
+		<textitem size="7" xpos="468" ypos="15" align="right">{TOTAL_OtherMV}</textitem> 
+   
+   <textitem xpos="480" ypos="525" font="Helvetica" size="8">Total</textitem> 
+		<textitem size="7" xpos="518" ypos="465" align="right">{RETaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="440" align="right">{AGTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="415" align="right">{COTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="390" align="right">{INTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="365" align="right">{MITaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="340" align="right">{TITaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="315" align="right">{SPTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="290" align="right">{HOTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="265" align="right">{SCTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="240" align="right">{CUTaxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="215" align="right">{OTTaxable_TotalMV}</textitem>
+		<textitem size="6" xpos="518" ypos="190" align="right">{Taxable_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="140" align="right">{GOExempt_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="115" align="right">{RLExempt_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="90" align="right">{CHExempt_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="65" align="right">{EDExempt_TotalMV}</textitem>
+		<textitem size="7" xpos="518" ypos="40" align="right">{OTExempt_TotalMV}</textitem>  
+		<textitem size="7" xpos="518" ypos="15" align="right">{TOTAL_TotalMV}</textitem>    
+		
+   <textitem xpos="590" ypos="545" font="Helvetica" size="8">Assessed Value</textitem>  
+   <textitem xpos="525" ypos="525" font="Helvetica" size="8">Land</textitem>
+		<textitem size="7" xpos="568" ypos="465" align="right">{RETaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="440" align="right">{AGTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="415" align="right">{COTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="390" align="right">{INTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="365" align="right">{MITaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="340" align="right">{TITaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="315" align="right">{SPTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="290" align="right">{HOTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="265" align="right">{SCTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="240" align="right">{CUTaxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="215" align="right">{OTTaxable_LandAV}</textitem>
+		<textitem size="6" xpos="568" ypos="190" align="right">{Taxable_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="140" align="right">{GOExempt_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="115" align="right">{RLExempt_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="90" align="right">{CHExempt_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="65" align="right">{EDExempt_LandAV}</textitem>
+		<textitem size="7" xpos="568" ypos="40" align="right">{OTExempt_LandAV}</textitem>  
+		<textitem size="7" xpos="568" ypos="15" align="right">{TOTAL_LandAV}</textitem>    
+     
+   <textitem xpos="600" ypos="525" font="Helvetica" size="8">Buildings</textitem>  
+	   <textitem xpos="572" ypos="510" font="Helvetica" size="6">P175,000 or less</textitem> 
+		<textitem size="7" xpos="618" ypos="465" align="right">{RETaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="440" align="right">{AGTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="415" align="right">{COTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="390" align="right">{INTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="365" align="right">{MITaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="340" align="right">{TITaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="315" align="right">{SPTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="290" align="right">{HOTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="265" align="right">{SCTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="240" align="right">{CUTaxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="215" align="right">{OTTaxable_BldgLessAV}</textitem>
+		<textitem size="6" xpos="618" ypos="190" align="right">{Taxable_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="140" align="right">{GOExempt_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="115" align="right">{RLExempt_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="90" align="right">{CHExempt_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="65" align="right">{EDExempt_BldgLessAV}</textitem>
+		<textitem size="7" xpos="618" ypos="40" align="right">{OTExempt_BldgLessAV}</textitem>  
+		<textitem size="7" xpos="618" ypos="15" align="right">{TOTAL_BldgLessAV}</textitem> 
+		 
+	<textitem xpos="624" ypos="510" font="Helvetica" size="6">Over P175,000</textitem>  
+		<textitem size="7" xpos="668" ypos="465" align="right">{RETaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="440" align="right">{AGTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="415" align="right">{COTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="390" align="right">{INTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="365" align="right">{MITaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="340" align="right">{TITaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="315" align="right">{SPTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="290" align="right">{HOTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="265" align="right">{SCTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="240" align="right">{CUTaxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="215" align="right">{OTTaxable_BldgOverAV}</textitem>
+		<textitem size="6" xpos="668" ypos="190" align="right">{Taxable_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="140" align="right">{GOExempt_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="115" align="right">{RLExempt_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="90" align="right">{CHExempt_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="65" align="right">{EDExempt_BldgOverAV}</textitem>
+		<textitem size="7" xpos="668" ypos="40" align="right">{OTExempt_BldgOverAV}</textitem>  
+		<textitem size="7" xpos="668" ypos="15" align="right">{TOTAL_BldgOverAV}</textitem> 
+		
+   <textitem xpos="680" ypos="525" font="Helvetica" size="8">Mach.</textitem>  
+		<textitem size="7" xpos="718" ypos="465" align="right">{RETaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="440" align="right">{AGTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="415" align="right">{COTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="390" align="right">{INTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="365" align="right">{MITaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="340" align="right">{TITaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="315" align="right">{SPTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="290" align="right">{HOTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="265" align="right">{SCTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="240" align="right">{CUTaxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="215" align="right">{OTTaxable_MachAV}</textitem>
+		<textitem size="6" xpos="718" ypos="190" align="right">{Taxable_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="140" align="right">{GOExempt_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="115" align="right">{RLExempt_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="90" align="right">{CHExempt_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="65" align="right">{EDExempt_MachAV}</textitem>
+		<textitem size="7" xpos="718" ypos="40" align="right">{OTExempt_MachAV}</textitem>  
+		<textitem size="7" xpos="718" ypos="15" align="right">{TOTAL_MachAV}</textitem> 
+		
+   <textitem xpos="726" ypos="525" font="Helvetica" size="8">Other Imp.</textitem>  
+		<textitem size="7" xpos="768" ypos="465" align="right">{RETaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="440" align="right">{AGTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="415" align="right">{COTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="390" align="right">{INTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="365" align="right">{MITaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="340" align="right">{TITaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="315" align="right">{SPTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="290" align="right">{HOTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="265" align="right">{SCTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="240" align="right">{CUTaxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="215" align="right">{OTTaxable_OtherAV}</textitem>
+		<textitem size="6" xpos="768" ypos="190" align="right">{Taxable_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="140" align="right">{GOExempt_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="115" align="right">{RLExempt_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="90" align="right">{CHExempt_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="65" align="right">{EDExempt_OtherAV}</textitem>
+		<textitem size="7" xpos="768" ypos="40" align="right">{OTExempt_OtherAV}</textitem>  
+		<textitem size="7" xpos="768" ypos="15" align="right">{TOTAL_OtherAV}</textitem>
+		
+   <textitem xpos="780" ypos="525" font="Helvetica" size="8">Total</textitem> 
+		<textitem size="7" xpos="818" ypos="465" align="right">{RETaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="440" align="right">{AGTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="415" align="right">{COTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="390" align="right">{INTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="365" align="right">{MITaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="340" align="right">{TITaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="315" align="right">{SPTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="290" align="right">{HOTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="265" align="right">{SCTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="240" align="right">{CUTaxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="215" align="right">{OTTaxable_TotalAV}</textitem>
+		<textitem size="6" xpos="818" ypos="190" align="right">{Taxable_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="140" align="right">{GOExempt_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="115" align="right">{RLExempt_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="90" align="right">{CHExempt_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="65" align="right">{EDExempt_TotalAV}</textitem>
+		<textitem size="7" xpos="818" ypos="40" align="right">{OTExempt_TotalAV}</textitem>  
+		<textitem size="7" xpos="818" ypos="15" align="right">{TOTAL_TotalAV}</textitem>       
+		
+   <textitem xpos="822" ypos="525" font="Helvetica" size="8">Rate Of Levy</textitem> 
+		<textitem size="7" xpos="868" ypos="465" align="right">{RETaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="440" align="right">{AGTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="415" align="right">{COTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="390" align="right">{INTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="365" align="right">{MITaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="340" align="right">{TITaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="315" align="right">{SPTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="290" align="right">{HOTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="265" align="right">{SCTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="240" align="right">{CUTaxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="215" align="right">{OTTaxable_RateOfLevy}</textitem>
+		<textitem size="6" xpos="868" ypos="190" align="right">{Taxable_RateOfLevy}</textitem>
+		<textitem size="7" xpos="868" ypos="15" align="right">{TOTAL_RateOfLevy}</textitem>       
+   
+   <textitem xpos="879" ypos="535" font="Helvetica" size="8">Basic Tax</textitem> 
+   <textitem xpos="879" ypos="525" font="Helvetica" size="8">Collectibles</textitem> 
+		<textitem size="7" xpos="928" ypos="465" align="right">{RETaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="440" align="right">{AGTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="415" align="right">{COTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="390" align="right">{INTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="365" align="right">{MITaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="340" align="right">{TITaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="315" align="right">{SPTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="290" align="right">{HOTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="265" align="right">{SCTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="240" align="right">{CUTaxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="215" align="right">{OTTaxable_BasicCollectibles}</textitem>
+		<textitem size="6" xpos="928" ypos="190" align="right">{Taxable_BasicCollectibles}</textitem>
+		<textitem size="7" xpos="928" ypos="15" align="right">{TOTAL_BasicCollectibles}</textitem> 
+		
+   <textitem xpos="940" ypos="535" font="Helvetica" size="8">SEF Tax </textitem> 
+   <textitem xpos="940" ypos="525" font="Helvetica" size="8">Collectibles</textitem> 
+		<textitem size="7" xpos="996" ypos="465" align="right">{RETaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="440" align="right">{AGTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="415" align="right">{COTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="390" align="right">{INTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="365" align="right">{MITaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="340" align="right">{TITaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="315" align="right">{SPTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="290" align="right">{HOTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="265" align="right">{SCTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="240" align="right">{CUTaxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="215" align="right">{OTTaxable_SEFCollectibles}</textitem>
+		<textitem size="6" xpos="996" ypos="190" align="right">{Taxable_SEFCollectibles}</textitem>
+		<textitem size="7" xpos="996" ypos="15" align="right">{TOTAL_SEFCollectibles}</textitem> 
+</page>
+</contents>

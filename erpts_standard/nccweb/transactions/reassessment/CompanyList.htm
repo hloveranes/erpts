@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="Javascript1.2">
+<!--
+function editCompany(id){
+	document.CompanyList.action = 'CompanyEncode.php{Session}';
+	CompanyList.formAction.value = 'edit';
+	CompanyList.companyID.value = id;
+	CompanyList.submit();
+}
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=no, resizable=no");
+}
+//-->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+- <a href="CompanyEncode.php{Session}">encode company</a><br>
+<br>
+<font color="#FF0000"><b>{msg}</b></font> <br>
+<!-- BEGIN Table -->
+<form name="CompanyList" method="post" action="CompanyList.php{Session} ">
+  <table width="100%" border="0" cellspacing="0" cellpadding="3">
+    <tr> 
+      <td class="common" width="20"><b>companyID</b></td>
+      <td class="common"><b>companyName</b></td>
+      <td class="common" width="100"><b>telephone</b></td>
+      <td class="common" width="100"><b>fax</b></td>
+      <td class="common" width="100" align="center">
+        <input type="hidden" name="companyID">
+        Edit</td>
+      <td class="common" width="100" align="center"> 
+        <input type="hidden" name="formAction" value="delete">
+        <input type="button" name="Submit" value="Delete" onClick="document.CompanyList.submit();">
+      </td>
+    </tr>
+    <!-- BEGIN CompanyList -->
+    <tr> 
+      <td class="common">{companyID}</td>
+      <td class="common"><a href="CompanyDetails.php{Session} &id={companyID}&action=view">{companyName}</a></td>
+      <td class="common">{telephone}</td>
+      <td class="common">{fax}</td>
+      <td class="common" align="center"> <b><a href="javascript: openWin('CompanyEncode.php{Session} &companyID={companyID}&formAction=edit','editCompanyWindow',300,150,450,500)">Edit>></a></b> 
+        <input type="button" name="editButton" value="Edit" onClick="editCompany('{companyID}');">
+      </td>
+      <td class="common" align="center"> 
+        <input type="checkbox" name="companyID[]" value="{companyID}">
+      </td>
+    </tr>
+    <!-- END CompanyList -->
+  </table>
+</form>
+<!-- END Table -->
+
+</body>
+</html>

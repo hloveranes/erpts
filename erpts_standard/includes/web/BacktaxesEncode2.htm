@@ -1,0 +1,238 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/numeric.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+function checkThis(iform){
+	iform.basicTax.value = iform.basicTaxX.value;
+	iform.sefTax.value = iform.sefTaxX.value;
+	iform.totalTax.value = iform.totalTaxX.value;
+	iform.balance.value = iform.balanceX.value;
+	return true;
+}
+function setDefaults(){
+	window.resizeTo(550,550);
+}
+
+function refreshParent() {
+	window.opener.focus();
+	window.close();
+}
+
+function calcBasicTax(){
+	numeric = true;
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.assessedValue.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.assessedValue.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.basicRate.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.basicRate.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.BacktaxesEncode.assessedValue.value) * unformatCurrency(document.BacktaxesEncode.basicRate.value) / 100;
+		document.BacktaxesEncode.basicTaxX.value = formatCurrency(num);
+	}
+	calcTotalTaxDue();
+	return true;
+}
+function calcSEFTax(){
+	numeric = true;
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.assessedValue.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.assessedValue.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.sefRate.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.basicRate.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.BacktaxesEncode.assessedValue.value) * unformatCurrency(document.BacktaxesEncode.sefRate.value) / 100;
+		document.BacktaxesEncode.sefTaxX.value = formatCurrency(num);
+	}
+	calcTotalTaxDue();
+	return true;
+}
+function calcTotalTaxDue(){
+	//alert(document.BacktaxesEncode.basicTaxX.value+document.BacktaxesEncode.sefTaxX.value);
+	numeric = true;
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.basicTaxX.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.assessedValue.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.sefTaxX.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.basicRate.focus();
+		return false;
+	}
+	if (numeric){
+		num = parseFloat(unformatCurrency(document.BacktaxesEncode.basicTaxX.value)) + parseFloat(unformatCurrency(document.BacktaxesEncode.sefTaxX.value));
+		document.BacktaxesEncode.totalTaxX.value = formatCurrency(num);
+	}
+	calcBalance();
+	return true;
+}
+function calcBalance(){
+numeric = true;
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.paid.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.assessedValue.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.BacktaxesEncode.totalTaxX.value))){
+		alert("numeric values only.");
+		document.BacktaxesEncode.basicRate.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.BacktaxesEncode.totalTaxX.value) - unformatCurrency(document.BacktaxesEncode.paid.value);
+		document.BacktaxesEncode.balanceX.value = formatCurrency(num);
+	}
+	return true;
+}
+//-->
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="BacktaxesEncode" method="post" action="BacktaxesEncode.php{Session}" onSubmit="javascript: return checkThis(this)">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+          <tr bgcolor="#F6F6F6"> 
+            <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>ENCODE 
+              BACKTAXES</b> </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td colspan="3" class="fileds_comment" align="left" nowrap>Total Back 
+              Tax Details</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="100">Year 
+              Range:</td>
+            <td colspan="2" valign="top" bgcolor="#F6F6F6" class="fileds_comment"> 
+              <select name="startYear[]" size="5" multiple id="startYear[]">
+                <!-- BEGIN StartYearList -->
+                <option value = "{startYearValue}" {startYearValue_sel}>{startYearValue}</option>
+                <!-- END StartYearList -->
+              </select>
+              <!--
+			  to 
+              <select name="endYear" id="endYear" disabled>
+              -->
+			    <!-- BEGIN EndYearList -->
+              <!--
+			    <option value = "{endYearValue}" {endYearValue_sel}>{endYearValue}</option>
+              -->
+			    <!-- END EndYearList -->
+              <!--
+			  </select>
+			  -->
+			  </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">startQuarter</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"><select name="startQuarter" id="startQuarter">
+                <!-- BEGIN StartQuarterList -->
+                <option value = "{startQuarterValue}" {startQuarterValue_sel}>{startQuarterValue}</option>
+                <!-- END StartQuarterList -->
+              </select></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6"> 
+              TD Number</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"><input name="tdNumber" type="text" id="tdNumber" value="{tdNumber}"></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6"> 
+              Assessed Value</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="assessedValue" type="text" id="assessedValue" value="{assessedValue}" onBlur="javascript: calcBasicTax(); calcSEFTax();"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">Basic 
+              Rate</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="basicRate" type="text" id="basicRate" value="{basicRate}" onBlur="javascript: calcBasicTax();"> %
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">SEF 
+              Rate</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input type="text" name="sefRate" value="{sefRate}" onBlur="javascript: calcSEFTax();"> %
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">Basic 
+              Tax</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="basicTaxX" type="text" id="basicTaxX" value="{basicTax}" disabled> 
+              <input name="basicTax" type="hidden" id="basicTax" value="{basicTax}"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">SEF 
+              Tax</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="sefTaxX" type="text" disabled id="sefTaxX" value="{sefTax}"> 
+              <input name="sefTax" type="hidden" id="sefTax" value="{sefTax}"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">Total 
+              Tax </td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"><input name="totalTaxX" type="text" id="totalTaxX" value="{total}" disabled> 
+              <input name="totalTax" type="hidden" id="totalTax" value="{totalTax}"></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">Paid</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="paid" type="text" id="paid" value="{paid}" onBlur="javascript: calcBalance();"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6">Balance</td>
+            <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="balanceX" type="text" id="balanceX" value="{balance}" disabled> 
+              <input name="balance" type="hidden" id="balance" value="{balance}"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" nowrap colspan="3" bgcolor="#CCCCCC">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp;</td>
+            <td colspan="2" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6"> 
+              <input name="backtaxTDID" type="hidden" value="{backtaxTDID}"> <input name="tdID" type="hidden" id="tdID" value="{tdID}"> 
+              <input type="hidden" name="formAction" value="save"> 
+              <!-- BEGIN SubmitButton -->
+              <input type="submit" value="Submit" name="submit"> <input type="reset" name="Submit2" value="Reset" > 
+              <!-- END SubmitButton -->
+              <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

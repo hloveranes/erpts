@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+
+	<!-- BEGIN Page -->
+
+	<page height="592" width="784" number="1" orientation="0">
+
+		<textitem xpos="392" ypos="562" font="Helvetica-Bold" size="11" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="392" ypos="547" font="Helvetica-Bold" size="11" align="center">{lguType} of {lguName}</textitem>
+		<textitem xpos="392" ypos="532" font="Helvetica-Bold" size="11" align="center">Office of the City/Municipal Treasurer</textitem>
+
+		<textitem xpos="15" ypos="502" font="Helvetica-Bold" size="11" align="left">{ownerName}</textitem>
+		<textitem xpos="15" ypos="482" font="Helvetica-Bold" size="11" align="left">{address1}</textitem>
+		<textitem xpos="15" ypos="462" font="Helvetica-Bold" size="11" align="left">{address2}</textitem>
+
+		<lineitem x1="15" y1="498" x2="240" y2="498">ownerName</lineitem>
+		<lineitem x1="15" y1="478" x2="240" y2="478">address1</lineitem>
+		<lineitem x1="15" y1="458" x2="240" y2="458">address2</lineitem>
+
+		<textitem xpos="689" ypos="502" font="Helvetica-Bold" size="11" align="center">{dateIssued}</textitem>
+		<textitem xpos="689" ypos="486" font="Helvetica" size="11" align="center">(Date)</textitem>
+		<lineitem x1="609" y1="498" x2="769" y2="498">dateIssued</lineitem>
+
+		<textitem xpos="15" ypos="440" font="Helvetica-Bold" size="11" align="left">Sir / Madam:</textitem>
+		<textitem xpos="65" ypos="425" font="Helvetica" size="11" align="left">Please be informed that as of</textitem>
+		<textitem xpos="305" ypos="425" font="Helvetica-Bold" size="11" align="center">{dateAsOf}</textitem>
+		<textitem xpos="402" ypos="425" font="Helvetica" size="11" align="left">, you are delinquent in the payment of Real Property Tax and Penalties</textitem>
+		<textitem xpos="15" ypos="410" font="Helvetica" size="11" align="left">due thereon are as follows:</textitem>
+		<lineitem x1="214" y1="421" x2="399" y2="421">dateAsOf</lineitem>
+
+		<textitem xpos="62.125" ypos="390" font="Helvetica" size="9" align="center">TD/ARP</textitem>
+		<textitem xpos="62.125" ypos="380" font="Helvetica" size="9" align="center">NUMBER</textitem>
+
+		<textitem xpos="156.375" ypos="390" font="Helvetica" size="9" align="center">YEARS FOR WHICH</textitem>
+		<textitem xpos="156.375" ypos="380" font="Helvetica" size="9" align="center">TAX DUE</textitem>
+
+		<textitem xpos="263.125" ypos="390" font="Helvetica" size="9" align="center">LOCATION OF</textitem>
+		<textitem xpos="263.125" ypos="380" font="Helvetica" size="9" align="center">PROPERTIES</textitem>
+
+		<textitem xpos="368.625" ypos="390" font="Helvetica" size="9" align="center">ASSESSED</textitem>
+		<textitem xpos="368.625" ypos="380" font="Helvetica" size="9" align="center">VALUE</textitem>
+
+		<textitem xpos="457.875" ypos="386" font="Helvetica" size="9" align="center">BASIC</textitem>
+
+		<textitem xpos="544.625" ypos="386" font="Helvetica" size="9" align="center">SEF</textitem>
+
+		<textitem xpos="631.375" ypos="386" font="Helvetica" size="9" align="center">PENALTIES</textitem>
+
+		<textitem xpos="721.875" ypos="386" font="Helvetica" size="9" align="center">TOTAL</textitem>
+
+		<textitem xpos="62.125" ypos="218" font="Helvetica-Bold" size="9" align="center">TOTAL</textitem>
+
+		<textitem xpos="327.75" ypos="366" font="Helvetica-Bold" size="9" align="left">P</textitem>
+		<textitem xpos="419.5" ypos="366" font="Helvetica-Bold" size="9" align="left">P</textitem>
+		<textitem xpos="506.25" ypos="366" font="Helvetica-Bold" size="9" align="left">P</textitem>
+		<textitem xpos="593" ypos="366" font="Helvetica-Bold" size="9" align="left">P</textitem>
+		<textitem xpos="679.75" ypos="366" font="Helvetica-Bold" size="9" align="left">P</textitem>
+
+		<!-- start ypos=366 -->
+		<!-- end ypos=234 -->
+
+		<!-- tdYPos starts at 366 decrements by 11 until 234 -->
+		
+		<!-- BEGIN TDList -->
+
+		<textitem xpos="50" ypos="{tdYPos}" font="Helvetica" size="8" align="left">{arpNumber}</textitem>
+		<textitem xpos="156.375" ypos="{tdYPos}" font="Helvetica" size="9" align="center">{year}</textitem>
+		<textbox x1="206.5" y1="{tdYPos}" x2="319.75" y2="{tdYPos}" font="Helvetica" size="8" hmode="left">{location}</textbox>
+
+		<textitem xpos="409.5" ypos="{tdYPos}" font="Helvetica" size="9" align="right">{assessedValue}</textitem>
+		<textitem xpos="496.25" ypos="{tdYPos}" font="Helvetica" size="9" align="right">{basic}</textitem>
+		<textitem xpos="583" ypos="{tdYPos}" font="Helvetica" size="9" align="right">{sef}</textitem>
+		<textitem xpos="669.75" ypos="{tdYPos}" font="Helvetica" size="9" align="right">{penalty}</textitem>
+		<textitem xpos="766" ypos="{tdYPos}" font="Helvetica" size="9" align="right">{taxDue}</textitem>
+
+		<!-- END TDList -->
+
+		<textitem xpos="766" ypos="218" font="Helvetica-Bold" size="9" align="right">{totalTaxDue}</textitem>
+
+		<lineitem x1="15" y1="401" x2="769" y2="401">top-border</lineitem>
+		<lineitem x1="15" y1="376" x2="769" y2="376">row-1</lineitem>
+		<lineitem x1="15" y1="231" x2="769" y2="231">row-2</lineitem>
+
+		<lineitem x1="15" y1="401" x2="15" y2="211">col-1</lineitem>
+		<lineitem x1="109.25" y1="401" x2="109.25" y2="231">col-2</lineitem>
+		<lineitem x1="203.5" y1="401" x2="203.5" y2="231">col-3</lineitem>
+		<lineitem x1="322.75" y1="401" x2="322.75" y2="231">col-4</lineitem>
+		<lineitem x1="414.5" y1="401" x2="414.5" y2="231">col-5</lineitem>
+		<lineitem x1="501.25" y1="401" x2="501.25" y2="231">col-6</lineitem>
+		<lineitem x1="588" y1="401" x2="588" y2="231">col-7</lineitem>
+		<lineitem x1="674.75" y1="401" x2="674.75" y2="231">col-8</lineitem>
+		<lineitem x1="769" y1="401" x2="769" y2="211">col-9</lineitem>
+
+		<lineitem x1="15" y1="211" x2="769" y2="211">bottom-border</lineitem>
+
+		<textitem xpos="65" ypos="191" font="Helvetica" size="11" align="left">Section 258 of R.A. 7160, otherwise known as the 1991 Local Government Code provides that the collection of delinquent taxes may be</textitem>
+		<textitem xpos="15" ypos="176" font="Helvetica" size="11" align="left">enforced by distraint of the personal property of the taxpayers and sale thereof at public auction, and/or filing of civil suit in the proper court to satisfy</textitem>
+		<textitem xpos="15" ypos="161" font="Helvetica" size="11" align="left">taxes, penalties, and costs.</textitem>
+		<textitem xpos="65" ypos="146" font="Helvetica" size="11" align="left">To avoid the inconvenience of being confronted with any of the above-stated actions, it is requested that you settle the total amount</textitem>
+		<textitem xpos="15" ypos="131" font="Helvetica" size="11" align="left">of P</textitem>
+		<textitem xpos="95" ypos="131" font="Helvetica-Bold" size="11" align="center">{totalTaxDue}</textitem>
+		<textitem xpos="156" ypos="131" font="Helvetica" size="11" align="left">, within twenty (20) days from the date of your receipt hereof so that your property/ies can be deleted from the list of</textitem>
+		<textitem xpos="15" ypos="116" font="Helvetica" size="11" align="left">delinquency.</textitem>
+		<textitem xpos="65" ypos="101" font="Helvetica" size="11" align="left">However, if the above-mentioned taxes has/have been paid, PLEASE DISREGARD THIS NOTICE.</textitem>
+		<textitem xpos="65" ypos="71" font="Helvetica" size="11" align="left">Very truly yours,</textitem>
+		<textitem xpos="305" ypos="41" font="Helvetica-Bold" size="11" align="center">{signatory1}</textitem>
+		<textitem xpos="305" ypos="26" font="Helvetica" size="11" align="center">{signatory1Designation}</textitem>
+		<textitem xpos="605" ypos="41" font="Helvetica-Bold" size="11" align="center">{signatory2}</textitem>
+		<textitem xpos="605" ypos="26" font="Helvetica" size="11" align="center">{signatory2Designation}</textitem>
+
+		
+		<lineitem x1="35" y1="127" x2="155" y2="127">amount</lineitem>
+
+
+
+
+
+	</page>
+
+</contents>

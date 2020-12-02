@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents>
+    <page height="784" width="592" number="1" orientation="0">
+	<textitem xpos="202" ypos="722" font="Helvetica-Narrow-Bold" size="18">ASSESSORS FIELD SHEET (URBAN)</textitem>
+	<textitem xpos="60"  ypos="735" font="Times-Bold" size="10">Provincial Form No. 182</textitem>
+	<textitem xpos="425" ypos="761" font="Times-Italic" size="12" >Tax No</textitem>
+	<textitem xpos="63"  ypos="697" font="Times-BoldItalic" size="10">Owner of property</textitem>
+	<textitem xpos="63"  ypos="679" font="Times-BoldItalic" size="10">Residence</textitem>
+	<textitem xpos="184" ypos="673" font="Times-Bold" size="8">(Barrio or Street Number)</textitem>
+	<textitem xpos="345" ypos="673" font="Times-Bold" size="8">(Municipality)</textitem>
+	<textitem xpos="464" ypos="673" font="Times-Bold" size="8">(Province)</textitem>
+	<textitem xpos="63"  ypos="655" font="Times-BoldItalic" size="10">Administrator of Property</textitem>
+	<textitem xpos="63"  ypos="640" font="Times-BoldItalic" size="10">Residence</textitem>
+    <textitem xpos="184" ypos="631" font="Times-Bold" size="8">(Barrio or Street Number)</textitem>
+	<textitem xpos="345" ypos="631" font="Times-Bold" size="8">(Municipality)</textitem>
+	<textitem xpos="464" ypos="631" font="Times-Bold" size="8">(Province)</textitem>
+	<textitem xpos="246" ypos="614" font="Times-Bold" size="11">DESCRIPTION OF PROPERTY</textitem>
+	<textitem xpos="63"  ypos="593" font="Times-BoldItalic" size="10">Location</textitem>
+	<textitem xpos="199" ypos="586" font="Times-Bold" size="8">(Barrio)</textitem>
+	<textitem xpos="325" ypos="586" font="Times-Bold" size="8">(Municipality)</textitem>
+	<textitem xpos="440" ypos="586" font="Times-Bold" size="8">(Province)</textitem>
+	<textitem xpos="63"  ypos="576" font="Times-BoldItalic" size="10">Certificate of Title No.</textitem>
+	<textitem xpos="281" ypos="576" font="Times-BoldItalic" size="10">Block No.</textitem>
+	<textitem xpos="420" ypos="576" font="Times-BoldItalic" size="10">Lot No.</textitem>
+	<textitem xpos="71"  ypos="508" font="Times-BoldItalic" size="10" rotate="90">Boundaries</textitem>
+	<textitem xpos="87"  ypos="559" font="Times-BoldItalic" size="10">North</textitem>
+	<textitem xpos="87"  ypos="540" font="Times-BoldItalic" size="10">East</textitem>
+	<textitem xpos="87"  ypos="524" font="Times-BoldItalic" size="10">South</textitem>
+	<textitem xpos="87"  ypos="508" font="Times-BoldItalic" size="10">West</textitem>
+	<textitem xpos="180" ypos="552" font="Times-Roman" size="8">State streets or streams by which bounded or, names of owners of adjoining lands</textitem>
+	<textitem xpos="170" ypos="487" font="Times-Bold" size="8">KIND OF LAND</textitem>
+	<textitem xpos="339" ypos="487" font="Times-Bold" size="8">Class</textitem>
+	<textitem xpos="395" ypos="487" font="Times-Bold" size="8">Square Meters</textitem>
+    <textitem xpos="505" ypos="493" font="Times-Bold" size="8">Value of Land</textitem>
+    <textitem xpos="517" ypos="484" font="Times-Bold" size="8">(Pesos)</textitem>
+    <textitem xpos="63"  ypos="433" font="Times-Bold" size="10">Totals</textitem>
+    <textitem xpos="247" ypos="408" font="Times-Bold" size="11">IMPROVEMENTS-BUILDINGS</textitem>
+    <textitem xpos="67"  ypos="387" font="Times-Bold" size="8">Purpose for Which Used</textitem>
+    <textitem xpos="181" ypos="392" font="Times-Bold" size="8">Date</textitem>
+    <textitem xpos="171" ypos="383" font="Times-Bold" size="8">Completed</textitem>
+    <textitem xpos="244" ypos="392" font="Times-Bold" size="8">AREA</textitem>
+    <textitem xpos="213" ypos="383" font="Times-Bold" size="8">(Ground floor-sq meters)</textitem>
+    <textitem xpos="317" ypos="393" font="Times-Bold" size="8">MATERIALS OF WHICH CONSTRUCTED</textitem>
+    <textitem xpos="316" ypos="380" font="Times-Bold" size="8">First Story</textitem>
+    <textitem xpos="371" ypos="380" font="Times-Bold" size="8">Second Story</textitem>
+    <textitem xpos="442" ypos="380" font="Times-Bold" size="8">Roof</textitem>
+    <textitem xpos="521" ypos="392" font="Times-Bold" size="8">Value</textitem>
+    <textitem xpos="519" ypos="383" font="Times-Bold" size="8">(Pesos)</textitem>
+    <textitem xpos="282" ypos="273" font="Times-Bold" size="12">MACHINERIES</textitem>
+    <textitem xpos="506" ypos="254" font="Times-Bold" size="8">Value(Pesos)</textitem>
+    <textitem xpos="69" ypos="235" font="Times-Bold" size="10">Date of Operation</textitem>
+    <textitem xpos="69" ypos="222" font="Times-Bold" size="10">Estimated Service Life</textitem>
+    <textitem xpos="69" ypos="210" font="Times-Bold" size="10">Rate of Annual Depreciation</textitem>
+    <textitem xpos="236" ypos="197" font="Times-BoldItalic" size="10">Market Value</textitem>
+    <textitem xpos="333" ypos="197" font="Times-BoldItalic" size="10">Assmt. Level</textitem>
+    <textitem xpos="433" ypos="197" font="Times-BoldItalic" size="10">Assessed Value</textitem>
+    <textitem xpos="69" ypos="184" font="Times-Bold" size="10">Total Value of Land</textitem>
+    <textitem xpos="69" ypos="171" font="Times-Bold" size="10">Total Value of Land</textitem>
+    <textitem xpos="69" ypos="159" font="Times-Bold" size="10">Total Value of Improvements</textitem>
+    <textitem xpos="69" ypos="146" font="Times-Bold" size="10">Total Value of Improvements</textitem>
+    <textitem xpos="69" ypos="134" font="Times-Bold" size="10">Total Value of Machineries</textitem>
+    <textitem xpos="69" ypos="121" font="Times-Bold" size="10">Total Value of Machineries</textitem>
+    <textitem xpos="87" ypos="106" font="Times-Bold" size="10">Total Assessed Value</textitem>
+    <textitem xpos="69" ypos="75" font="Times-Bold" size="10">Previous Owner</textitem>
+    <textitem xpos="69" ypos="50" font="Times-Bold" size="10">This declaration supersedes Declaration Tax No.</textitem>
+    <textitem xpos="69" ypos="33" font="Times-Bold" size="10">Taxes under this assessment commence with the year</textitem>
+    <textitem xpos="69" ypos="19" font="Times-Bold" size="10">Taxes under this assessment cease with the year</textitem>
+    <textitem xpos="429" ypos="21" font="Times-BoldItalic" size="10">Deputy Assessor</textitem>
+    <textitem xpos="570" ypos="236" font="" size="12" rotate="90">RECIEVED OWNER'S COPY:</textitem>
+    <textitem xpos="570" ypos="531" font="Times-Bold" size="12" rotate="90">DATE</textitem>
+    <lineitem x1="469" y1="759" x2="560" y2="759">Tax No</lineitem>
+    <lineitem x1="157" y1="695" x2="560" y2="695">Owner of Property</lineitem>
+    <lineitem x1="119" y1="680" x2="560" y2="680">Residence</lineitem>
+    <lineitem x1="170" y1="653" x2="560" y2="653">Administrator of Property</lineitem>
+    <lineitem x1="111" y1="640" x2="560" y2="640">Residence</lineitem>
+    <lineitem x1="112" y1="593" x2="560" y2="593">Location</lineitem>
+    <lineitem x1="165" y1="576" x2="276" y2="576">Certificate of Title No.</lineitem>
+    <lineitem x1="331" y1="576" x2="414" y2="576">Block No. </lineitem>
+    <lineitem x1="460" y1="576" x2="560" y2="576">Lot No. </lineitem>
+    <lineitem x1="121" y1="559" x2="560" y2="559">North</lineitem>
+    <lineitem x1="121" y1="540" x2="560" y2="540">East</lineitem>
+    <lineitem x1="121" y1="524" x2="560" y2="524">South</lineitem>
+    <lineitem x1="121" y1="508" x2="560" y2="508">West</lineitem>
+    <lineitem x1="63" y1="500" x2="560" y2="500">Kind of Land Top</lineitem>
+    <lineitem x1="63" y1="483" x2="560" y2="483">Kind of Land Bottom</lineitem>
+    <lineitem x1="330" y1="432" x2="330" y2="500">Class Left</lineitem>
+    <lineitem x1="367" y1="432" x2="367" y2="500">Class Right</lineitem>
+    <lineitem x1="480" y1="432" x2="480" y2="500">Sqm Right</lineitem>
+    <lineitem x1="520" y1="432" x2="520" y2="483">Value of Land</lineitem>
+    <lineitem x1="63" y1="466" x2="560" y2="466">kind of 1 </lineitem>
+    <lineitem x1="63" y1="449" x2="560" y2="449">kind of 2 </lineitem>
+    <lineitem x1="63" y1="432" x2="560" y2="432">Totals </lineitem>
+    <lineitem x1="63" y1="429" x2="560" y2="429">Totals </lineitem>
+    <lineitem x1="63" y1="427" x2="560" y2="427">Totals </lineitem>
+    <lineitem x1="63" y1="404" x2="560" y2="404">Improvements1</lineitem>
+    <lineitem x1="63" y1="402" x2="560" y2="402">Improvements2</lineitem>
+    <lineitem x1="302" y1="390" x2="480" y2="390">Buildings1</lineitem>
+    <lineitem x1="63" y1="378" x2="560" y2="378">Buildings2</lineitem>
+    <lineitem x1="168" y1="288" x2="168" y2="402">purpose</lineitem>
+    <lineitem x1="211" y1="288" x2="211" y2="402">date completed</lineitem>
+    <lineitem x1="302" y1="288" x2="302" y2="402">Area</lineitem>
+    <lineitem x1="363" y1="288" x2="363" y2="378">Materials</lineitem>
+    <lineitem x1="425" y1="288" x2="425" y2="378">First</lineitem>
+    <lineitem x1="480" y1="288" x2="480" y2="402">2nd</lineitem>
+    <lineitem x1="520" y1="288" x2="520" y2="378">Value</lineitem>
+    <lineitem x1="63" y1="360" x2="560" y2="360">building1</lineitem>
+    <lineitem x1="63" y1="342" x2="560" y2="342">building2</lineitem>
+    <lineitem x1="63" y1="324" x2="560" y2="324">building3</lineitem>
+    <lineitem x1="63" y1="306" x2="560" y2="306">building4</lineitem>
+    <lineitem x1="63" y1="288" x2="560" y2="288">building5</lineitem>
+    <lineitem x1="63" y1="268" x2="560" y2="268">Machineries</lineitem>
+    <lineitem x1="63" y1="247" x2="560" y2="247">Machineries2</lineitem>
+    <lineitem x1="480" y1="208" x2="480" y2="268">Value Pesos</lineitem>
+    <lineitem x1="520" y1="208" x2="520" y2="247">Value Pesos</lineitem>
+    <lineitem x1="63" y1="232" x2="560" y2="232">Date of Operation</lineitem>
+    <lineitem x1="63" y1="220" x2="560" y2="220">Estimated Service Life</lineitem>
+    <lineitem x1="63" y1="208" x2="560" y2="208">Rate of Annual Depreciateion</lineitem>
+    <lineitem x1="63" y1="104" x2="560" y2="104">Total Assessed Value 1</lineitem>
+    <lineitem x1="63" y1="102" x2="560" y2="102">Total Assessed Value 1</lineitem>
+    <lineitem x1="200" y1="75" x2="560" y2="75">Previous Owner</lineitem>
+    <lineitem x1="63" y1="72" x2="560" y2="72">Previous Owner 1</lineitem>
+    <lineitem x1="63" y1="70" x2="560" y2="70">Previous Owner 2</lineitem>
+    <lineitem x1="390" y1="31" x2="560" y2="31">Deputy Assessor</lineitem>
+	</page>
+</contents>
+

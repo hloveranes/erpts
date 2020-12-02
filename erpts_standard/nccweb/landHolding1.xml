@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+<!-- BEGIN Page -->
+	<page width="592" height="784" number="{pageNumber}" orientation="0">
+
+
+		<textitem xpos="296" ypos="744" font="Times New Roman-Bold" size="12" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="296" ypos="730" font="Times New Roman-Bold" size="12" align="center">{lguType} of {lguName}</textitem>
+		<textitem xpos="296" ypos="714" font="Times New Roman-Bold" size="14" align="center">Office of the City/Municipal Assessor</textitem>
+
+		<textitem xpos="492" ypos="684" font="Times New Roman" size="11" align="right">{date}</textitem>
+
+		<textitem xpos="296" ypos="644" font="Times New Roman-Bold" size="16" align="center">C E R T I F I C A T I O N</textitem>
+
+		<lineitem x1="212" y1="640" x2="382" y2="640">certification</lineitem>
+
+		<textbox hmode="0" x1="50" y1="600" x2="612" y2="540" font="Times New Roman" size="12">
+TO WHOM IT MAY CONCERN:
+
+THIS IS TO CERTIFY that based on the records on file at this office, {nameList} is/are the registered owner/s of the following real property/ies, to wit:
+
+{tdNumberList}
+
+						ISSUED upon the request of {requestorName} for whatever legal purpose/intent it may serve him/her, this {dateIssued} at {requestorLocation}.
+
+
+
+
+
+{signatory}
+{designation}
+
+
+
+O.R. No.: {orNumber}
+Date of Issue: {orDate}
+
+
+		</textbox>
+
+	</page>
+<!-- END Page -->
+
+</contents>

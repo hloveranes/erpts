@@ -1,0 +1,45 @@
+land:
+
+market value = round(area x unitValue)
+ 
+                   OLD                                      NEW
+value adjustment = marketValue * (% percent adjustment)   | (percent adjustment - 100)
+
+adjusted market value = marketValue + value adjustment    | market value x (%percent adjustment)
+
+assessed value = round(adjusted market value x (% assessment level))
+
+
+
+plants trees:
+
+
+total number = non fruit bearing + fruit bearing
+
+market value = total number x unit price
+
+value adjustment = percent adjustment - 100
+
+adjusted market value = market value x (% percent adjustment)
+
+assessed value = round(adjusted market value x (% assessment level))
+
+
+
+improvementsBuildings:
+
+market value = market value
+
+accumulated depreciation = market value x (% depreciation rate)
+
+depreciated market value = market value - accumulated depreciation
+
+adjusted market value = depreciated market value
+
+assessed value = round(adjusted market value * (% assessment level))
+machineries:
+
+market value = number of units x (aquisitionCost + freightCost + insuranceCost + installationCost + othersCost)
+adjusted market value = depreciated market value
+assessed value = adjusted market value * (%assessment level)
+

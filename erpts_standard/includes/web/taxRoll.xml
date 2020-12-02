@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<contents>
+<!-- BEGIN Page -->
+	<page width="592" height="784" number="{pageNumber}" orientation="0">
+
+		<textitem xpos="296" ypos="744" font="Helvetica" size="11" align="center">Republic of the Philippines</textitem>
+		<textitem xpos="296" ypos="728" font="Helvetica" size="11" align="center">{lguType} of {lguName}</textitem>
+		<textitem xpos="296" ypos="712" font="Helvetica" size="11" align="center">Office of the Treasurer</textitem>
+
+		<textitem xpos="296" ypos="692" font="Helvetica" size="11" align="center">Tax Roll By Owner's Name</textitem>
+		<textitem xpos="296" ypos="676" font="Helvetica" size="11" align="center">As of {month} {year}</textitem>
+
+		<textitem xpos="15" ypos="656" font="Helvetica-Bold" size="11" align="left">{barangay}</textitem>
+
+		<textitem xpos="75" ypos="636" font="Helvetica" size="11" align="center">Owner's Name</textitem>
+		<textitem xpos="195" ypos="636" font="Helvetica" size="11" align="center">Tax Dec. No.</textitem>
+		<textitem xpos="285" ypos="636" font="Helvetica" size="11" align="center">A-Use</textitem>
+		<textitem xpos="363" ypos="636" font="Helvetica" size="11" align="center">Assessed Value</textitem>
+		<textitem xpos="439" ypos="636" font="Helvetica" size="11" align="center">Basic Tax</textitem>
+		<textitem xpos="495" ypos="636" font="Helvetica" size="11" align="center">SEF Tax</textitem>
+		<textitem xpos="555" ypos="636" font="Helvetica" size="11" align="center">Total</textitem>
+
+		<!-- BEGIN TaxRollList -->
+		<!-- trYPos = 616 -->
+
+		<textitem xpos="15" ypos="{trYPos}" font="Helvetica" size="9" align="left">{ownerName}</textitem>
+		<textitem xpos="15" ypos="{trYPos2}" font="Helvetica" size="9" align="left">{ownerName2}</textitem>
+
+		<textitem xpos="195" ypos="{trYPos}" font="Helvetica" size="10" align="center">{taxDeclarationNumber}</textitem>
+		<textitem xpos="285" ypos="{trYPos}" font="Helvetica" size="10" align="center">{actualUse}</textitem>
+		<textitem xpos="405" ypos="{trYPos}" font="Helvetica" size="10" align="right">{assessedValue}</textitem>
+		<textitem xpos="465" ypos="{trYPos}" font="Helvetica" size="10" align="right">{basicTax}</textitem>
+		<textitem xpos="515" ypos="{trYPos}" font="Helvetica" size="10" align="right">{sefTax}</textitem>
+		<textitem xpos="577" ypos="{trYPos}" font="Helvetica" size="10" align="right">{total}</textitem>
+
+		<!-- END TaxRollList -->
+
+		<!-- stYPos = trYPos-30 -->
+
+		<textitem xpos="185" ypos="{stYPos}" font="Helvetica" size="11" align="center">SUBTOTAL</textitem>
+		<textitem xpos="405" ypos="{stYPos}" font="Helvetica" size="11" align="right">{stAssessedValue}</textitem>
+		<textitem xpos="465" ypos="{stYPos}" font="Helvetica" size="11" align="right">{stBasicTax}</textitem>
+		<textitem xpos="515" ypos="{stYPos}" font="Helvetica" size="11" align="right">{stSefTax}</textitem>
+		<textitem xpos="577" ypos="{stYPos}" font="Helvetica" size="11" align="right">{stTotal}</textitem>
+
+		<!-- BEGIN GrandTotal -->
+
+		<!-- gtYPos = stYPos - 20 -->
+
+		<textitem xpos="185" ypos="{gtYPos}" font="Helvetica" size="11" align="center">GRAND TOTAL</textitem>
+		<textitem xpos="405" ypos="{gtYPos}" font="Helvetica" size="11" align="right">{gtAssessedValue}</textitem>
+		<textitem xpos="465" ypos="{gtYPos}" font="Helvetica" size="11" align="right">{gtBasicTax}</textitem>
+		<textitem xpos="515" ypos="{gtYPos}" font="Helvetica" size="11" align="right">{gtSefTax}</textitem>
+		<textitem xpos="577" ypos="{gtYPos}" font="Helvetica" size="11" align="right">{gtTotal}</textitem>
+
+		<!-- END GrandTotal -->
+
+
+	</page>
+
+<!-- END Page -->
+</contents>

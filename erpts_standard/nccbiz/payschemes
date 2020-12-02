@@ -1,0 +1,60 @@
+LGU 1
+
+year: 2004
+tax due: 100
+
+Annual mode: 100
+	   Jan: (-10%) 100 - 10 = 90
+
+Qtry mode: 25 / Qtr
+	Qtr 1 (Jan - Mar): 
+		on or before march 30	: (-10%) 25 - 2.50 = 22.50
+	Qtr 2 (Apr - Jun): 
+		on or before June 30	: (-10%) 25 - 2.50 = 22.50
+		:
+		:
+
+
+	Qtr 1 (Jan - Mar): 
+		after march 30, april 15	: (+2% per each month overdue) 25 + 2 = 27
+	Qtr 2 (Apr - Jun): 
+		on or before June 30	: (-10%) 25 - 2.50 = 22.50
+		after June 30, July 1	: (+2% per each month overdue) 25 + 2 = 27
+
+if missed whole of 2004:
+	pay on Jan 2005: 100 + %24 = 124
+
+
+---------------		---------------------------------------------------------------------------
+
+LGU 2
+
+year: 2004
+tax due: 100
+
+Annual mode: 100
+	   Jan: (-10%) 100 - 10 = 90
+
+Qtry mode: 25 / Qtr
+	Qtr 1 (Jan - Mar): 
+		on or before march 30	: (-10%) 25 - 2.50 = 22.50
+	Qtr 2 (Apr - Jun): 
+		on or before June 30	: (-10%) 25 - 2.50 = 22.50
+		:
+		:
+
+
+	Qtr 1 (Jan - Mar): 
+		after march 30, april 15	: (+2% per each month overdue) 25 + 2 = 27
+	Qtr 2 (Apr - Jun): 
+		on Apr: (+2% per each month start Apr) 25 + 0.5 = 25.50
+		on May: (+2% per each month start Apr) 25 + 1 = 26.00
+		on Jun: (+2% per each month start Apr) 25 + 1.5 = 26.50
+		
+		on Apr, will pay for Q2-Q4: 75 + 1.50 = 76.50
+		on May, will pay for Q2-Q4: 75 + 3.00 = 78.00
+				
+	Qtr 3 (Jul - Sep):
+		on Apr: (+2% per each month start Apr) 25 + 0.5 = 25.50
+
+		

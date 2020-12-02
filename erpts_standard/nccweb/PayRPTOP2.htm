@@ -1,0 +1,759 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><!-- #BeginTemplate "/Templates/collections.dwt" --><HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>eLGU - eRPTS - {TITLE}</TITLE>
+<!-- #EndEditable -->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<LINK href="css/elgu.css" type=text/css rel=stylesheet>
+
+<script language="Javascript" src="js/numeric.js">
+</script>
+
+<SCRIPT language=JavaScript type=text/JavaScript>
+
+var parentTDArray = new Array();
+
+<!-- BEGIN JSTDList -->
+parentTDArray[{i}] = new Array('{parentTDID}', '{tdID}');
+<!-- END JSTDList -->
+
+function validateForm(iform)
+{
+	var chk;
+	var cnt = 0;
+
+	buffer = new Array();
+	j=0;
+	for(i=0 ; i<form.elements.length ; i++){
+		if(form.elements[i].type=="checkbox"){
+			if(form.elements[i].name!="amnesty"){
+				if(form.elements[i].disabled!=true){
+					buffer[j] = form.elements[i];
+					j++;
+				}
+			}
+		}
+	}
+
+	//buffer[0].value
+	if(buffer == null){
+		return false;
+	}else{
+		if(buffer.checked){
+			chk = true;
+			cnt = 1;
+		}else{
+			for (ctr = 0; ctr < buffer.length; ctr++)
+			{
+				if(buffer[ctr].checked){
+					chk = true;
+					cnt++;
+				}
+			}
+		}
+		
+		if(!chk){
+			alert("Please check appropriate box.");
+			return false;
+		}else{
+			if(cnt > 6){
+				alert("You can only select 6 TDs at a time.");
+				return false;
+			}else{
+				iform.action = "RPTREncode.php{Session}&formMode=details";
+			}
+		}
+	}
+}
+
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=yes, resizable=yes, menubar=no, location=no, status=no");
+	puffup.focus(true);
+}
+
+function childIsChecked(parentTDID){
+	allAreChecked = true;
+	for(i=0 ; i<parentTDArray.length ; i++){
+		td = parentTDArray[i];
+		if(parentTDID==td[0]){
+			
+			for(j=0 ; j<form.elements.length ; j++){
+				if(form.elements[j].name!="amnesty"){
+					if(form.elements[j].name=="tdID["+td[1]+"]"){
+						if(!form.elements[j].checked){
+							return false;
+						}
+					}
+				}
+			}
+
+		}
+	}
+	return allAreChecked;
+}
+
+function getParentTD(tdID){
+	for(i=0 ; i<parentTDArray.length ; i++){
+		td = parentTDArray[i];
+		if(tdID==td[1]){
+			return td[0];
+		}
+	}
+	return false;
+}
+
+function toggle(c, parentTD){
+	form = document.RPTOPForm;
+	if(childIsChecked(parentTD)){
+		for(i=0 ; i<form.elements.length ; i++){
+			if(form.elements[i].name!="amnesty"){
+				if(form.elements[i].name=="tdID["+parentTD+"]"){
+					form.elements[i].disabled = false;
+					return true;
+				}
+			}
+		}
+	}
+	else{
+		for(i=0 ; i<form.elements.length ; i++){
+			if(form.elements[i].name!="amnesty"){
+				if(form.elements[i].name=="tdID["+parentTD+"]"){
+					form.elements[i].checked = false;
+					form.elements[i].disabled = true;
+					parentTD = getParentTD(parentTD);
+					if(!parentTD){
+						return false;
+					}
+				}
+			}
+		}
+	}
+}
+
+function backtaxCheckboxToggle(c, tdID){
+	form = document.RPTOPForm;
+	if(c.checked){
+		for(i=0 ; i<form.elements.length ; i++){
+			if(form.elements[i].type=="checkbox"){
+				if(form.elements.name!="amnesty"){
+					if(form.elements[i].name=="tdID["+tdID+"]"){
+						form.elements[i].disabled = false;
+						break;
+					}
+				}
+			}
+		}
+	}
+	else{
+		for(i=0 ; i<form.elements.length ; i++){
+			if(form.elements[i].type=="checkbox"){
+				if(form.elements.name!="amnesty"){
+					if(form.elements[i].name=="tdID["+tdID+"]"){
+						form.elements[i].checked = false;
+						form.elements[i].disabled = true;
+						tdID = getParentTD(tdID);
+						if(!tdID){
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	updateTotalTaxDue(c,tdID);
+}
+
+function updateTotalTaxDue(checkBox,tdID)
+{
+	var rptopForm = document.RPTOPForm;
+	var newTaxDue;
+
+	newTaxDue = 0 ;
+	form = document.RPTOPForm;
+
+	for(i=0 ; i<form.elements.length ; i++){
+		if(form.elements[i].type=="checkbox"){
+			if(form.elements[i].name!="amnesty"){
+				if(form.elements[i].checked){
+					if(form.elements[i].name=="backtaxTDCheckbox"){
+						newTaxDue += parseFloat(rptopForm.elements["totalBacktaxDue"].value);
+					}
+					else{
+						tdID = form.elements[i].value;
+						newTaxDue += parseFloat(rptopForm.elements["taxDue" + tdID].value);
+					}
+				}
+			}
+		}
+	}
+
+	newTaxDue = newTaxDue.toFixed(2);
+	newTaxDue = formatCurrency(newTaxDue);
+
+	rptopForm.totalTaxDue.value = newTaxDue;
+
+    /*
+	if(checkBox.checked == true){
+		temp1 = parseFloat(rptopForm.totalTaxDue.value);
+		temp2 = parseFloat(rptopForm.elements["taxDue" + tdID].value);
+		newTaxDue = temp1 + temp2;
+	}
+	else{
+		temp1=parseFloat(rptopForm.totalTaxDue.value);
+		temp2=parseFloat(rptopForm.elements["taxDue" + tdID].value);
+		newTaxDue = temp1 - temp2;
+	}
+	rptopForm.totalTaxDue.value = newTaxDue.toFixed(2);
+	*/
+	
+	return true;
+}
+
+function submitForm(iForm){
+	iForm.formAction.value = "refresh";
+	iForm.action = "PayRPTOP2.php{Session}";
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+
+</SCRIPT>
+
+<META content="MSHTML 6.00.2719.2200" name=GENERATOR></HEAD>
+<BODY vLink=#333333 aLink=#333333 link=#333333 bgColor=#999999 leftMargin=0 
+topMargin=0 MARGINHEIGHT="0" MARGINWIDTH="0">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top align=middle>
+      <TABLE cellSpacing=0 cellPadding=0 width=100 align=center border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=9 src="images/inner_01.jpg" width=18></TD>
+          <TD><IMG height=9 src="images/inner_02.jpg" width=27></TD>
+          <TD colSpan=2><IMG height=9 src="images/inner_03.jpg"
+          width=598></TD>
+          <TD colSpan=3 rowSpan=2><!-- #BeginEditable "Step" --><IMG height=133 src="images/steps/step02.jpg"
+            width=157><!-- #EndEditable --></TD>
+        </TR>
+        <TR>
+          <TD><IMG height=124 src="images/inner_05.jpg" width=18></TD>
+          <TD><IMG height=124 src="images/inner_06.jpg" width=27></TD>
+          <TD bgColor=#cccccc colSpan=2><IMG height=124 
+            src="images/title/title_treasurer_mod.jpg" width=598></TD>
+        </TR>
+        <TR>
+          <TD><IMG height=53 src="images/inner_08.jpg" width=18></TD>
+          <TD><IMG height=53 src="images/inner_09.jpg" width=27></TD>
+          <TD vAlign=top align=left bgColor=#cccccc colSpan=3>
+		  <!-- begin navigation menu -->
+
+			<table WIDTH=702 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	   <tr> 
+		<td width="72"> <img SRC="images/nav/nav_a_01.jpg" WIDTH=72 HEIGHT=53 ></td>
+		<td background="images/nav_area_bg.jpg"><table width="100%%" border="0" cellspacing="0" cellpadding="0">
+		  <tr align="center"> 
+		   <td width="0" align=left class="common"><b>{uname}</b> : {today}</td>
+		   <td width="0" align=right>
+			<a href="TreasurersHome.php{Session}" class="navi" title="Treasurer's Module : Home">TM : Home</a>
+		    <font class="navi">&lt;</font>
+			<a href="home.php{Session}" class="navi" title="Home">Home</a>		    
+		    <font class="navi">|</font>
+			<a href="Logout.php" class="navi" title="Logout">Logout</a>
+			<br>&nbsp;
+		   </td>
+		  </tr>
+
+		  <tr align="center"> 
+		   <td width="0" nowrap colspan=2 class="navi">
+		   
+		   <a href="CalculateTaxesHome.php{Session}" class="navi" title="Calculate Taxes">Calculate Taxes</a>
+
+		   |
+		   &nbsp;
+		   <!-- BEGIN GenerateRPTOPLink -->
+		   <a href="PrintRPTOPList.php{Session}" class="navi" title="Print RPTOP">Print RPTOP</a>
+		   <!-- END GenerateRPTOPLink -->
+		   <!-- BEGIN GenerateRPTOPLinkText -->
+           <font class="navi"><font color="#eeeeee">Print RPTOP</font></font>
+		   <!-- END GenerateRPTOPLinkText -->
+
+		   |
+		   &nbsp;
+
+		   <a href="PaymentsHome.php{Session}" class="navi" title="Payments">Payments</a>
+
+		   |
+		   &nbsp;
+
+		   <!-- BEGIN TreasuryMaintenanceLink -->
+		   <a href="TreasuryMaintenanceHome.php{Session}" class="navi" title="Treasury Maintenance">Treasury Maintenance</a>
+		   <!-- END TreasuryMaintenanceLink -->
+		   <!-- BEGIN TreasuryMaintenanceLinkText -->
+		   <font class="navi"><font color="#eeeeee">Treasury Maintenance</font></font>
+		   <!-- END TreasuryMaintenanceLinkText -->
+
+		   |
+		   &nbsp;
+
+		   <a href="collectionReports.php{Session}" class="navi" title="Reports">Reports</a>
+
+	   
+		   </td>
+
+		  </tr>
+
+		 </table></td>
+
+		 <td width="75"> <img SRC="images/nav/nav_a_08.jpg" WIDTH=75 HEIGHT=53 ></td>
+		 
+		 
+		 </tr></table>
+
+		 <!-- end navigation menu -->
+		  </TD>
+          <TD><IMG height=53 src="images/inner_11.jpg" width=36></TD>
+          <TD><IMG height=53 src="images/inner_12.jpg" width=17></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle><IMG height=375 
+            src="images/inner_13.jpg" width=18></TD>
+          <TD background=images/inner_14.jpg><IMG height=1
+            src="images/spacer.gif" width=27></TD>
+          <TD vAlign=top align=left background=images/bg_middle.jpg
+          bgColor=#cccccc colSpan=3>
+            <TABLE height=375 cellSpacing=0 cellPadding=0 width=702 border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top align=left>
+                  <TABLE cellSpacing=0 cellPadding=0 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <tr> 
+                      <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                    </tr>
+
+					<tr>
+						<td align="align" class="navi">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="SOA.php{Session}" class="navi">View SOA</a>&nbsp;
+							|
+							<!-- BEGIN ApplyPaymentsLink -->
+							<a href="PayRPTOP.php{Session}" class="navi">Apply Payments</a>
+							<!-- END ApplyPaymentsLink -->
+							<!-- BEGIN ApplyPaymentsLinkText -->
+							<font class="navi"><font color="#eeeeee">Apply Payments</font></font>
+							<!-- END ApplyPaymentsLinkText -->
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<table border=0 cellpadding=0 cellspacing=0 width="100%">
+							<tr>
+								<td align="left" class="fields">
+								<br>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<b>&lt;&lt; <a href="SOA2.php{Session}&rptopID={rptopID}&formAction=view">Accounts Payable</a></b>
+								</td>
+								<td align="right" class="fields">
+									&nbsp;
+								</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+
+                    <TR>
+                      <TD class=subtitle vAlign=top align=middle>
+                        <TABLE cellSpacing=0 cellPadding=0 width="90%" 
+                          border=0><TBODY>
+                          <TR>
+                            <TD class=subtitle align=middle><br><!-- #BeginEditable "Header" -->Apply Payments<!-- #EndEditable --></TD>
+                          </TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=title vAlign=top align=middle><IMG height=15 
+                        src="images/spacer.gif" width=10></TD></TR>
+                    <TR>
+                      <TD class=fileds_comment vAlign=top align=left>
+                        <DIV align=justify><!-- #BeginEditable "Body" -->
+                          <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+                            <tr> 
+                              <td align="center" valign="top" class="subtitle"> 
+                                <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr> 
+                                    <td class="subtitle">RPTOP INFORMATION</td>
+                                    <td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top">{msg}<img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"> 
+                                <table width="90%" border="0" cellspacing="1" cellpadding="2" class="fields">
+                                  <!--tr valign="top" bgcolor="#F6F6F6"> 
+                            <td align="left" class="fileds_comment" colspan="4">- 
+                              <a href="javascript: openWin('RPTOPEncode.php{Session}&formAction=edit','popupWindow',0,0,550,610);" class="fields">enter 
+                              values</a></td>
+                          </tr-->
+                                  <tr valign="top" bgcolor="#F6F6F6"> 
+                                    <td align="right" class="fileds_comment" width="25%">RPTOP 
+                                      Number </td>
+                                    <td class="fileds_comment" width="75%"><b>{rptopNumber}</b><span class="fileds_comment"></span></td>
+                                  </tr>
+                                  <tr valign="top" bgcolor="#F6F6F6"> 
+                                    <td align="right" class="fileds_comment"> 
+                                      Taxable Year</td>
+                                    <td class="fileds_comment"><strong>{taxableYear}</strong></td>
+                                  </tr>
+                                  <tr valign="top" bgcolor="#F6F6F6"> 
+                                    <td align="right" class="fileds_comment"> 
+                                      RPTOP Date</td>
+                                    <td class="fileds_comment"><strong>{rptopDate}</strong></td>
+                                  </tr>
+                                  <tr valign="top" bgcolor="#F6F6F6"> 
+                                    <td align="right" class="fileds_comment"> 
+                                      Assessor</td>
+                                    <td class="fileds_comment"><strong>{cityAssessorName}</strong></td>
+                                  </tr>
+                                  <tr valign="top" bgcolor="#F6F6F6"> 
+                                    <td align="right" class="fileds_comment">Treasurer</td>
+                                    <td class="fileds_comment"><strong>{cityTreasurerName}</strong></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top" class="subtitle"> 
+                                <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr> 
+                                    <td class="subtitle">PROPERTY OWNER</td>
+                                    <td align="right" valign="top"><a href="#down"><img src="images/arrow_down.gif" width="40" height="30" border="0"></a></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top" class="title"><img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top">
+                                <form name="OwnerList" method="post" action="RPTOPDetails.php{Session}" onSubmit="javascript: return confirmSubmit();">
+                                  <!-- BEGIN OwnerListTable -->
+                                  <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr> 
+                                      <td width="50%" class="mainnav" valign="top"> 
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment" colspan="2">Owner 
+                                              - Person<br>
+                                            </td>
+                                          </tr>
+                                          <!-- BEGIN PersonTable -->
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment">Name </td>
+                                          </tr>
+                                          <!-- BEGIN PersonList -->
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment"> <a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=viewOnly','popupWindow',50,50,350,400)" class="fields">{fullName}</a> 
+                                            </td>
+                                          </tr>
+                                          <!-- END PersonList -->
+                                          <!-- BEGIN PersonDBEmpty -->
+                                          <tr align="left" bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment" valign="top" align=center>none</td>
+                                          </tr>
+                                          <!-- END PersonDBEmpty -->
+                                          <tr align="left" bgcolor="#F6F6F6"> 
+                                            <td class="fields" valign="top" height="100%">&nbsp;</td>
+                                          </tr>
+                                          <!-- END PersonTable -->
+                                        </table>
+                                      </td>
+                                      <td width="50%" class="mainnav" valign="top"> 
+                                        <table width="100%" border="0" cellspacing="1" cellpadding="2" height="100%">
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment" colspan="2">Owner 
+                                              - Company<br>
+                                            </td>
+                                          </tr>
+                                          <!-- BEGIN CompanyTable -->
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment">Company 
+                                              Name</td>
+                                          </tr>
+                                          <!-- BEGIN CompanyList -->
+                                          <tr bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=viewOnly','popupWindow',50,50,450,500)" class="fields">{companyName}</a></td>
+                                          </tr>
+                                          <!-- END CompanyList -->
+                                          <!-- BEGIN CompanyDBEmpty -->
+                                          <tr align="left" bgcolor="#F6F6F6"> 
+                                            <td class="fileds_comment" valign="top" align=center>none</td>
+                                          </tr>
+                                          <!-- END CompanyDBEmpty -->
+                                          <tr align="left" bgcolor="#F6F6F6"> 
+                                            <td class="fields" valign="top" height="100%">&nbsp;</td>
+                                          </tr>
+                                          <!-- END CompanyTable -->
+                                        </table>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <input type="hidden" name="formAction" value="remove">
+                                  <input type="hidden" name="ownerID" value="{ownerID}">
+                                  <!-- END OwnerListTable -->
+                                </form>
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top" class="subtitle"> 
+                                <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr> 
+                                    <td class="subtitle">Notice Of Assessments<a name="#td"></a></td>
+                                    <td align="right" valign="top"><a href="#top"><img src="images/arrow_up.gif" width="40" height="30" border="0"></a></td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"> 
+                                        <!-- BEGIN TDTable -->
+								<form action="" method="post" name="RPTOPForm">     
+
+										  <table width="90%" border="0" cellpadding="2" cellspacing="1">
+
+											<tr>
+												<td colspan=10 bgcolor="#eeeeee">
+
+										  <table width="100%" border="0" align="center" cellpadding="2" cellspacing="1">
+                                          <tr bgcolor="#eeeeee"> 
+                                            <td class="fileds_comment" nowrap valign=top><B>Period Covered</B> (choose only one) : &nbsp; 
+											<select name="paymentPeriod" style="font-size: 9;" onChange="checkAmnestyWhenQuarter();">
+											  <option value="Annual" {selectedAnnual}>Annual</option>
+											  <option value="Quarter" {selectedQuarter}>Quarter</option>
+											</select>
+                                              </td>
+											  <td class="fileds_comment" valign="middle" nowrap>
+											  	<input name="amnesty" type="checkbox" style="background-color:#eeeeee;" value="Yes"{amnestyChecked}> <B>Amnesty</B> (Pardens Penalty)</font>
+
+												<script language="Javascript">
+													function checkAmnestyWhenQuarter(){
+														if(document.RPTOPForm.paymentPeriod.options[document.RPTOPForm.paymentPeriod.selectedIndex].value=="Quarter"){
+															document.RPTOPForm.amnesty.checked = true;
+														}
+													}
+												</script>
+                                              </td>
+											  <td class="fileds_comment" align="right">
+											<input type="submit" name="update" value="&lt; refresh values" style="font-size: 9;" onClick="javascript: submitForm(this.form);"> 
+                                                <input type="hidden" name="rptopID" value="{rptopID}">
+												<input type="hidden" name="formAction">
+											  </td>
+                                          </tr>
+
+			  							<!-- BEGIN QuarterNetDue -->
+
+										  <tr>
+										   <td colspan=3 class="fileds_comment" align="right">
+												 <br><B>Net Due if Annual :</B> {netDueFullAmount} | 
+												 <B>Installment:</B> {installmentNumber}/4
+										   </td>
+										  </tr>
+
+										<!-- END QuarterNetDue -->
+                                        </table>
+
+												</td>
+											</tr>
+
+
+                                            <tr align="center">
+                                              <td bgcolor="#CCCCCC" class="fileds_comment" rowspan=2><b>Year</b></td>
+                                              <td bgcolor="#CCCCCC" class="fileds_comment" rowspan=2><b>TD 
+                                                Number</b></td>
+                                              <td bgcolor="#CCCCCC" class="fileds_comment" rowspan=2><b>PIN</b></td>
+											  <td bgcolor="#CCCCCC" class="fileds_comment" colspan=2 nowrap><b>Tax Due</b></td>
+											  <td bgcolor="#CCCCCC" class="fileds_comment" nowrap rowspan=2><b>Penalty</b></td>
+											  <td bgcolor="#CCCCCC" class="fileds_comment" nowrap rowspan=2><b>Discount</b></td>
+											  <td bgcolor="#CCCCCC" class="fileds_comment" nowrap rowspan=2><b>Total Paid</b></td>
+
+                                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment" rowspan=2><b>Net 
+                                                Due</b>
+                                              </td>
+                                              <td width="15%" bgcolor="#CCCCCC" class="fileds_comment" rowspan=2> 
+                                                <input type="submit" name="PayTaxesBtn" value="" onClick="javascript:return validateForm(this.form)">
+												<script language="Javascript">
+													document.RPTOPForm.PayTaxesBtn.value = "   Pay\nTaxes";
+												</script>
+                                                </td>
+                                            </tr>
+											<tr>
+											  <td bgcolor="#DDDDDD" class="fileds_comment" nowrap align=center><b>Basic Tax</b></td>
+											  <td bgcolor="#DDDDDD" class="fileds_comment" nowrap align=center><b>SEF</b></td>
+											</tr>
+                                            <!-- BEGIN TDList -->
+                                            <tr align="left" bgcolor="{tdBgcolor}"> 
+                                              <td height="24" align="center" valign="middle"  class="fileds_comment" nowrap>{taxBeginsWithTheYear} 
+                                              </td>
+                                              <td height="24" align="center" valign="middle"  class="fileds_comment" nowrap>{tdNum} 
+                                              </td>
+                                              <td height="24" align="center" valign="middle"  class="fileds_comment" nowrap>{propertyIndexNumber} 
+                                              </td>
+											  <td height="24" align="right" valign="middle"  class="fileds_comment">{basic} 
+                                              </td>
+											  <td height="24" align="right" valign="middle"  class="fileds_comment">{sef} 
+                                              </td>
+											  <td height="24" align="right" valign="middle"  class="fileds_comment">{penalty} 
+                                              </td>
+											  <td height="24" align="right" valign="middle"  class="fileds_comment">({discount})
+                                              </td>
+											  <td height="24" align="right" valign="middle"  class="fileds_comment">({totalPaid})
+                                              </td>
+                                              <td height="24" align="right" valign="middle"  class="fileds_comment">{strTaxDue} 
+                                                <input type="hidden" name="taxDue{tdID}" value="{taxDue}"></td>
+                                              <td height="24"  align="center" valign="middle"  class="fileds_comment">{paidStatus}</td>
+                                            </tr>
+                                            <!-- END TDList -->
+											<!-- BEGIN BacktaxTDTable -->
+
+                                            <tr align="center" bgcolor="#cccccc"> 
+                                              <td colspan=9 bgcolor="#f6f6f6">
+											   <table border=0 cellpadding=4 cellspacing=1 width="100%" bgcolor="#cccccc">
+											   <tr bgcolor="#f7f7f7">
+												<td class="fileds_comment" align=center>
+												 <b>Year</b>
+												</td>
+												<td class="fileds_comment" align=center>
+												 <b>Basic + SEF + Penalties + Idle</b>
+												</td>
+												<td class="fileds_comment" align=center>
+												 <b>Total Paid</b>
+												</td>
+												<td class="fileds_comment" align=center>
+												 <b>Tax Due</b>
+												</td>
+											   </tr>
+											   <tr bgcolor="#f0f0f0">
+												<td class="fileds_comment" align=center nowrap>
+												 {yearRange}
+												</td>
+												<td class="fileds_comment" align=right>
+												 {totalTaxes}
+												</td>
+												<td class="fileds_comment" align=right>
+												 {totalPaid}
+												</td>
+												<td class="fileds_comment" align=right>
+												 {totalBacktaxDueStr}
+												</td>
+											   </tr>
+											   </table>
+                                              </td>
+											  <td bgcolor="#f6f6f6" valign=middle align=center>
+											   <input type="hidden" name="totalBacktaxDue" value="{totalBacktaxDue}">
+											   <input type="checkbox" name="backtaxTDCheckbox" value="{backtaxTDID}" onClick="backtaxCheckboxToggle(this,'{tdID}');">
+											  </td>
+                                            </tr>
+											<!-- END BacktaxTDTable -->
+
+
+
+
+                                            <!-- BEGIN CheckAll -->
+                                            <tr align="left"> 
+                                              <td  align="right" valign="middle" bgcolor="#F6F6F6" class="fileds_comment" nowrap colspan=8><b>Total Tax Due in Php:</b></td>
+                                              <td  align="center" valign="middle" bgcolor="#F6F6F6" class="fileds_comment"><input name="totalTaxDue" type="text" value="0.00" size="15" readonly="true" style="text-align: Right"></td>
+                                              <td  align="center" valign="middle" bgcolor="#F6F6F6" class="fileds_comment" nowrap>&nbsp;</td>
+                                            </tr>
+                                            <!-- END CheckAll -->
+                                            <!-- BEGIN TDDBEmpty -->
+                                            <tr align="left"> 
+                                              <td class="fileds_comment" colspan="8" bgcolor="#F6F6F6" valign="middle">none</td>
+                                            </tr>
+											
+                                            <!-- END TDDBEmpty -->
+                                          </table>
+                                </form>
+                                <!-- END TDTable -->
+                              </td>
+                            </tr>
+                            <tr> 
+                              <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"></td>
+                            </tr>
+                            <tr> 
+                                      <td align="center" valign="top"><img src="images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+                            </tr>
+                            <tr> 
+                                      <td align="center" valign="top" class="fileds_comment">&nbsp;</td>
+                            </tr>
+
+	                         </table>
+                          <!-- #EndEditable --></DIV>
+                        </TD></TR>
+
+					<tr>
+						<td>
+							<table border=0 cellpadding=0 cellspacing=0 width="100%">
+							<tr>
+								<td align="left" class="fields">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<b>&lt;&lt; <a href="SOA2.php{Session}&rptopID={rptopID}&formAction=view">Accounts Payable</a></b>
+								<br><br>
+								</td>
+								<td align="right" class="fields">
+									&nbsp;
+								</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+
+                    <TR>
+                      <TD vAlign=top align=middle><IMG height=15 
+                        src="images/spacer.gif" width=10><A
+                        name=#down></A></TD></TR>
+                    <TR>
+                      <TD class=fileds_comment vAlign=top 
+                        align=middle>Tampering with this system is criminally 
+                        punishable under Philippine Laws.<BR>© Republic of the 
+                        Philippines National Computer Center. All Rights 
+                        Reserved. </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
+          <TD background=images/inner_16.jpg><IMG height=375
+            src="images/spacer.gif" width=36></TD>
+          <TD><IMG height=375 src="images/inner_17.jpg" width=17></TD></TR>
+        <TR>
+          <TD><IMG height=39 src="images/inner_18.jpg" width=18></TD>
+          <TD><IMG height=39 src="images/inner_19.jpg" width=27></TD>
+          <TD><IMG height=39 src="images/inner_20.jpg" width=355></TD>
+          <TD><IMG height=39 src="images/inner_21.jpg" width=243></TD>
+          <TD><IMG height=39 src="images/inner_22.jpg" width=104></TD>
+          <TD><IMG height=39 src="images/inner_23.jpg" width=36></TD>
+          <TD><IMG height=39 src="images/inner_24.jpg"
+        width=17></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+
+</BODY>
+<!-- #EndTemplate -->
+</HTML>

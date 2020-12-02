@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>eLGU - Database Cleanup - {TITLE}</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style>
+ A.x{text-decoration:none;}
+ A:Hover{color:#ff0000;}
+ .smallfont{font-family:arial; font-size:9px;}
+ .mediumfont{font-family:arial; font-size:11px;}
+</style>
+<script language="Javascript">
+function alertMerger(){
+	var selectedOwners;
+	selectedOwners = "";
+	j=0;
+	for(i=0 ; i<document.OwnerPersonList.elements.length ; i++){
+		if(document.OwnerPersonList.elements[i].type=="checkbox"){
+			if(document.OwnerPersonList.elements[i].checked){
+				selectedOwners += "    personID:" + document.OwnerPersonList.elements[i].value + "\n";
+				j++;
+			}
+		}
+	}
+	if(selectedOwners!="" && j>1){
+		if(confirm("This will assume that:\n"+selectedOwners+"refer to the same person.\nAre you sure you want to merge them into one identity?")){
+			document.OwnerPersonList.formAction.value = "merge";
+			document.OwnerPersonList.submit();
+		}
+	}
+	return false;
+}
+</script>
+</head>
+<body BGCOLOR=#999999 link="#333333" vlink="#333333" alink="#333333" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<form name="OwnerPersonList" action="MergeOwnerPersonConfirm.php{Session}" method="post">
+<input type="hidden" name="formAction">
+<table width="100%" border="0" cellpadding="10" cellspacing="0" align=center>
+<tr>
+	<td valign=top align=left>
+		&nbsp;
+		&nbsp;
+		<font face="arial" size=2 color="#ffffff">
+			<b>{uname}</b> : {today}
+		</font>
+	</td>
+	<td valign=top align=right>
+		<font face="arial" size=2>
+		&nbsp;
+	    &nbsp;
+		&nbsp;
+	    &nbsp;
+		<a href="../../Logout.php" class="x" title="Logout"><font color="#ffffff">Logout</font></a>
+		</font>
+	</td>
+</tr>
+<tr>
+	<td colspan=2 bgcolor="#f6f6f6">
+		<font face="arial" size=2>
+		&nbsp;&nbsp;
+		<a href="OwnerList.php{Session}" class="x"><b>Cleanup Owners</b></a> : 
+		<a href="OwnerPersonList.php{Session}"><b><U>Persons</U></b></a>
+		|
+		<a href="OwnerCompanyList.php{Session}" class="x"><b>Companies</b></a>
+		<br><br>
+		&nbsp;&nbsp;
+		Identify duplicate Persons and click "Merge Owners".
+		</font>
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="0" align=center>
+<tr>
+	<td valign=top align=left>
+     &nbsp;
+	 <input type="button" value="MERGE OWNERS" onClick="alertMerger();"> 
+	</td>
+	<td align=right class="mediumfont">
+	 <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page=1">FIRST</a> :: <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={prev}">PREV</a> [ {page} of <B>{totalPages}</B> ] <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={next}">NEXT</a> :: <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={totalPages}">LAST</a>
+	 &nbsp;&nbsp;
+	</td>
+</tr>
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="1" align=center>
+<tr bgcolor="#cccccc">
+	<td valign=top align=right class="smallfont">
+	 personID
+	</td>
+	<td valign=top align=left class="smallfont">
+	 &nbsp;
+	</td>
+	<td class="smallfont" nowrap>
+	 <a href="OwnerPersonList.php{Session}&sortKey={sortKey}&sortOrder={oppositeSortOrder}&page={page}">lastName</a>
+	 <img src="images/{oppositeSortOrder}_order.png">
+	</td>
+	<td class="smallfont">
+	 firstName
+	</td>
+	<td class="smallfont">
+	 middleName
+	</td>
+	<td class="smallfont">
+	 address
+	</td>
+	<td class="smallfont">
+	 gender
+	</td>
+	<td class="smallfont">
+	 birthday
+	</td>
+	<td class="smallfont">
+	 maritalStatus
+	</td>
+	<td class="smallfont">
+	 tin
+	</td>
+	<td class="smallfont">
+	 telephone
+	</td>
+	<td class="smallfont">
+	 mobileNumber
+	</td>
+	<td class="smallfont">
+	 email
+	</td>
+</tr>
+<!-- BEGIN OwnerPersonList -->
+<tr bgcolor="#f6f6f6">
+	<td class="smallfont">
+	 {personID}
+	</td>
+	<td align=center class="smallfont">
+	 <input name="personID[]" type="checkbox" value="{personID}">
+	</td>
+	<td class="smallfont">
+	 {lastName}
+	</td class="smallfont">
+	<td class="smallfont">
+	 {firstName}
+	</td>
+	<td class="smallfont">
+	 {middleName}
+	</td>
+	<td class="smallfont">
+	 {address}
+	</td>
+	<td class="smallfont">
+	 {gender}
+	</td>
+	<td class="smallfont">
+	 {birthday}
+	</td>
+	<td class="smallfont">
+	 {maritalStatus}
+	</td>
+	<td class="smallfont">
+	 {tin}
+	</td>
+	<td class="smallfont">
+	 {telephone}
+	</td>
+	<td class="smallfont">
+	 {mobileNumber}
+	</td>
+	<td class="smallfont">
+	 {email}
+	</td>
+</tr>
+<!-- END OwnerPersonList -->
+</table>
+<table width="100%" border="0" cellpadding="10" cellspacing="0" align=center>
+<tr>
+	<td valign=top align=left>
+     &nbsp;
+	 <input type="button" value="MERGE OWNERS" onClick="alertMerger();">	 
+	</td>
+	<td align=right class="mediumfont">
+	 <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page=1">FIRST</a> :: <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={prev}">PREV</a> [ {page} of <B>{totalPages}</B> ] <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={next}">NEXT</a> :: <a href="OwnerPersonList.php{Session}&sortKey=Person.lastName&sortOrder={sortOrder}&page={totalPages}">LAST</a>
+	 &nbsp;&nbsp;
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

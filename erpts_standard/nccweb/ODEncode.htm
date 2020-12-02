@@ -1,0 +1,329 @@
+<html>
+<head>
+<title>Municipality of {Taguig} - Owner's Declaration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="css/asf.css" type="text/css">
+<script language="Javascript1.2">
+<!--
+function openWin(strLink, strWindow, intLeft, intTop, intWidth, intHeight){
+	puffup = window.open(strLink, strWindow, "position:absolute; left="+intLeft+", top="+intTop+", width="+intWidth+", height="+intHeight+", toolbar=no, scrollbars=no, resizable=no");
+	puffup.focus();
+}
+function checkAction(axn){
+	document.OwnerList.formAction.value = axn;
+	//alert(document.OwnerList.formAction.value);
+	if (confirmSubmit())
+	document.OwnerList.submit();
+}
+function confirmSubmit(){
+	axn = document.OwnerList.formAction.value;
+	if(!confirm(axn+' selected items?'))
+		return false;
+	else
+		return true;
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" link="#CC0000" vlink="#CC0000" alink="#CC0000" background="images/bg_whiteboxes.gif">
+<table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr> 
+    <td><img src="images/spacer.gif" width="10" height="25"></td>
+  </tr>
+  <tr> 
+    <td align="center" class="mainnav"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="24" align="right" valign="bottom"><img src="images/left_top.gif" width="21" height="23"></td>
+          <td bgcolor="#FFFFFF" width="100%">&nbsp;</td>
+          <td width="24" align="left" valign="bottom"><img src="images/right_top.gif" width="24" height="23"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" class="mainnav" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center" valign="top"><img src="images/logo.gif" width="126" height="128"> 
+            <!--Logo of NCC or of the Municipality using the system. -->
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"> 
+      <p><img src="images/spacer.gif" width="10" height="15"></p>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="system_tit" bgcolor="#FFFFFF"><span class="rp">Republic 
+      of the Philippines</span><br>
+      <span class="municipality">Municipality of {Taguig}</span></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF">Owner's Declaration</td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><span class="mainnav">Owners 
+      Declaration | <font color="#000000" class="mainnav">Assessor's Field Sheet</font> 
+      | Field Appraisal &amp; Assesment Sheet | Tax Declaration | Real Property 
+      Tax Order of Payment | Log Out</span></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="45"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="subtitle" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="subtitle">OWNER'S INFORMATION</td>
+          <td align="right" valign="top"><a href="#down"><img src="images/godown.gif" width="96" height="22" border="0"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="title" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="45"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"> 
+      <form name="OwnerList" method="post" action="ODDetails.php{Session}" onSubmit="javascript: return confirmSubmit();">
+        <table width="90%" border="0" cellspacing="0" cellpadding="5">
+          <tr> 
+            <td width="50%" class="mainnav" valign="top">Owner - Person<br>
+              - <a href="javascript: openWin('PersonEncode.php{Session}','popupWindow',300,150,450,520);" class="common">add</a> 
+            </td>
+            <td width="50%" class="mainnav" valign="top">Owner - Company<br>
+              - <a href="javascript: openWin('CompanyEncode.php{Session}','popupWindow',300,150,450,520);">add</a> 
+            </td>
+          </tr>
+        </table>
+        <!-- BEGIN OwnerListTable -->
+        <table width="90%" border="0" cellspacing="0" cellpadding="5">
+          <tr> 
+            <td width="50%" class="mainnav" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+                <!-- BEGIN PersonTable -->
+                <tr> 
+                  <td class="fields" width="20"><font color="#FFFFFF">
+                    <input type="button" name="Button2" value="Remove" onClick="javascript: checkAction('remove');" style="background:#E0E0E0;font-size: 10pt; border:0; color:#999999;font-family: arial">
+                    </font></td>
+                  <td class="fields">Name </td>
+                </tr>
+                <!-- BEGIN PersonList -->
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="common" align="center" valign="top"> 
+                    <input type="checkbox" name="personID[]" value="{personID}">
+                  </td>
+                  <td class="common"> <a href="javascript: openWin('PersonDetails.php{Session}&personID={personID}&formAction=view','popupWindow',300,150,350,400)" class="searchresults">{fullName}</a> 
+                  </td>
+                </tr>
+                <!-- END PersonList -->
+                <!-- END PersonTable -->
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="common"><font color="#FFFFFF"> </font></td>
+                  <td class="common">&nbsp; </td>
+                </tr>
+              </table>
+            </td>
+            <td width="50%" class="mainnav" valign="top">
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+                <!-- BEGIN CompanyTable -->
+                <tr> 
+                  <td class="fields" width="20"><font color="#FFFFFF">
+                    <input type="button" name="Button" value="Remove" onClick="javascript: checkAction('remove');" style="background:#E0E0E0;font-size: 10pt; border:0; color:#999999;font-family: arial">
+                    </font></td>
+                  <td class="fields">Company Name</td>
+                </tr>
+                <!-- BEGIN CompanyList -->
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="common" valign="top" align="center"> 
+                    <input type="checkbox" name="companyID[]" value="{companyID}">
+                  </td>
+                  <td class="common"><a href="javascript: openWin('CompanyDetails.php{Session} &companyID={companyID}&formAction=view','popupWindow',300,150,450,500)" class="searchresults">{companyName}</a></td>
+                </tr>
+                <!-- END CompanyList -->
+                <!-- END CompanyTable -->
+                <tr bgcolor="#FFFFFF"> 
+                  <td class="common"><font color="#FFFFFF"> </font></td>
+                  <td class="common">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <font color="#FFFFFF"> 
+        <input type="hidden" name="formAction" value="remove">
+        </font> 
+        <!-- END OwnerListTable -->
+      </form>
+      {msg} </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="70"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="subtitle" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="subtitle">PROPERTY INFORMATION</td>
+          <td align="right" valign="top"><a href="#top" target="_top"><img src="images/backtotop.gif" width="96" height="22" border="0"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="45"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="5">
+        <tr> 
+          <td class="mainnav">- <a href="javascript: openWin('PropertyInfoEncode.php{Session}','popupWindow',300,150,450,520);" class="common">enter 
+            values<br>
+            <br>
+            </a> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="fields">
+              <tr> 
+                <td rowspan="2" align="left" valign="top">Location: </td>
+                <td class="mainnav">{numberStreet} </td>
+                <td rowspan="2"><img src="images/spacer.gif" width="9" height="8"></td>
+                <td class="mainnav">{barangay}</td>
+                <td rowspan="2"><img src="images/spacer.gif" width="10" height="1"></td>
+                <td class="mainnav">{municipalityCityProvince} </td>
+              </tr>
+              <tr> 
+                <td class="fileds_comment">(Number/ Street)</td>
+                <td class="fileds_comment">(Barangay)</td>
+                <td class="fileds_comment">(Municipality/ City/ Province)</td>
+              </tr>
+              <tr> 
+                <td colspan="6">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td align="left" valign="top">Certificate of Title Number: </td>
+                <td class="mainnav">{certificateOfTitleNumber} </td>
+                <td>&nbsp;</td>
+                <td align="left" valign="top">Land Area: </td>
+                <td>&nbsp;</td>
+                <td class="mainnav">{landArea} </td>
+              </tr>
+              <tr> 
+                <td colspan="6">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>Lot Number:</td>
+                <td class="mainnav">{lotNumber} </td>
+                <td>&nbsp;</td>
+                <td>Zone Number:</td>
+                <td>&nbsp;</td>
+                <td class="mainnav">{zoneNumber} </td>
+              </tr>
+              <tr> 
+                <td colspan="6">&nbsp;</td>
+              </tr>
+              <tr> 
+                <td>Block Number:</td>
+                <td class="mainnav">{blockNumber} </td>
+                <td>&nbsp;</td>
+                <td>House Tag Number:</td>
+                <td>&nbsp;</td>
+                <td class="mainnav">{houseTagNumber} </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="70"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" class="subtitle" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="subtitle">DOCUMENTS</td>
+          <td align="right" valign="top"><a href="#top" target="_top"><img src="images/backtotop.gif" width="96" height="22" border="0"></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="45"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0" class="fields">
+        <tr> 
+          <td>Affidavit of Ownership 
+            <input type="checkbox" name="affidavitOfOwnership" value="1">
+          </td>
+          <td>&nbsp; </td>
+          <td>Barrangay Certificate 
+            <input type="checkbox" name="barangayCertificate" value="1">
+          </td>
+          <td>&nbsp; </td>
+          <td>Land Tagging 
+            <input type="checkbox" name="landTagging" value="1">
+          </td>
+          <td>&nbsp; </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="70"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"> 
+      <table width="90%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td align="center"> 
+            <input type="submit" name="Submit3" value=" Save and Print " >
+            <input type="submit" name="Submit24" value=" Save " >
+            <input type="submit" name="Submit" value=" Cancel " >
+            <input type="submit" name="Submit232" value=" Reset " >
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"><a name="#down"></a></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF" class="fileds_comment">Tampering 
+      with this system is criminally punishable under Philippine Laws.<br>
+      &copy; Republic of the Philippines National Computer Center. All Rights 
+      Reserved. </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top" bgcolor="#FFFFFF"><img src="images/spacer.gif" width="10" height="15"></td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="24" align="right" valign="bottom"><img src="images/bottom_left.gif" width="21" height="24"></td>
+          <td bgcolor="#FFFFFF" width="100%">&nbsp;</td>
+          <td width="24" align="left" valign="bottom"><img src="images/bottom_right.gif" width="24" height="24"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td align="center" valign="top">&nbsp;</td>
+  </tr>
+</table>
+
+</body>
+</html>

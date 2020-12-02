@@ -1,0 +1,118 @@
+<?php
+include_once "../includes/web/prepend.php";
+require_once('collection/Receipt.php');
+require_once('collection/Collection.php');
+require_once('collection/Payment.php');
+require_once('collection/Due.php');
+include('web/clibPDFWriter.php');
+
+class CollectionReport{
+
+	var $tpl;
+	var $formArray;
+
+	function CollectionReport($sess,$http_post_vars){
+		$this->sess = $sess;
+		$this->tpl = new rpts_Template(getcwd(),"keep");
+		#$this->tpl->set_file("rptsTemplate", "collectionReport1.htm") ;
+		$this->tpl->set_file("rptsTemplate", "seven.xml") ;
+
+	}
+	
+	function getAmountPaid($paymentID,$taxType){
+		$db = new DB_RPTS;
+		$sql = "select amountPaid from Collection where paymentID = $paymentID and taxType = '$taxType';";
+		$db->query($sql);
+		if ($db->next_record()){
+			return $db->Record["amountPaid"];
+		}
+		else {
+			return 0;
+		}
+	}
+	function Main(){
+		$db = new DB_RPTS;
+
+		/*$sql = "SELECT propertyIndexNumber, arpNumber, sum( paidBasic ) as paidBasic , sum( paidSEF ) as paidSEF , sum( payments.discount ) as discount, 
+				sum( basic ) as basic , sum( sef ) as sef, sum( dues.penalty ) as penalty, YEAR( dues.dueDate ) as dueDate
+				FROM dues
+				LEFT  JOIN payments ON payments.dueID = dues.dueID
+				INNER  JOIN TD ON TD.tdID = dues.tdID
+				INNER  JOIN AFS ON AFS.afsID = TD.afsID
+				GROUP  BY YEAR( dues.dueDate ) ";
+		*/
+		$sql = "select AFS.propertyIndexNumber".
+			", AFS.arpNumber".
+			", Payment.paymentID".
+			", Payment.amountPaid".
+			", Payment.penalty".
+			", (Payment.earlyPaymentDiscount + Payment.advancedPaymentDiscount) as discount".
+			", Due.basicTax as basic".
+			", Due.sefTax as sef".
+			", YEAR(Due.dueDate) as dueDate".
+			" from Payment".
+			" inner join Due on Due.dueId = Payment.dueID".
+			" inner join TD on TD.tdID = Due.tdID".
+			" inner join AFS on AFS.afsID = TD.afsID";
+			//" GROUP  BY YEAR( Due.dueDate ) ";
+		//exit($sql);
+		$ypos = 426;
+		
+		$buffer = array();
+		
+		$db->query($sql);
+
+		$this->tpl->set_block("rptsTemplate","PAGE","pBlk");
+		$this->tpl->set_block("PAGE","ROW","rBlk");
+		$page = 1;
+		$pageBy = 25;
+		$numrows = $db->num_rows();
+
+		$pages = ceil($numrows/$pageBy);
+
+		for ($i=1;$i<=$pages;$i++){
+			$j=1;
+			while ($j<=$pageBy){
+				if ($db->next_record()){
+					$this->tpl->set_var($db->Record);
+					$basic = $this->getAmountPaid($db->Record['paymentID'],"basic");
+					$sef = $this->getAmountPaid($db->Record['paymentID'],"sef");
+					$this->tpl->set_var(paidBasic,formatCurrency($basic));
+					$this->tpl->set_var(paidSEF,formatCurrency($sef));
+					$totBasicSef = $basic + $sef - $db->Record['discount'];
+					$totDel = $basic + $sef + $db->Record['penalty'];
+					$this->tpl->set_var(basicSef,formatCurrency($totBasicSef));
+					$this->tpl->set_var(totalDel,formatCurrency($totDel));
+					$this->tpl->set_var(totalAmount,formatCurrency($totDel+$totBasicSef));
+					$this->tpl->set_var(ypos,$ypos);
+					$ypos = $ypos -10;
+					$this->tpl->parse("rBlk","ROW",true);
+				}
+				else break;
+				$j++;
+			}
+			$this->tpl->set_var(page,$i);
+			$this->tpl->parse("pBlk","PAGE",true);
+			$this->tpl->set_var(rBlk,"");
+			$ypos = 426;
+		}
+		$this->tpl->set_var("numOfPages",$pages);
+		$this->tpl->parse("templatePage", "rptsTemplate");
+		$this->tpl->finish("templatePage");
+		//$this->tpl->p("templatePage");	
+		
+		//echo $this->tpl->get('templatePage');
+		$rptrpdf = new PDFWriter;
+		$rptrpdf->setOutputXML($this->tpl->get('templatePage'),"string");
+		$rptrpdf->writePDF("collectionReport.pdf");
+
+	}	
+}
+page_open(array("sess" => "rpts_Session",
+	"auth" => "rpts_Challenge_Auth"
+	//"perm" => "rpts_Perm"
+	));
+$obj = new CollectionReport($sess,$HTTP_POST_VARS);
+$obj->Main();
+?>
+<?php page_close(); ?>

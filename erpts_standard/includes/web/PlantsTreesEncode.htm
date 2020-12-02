@@ -1,0 +1,663 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/numeric.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+function verifyForm(iform) {
+  	//return true;
+//	alert(iform.verifiedByID.value);
+
+	if (iform.verifiedByID.value=="xx") {
+		alert("Please set appropriate name in [Verified By] field!");
+		iform.verifiedByID.focus();
+	}
+	else {
+		iform.submit();
+	}
+}
+
+function validateForm(iform) {
+  	//return true;
+
+    iform.productClass.value=document.PlantsTreesEncode.plantsTreesClasses.value;
+    iform.actualUse.value=document.PlantsTreesEncode.plantsTreesActualUses.value;
+
+	iform.submit();
+}
+
+function calculateMarketValue(){
+	numeric = true;
+	if(document.PlantsTreesEncode.totalNumber.value==""){
+		document.PlantsTreesEncode.totalNumber.value=0;
+	}
+	if (!isNumeric(unformatCurrency(document.PlantsTreesEncode.totalNumber.value))){
+		alert("numeric values only.");
+		document.PlantsTreesEncode.totalNumber.focus();
+		return false;
+	}
+	if (!isNumeric(unformatCurrency(document.PlantsTreesEncode.unitPrice.value))){
+		alert("numeric values only.");
+		document.PlantsTreesEncode.unitPrice.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.PlantsTreesEncode.totalNumber.value) * unformatCurrency(document.PlantsTreesEncode.unitPrice.value);
+		document.PlantsTreesEncode.marketValue.value = formatCurrency(num);
+	}
+	calculateAdjustedMarketValue();
+	return true;
+}
+function calculateValueAdjustment(){
+	numeric = true;
+	if (!isNumeric(document.PlantsTreesEncode.percentAdjustment.value)){
+		alert("numeric values only.");
+		document.PlantsTreesEncode.percentAdjustment.focus();
+		return false;
+	}
+	if (numeric){
+
+	    num = unformatCurrency(document.PlantsTreesEncode.marketValue.value) * unformatCurrency((document.PlantsTreesEncode.percentAdjustment.value - 100)/100);
+
+		document.PlantsTreesEncode.valueAdjustment.value = formatCurrency(num);
+	}
+	calculateAdjustedMarketValue();
+	return true;
+}
+function calculateAdjustedMarketValue(){
+	num = unformatCurrency(document.PlantsTreesEncode.marketValue.value) * (document.PlantsTreesEncode.percentAdjustment.value/100);
+		document.PlantsTreesEncode.adjustedMarketValue.value = formatCurrency(num);
+	calculateAssessedValue();
+	return true;
+}
+function calculateAssessedValue(){
+	numeric = true;
+	if (!isNumeric(document.PlantsTreesEncode.assessmentLevel.value)){
+		alert("numeric values only.");
+		document.PlantsTreesEncode.assessmentLevel.focus();
+		return false;
+	}
+	if (numeric){
+		num = unformatCurrency(document.PlantsTreesEncode.adjustedMarketValue.value) * (document.PlantsTreesEncode.assessmentLevel.value/100);
+		num = roundToNearestTen(num);
+		document.PlantsTreesEncode.assessedValue.value = formatCurrency(num);
+	}
+	return true;
+}
+function setDefaults(){
+	setDays('as_');
+	setDays('re_');
+	setDays('av_');
+//	setDefaultDay('as_','{as_day}');
+//	setDefaultDay('re_','{re_day}');
+//	setDefaultDay('av_','{av_day}');
+	window.resizeTo(600,500);
+}
+function setDefaultDay(type,day){
+	eval("document.PlantsTreesEncode."+type+"day.options["+day+"-1].selected = true");
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+function setDays(type) {
+  var obj=eval("document.PlantsTreesEncode."+type+"day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield=1;
+  for (i=objlen-1; i>=28+nullfield; i--) obj.options.remove(i);
+  month_val = eval("document.PlantsTreesEncode."+type+"month.value");
+  switch(month_val) {
+	case "2":
+		birthYear = eval("document.PlantsTreesEncode."+type+"year.value");
+		if ((birthYear % 4) == 0) obj.options[28+nullfield]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		break;
+  }
+  obj.options[daySelected].selected = true;
+}
+//-->
+</script>
+
+<script language="Javascript">
+ 
+ plantsTreesClasses = new Array();
+ plantsTreesActualUses = new Array();
+
+<!-- BEGIN JSPlantsTreesClassesList -->
+ plantsTreesClasses[{i}] = new Array("{plantsTreesClassesID}", "{code}", "{description}", "{value}");
+<!-- END JSPlantsTreesClassesList -->
+
+<!-- BEGIN JSPlantsTreesActualUsesList -->
+ plantsTreesActualUses[{i}] = new Array("{plantsTreesActualUsesID}", "{code}", "{description}", "{value}");
+<!-- END JSPlantsTreesActualUsesList -->
+
+function selectedPlantsTreesClasses(){
+	selectedID = document.PlantsTreesEncode.plantsTreesClassesDropDown.options[document.PlantsTreesEncode.plantsTreesClassesDropDown.selectedIndex].value;
+
+	for(i=0 ; i<plantsTreesClasses.length ; i++){
+		tmpArray = plantsTreesClasses[i];
+		id = tmpArray[0];
+		code = tmpArray[1];
+		description = tmpArray[2];
+		value = tmpArray[3];
+		if(selectedID==id){
+			i=plantsTreesClasses.length;
+		}
+	}
+
+	if(selectedID==""){
+		document.PlantsTreesEncode.plantsTreesClasses.value = "";
+		document.PlantsTreesEncode.recommendedUnitPrice.value = "";
+	}
+	else{
+		document.PlantsTreesEncode.plantsTreesClasses.value = id;
+		document.PlantsTreesEncode.recommendedUnitPrice.value = formatCurrency(unformatCurrency(value));
+	}
+}
+
+function selectedPlantsTreesActualUses(){
+	selectedID = document.PlantsTreesEncode.plantsTreesActualUsesDropDown.options[document.PlantsTreesEncode.plantsTreesActualUsesDropDown.selectedIndex].value;
+
+	for(i=0 ; i<plantsTreesActualUses.length ; i++){
+		tmpArray = plantsTreesActualUses[i];
+		id = tmpArray[0];
+		code = tmpArray[1];
+		description = tmpArray[2];
+		value = tmpArray[3];
+		if(selectedID==id){
+			i=plantsTreesActualUses.length;
+		}
+	}
+
+	if(selectedID==""){
+		document.PlantsTreesEncode.plantsTreesActualUses.value = "";
+		document.PlantsTreesEncode.recommendedAssessmentLevel.value = "";
+	}
+	else{
+		document.PlantsTreesEncode.plantsTreesActualUses.value = id;
+		document.PlantsTreesEncode.recommendedAssessmentLevel.value = formatCurrency(unformatCurrency(value));
+	}
+}
+
+</script>
+
+
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="PlantsTreesEncode" method="post" action="PlantsTreesEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" align="center" cellpadding="5" cellspacing="1" class="fileds_comment">
+          <tr bgcolor="#F6F6F6"> 
+            <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>PLANTS/TREES 
+              PROPERTY INFORMATION</b></td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td colspan="3" class="fileds_comment" align="left" nowrap>Identification 
+              Numbers </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="100">&nbsp;</td>
+            <td colspan=2 class="fileds_comment" bgcolor="#F6F6F6"><input type="text" value="{surveyNumber}" name="surveyNumber" maxlength="32" size="30"><br>(Survey Number)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Location 
+              Details </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">landPin</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="landPin" value="{landPin}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3" align="left">Adminisrator</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" rowspan="3" bgcolor="#F6F6F6"> 
+              <input type="hidden" name="personID" value="{personID}">
+              Name</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="lastName" value="{lastName}" size="30"> 
+              <br>
+              (lastname) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"> <input type="text" name="firstName" value="{firstName}" size="30"> 
+              <br>
+              (firstname) </td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment" colspan="2"> <input type="text" name="middleName" value="{middleName}" size="30"> 
+              <br>
+              middlename </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="3"><input type="hidden" name="addressID" value="{addressID}">Address</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"><input type="text" name="number" value="{number}" size="30"><br>(number)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"><input type="text" name="street" value="{street}" size="30"><br>(street)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"><input type="text" name="barangay" value="{barangay}" size="30"><br>(barangay)</td>
+            <td class="fileds_comment"><input type="text" name="district" value="{district}" size="30"><br>(district)</td>
+          </tr>
+          <tr bgcolor="#F6F6F6"> 
+            <td class="fileds_comment"><input type="text" name="municipalityCity" value="{municipalityCity}" size="30"><br>(municipality/city)</td>
+            <td class="fileds_comment"><input type="text" name="province" value="{province}" size="30"><br>(province)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">ContactNumber</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="telephone" value="{telephone}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Email</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="email" value="{email}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Plants 
+              and Trees Appraisal</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Product 
+              Class</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+                <input type="hidden" name="productClass" value="{productClass}">
+		<input type="hidden" name="plantsTreesClasses" value="{plantsTreesClasses}">
+                <select name="plantsTreesClassesDropDown" onChange="selectedPlantsTreesClasses();" style="width:193">
+		<option value="">none</option>
+                <!-- BEGIN PlantsTreesClassesList -->
+                <option value="{plantsTreesClassesID}" {plantsTreesClasses_sel}>{plantsTreesClasses}</option>
+                <!-- END PlantsTreesClassesList -->
+                </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Area Planted</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="areaPlanted" value="{areaPlanted}" size="30"> 
+            </td>
+          </tr>
+
+		  <!--
+
+		  Hide Fruit Bearing / Non Fruit Bearing
+
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Non-Fruit 
+              Bearing</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+				<input type="text" name="nonFruitBearing" value="{nonFruitBearing}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Fruit Bearing</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+				<input type="text" name="fruitBearing" value="{fruitBearing}" size="30"> 
+            </td>
+          </tr>
+
+		  -->
+
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Number</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="totalNumber" value="{totalNumber}" size="30" onFocus="javascript: calculateMarketValue(); checkNumberType();" onBlur="javascript: calculateMarketValue(); checkNumberType();"> 
+
+			<input type="hidden" name="nonFruitBearing" value="{nonFruitBearing}">
+			<input type="hidden" name="fruitBearing" value="{fruitBearing}">
+
+			<br>
+
+			<input type="radio" name="numberType" value="fruitBearing" onClick="checkNumberType();"> Fruit Bearing
+			&nbsp;&nbsp;
+			<input type="radio" name="numberType" value="nonFruitBearing" onClick="checkNumberType();"> Non-Fruit Bearing
+
+			<script language="Javascript">
+				function checkNumberType(){
+					if(document.PlantsTreesEncode.numberType[1].checked==true){
+						document.PlantsTreesEncode.fruitBearing.value = 0;
+						document.PlantsTreesEncode.nonFruitBearing.value = document.PlantsTreesEncode.totalNumber.value;
+					}
+					else{
+						document.PlantsTreesEncode.numberType[0].checked = true;
+
+						document.PlantsTreesEncode.nonFruitBearing.value = 0;
+						document.PlantsTreesEncode.fruitBearing.value = document.PlantsTreesEncode.totalNumber.value;
+					}
+				}
+				function defaultCheckNumberType(){
+					if(document.PlantsTreesEncode.nonFruitBearing.value==0){
+						document.PlantsTreesEncode.numberType[0].checked = true;
+					}
+					else{
+						document.PlantsTreesEncode.numberType[1].checked = true;
+					}
+				}
+				defaultCheckNumberType();
+			</script>
+			
+
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Unit Price</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+	    	<input type="text" name="unitPrice" value="{unitPrice}" size="15" onBlur="javascript: calculateMarketValue();"> 
+		&nbsp;
+		<input type="text" name="recommendedUnitPrice" size="15" disabled>
+		&lt; = Recommended Unit Price
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Age</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="age" value="{age}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Market 
+              Value </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="marketValue" value="{marketValue}" size="30" onFocus="javascript: calculateMarketValue();" onBlur="javascript: calculateMarketValue();"> 
+            </td>
+          </tr>
+          <tr align="left"> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3">Value Computation</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Adjustment 
+              Factor</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <textarea name="adjustmentFactor" cols="50" rows="4">{adjustmentFactor}</textarea> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Percent 
+              Adjustment</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="percentAdjustment" value="{percentAdjustment}" size="30" onBlur="javascript: calculateValueAdjustment();">
+              % </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Value Adjustment</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="valueAdjustment" value="{valueAdjustment}" size="30" onFocus="javascript: calculateValueAdjustment();" onBlur="javascript: calculateAdjustedMarketValue();">
+              % </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Adjusted 
+              Market Value</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="adjustedMarketValue" value="{adjustedMarketValue}" size="30" onFocus="javascript: calculateAdjustedMarketValue();" onBlur="javascript: calculateAdjustedMarketValue()"> 
+            </td>
+          </tr>
+          <tr align="left"> 
+            <td class="fileds_comment" bgcolor="#CCCCCC" colspan="3">Property 
+              Assessment </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Kind</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="kind" value="{kind}" size="30"> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Actual Use</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6">
+                <input type="hidden" name="actualUse" value="{actualUse}">
+		<input type="hidden" name="plantsTreesActualUses" value="{plantsTreesActualUses}">
+                <select name="plantsTreesActualUsesDropDown" onChange="selectedPlantsTreesActualUses();" style="width:193;">
+		<option value="">none</option>
+                <!-- BEGIN PlantsTreesActualUsesList -->
+                <option value="{plantsTreesActualUsesID}" {plantsTreesActualUses_sel}>{plantsTreesActualUses}</option>
+                <!-- END PlantsTreesActualUsesList -->
+                </select>
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Assessment 
+              Level </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> 
+	    	<input type="text" name="assessmentLevel" value="{assessmentLevel}" size="10" onBlur="javascript: calculateAssessedValue();">
+                % 
+		&nbsp;
+		<input type="text" name="recommendedAssessmentLevel" disabled size="10"> %
+		&lt;=
+		Recommended Assessment Level
+	    </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Assessed 
+              Value </td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <input type="text" name="assessedValue" value="{assessedValue}" size="30" onFocus="javascript: calculateAssessedValue();" onBlur="javascript: calculateAssessedValue();"> 
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC" align="left"> 
+            <td class="fileds_comment" colspan="3">Certification </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Verified 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+				<select name="verifiedByID" style="width:193;">
+                <option value="xx">none</option>
+                <!-- BEGIN VerifiedByList -->
+                <option value="{id}" {verifiedByID_sel}>{name}</option>
+                <!-- END VerifiedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp;<input type="button" value="Verify" name="verifyBtn" onClick="verifyForm(document.PlantsTreesEncode);"> </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Plottings 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="plottingsByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN PlottingsByList -->
+                <option value="{id}" {plottingsByID_sel}>{name}</option>
+                <!-- END PlottingsByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp; </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Noted By</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="notedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN NotedByList -->
+                <option value="{id}" {notedByID_sel}>{name}</option>
+                <!-- END NotedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              &nbsp; </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Appraised 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="appraisedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN AppraisedByList -->
+                <option value="{id}" {appraisedByID_sel}>{name}</option>
+                <!-- END AppraisedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="as_month" onChange="javascript:setDays('as_')">
+				      <option value=""></option>
+                      <!-- BEGIN as_MonthList -->
+                      <option value = "{as_monthValue}" {as_month_sel}>{as_month}</option>
+                      <!-- END as_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="as_day">
+				      <option value=""></option>
+                      <!-- BEGIN as_DayList -->
+                      <option value = "{as_dayValue}" {as_day_sel}>{as_dayValue}</option>
+                      <!-- END as_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="as_year" onChange="javascript:setDays('as_')">
+				      <option value=""></option>
+                      <!-- BEGIN as_YearList -->
+                      <option value = "{as_yearValue}" {as_year_sel}>{as_yearValue}</option>
+                      <!-- END as_YearList -->
+                    </select>
+                    (year) </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Recommending 
+              Approval </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="recommendingApprovalID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN RecommendingApprovalList -->
+                <option value="{id}" {recommendingApprovalID_sel}>{name}</option>
+                <!-- END RecommendingApprovalList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="re_month" onChange="javascript:setDays('re_')">
+				      <option value=""></option>
+                      <!-- BEGIN re_MonthList -->
+                      <option value = "{re_monthValue}" {re_month_sel}>{re_month}</option>
+                      <!-- END re_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="re_day">
+				      <option value=""></option>
+                      <!-- BEGIN re_DayList -->
+                      <option value = "{re_dayValue}" {re_day_sel}>{re_dayValue}</option>
+                      <!-- END re_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="re_year" onChange="javascript:setDays('re_')">
+				      <option value=""></option>
+                      <!-- BEGIN re_YearList -->
+                      <option value = "{re_yearValue}" {re_year_sel}>{re_yearValue}</option>
+                      <!-- END re_YearList -->
+                    </select>
+                    (year) </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Approved 
+              By </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="approvedByID" style="width:193;">
+                <option value="">none</option>
+                <!-- BEGIN ApprovedByList -->
+                <option value="{id}" {approvedByID_sel}>{name}</option>
+                <!-- END ApprovedByList -->
+              </select> </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+              <table border="0" cellspacing="0" cellpadding="2" width="100">
+                <tr> 
+                  <td class="fileds_comment" width="33%"> <select name="av_month" onChange="javascript:setDays('av_')">
+				      <option value=""></option>
+                      <!-- BEGIN av_MonthList -->
+                      <option value = "{av_monthValue}" {av_month_sel}>{av_month}</option>
+                      <!-- END av_MonthList -->
+                    </select>
+                    (month)</td>
+                  <td class="fileds_comment" width="33%"> <select name="av_day">
+				      <option value=""></option>
+                      <!-- BEGIN av_DayList -->
+                      <option value = "{av_dayValue}" {av_day_sel}>{av_dayValue}</option>
+                      <!-- END av_DayList -->
+                    </select>
+                    (day)</td>
+                  <td class="fileds_comment" width="33%"> <select name="av_year" onChange="javascript:setDays('av_')">
+				      <option value=""></option>
+                      <!-- BEGIN av_YearList -->
+                      <option value = "{av_yearValue}" {av_year_sel}>{av_yearValue}</option>
+                      <!-- END av_YearList -->
+                    </select>
+                    (year) </td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Memoranda</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">&nbsp;</td>
+            <td class="fileds_comment" colspan="2" bgcolor="#F6F6F6"> <textarea name="memoranda" cols="50" rows="10">{memoranda}</textarea> 
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp; 
+            </td>
+            <td colspan="2" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6"> 
+              <input type="hidden" name="formAction" value="save"> <input type="hidden" name="propertyID" value="{propertyID}"> 
+              <input type="hidden" name="afsID" value="{afsID}"> 
+              <!-- BEGIN SubmitButton -->
+              <input type="button" value="Submit" name="submitBtn" onClick="validateForm(document.PlantsTreesEncode);">
+	      <input type="reset" name="Submit2" value="Reset" >
+              <!-- END SubmitButton -->
+              <input type="button" name="Button" value="Close"  onClick="refreshParent();" > 
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+<script language="Javascript">
+	matchSelectedValue("{recommendedUnitPrice}", document.PlantsTreesEncode.recommendedUnitPrice);
+	matchSelectedValue("{plantsTreesClasses}", document.PlantsTreesEncode.plantsTreesClasses);
+	matchSelectedValue("{recommendedAssessmentLevel}", document.PlantsTreesEncode.recommendedAssessmentLevel);
+	matchSelectedValue("{actualUse}", document.PlantsTreesEncode.plantsTreesActualUses);
+
+	function matchSelectedValue(v,formelement,toCurrency){
+		formelement.value = v;
+	}
+
+	rUnitPrice = document.PlantsTreesEncode.recommendedUnitPrice;
+	rAssessmentLevel = document.PlantsTreesEncode.recommendedAssessmentLevel;
+
+	if(rUnitPrice.value!=""){
+		rUnitPrice.value = formatCurrency(rUnitPrice.value);
+	}
+	if(rAssessmentLevel.value!=""){
+		rAssessmentLevel.value = formatCurrency(rAssessmentLevel.value);
+	}
+
+	pid = "{propertyID}";
+	if (pid){
+		calculateMarketValue();
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+  
+function setDefaults(){
+//	setDays('pa_');
+//	setDays('cm_');
+//	setDefaultDay('pa_','{pa_day}');
+//	setDefaultDay('cm_','{cm_day}');
+	window.resizeTo(600,660);
+}
+function setDefaultDay(type,day){
+	eval("document.TDEncode."+type+"day.options["+day+"-1].selected = true");
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+
+
+function setDays(type) {
+  var obj=eval("document.TDEncode."+type+"day");
+  daySelected = obj.selectedIndex;
+  objlen=obj.length;
+  nullfield = 1;
+  for (i=objlen-1; i>=28+nullfield; i--) obj.options.remove(i);
+  month_val = eval("document.TDEncode."+type+"month.value");
+  switch(month_val) {
+	case "2":
+		birthYear = eval("document.TDEncode."+type+"year.value");
+		if ((birthYear % 4) == 0) obj.options[28+nullfield]=new Option("29");
+		if (daySelected > 27+nullfield){
+  			daySelected = 27+nullfield;
+		}
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		if (daySelected > 29+nullfield){
+  			daySelected = 29+nullfield;	
+		}
+		break;	  
+	default:
+		obj.options[28+nullfield]=new Option("29");
+		obj.options[29+nullfield]=new Option("30");
+		obj.options[30+nullfield]=new Option("31");
+		break;
+  }
+  obj.options[daySelected].selected = true;
+}
+//-->
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="TDEncode" method="post" action="TDEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="90%" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>DECLARATION 
+	   OF PROPERTY</b> </td>
+	 </tr>
+	 <tr bgcolor="#CCCCCC"> 
+	  <td colspan="3" class="fileds_comment" align="left" nowrap>Identification 
+	   Numbers </td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap bgcolor="#F6F6F6" width="100">&nbsp;</td>
+	  <td colspan="2" bgcolor="#F6F6F6" class="fileds_comment"> <input name="taxDeclarationNumber" type="text" id="taxDeclarationNumber" value="{taxDeclarationNumber}" size="30" maxlength="32"> 
+	   <br>
+	   (Tax Declaration Number) <br> </td>
+	 </tr>
+	 <tr bgcolor="#CCCCCC" align="left"> 
+	  <td class="fileds_comment" colspan="3">Approval</td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6">Provincial Assessor</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="provincialAssessorID" id="provincialAssessorID" style="width:210;">
+		<option value="">none</option>
+		<!-- BEGIN ProvincialAssessorList -->
+		<option value="{id}" {provincialAssessorID_sel}>{name}</option>
+		<!-- END ProvincialAssessorList -->
+	   </select> </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+	   <table border="0" cellspacing="0" cellpadding="2" width="100">
+		<tr> 
+		 <td class="fileds_comment" width="33%">
+		 <select name="pa_month" id="pa_month" onChange="javascript:setDays('pa_')">
+		   <option value=""></option>
+		   <!-- BEGIN pa_MonthList -->
+		   <option value = "{pa_monthValue}" {pa_month_sel}>{pa_month}</option>
+		   <!-- END pa_MonthList -->
+		  </select>
+		  (month)</td>
+		 <td class="fileds_comment" width="33%">
+		  <select name="pa_day" id="pa_day">
+		   <option value=""></option>
+		   <!-- BEGIN pa_DayList -->
+		   <option value = "{pa_dayValue}" {pa_day_sel}>{pa_dayValue}</option>
+		   <!-- END pa_DayList -->
+		  </select>
+		  (day)</td>
+		 <td class="fileds_comment" width="33%">
+		  <select name="pa_year" onChange="javascript:setDays('pa_')">
+		   <option value=""></option>
+		   <!-- BEGIN pa_YearList -->
+		   <option value = "{pa_yearValue}" {pa_year_sel}>{pa_yearValue}</option>
+		   <!-- END pa_YearList -->
+		  </select>
+		  (year) </td>
+		</tr>
+	   </table></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="right" bgcolor="#F6F6F6">City/Municipal 
+	   Assessor</td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6"> <select name="cityMunicipalAssessorID" style="width:210;">
+		<option value="">none</option>
+		<!-- BEGIN CityMunicipalAssessorList -->
+		<option value="{id}" {cityMunicipalAssessorID_sel}>{name}</option>
+		<!-- END CityMunicipalAssessorList -->
+	   </select> </td>
+	  <td class="fileds_comment" bgcolor="#F6F6F6"> Date 
+	   <table border="0" cellspacing="0" cellpadding="2" width="100">
+		<tr> 
+		 <td class="fileds_comment" width="33%">
+		  <select name="cm_month" onChange="javascript:setDays('cm_')">
+		   <option value=""></option>
+		   <!-- BEGIN cm_MonthList -->
+		   <option value = "{cm_monthValue}" {cm_month_sel}>{cm_month}</option>
+		   <!-- END cm_MonthList -->
+		  </select>
+		  (month)</td>
+		 <td class="fileds_comment" width="33%">
+		  <select name="cm_day">
+		   <option value=""></option>
+		   <!-- BEGIN cm_DayList -->
+		   <option value = "{cm_dayValue}" {cm_day_sel}>{cm_dayValue}</option>
+		   <!-- END cm_DayList -->
+		  </select>
+		  (day)</td>
+		 <td class="fileds_comment" width="33%">
+		  <select name="cm_year" onChange="javascript:setDays('cm_')">
+		   <option value=""></option>
+		   <!-- BEGIN cm_YearList -->
+		   <option value = "{cm_yearValue}" {cm_year_sel}>{cm_yearValue}</option>
+		   <!-- END cm_YearList -->
+		  </select>
+		  (year) </td>
+		</tr>
+	   </table></td>
+	 </tr>
+	 <tr> 
+	  <td class="fileds_comment" align="left" nowrap colspan="3" bgcolor="#CCCCCC">&nbsp;</td>
+	 </tr>
+
+
+	 <tr> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap rowspan="4" bgcolor="#F6F6F6"  rowspan="3">&nbsp;</td>
+	  <td bgcolor="#F6F6F6"> <input type="text" value="{cancelsTDNumber}" name="cancelsTDNumber" size="30"><br>Cancels TD Number)</td>
+	  <td bgcolor="#F6F6F6"> <input type="text" name="canceledByTDNumber" value="{canceledByTDNumber}" size="30"><br>(Canceled By TD Number) </td>
+	 </tr> 
+
+	 <tr bgcolor="#F6F6F6"> 
+	  <td> <!--input type="text" value="{taxBeginsWithTheYear}" name="taxBeginsWithTheYear" size="30"-->
+	   <select name="taxBeginsWithTheYear" id="taxBeginsWithTheYear">
+		<!-- BEGIN BeginYearList -->
+		<option value="{beginYear}" {taxBeginsWithTheYear_sel}>{beginYear}</option>
+		<!-- END BeginYearList -->
+	   </select>
+	   <br>(Tax Begins With The Year) </td>
+	  <td> 
+	    <!--input type="text" value="{ceasesWithTheYear}" name="ceasesWithTheYear" size="30"-->
+	    <!--select name="ceasesWithTheYear" id="ceasesWithTheYear"-->
+	    <!-- BEGIN CeasesYearList -->
+		<!--option value="{ceaseYear}" {ceasesWithTheYear_sel}>{ceaseYear}</option-->
+		<!-- END CeasesYearList -->
+	    <!--/select-->
+	   <!--br-->
+	   <!--(Ceases With The Year)-->
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td> <select name="enteredInRPARForByID" style="width:210;">
+		<option value="">none</option>
+		<!-- BEGIN EnteredInRPARForByList -->
+		<option value="{id}" {enteredInRPARForByID_sel}>{name}</option>
+		<!-- END EnteredInRPARForByList -->
+	   </select><br>
+	   (enteredInRPARForBy)</td>
+	   <td> <input type="text" value="{enteredInRPARForYear}" name="enteredInRPARForYear" size="30"><br>(enteredInRPARForYear)</td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+ 
+	 <td><input type="text" value="{previousOwner}" name="previousOwner" colspan="3" size="30"><br>(Previous 
+Owner)</td>
+	  <td><input type="text" value="{previousAssessedValue}" name="previousAssessedValue" size="30"><br>(Previous Assessed Value)</td>
+	 </tr>
+
+     <tr> 
+        <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Memoranda</td>
+     </tr>
+     <tr> 
+        <td class="fileds_comment" align="right" bgcolor="#F6F6F6">&nbsp;</td>
+        <td class="fileds_comment" bgcolor="#F6F6F6" colspan=2> <textarea name="memoranda" cols="50" rows="10">{memoranda}</textarea> 
+	    </td>
+     </tr>
+
+
+	 <tr> 
+	  <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp;</td>
+	  <td colspan="2" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">
+	   <input name="afsID" type="hidden" id="afsID" value="{afsID}"> 
+	   <input type="hidden" name="formAction" value="save">
+	   <input name="tdID" type="hidden" id="tdID" value="{tdID}">
+	   <input name="afsID" type="hidden" id="afsID" value="{afsID}">
+	   <input name="propertyID" type="hidden" id="propertyID" value="{propertyID}"> 
+	   <input name="propertyType" type="hidden" id="propertyType" value="{propertyType}">	
+
+	   <!-- BEGIN SubmitButton -->
+	   <input type="submit" value="Submit" name="submit"> 
+	   <input type="reset" name="Submit2" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();"> 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

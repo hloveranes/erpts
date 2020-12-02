@@ -1,0 +1,229 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/datetime.js"></script>
+<script language="javascript" src="js/email.js"></script>
+<script language="javascript">
+<!--
+  
+function setDefaults(){
+	//setDays('dc_');
+	//setDays('do_');
+	//setDays('dm_');
+	//setDays('as_');
+	//setDays('re_');
+	//setDays('av_');
+	window.resizeTo(600,600);
+}
+function refreshParent() {
+	//window.opener.location.reload(true);
+	window.opener.focus();
+	window.close();
+}
+function setDays(type) {
+  var obj=eval("document.StoreyEncode."+type+"day");
+  objlen=obj.length;
+  for (i=objlen-1; i>=28; i--) obj.options.remove(i);
+  switch(eval("document.StoreyEncode."+type+"month.value")) {
+	case "2":
+		birthYear = eval("document.StoreyEncode."+type+"year.value");
+		if ((birthYear % 4) == 0) obj.options[28]=new Option("29");
+	  	break;
+	case "4":
+	case "6":
+	case "9":
+	case "11":
+		obj.options[28]=new Option("29");
+		obj.options[29]=new Option("30");
+		break;	  
+	default:
+		obj.options[28]=new Option("29");
+		obj.options[29]=new Option("30");
+		obj.options[30]=new Option("31");
+		 break;
+  }	
+}
+//-->
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="StoreyEncode" method="post" action="StoreyEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+          <tr bgcolor="#F6F6F6"> 
+            <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>IMPROVEMENTS/BUILDING 
+              PROPERTY INFORMATION - Storey</b></td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="left" bgcolor="#CCCCCC" colspan="3">Storey 
+              Details </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">area</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="area" value="{area}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">foundation</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="foundation" value="{foundation}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="2">framing</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="posts" value="{posts}" size="30">
+              <br>
+              (posts)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="floorFraming" value="{floorFraming}" size="30">
+              <br>
+              (floorFraming) </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="roofTrusses" value="{roofTrusses}" size="30">
+              <br>
+              (roofTrusses)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="studdings" value="{studdings}" size="30">
+              <br>
+              (studdings)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="3">covering</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="roofing" value="{roofing}" size="30">
+              <br>
+              (roofing)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="flooring" value="{flooring}" size="30">
+              <br>
+              (flooring)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="ceiling" value="{ceiling}" size="30">
+              <br>
+              (ceiling)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="partition" value="{partition}" size="30">
+              <br>
+              (partition)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="siding" value="{siding}" size="30">
+              <br>
+              (siding)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="stairs" value="{stairs}" size="30">
+              <br>
+              (stairs)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="2">joinery</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="doors" value="{doors}" size="30">
+              <br>
+              (doors)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="windows" value="{windows}" size="30">
+              <br>
+              (windows)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="grills" value="{grills}" size="30">
+              <br>
+              (grills)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6" rowspan="2">plumbing</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="fixture" value="{fixture}" size="30">
+              <br>
+              (fixture)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="tiles" value="{tiles}" size="30">
+              <br>
+              (tiles)</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" bgcolor="#F6F6F6"> 
+              <input type="text" name="toiletAndBath" value="{toiletAndBath}" size="30">
+              <br>
+              (toiletAndBath)</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6">&nbsp;</td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">electrical</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="electrical" value="{electrical}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">painting</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="painting" value="{painting}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">structuralDesign 
+            </td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="structuralDesign" value="{structuralDesign}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">typeOfConstruction</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="typeOfConstruction" value="{typeOfConstruction}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="right" bgcolor="#F6F6F6">approximateAge</td>
+            <td class="fileds_comment" bgcolor="#F6F6F6" colspan="2"> 
+              <input type="text" name="approximateAge" value="{approximateAge}" size="30">
+            </td>
+          </tr>
+          <tr> 
+            <td class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6">&nbsp; 
+            </td>
+            <td colspan="2" class="fileds_comment" align="center" valign="middle" bgcolor="#F6F6F6"> 
+              <input type="hidden" name="formAction" value="save">
+              <input type="hidden" name="propertyID" value="{propertyID}">
+              <input type="hidden" name="afsID" value="{afsID}">
+              <!-- BEGIN SubmitButton -->
+              <input onClick="javascript:validateForm(this.form); return false;" type="submit" value="Submit" name="submit">
+              <input type="reset" name="Submit2" value="Reset" >
+              <!-- END SubmitButton -->
+              <input type="button" name="Button" value="Close"  onClick="refreshParent();" >
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>

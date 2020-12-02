@@ -1,0 +1,437 @@
+<?php
+
+class PDFWriter{
+    var $inputXML;
+    var $outputXML;
+    var $xlsTransform;
+    var $printer;
+    var $pdfOutput;
+    // PDF parameters
+    var $width;
+    var $height;
+    var $defaultFont;
+    var $defaultsize;
+    var $cpdf;
+    var $lastitem;
+    var $pdfFile;
+	
+    function PDFWriter(){
+        $this->width = 592;
+        $this->height = 842;
+        $this->defaultFont = "Helvetica";
+        $this->defaultSize = 8;
+    }
+    function setInputXML(){
+    }
+    function getInputXML(){
+    }
+    function setOutputXML($inputString, $mode=0){
+        if($mode == "file"){
+            $filename = $inputString;
+            $fd = fopen ($filename, "rb",1);
+            $this->outputXML = fread ($fd, filesize ($filename));
+            fclose ($fd);
+        }
+        else
+            $this->outputXML = $inputString;
+    }
+    function getOutputXML(){
+    }
+    function setXLSTransform(){
+    }
+    function getXLSTransform(){
+    }
+    function transform(){
+        $xslhandler = xslt_create();
+        $this->outputXML = xslt_process($xslhandler,$this->$inputXML,$this->$xslTransform);
+        xslt_free($xslhandler);
+        return $this->outputXML;
+    }
+
+    function elementsToPDF($node){
+        static $columns=array();
+        static $table=array();
+        static $currentRow=0;
+        #### "Processing elements<br>\n";
+        $elements = $node->children();
+        while($element = array_shift($elements)){
+            switch($element->node_name()){
+                case "bookmark":
+                    $content = html_entity_decode($element->get_content());
+                    cpdf_add_outline($this->cpdf,0, 0, 0, 1,$content);
+                    $this->lastitem="bookmark";
+                    break;
+                case "textitem":
+                    cpdf_begin_text($this->cpdf);
+                    // process font attributes
+                    $font = $element->get_attribute("font");
+                    if($font == "")
+                        $font = $this->defaultFont;
+                    $size = $element->get_attribute("size");
+                    if($size == "")
+                        $size = $this->defaultSize;
+                    cpdf_set_font($this->cpdf, $font, $size, "WinAnsiEncoding");
+                    // process rotation
+                    $rotate = (float) $element->get_attribute("rotate");
+                    // process alignment
+                    //$align = $element->get_attribute("align");
+                    switch($element->get_attribute("align")){
+                        case "left":
+                        case "0": # 0 is TEXTPOS_LL
+                            $align = 0;
+                            break;
+                        case "center":
+                        case '1': # 1 is TEXTPOS_LM
+                            $align = 1;
+                            break;
+                        case "right":
+                        case '2': # 2 is TEXTPOS_LR
+                            $align = 2;
+                            break;
+                        case '3': # 3 is TEXTPOS_ML
+                            $align = 3;
+                            break;
+                        case '4': # 4 is TEXTPOS_MM
+                            $align = 4;
+                            break;
+                        case '5': # 5 is TEXTPOS_MR
+                            $align = 5;
+                            break;
+                        case '6': # 6 is TEXTPOS_UL
+                            $align = 6;
+                            break;
+                        case '7': # 7 is TEXTPOS_UM
+                            $align = 7;
+                            break;
+                        case '8': # 8 is TEXTPOS_UR
+                            $align = 8;
+                            break;
+                        default:
+                            $align = 0;
+                            break;
+                    }
+                    // process content
+                    $content = html_entity_decode($element->get_content());
+                    $xpos = $element->get_attribute("xpos");
+                    $ypos = $element->get_attribute("ypos");
+                    $end = $element->get_attribute("end");
+                    $factor = (float)1.0;
+                    // check for length of text
+                    if($end > 0){
+                        switch($align){
+                            case '0': # left
+                                 $width = $end - $xpos;
+                                 break;
+                            case '1': # center
+                                 $width = 2 * ($end - $xpos);
+                                 break;
+                            case '2': # right
+                                 $width = $xpos - $end;
+                                 break;
+                            default:
+                                 $width = $end - $xpos;
+                                 break;
+
+                        }
+                        // check the width
+                        $stringWidth = (float)cpdf_stringwidth($this->cpdf,$content);
+
+                        if($stringWidth > $width){
+                            $factor = $width/$stringWidth;
+                            cpdf_set_horiz_scaling($this->cpdf,(float)$factor);
+                        }
+                    }
+                    cpdf_text($this->cpdf, $content, $xpos, $ypos, 1.0 , $rotate, (int) $align);
+                    cpdf_set_horiz_scaling($this->cpdf,(float)1.0);
+
+                    #### "printing a textitem with $content at $xpos and $ypos<br>\n";
+                    cpdf_end_text($this->cpdf);
+                    break;
+                case "textbox":
+                    cpdf_save($this->cpdf);
+                    cpdf_begin_text($this->cpdf);
+                    $x1 = (int)$element->get_attribute("x1");
+                    $y1 = (int)$element->get_attribute("y1");
+                    $x2 = (int)$element->get_attribute("x2");
+                    $y2 = (int)$element->get_attribute("y2");
+                    $width = $x2- $x1;
+                    if ($width <1) $width = 1;
+                    $height = $y1-$y2;
+                    $hmode = $element->get_attribute("hmode");
+                    $content = html_entity_decode($element->get_content());
+                    $font = $element->get_attribute("font");
+                    $size = $element->get_attribute("size");
+                    // process font attributes
+                    if($font == "")
+                        $font = $this->defaultFont;
+                    if($size == "")
+                        $size = $this->defaultSize;
+                    cpdf_set_font($this->cpdf, $font, $size, "WinAnsiEncoding");
+                    // determine hmode first, particularly if it is fully justified
+                    // i.e. no word breaks
+                    // determine textwidth based on font size and the width of the box
+                    $charWidth = cpdf_stringwidth($this->cpdf,"1");
+                    $lineWidth = $width / $charWidth;
+                    #### "width = $width and charwidth = $charWidth text width = $lineWidth<br>\n";
+                    $boxtext = wordwrap($content, $lineWidth, "\n", true);
+                    #### $boxtext;
+                    // explode the content
+                    $lines = explode("\n",$boxtext);
+                    if ((count($lines) * ($size)) > $height){
+                       $heightAdjust = $height / (count($lines) * ($size)); // should probably add 1 to size for line spacing
+                    }
+                    else {
+                        $heightAdjust = 1.0;
+                    }
+                       
+                    // process rotation
+                    $rotate = (float) $element->get_attribute("rotate");
+                    // process alignment
+                    //$align = $element->get_attribute("align");
+                    switch($hmode){
+                        case "left":
+                        case "0": # 0 is TEXTPOS_LL
+                            $align = 0;
+                            break;
+                        case "center":
+                        case '1': # 1 is TEXTPOS_LM
+                            $align = 1;
+                            break;
+                        case "right":
+                        case '2': # 2 is TEXTPOS_LR
+                            $align = 2;
+                            break;
+                        case '3': # 3 is TEXTPOS_ML
+                            $align = 3;
+                            break;
+                        case '4': # 4 is TEXTPOS_MM
+                            $align = 4;
+                            break;
+                        case '5': # 5 is TEXTPOS_MR
+                            $align = 5;
+                            break;
+                        case '6': # 6 is TEXTPOS_UL
+                            $align = 6;
+                            break;
+                        case '7': # 7 is TEXTPOS_UM
+                            $align = 7;
+                            break;
+                        case 'justify':
+                        case 'full justify':
+                        case '8': # 8 is TEXTPOS_UR
+                            $align = 8;
+                            break;
+                        default:
+                            $align = 0;
+                            break;
+                    }
+                    // process content and print out each line in turn
+                    $numRows = count($lines);
+                    #### "printing $numRows<br>\n";
+                    for ($row = 0; $row < count($lines); $row ++){
+                        // check the width
+                        $stringWidth = cpdf_stringwidth($this->cpdf,$lines[$row]);
+                        if($stringWidth > $width){
+                            $factor = $width/$stringWidth;
+                            cpdf_set_horiz_scaling($this->cpdf,(float)$factor);
+                        }
+                        $ypos = $y1 - ($row *($size));
+                        $xpos = $x1;
+                        #### "textbox: printing a rowitem with $content at $xpos and $ypos for column $columnName with alignment $align<br>\n";
+                        cpdf_text($this->cpdf, $lines[$row], $xpos, $ypos, 1.0 , $rotate, (int) $align);
+                        cpdf_set_horiz_scaling($this->cpdf,(float)1.0);
+                    }
+
+                    cpdf_end_text($this->cpdf);
+                    $this->last_item = "textbox";
+                    cpdf_restore($this->cpdf);
+                    break;
+
+                case "lineitem":
+                    $x1 = $element->get_attribute("x1");
+                    $y1 = $element->get_attribute("y1");
+                    $x2 = $element->get_attribute("x2");
+                    $y2 = $element->get_attribute("y2");
+                    cpdf_moveto($this->cpdf,$x1,$y1);
+                    cpdf_lineto($this->cpdf,$x2,$y2);
+                    cpdf_stroke($this->cpdf);
+                    #### "stroke a line from $x1 , $y1 to $x2 , $y2<br>\n";
+                    $this->lastitem = "lineitem";
+                    break;
+                 case "image":
+                    $xpos = $element->get_attribute("xpos");
+                    $ypos = $element->get_attribute("ypos");
+                    $width = $element->get_attribute("width");
+                    $height = $element->get_attribute("height");
+                    $imageSource = $element->get_attribute("src");
+                    cpdf_import_jpeg($this->cpdf,$imageSource,$xpos,$ypos,0.0,$width,$height,1.0,1.0,1,0);
+                    #### "put an image on $x1 , $y1 to $x2 , $y2<br>\n";
+                    $this->lastitem = "image";
+                    break;
+                case "table":
+                    $table["left"] = $element->get_attribute("left");
+                    $table["right"] = $element->get_attribute("right");
+                    $table["top"] = $element->get_attribute("top");
+                    $table["bottom"] = $element->get_attribute("bottom");
+                    #### "starting a new table";
+                    $currentRow = $table["top"];
+                    $this->elementsToPDF($element);
+                    unset($table);
+                    $this->last_item = "table";
+                    break;
+                case "row":
+                    #### "starting a row<br>\n";
+                    $height = $element->get_attribute("height");
+                    $currentRow -= $height;
+                    $this->elementsToPDF($element);
+                    #### "closing a row<br>\n";
+                    $this->last_item = "row";
+                case "column":
+                    $name = $element->get_attribute("name");
+                    $columns[$name]["left"] = $element->get_attribute("left");
+                    $columns[$name]["right"] = $element->get_attribute("right");
+                    #### "setting column parameters<br>\n";
+                    break;
+                case "rowitem": // a form of text, but depends on row and column values for positioning
+                    #### "rowitem: processing a rowitem <br>\n";
+                    cpdf_begin_text($this->cpdf);
+                    // process font attributes
+                    $font = $element->get_attribute("font");
+                    if($font == "")
+                        $font = $this->defaultFont;
+                    $size = $element->get_attribute("size");
+                    if($size == "")
+                        $size = $this->defaultSize;
+                    cpdf_set_font($this->cpdf, $font, $size, "WinAnsiEncoding");
+                    // process rotation
+                    $rotate = (float) $element->get_attribute("rotate");
+                    // process content
+                    $content = html_entity_decode($element->get_content());
+                    $columnName = $element->get_attribute("column");
+                    $xpos = $columns[$columnName]["left"];
+                    $ypos = $currentRow;
+                    // process alignment
+                    switch($element->get_attribute("align")){
+                        case "left":
+                        case "0": # 0 is TEXTPOS_LL
+                            $align = 0;
+                            break;
+                        case "center":
+                        case "1": # 1 is TEXTPOS_LM
+                            $align = 1;
+                            $xpos = ($columns[$columnName]["left"]+$columns[$columnName]["right"])/2;
+                            break;
+                        case "right":
+                        case "2": # 2 is TEXTPOS_LR
+                            $align = 2;
+                            $xpos = $columns[$columnName]["right"];
+                            break;
+                        case "3": # 3 is TEXTPOS_ML
+                            $align = 3;
+                            break;
+                        case "4": # 4 is TEXTPOS_MM
+                            $align = 4;
+                            $xpos = ($columns[$columnName]["left"]+$columns[$columnName]["right"])/2;
+                            break;
+                        case "5": # 5 is TEXTPOS_MR
+                            $align = 5;
+                            $xpos = $columns[$columnName]["right"];
+                            break;
+                        case "6": # 6 is TEXTPOS_UL
+                            $align = 6;
+                            break;
+                        case "7": # 7 is TEXTPOS_UM
+                            $align = 7;
+                            $xpos = ($columns[$columnName]["left"]+$columns[$columnName]["right"])/2;
+                            break;
+                        case "8": # 8 is TEXTPOS_UR
+                            $align = 8;
+                            $xpos = $columns[$columnName]["right"];
+                            break;
+                        default:
+                            $align = 0;
+                            break;
+                    }
+                    // check the width
+                    $stringWidth = cpdf_stringwidth($this->cpdf,$content);
+                    $columnWidth = $columns[$columnName]["right"]- $columns[$columnName]["left"];
+                    if($stringWidth > $columnWidth){
+                        //resize the text
+                        $factor = $columnWidth/$stringWidth;
+                        #### "rowitem: setting scaling to $factor<br>\n";
+                        cpdf_set_horiz_scaling($this->cpdf,(float)$factor);
+                        cpdf_text($this->cpdf, $content, $xpos, $ypos, 1.0 , $rotate, (int)$align);
+                        cpdf_set_horiz_scaling($this->cpdf, (float)1.0);
+                    }
+                    else{
+                         cpdf_text($this->cpdf, $content, $xpos, $ypos, 1.0 , $rotate, (int)$align);
+                    }
+                    #### "rowitem: printing a rowitem with $content at $xpos and $ypos for column $columnName with alignment $align<br>\n";
+                    cpdf_end_text($this->cpdf);
+                    $this->last_item = "rowitem";
+                    break;
+                case "page":
+                    $height = $element->get_attribute("height");
+                    $width = $element->get_attribute("width");
+                    $number = $element->get_attribute("number");
+                    $orientation = $element->get_attribute("orientation");
+                    cpdf_page_init($this->cpdf,$number,$orientation,$height,$width,1.0);
+                    #### "setting a new page size of $height by $width as page $number in $orientation<br>\n";
+                    $this->elementsToPDF($element);
+                    cpdf_finalize_page($this->cpdf,$number);
+                    $this->lastitem="page";
+                    break;
+                default:
+                    break;
+            }
+        }
+        #### "Done Processing <br>\n";
+    }
+    function writePDF($pdffilename, $toprinter = false){
+        // check to see if the transform has been performed if not then perform
+        // $this->transform();
+        if(!$dom = domxml_open_mem($this->outputXML)) {
+            print("error while parsing the document<br>\n");
+            exit;
+        }
+        $root = $dom->document_element();
+        // page preprod, set the page parameters once
+        $tempdir = getcwd()."/";
+        $tstamp = $tempdir.uniqid("tmp").".pdf";
+
+
+
+        $this->cpdf = cpdf_open(0, $tstamp);
+        // CONVerT XML ELEMENTS TO PDF
+
+		$this->elementsToPDF($root);
+
+
+        // page postprod, close the page
+        cpdf_finalize($this->cpdf);
+        // cpdf_save_to_file($this->cpdf,"$tstamp");
+        cpdf_close($this->cpdf);
+        if($toprinter){
+            $printCommand = "pdfprint -configure nccpdfprint.cfg $tstamp";
+            exec($printCommand,$results,$returnVal);
+            return $results;
+        }
+        else {
+            // for output to browser
+            $pdfsize = filesize($tstamp);
+
+            $fp = fopen($tstamp,"r");
+            header("Content-type: application/pdf");
+            header("Content-Disposition: inline; filename=$pdffilename");
+            header("Content-length: $pdfsize"); // for IE to work
+            fpassthru($fp);
+            fclose($fp);
+        }
+        #unlink($tstamp);
+
+    }
+    function printPDF($pdffilename){
+        return $this->writePDF($pdffilename,true);
+    }
+}
+?>

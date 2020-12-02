@@ -1,0 +1,320 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<html>
+<head>
+<title>{TITLE}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="javascript" src="js/numeric.js"></script>
+<script language="javascript">
+<!--
+  function submitForm(){
+   if(validateForm(document.PropertyInfoEncode)!=false){
+		// convert option "text" to option "value" to pass "text" instead of the id's.
+
+
+		barangayList = document.PropertyInfoEncode.barangay;
+
+		districtList = document.PropertyInfoEncode.district;
+
+		//if(districtList.length>0)
+		//districtList.options[districtList.selectedIndex].value = districtList.options[districtList.selectedIndex].text;
+
+		municipalityCityList = document.PropertyInfoEncode.municipalityCity;
+		
+		//if(municipalityCityList.length>0)
+		//municipalityCityList.options[municipalityCityList.selectedIndex].value = municipalityCityList.options[municipalityCityList.selectedIndex].text;
+
+        provinceList = document.PropertyInfoEncode.province;
+		
+		//if(provinceList.length>0)
+		//provinceList.options[provinceList.selectedIndex].value = provinceList.options[provinceList.selectedIndex].text;
+
+		document.PropertyInfoEncode.submit();
+   }
+   else{
+		return false;
+   }
+  }
+  function validateForm(iform) {
+//		if (iform.street.value=="") {
+//			alert("Street is required.");
+//			iform.street.focus();
+//			return false;
+//		}
+//		if (iform.number.value=="") {
+//			alert("Number is required.");
+//			iform.number.focus();
+//			return false;
+//		}
+//		if (iform.barangay.value=="") {
+//			alert("Barangay is required.");
+//			iform.barangay.focus();
+//			return false;
+//		}
+//		if (iform.municipalityCity.value=="") {
+//			alert("Municipality/City is required.");
+//			iform.municipalityCity.focus();
+//			return false;
+//		}
+//		if (iform.district.value=="") {
+//			alert("District is required.");
+//			iform.district.focus();
+//			return false;
+//		}
+//		if (iform.province.value=="") {
+//			alert("Province is required.");
+//			iform.province.focus();
+//			return false;
+//		}
+		
+		if (iform.houseTagNumber.value=="") {
+			alert("houseTagNumber is required.");
+			iform.houseTagNumber.focus();
+			return false;
+		}
+		if (iform.landArea.value=="") {
+			alert("landArea required.");
+			iform.landArea.focus();
+			return false;
+		}
+		if (iform.lotNumber.value=="") {
+			alert("lotNumber is required.");
+			iform.lotNumber.focus();
+			return false;
+		}
+		if (iform.blockNumber.value=="") {
+			alert("blockNumber required.");
+			iform.blockNumber.focus();
+			return false;
+		}
+		if (iform.zoneNumber.value=="") {
+			alert("zoneNumber required.");
+			iform.zoneNumber.focus();
+			return false;
+		}
+		if (iform.psd13.value=="") {
+			alert("psd13 required.");
+			iform.psd13.focus();
+			return false;
+		}
+	return true;
+  }
+
+function setDefaults(){
+	filterMunicipalityCityList();
+	filterDistrictList();
+	filterBarangayList();
+
+	document.PropertyInfoEncode.number.focus();
+	window.resizeTo(580,500);
+}
+function refreshParent() {
+	window.opener.focus();
+	window.close();
+}
+
+//-->
+</script>
+
+<script language="Javascript">
+ barangay = new Array();
+ district = new Array();
+ municipalityCity = new Array();
+<!-- BEGIN JSBarangayList -->
+ barangay[{i}] = new Array('{barangay}', '{barangayID}', '{districtID}');
+<!-- END JSBarangayList -->
+<!-- BEGIN JSDistrictList -->
+ district[{i}] = new Array('{district}', '{districtID}', '{municipalityCityID}');
+<!-- END JSDistrictList -->
+<!-- BEGIN JSMunicipalityCityList -->
+ municipalityCity[{i}] = new Array('{municipalityCity}', '{municipalityCityID}', '{provinceID}');
+<!-- END JSMunicipalityCityList -->
+
+function filterBarangayList(){
+	ClearList(document.PropertyInfoEncode.barangay);
+    FillList(document.PropertyInfoEncode.barangay, barangay, document.PropertyInfoEncode.district.value);
+}
+function filterDistrictList(){
+	ClearList(document.PropertyInfoEncode.district);
+	FillList(document.PropertyInfoEncode.district, district, document.PropertyInfoEncode.municipalityCity.value);
+	filterBarangayList();
+}
+function filterMunicipalityCityList(){
+	ClearList(document.PropertyInfoEncode.municipalityCity);
+	FillList(document.PropertyInfoEncode.municipalityCity, municipalityCity, document.PropertyInfoEncode.province.value);
+	filterDistrictList();
+	filterBarangayList();
+}
+
+function ClearList(documentList){
+	for(i = documentList.options.length-1 ; i >= 0 ; i--){
+		documentList.options[i] = null;
+	}
+}
+
+function FilterArray(arrayList, filter){
+	filteredArray = new Array();
+	j = 0;
+	for(i=0 ; i< arrayList.length ; i++){
+		singleArray = arrayList[i];
+		if(singleArray[2]==filter){
+			filteredArray[j] = new Option(singleArray[0], singleArray[1]);
+			j++;
+		}
+	}
+	return(filteredArray);
+}
+
+function FillList(documentList, arrayList, filter){
+    arrayList = FilterArray(arrayList, filter);
+	for(i = 0 ; i < arrayList.length ; i++){
+		documentList.options[i] = arrayList[i];
+	}
+	if(documentList.options[0]){
+		documentList.options[0].selected = true;
+	}
+}
+
+</script>
+
+<link rel="stylesheet" href="css/elgu.css" type="text/css">
+</head>
+<body bgcolor="#CCCCCC" text="#000000" background="images/background/bg_middle.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="javascript: setDefaults();">
+<form name="PropertyInfoEncode" method="post" action="PropertyInfoEncode.php{Session}">
+  <!-- BEGIN FORM -->
+  <table width="90%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center" class="fileds_comment">
+	 <tr bgcolor="#F6F6F6"> 
+	  <td colspan="3" class="fileds_comment" valign="middle" align="left"><b>PROPERTY 
+	   INFORMATION</b></td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td rowspan="3" class="fileds_comment" align="right" valign="middle" nowrap> 
+	   <input type="hidden" name="locationAddressID" value="{locationAddressID}">
+	   Location </td>
+	  <td class="fileds_comment"> <input type="text" value="{number}" name="number" maxlength="32" size="30">
+	   (Number)</td>
+	  <td class="fileds_comment"> <input type="text" value="{street}" name="street" size="30">
+	   (Street)</td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment">
+		<select name="province" style="font-size:10px; width=175;" onChange="filterMunicipalityCityList();">
+		    <option value=""></option>
+			<!-- BEGIN ProvinceList -->
+			<option value = "{provinceID}" {province_sel}>{province}</option>
+			<!-- END ProvinceList -->
+	   </select> <br>
+	   (Province)
+	  </td>
+	  <td class="fileds_comment">
+		<select name="municipalityCity" style="font-size:10px; width=175;" onChange="filterDistrictList();">
+		    <option value=""></option>
+			<!-- BEGIN MunicipalityCityList -->
+			<option value = "{municipalityCityID}" {municipalityCity_sel}>{municipalityCity}</option>
+			<!-- END MunicipalityCityList -->
+	   </select> <br>
+	   (Municipality/City)
+	  </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment">
+		<select name="district" style="font-size:10px; width=175;" onChange="filterBarangayList();">
+		    <option value=""></option>
+			<!-- BEGIN DistrictList -->
+			<option value = "{districtID}" {district_sel}>{district}</option>
+			<!-- END DistrictList -->
+	   </select> <br>
+	   (District)
+	  </td>
+	  <td class="fileds_comment">
+		<select name="barangay" style="font-size:10px; width=175;">
+		    <option value=""></option>
+			<!-- BEGIN BarangayList -->
+			<option value = "{barangayID}" {barangay_sel}>{barangay}</option>
+			<!-- END BarangayList -->
+		</select> <br>
+		(Barangay)
+	  </td>
+	 </tr>
+     <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>House Tag 
+	   Number</td>
+	  <td class="fileds_comment"> <input type="text" value="{houseTagNumber}" name="houseTagNumber" size="30"> 
+	  </td>
+	  <td class="fileds_comment">&nbsp;</td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap>Land Area</td>
+	  <td class="fileds_comment"><input type="text" value="{landArea}" name="landArea" size="30">
+	   <!--br>(size)-->
+	  </td>
+	  <td class="fileds_comment">
+	   <!--input name="unit" type="text" id="unit" value="{unit}">
+	   <br>
+	   (unit)-->
+	   &nbsp;</td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap rowspan="2"> 
+	   Description of Land</td>
+	  <td class="fileds_comment"> <input type="text" value="{lotNumber}" name="lotNumber" size="30">
+	   (Lot Number) </td>
+	  <td class="fileds_comment"> <input type="text" value="{zoneNumber}" name="zoneNumber" size="30">
+	   (Zone Number) </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment"> <input type="text" value="{blockNumber}" name="blockNumber" size="30">
+	   (Block Number) </td>
+	  <td class="fileds_comment"> <input type="text" name="psd13" value="{psd13}" size="30">
+	   (Psd13) </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="right" valign="middle" nowrap rowspan="3"> 
+	   documents</td>
+	  <td class="fileds_comment" colspan="2"> <input type="checkbox" name="affidavitOfOwnership" value="1" {affidavitOfOwnership}>
+	   Affidavit of Ownership</td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" colspan="2"> <input type="checkbox" name="barangayCertificate" value="1" {barangayCertificate}>
+	   Barangay Certificate </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" colspan="2"> <input type="checkbox" name="landTagging" value="1" {landTagging}>
+	   Land Tagging </td>
+	 </tr>
+	 <tr bgcolor="#F6F6F6"> 
+	  <td class="fileds_comment" align="center" valign="middle">&nbsp; </td>
+	  <td colspan="2" class="fileds_comment" align="center" valign="middle"> 
+
+	   <input type="hidden" name="formAction" value="save"> 
+	   <input type="hidden" name="odID" value="{odID}"> 
+
+	   <input type="hidden" name="transactionCode" value="DC">
+
+
+	   <!-- BEGIN SubmitButton -->
+	   <input type="button" value="Submit" onClick="submitForm(this);"> 
+	   <input type="reset" name="Submit2" value="Reset" > 
+	   <!-- END SubmitButton -->
+	   <input type="button" name="Button" value="Close"  onClick="refreshParent();" > 
+	  </td>
+	 </tr>
+	</table>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr> 
+      <td colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- END FORM -->
+</form>
+
+</body>
+</html>
